@@ -1,0 +1,818 @@
+-- Made By Vinicius --  
+      -- WWE --
+
+local GuiNoAB = Instance.new("ScreenGui")
+local GuiFrame = Instance.new("Frame")
+local GuiFrame2 = Instance.new("Frame")
+local antibringmain = Instance.new("Frame")
+local antibringoff = Instance.new("TextButton")
+local antibringon = Instance.new("TextButton")
+local asamain = Instance.new("Frame")
+local asaoff = Instance.new("TextButton")
+local asaon = Instance.new("TextButton")
+local ffmain = Instance.new("Frame")
+local ffoff = Instance.new("TextButton")
+local ffon = Instance.new("TextButton")
+local close = Instance.new("TextButton")
+local Label1 = Instance.new("TextLabel")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local autorespawnmain = Instance.new("Frame")
+local autorespawnoff = Instance.new("TextButton")
+local autorespawnon = Instance.new("TextButton")
+local Label2 = Instance.new("TextLabel")
+local AntiAB = Instance.new("Frame")
+local AntiAbuserOFF = Instance.new("TextButton")
+local AntiAbuserON = Instance.new("TextButton")
+local AntiAbuerBox = Instance.new("TextBox")
+local FSL = Instance.new("TextButton")
+local killmain = Instance.new("Frame")
+local kill = Instance.new("TextButton")
+local killbox = Instance.new("TextBox")
+local diedmain = Instance.new("Frame")
+local diedoff = Instance.new("TextButton")
+local diedon = Instance.new("TextButton")
+local loopneutral = Instance.new("Frame")
+local lpoff = Instance.new("TextButton")
+local lpon = Instance.new("TextButton")
+local _1x1x1 = Instance.new("TextLabel")
+local _1x1x1_2 = Instance.new("TextLabel")
+local godmain = Instance.new("Frame")
+local godoff = Instance.new("TextButton")
+local godon = Instance.new("TextButton")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local openmain = Instance.new("Frame")
+local open = Instance.new("TextButton")
+
+--Properties:
+
+GuiNoAB.Name = "GuiNoAB"
+GuiNoAB.Parent = game.CoreGui
+GuiNoAB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+GuiFrame.Name = "GuiFrame"
+GuiFrame.Parent = GuiNoAB
+GuiFrame.BackgroundColor3 = Color3.fromRGB(8, 0, 255)
+GuiFrame.BorderColor3 = Color3.fromRGB(0, 59, 255)
+GuiFrame.Position = UDim2.new(0.257009357, 0, 0.341948301, 0)
+GuiFrame.Size = UDim2.new(0, 408, 0, 312)
+GuiFrame.Visible = false
+GuiFrame.Active = true
+GuiFrame.Draggable = true
+
+function GetPlayer(String)
+   local Found = {}
+   local strl = String:lower()
+       for i,v in pairs(game.Players:GetPlayers()) do
+           if v.Name:lower():sub(1, #String) == String:lower() then
+               table.insert(Found,v.Name)
+           end
+       end    
+   return Found    
+end
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local function RemoveSpaces(String)
+	return String:gsub("%s+", "") or String
+end
+
+local function FindPlayer(String)
+	String = RemoveSpaces(String)
+	for _, _Player in pairs(Players:GetPlayers()) do
+		if _Player.Name:lower():match('^'.. String:lower()) then
+			return _Player
+		end
+	end
+	return nil
+end
+
+GuiFrame2.Name = "GuiFrame2"
+GuiFrame2.Parent = GuiFrame
+GuiFrame2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+GuiFrame2.BorderColor3 = Color3.fromRGB(149, 149, 149)
+GuiFrame2.BorderSizePixel = 2
+GuiFrame2.Position = UDim2.new(0.0176378936, 0, 0.0252905488, 0)
+GuiFrame2.Size = UDim2.new(0, 392, 0, 295)
+
+antibringmain.Name = "antibringmain"
+antibringmain.Parent = GuiFrame2
+antibringmain.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+antibringmain.Position = UDim2.new(0.0408508815, 0, 0.413921058, 0)
+antibringmain.Size = UDim2.new(0, 67, 0, 50)
+
+antibringoff.Name = "antibringoff"
+antibringoff.Parent = antibringmain
+antibringoff.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+antibringoff.Position = UDim2.new(0.11940299, 0, 0.158767089, 0)
+antibringoff.Size = UDim2.new(0, 52, 0, 34)
+antibringoff.Font = Enum.Font.SourceSans
+antibringoff.Text = "Nbring off"
+antibringoff.TextColor3 = Color3.fromRGB(0, 0, 0)
+antibringoff.TextSize = 14.000
+antibringoff.MouseButton1Down:connect(function()
+antibringoff.Visible = false
+antibringon.Visible = true
+
+_G.bring = true
+
+while _G.bring == true do wait(0.1)
+game:GetService("Workspace").FallenPartsDestroyHeight = math.huge-math.huge
+local val = Instance.new("Part")
+val.Parent = game.Players.LocalPlayer.Backpack:FindFirstChildOfClass("Tool")
+val.Name = "valid"
+
+game.Players.LocalPlayer.Character.ChildAdded:Connect(function(newtool)
+    if not newtool:FindFirstChild("valid") then
+        newtool:Destroy()
+    end
+end)
+end
+end)
+
+antibringon.Name = "antibringon"
+antibringon.Parent = antibringmain
+antibringon.BackgroundColor3 = Color3.fromRGB(46, 255, 0)
+antibringon.Position = UDim2.new(0.104477614, 0, 0.138767093, 0)
+antibringon.Size = UDim2.new(0, 52, 0, 34)
+antibringon.Visible = false
+antibringon.Font = Enum.Font.SourceSans
+antibringon.Text = "Nbring on"
+antibringon.TextColor3 = Color3.fromRGB(0, 0, 0)
+antibringon.TextSize = 14.000
+antibringon.MouseButton1Down:connect(function()
+antibringoff.Visible = true
+antibringon.Visible = false
+_G.bring = false
+end)
+
+asamain.Name = "asamain"
+asamain.Parent = GuiFrame2
+asamain.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+asamain.Position = UDim2.new(0.0382998623, 0, 0.0715481639, 0)
+asamain.Size = UDim2.new(0, 67, 0, 50)
+
+asaoff.Name = "asaoff"
+asaoff.Parent = asamain
+asaoff.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+asaoff.Position = UDim2.new(0.11940299, 0, 0.158767089, 0)
+asaoff.Size = UDim2.new(0, 52, 0, 34)
+asaoff.Font = Enum.Font.SourceSans
+asaoff.Text = "Asa off"
+asaoff.TextColor3 = Color3.fromRGB(0, 0, 0)
+asaoff.TextSize = 14.000
+asaoff.MouseButton1Down:connect(function()
+asaoff.Visible = false
+asaon.Visible = true
+
+_G.Asa = true
+
+while _G.Asa == true do wait()
+Workspace.Remote.TeamEvent:FireServer("Bright blue")
+end
+end)
+
+asaon.Name = "asaon"
+asaon.Parent = asamain
+asaon.BackgroundColor3 = Color3.fromRGB(46, 255, 0)
+asaon.Position = UDim2.new(0.104477614, 0, 0.138767093, 0)
+asaon.Size = UDim2.new(0, 52, 0, 34)
+asaon.Visible = false
+asaon.Font = Enum.Font.SourceSans
+asaon.Text = "Asa on"
+asaon.TextColor3 = Color3.fromRGB(0, 0, 0)
+asaon.TextSize = 14.000
+asaon.MouseButton1Down:connect(function()
+asaoff.Visible = true
+asaon.Visible = false
+_G.Asa = false
+end)
+
+ffmain.Name = "ffmain"
+ffmain.Parent = GuiFrame2
+ffmain.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+ffmain.Position = UDim2.new(0.0408508815, 0, 0.78002274, 0)
+ffmain.Size = UDim2.new(0, 67, 0, 50)
+
+ffoff.Name = "ffoff"
+ffoff.Parent = ffmain
+ffoff.BackgroundColor3 = Color3.fromRGB(255, 1, 1)
+ffoff.Position = UDim2.new(0.104477614, 0, 0.138767093, 0)
+ffoff.Size = UDim2.new(0, 52, 0, 34)
+ffoff.Font = Enum.Font.SourceSans
+ffoff.Text = "FF off"
+ffoff.TextColor3 = Color3.fromRGB(0, 0, 0)
+ffoff.TextSize = 14.000
+ffoff.MouseButton1Down:connect(function()
+ffoff.Visible = false
+ffon.Visible = true
+_G.ff = true
+
+while _G.ff == true do wait(4.5)
+	if (game.Players.LocalPlayer.Team.Name ~= "Criminals") then
+		local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+		local plr = game.Players.LocalPlayer.Name
+		local gayevent = game:GetService("Workspace").Remote.loadchar
+		gayevent:InvokeServer(plr)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+	else
+		local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+		Workspace.Remote.TeamEvent:FireServer("Bright orange")
+		wait()
+		local plr = game.Players.LocalPlayer.Name
+		local gayevent = game:GetService("Workspace").Remote.loadchar
+		gayevent:InvokeServer(plr)
+		LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+		LCS.CanCollide = false
+		LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+		LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		LCS.Transparency = 1
+		wait(0.5)
+		LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+		LCS.Size = Vector3.new(6, 0.2, 6)
+		LCS.Transparency = 0
+		wait()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+	end
+Workspace.Remote.TeamEvent:FireServer("Bright blue")
+end
+end)
+
+ffon.Name = "ffon"
+ffon.Parent = ffmain
+ffon.BackgroundColor3 = Color3.fromRGB(59, 255, 0)
+ffon.Position = UDim2.new(0.104477614, 0, 0.138767093, 0)
+ffon.Size = UDim2.new(0, 52, 0, 34)
+ffon.Visible = false
+ffon.Font = Enum.Font.SourceSans
+ffon.Text = "FF on"
+ffon.TextColor3 = Color3.fromRGB(0, 0, 0)
+ffon.TextSize = 14.000
+ffon.MouseButton1Down:connect(function()
+ffoff.Visible = true
+ffon.Visible = false
+_G.ff = false
+end)
+
+close.Name = "close"
+close.Parent = GuiFrame2
+close.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+close.Position = UDim2.new(0.931999981, 0, 0.920000017, 0)
+close.Size = UDim2.new(0, 35, 0, 33)
+close.Font = Enum.Font.GothamBold
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(0, 0, 0)
+close.TextSize = 14.000
+close.MouseButton1Down:connect(function()
+GuiFrame.Visible = false
+openmain.Visible = true
+end)
+
+Label1.Name = "Label1"
+Label1.Parent = GuiFrame2
+Label1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Label1.BorderColor3 = Color3.fromRGB(0, 81, 255)
+Label1.BorderSizePixel = 2
+Label1.Position = UDim2.new(0.234693885, 0, -0.0271186437, 0)
+Label1.Size = UDim2.new(0, 200, 0, 18)
+Label1.Font = Enum.Font.GothamBold
+Label1.Text = "Made By Vinicius"
+Label1.TextColor3 = Color3.fromRGB(255, 255, 255)
+Label1.TextScaled = true
+Label1.TextSize = 18.000
+Label1.TextWrapped = true
+
+UITextSizeConstraint.Parent = Label1
+UITextSizeConstraint.MaxTextSize = 18
+
+autorespawnmain.Name = "autorespawnmain"
+autorespawnmain.Parent = GuiFrame2
+autorespawnmain.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+autorespawnmain.Position = UDim2.new(0.31381005, 0, 0.0715481639, 0)
+autorespawnmain.Size = UDim2.new(0, 67, 0, 50)
+
+autorespawnoff.Name = "autorespawn off"
+autorespawnoff.Parent = autorespawnmain
+autorespawnoff.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+autorespawnoff.Position = UDim2.new(0.11940299, 0, 0.158767089, 0)
+autorespawnoff.Size = UDim2.new(0, 52, 0, 34)
+autorespawnoff.Font = Enum.Font.SourceSans
+autorespawnoff.Text = "AutoRe off"
+autorespawnoff.TextColor3 = Color3.fromRGB(0, 0, 0)
+autorespawnoff.TextSize = 14.000
+autorespawnoff.MouseButton1Down:connect(function()
+autorespawnoff.Visible = false
+autorespawnon.Visible = true
+
+local blah = (game.Players.LocalPlayer.Name)
+
+_G.Looop = true
+
+while _G.Looop == true do wait(0.1)
+      if game:GetService("Workspace")[blah].Humanoid.Health == 0 then
+	   saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Position Saved";
+        Text = "Success";
+        })
+		local A_1 = "LocalPlayer"
+
+local Event = game:GetService("Workspace").Remote.loadchar
+Event:InvokeServer(A_1)
+
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Position Loaded";
+        Text = "Success";
+        })
+end
+end
+end)
+
+autorespawnon.Name = "autorespawn on"
+autorespawnon.Parent = autorespawnmain
+autorespawnon.BackgroundColor3 = Color3.fromRGB(46, 255, 0)
+autorespawnon.Position = UDim2.new(0.104477614, 0, 0.138767093, 0)
+autorespawnon.Size = UDim2.new(0, 52, 0, 34)
+autorespawnon.Visible = false
+autorespawnon.Font = Enum.Font.SourceSans
+autorespawnon.Text = "AutoRe on"
+autorespawnon.TextColor3 = Color3.fromRGB(0, 0, 0)
+autorespawnon.TextSize = 14.000
+autorespawnon.MouseButton1Down:connect(function()
+autorespawnoff.Visible = true
+autorespawnon.Visible = false
+
+local blah = (game.Players.LocalPlayer.Name)
+
+_G.Looop = false
+
+while _G.Looop == true do wait(0.1)
+      if game:GetService("Workspace")[blah].Humanoid.Health == 0 then
+	   saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Position Saved";
+        Text = "Success";
+        })
+		local A_1 = "LocalPlayer"
+
+local Event = game:GetService("Workspace").Remote.loadchar
+Event:InvokeServer(A_1)
+
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Position Loaded";
+        Text = "Success";
+        })
+end
+end
+end)
+
+Label2.Name = "Label2"
+Label2.Parent = GuiFrame2
+Label2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Label2.BorderColor3 = Color3.fromRGB(0, 81, 255)
+Label2.BorderSizePixel = 2
+Label2.Position = UDim2.new(0.234693885, 0, 0.969491541, 0)
+Label2.Size = UDim2.new(0, 200, 0, 18)
+Label2.Font = Enum.Font.GothamBold
+Label2.Text = "WWE"
+Label2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Label2.TextSize = 18.000
+
+AntiAB.Name = "AntiAB"
+AntiAB.Parent = GuiFrame2
+AntiAB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AntiAB.BorderColor3 = Color3.fromRGB(0, 85, 255)
+AntiAB.BorderSizePixel = 2
+AntiAB.Position = UDim2.new(0.318877608, 0, 0.776271164, 0)
+AntiAB.Size = UDim2.new(0, 133, 0, 50)
+
+AntiAbuserOFF.Name = "AntiAbuser OFF"
+AntiAbuserOFF.Parent = AntiAB
+AntiAbuserOFF.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+AntiAbuserOFF.BorderColor3 = Color3.fromRGB(0, 85, 255)
+AntiAbuserOFF.BorderSizePixel = 2
+AntiAbuserOFF.Position = UDim2.new(0, 0, 0.560000002, 0)
+AntiAbuserOFF.Size = UDim2.new(0, 133, 0, 22)
+AntiAbuserOFF.Font = Enum.Font.GothamBold
+AntiAbuserOFF.Text = "AntiAbuser OFF"
+AntiAbuserOFF.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiAbuserOFF.TextSize = 14.000
+AntiAbuserOFF.MouseButton1Down:connect(function()
+AntiAbuserOFF.Visible = false
+AntiAbuserON.Visible = true
+
+_G.AB = true
+
+while _G.AB == true do wait(0.1)
+workspace.Remote.TeamEvent:FireServer("Bright orange")
+local savedteam = game.Players.LocalPlayer.TeamColor.Name
+workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)	
+for i,v in pairs(GetPlayer(AntiAbuerBox.Text)) do
+local A_1 = {[1] = {["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-391.152252, 8.65560055, -83.2166901)), ["Distance"] = 3.2524313926697, ["Cframe"] = CFrame.new(840.310791, 101.334137, 2267.87988, 0.0636406094, 0.151434347, -0.986416459, 0, 0.988420188, 0.151741937, 0.997972965, -0.00965694897, 0.0629036576), ["Hit"] = game.Players[v].Character.Head}, [2] = {["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-392.481476, -8.44939327, -76.7261353)), ["Distance"] = 3.2699294090271, ["Cframe"] = CFrame.new(840.290466, 101.184189, 2267.93506, 0.0964837447, 0.0589403138, -0.993587971, 4.65661287e-10, 0.998245299, 0.0592165813, 0.995334625, -0.00571343815, 0.0963144377), ["Hit"] = game.Players[v].Character.Head}, [3] = {["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-389.21701, -2.50536323, -92.2163162)), ["Distance"] = 3.1665518283844, ["Cframe"] = CFrame.new(840.338867, 101.236496, 2267.80371, 0.0166504811, 0.0941716284, -0.995416701, 1.16415322e-10, 0.995554805, 0.0941846818, 0.999861419, -0.00156822044, 0.0165764652), ["Hit"] = game.Players[v].Character.Head}, [4] = {["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-393.353973, 3.13988972, -72.5452042)), ["Distance"] = 3.3218522071838, ["Cframe"] = CFrame.new(840.277222, 101.285957, 2267.9707, 0.117109694, 0.118740402, -0.985994935, -1.86264515e-09, 0.992826641, 0.119563118, 0.993119001, -0.0140019981, 0.116269611), ["Hit"] = game.Players[v].Character.Head}, [5] = {["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-390.73172, 3.2097764, -85.5477524)), ["Distance"] = 3.222757101059, ["Cframe"] = CFrame.new(840.317993, 101.286423, 2267.86035, 0.0517584644, 0.123365127, -0.991010666, 0, 0.992340803, 0.123530701, 0.99865967, -0.00639375951, 0.0513620302), ["Hit"] = game.Players[v].Character.Head}}
+local A_2 = game.Players.LocalPlayer.Backpack["Remington 870"]
+local Event = game:GetService("ReplicatedStorage").ShootEvent
+Event:FireServer(A_1, A_2)
+Event:FireServer(A_1, A_2)
+end
+workspace.Remote.TeamEvent:FireServer(savedteam)
+workspace.Remote.TeamEvent:FireServer("Bright orange")
+	if (game.Players.LocalPlayer.Team.Name ~= "Criminals") then
+		local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+		local plr = game.Players.LocalPlayer.Name
+		local gayevent = game:GetService("Workspace").Remote.loadchar
+		gayevent:InvokeServer(plr)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+	else
+		local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+		Workspace.Remote.TeamEvent:FireServer("Bright orange")
+		wait()
+		local plr = game.Players.LocalPlayer.Name
+		local gayevent = game:GetService("Workspace").Remote.loadchar
+		gayevent:InvokeServer(plr)
+		LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+		LCS.CanCollide = false
+		LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+		LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		LCS.Transparency = 1
+		wait(0.5)
+		LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+		LCS.Size = Vector3.new(6, 0.2, 6)
+		LCS.Transparency = 0
+		wait()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+	end
+end
+end)
+
+AntiAbuserON.Name = "AntiAbuser ON"
+AntiAbuserON.Parent = AntiAB
+AntiAbuserON.BackgroundColor3 = Color3.fromRGB(46, 255, 0)
+AntiAbuserON.BorderColor3 = Color3.fromRGB(0, 85, 255)
+AntiAbuserON.BorderSizePixel = 2
+AntiAbuserON.Position = UDim2.new(0, 0, 0.560000002, 0)
+AntiAbuserON.Size = UDim2.new(0, 133, 0, 22)
+AntiAbuserON.Visible = false
+AntiAbuserON.Font = Enum.Font.GothamBold
+AntiAbuserON.Text = "AntiAbuser ON"
+AntiAbuserON.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiAbuserON.TextSize = 14.000
+AntiAbuserON.MouseButton1Down:connect(function()
+AntiAbuserOFF.Visible = true
+AntiAbuserON.Visible = false
+_G.AB = false
+end)
+
+AntiAbuerBox.Name = "AntiAbuer Box"
+AntiAbuerBox.Parent = AntiAB
+AntiAbuerBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AntiAbuerBox.BorderColor3 = Color3.fromRGB(27, 42, 53)
+AntiAbuerBox.BorderSizePixel = 0
+AntiAbuerBox.Size = UDim2.new(0, 133, 0, 26)
+AntiAbuerBox.Font = Enum.Font.GothamBold
+AntiAbuerBox.Text = ""
+AntiAbuerBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+AntiAbuerBox.TextSize = 14.000
+AntiAbuerBox.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+FSL.Name = "FSL"
+FSL.Parent = GuiFrame2
+FSL.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+FSL.Position = UDim2.new(0.775510252, 0, 0.271548182, 0)
+FSL.Size = UDim2.new(0, 65, 0, 49)
+FSL.Font = Enum.Font.GothamBold
+FSL.Text = "FSL"
+FSL.TextColor3 = Color3.fromRGB(0, 0, 0)
+FSL.TextSize = 21.000
+FSL.MouseButton1Down:connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vinciuszk70/vinciuszk70/main/FSL2", true))()
+end)
+
+killmain.Name = "killmain"
+killmain.Parent = GuiFrame2
+killmain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+killmain.Position = UDim2.new(0.744898021, 0, 0.0745762736, 0)
+killmain.Size = UDim2.new(0, 90, 0, 47)
+
+kill.Name = "kill"
+kill.Parent = killmain
+kill.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+kill.Position = UDim2.new(-0.0106576085, 0, 0.595385194, 0)
+kill.Size = UDim2.new(0, 90, 0, 19)
+kill.Font = Enum.Font.GothamBold
+kill.Text = "Kill"
+kill.TextColor3 = Color3.fromRGB(0, 0, 0)
+kill.TextSize = 14.000
+kill.MouseButton1Down:connect(function()
+workspace.Remote.TeamEvent:FireServer("Bright orange")
+local savedteam = game.Players.LocalPlayer.TeamColor.Name
+workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)	
+for i,v in pairs(GetPlayer(killbox.Text)) do
+local A_1 = {[1] = {["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-391.152252, 8.65560055, -83.2166901)), ["Distance"] = 3.2524313926697, ["Cframe"] = CFrame.new(840.310791, 101.334137, 2267.87988, 0.0636406094, 0.151434347, -0.986416459, 0, 0.988420188, 0.151741937, 0.997972965, -0.00965694897, 0.0629036576), ["Hit"] = game.Players[v].Character.Head}, [2] = {["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-392.481476, -8.44939327, -76.7261353)), ["Distance"] = 3.2699294090271, ["Cframe"] = CFrame.new(840.290466, 101.184189, 2267.93506, 0.0964837447, 0.0589403138, -0.993587971, 4.65661287e-10, 0.998245299, 0.0592165813, 0.995334625, -0.00571343815, 0.0963144377), ["Hit"] = game.Players[v].Character.Head}, [3] = {["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-389.21701, -2.50536323, -92.2163162)), ["Distance"] = 3.1665518283844, ["Cframe"] = CFrame.new(840.338867, 101.236496, 2267.80371, 0.0166504811, 0.0941716284, -0.995416701, 1.16415322e-10, 0.995554805, 0.0941846818, 0.999861419, -0.00156822044, 0.0165764652), ["Hit"] = game.Players[v].Character.Head}, [4] = {["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-393.353973, 3.13988972, -72.5452042)), ["Distance"] = 3.3218522071838, ["Cframe"] = CFrame.new(840.277222, 101.285957, 2267.9707, 0.117109694, 0.118740402, -0.985994935, -1.86264515e-09, 0.992826641, 0.119563118, 0.993119001, -0.0140019981, 0.116269611), ["Hit"] = game.Players[v].Character.Head}, [5] = {["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-390.73172, 3.2097764, -85.5477524)), ["Distance"] = 3.222757101059, ["Cframe"] = CFrame.new(840.317993, 101.286423, 2267.86035, 0.0517584644, 0.123365127, -0.991010666, 0, 0.992340803, 0.123530701, 0.99865967, -0.00639375951, 0.0513620302), ["Hit"] = game.Players[v].Character.Head}}
+local A_2 = game.Players.LocalPlayer.Backpack["Remington 870"]
+local Event = game:GetService("ReplicatedStorage").ShootEvent
+Event:FireServer(A_1, A_2)
+Event:FireServer(A_1, A_2)
+end
+workspace.Remote.TeamEvent:FireServer(savedteam)
+workspace.Remote.TeamEvent:FireServer("Bright orange")
+	if (game.Players.LocalPlayer.Team.Name ~= "Criminals") then
+		local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+		local plr = game.Players.LocalPlayer.Name
+		local gayevent = game:GetService("Workspace").Remote.loadchar
+		gayevent:InvokeServer(plr)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+	else
+		local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+		Workspace.Remote.TeamEvent:FireServer("Bright orange")
+		wait()
+		local plr = game.Players.LocalPlayer.Name
+		local gayevent = game:GetService("Workspace").Remote.loadchar
+		gayevent:InvokeServer(plr)
+		LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+		LCS.CanCollide = false
+		LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+		LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		LCS.Transparency = 1
+		wait(0.5)
+		LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+		LCS.Size = Vector3.new(6, 0.2, 6)
+		LCS.Transparency = 0
+		wait()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+	end
+end)
+
+killbox.Name = "killbox"
+killbox.Parent = killmain
+killbox.BackgroundColor3 = Color3.fromRGB(170, 255, 255)
+killbox.Position = UDim2.new(-0.0106576085, 0, -0.034834832, 0)
+killbox.Size = UDim2.new(0, 90, 0, 28)
+killbox.Font = Enum.Font.GothamBold
+killbox.Text = ""
+killbox.TextColor3 = Color3.fromRGB(0, 0, 0)
+killbox.TextSize = 14.000
+
+diedmain.Name = "diedmain"
+diedmain.Parent = GuiFrame2
+diedmain.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+diedmain.Position = UDim2.new(0.31381008, 0, 0.413921088, 0)
+diedmain.Size = UDim2.new(0, 67, 0, 50)
+
+diedoff.Name = "diedoff"
+diedoff.Parent = diedmain
+diedoff.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+diedoff.Position = UDim2.new(0.11940299, 0, 0.158767089, 0)
+diedoff.Size = UDim2.new(0, 52, 0, 34)
+diedoff.Font = Enum.Font.SourceSans
+diedoff.Text = "Die off"
+diedoff.TextColor3 = Color3.fromRGB(0, 0, 0)
+diedoff.TextSize = 14.000
+diedoff.MouseButton1Down:connect(function()
+diedoff.Visible = false
+diedon.Visible = true
+
+_G.reset = true
+
+while _G.reset == true do wait(1.5)
+game.Players.LocalPlayer.Character.Head:Destroy()
+end
+end)
+
+diedon.Name = "diedon"
+diedon.Parent = diedmain
+diedon.BackgroundColor3 = Color3.fromRGB(46, 255, 0)
+diedon.Position = UDim2.new(0.104477614, 0, 0.138767093, 0)
+diedon.Size = UDim2.new(0, 52, 0, 34)
+diedon.Visible = false
+diedon.Font = Enum.Font.SourceSans
+diedon.Text = "Die off"
+diedon.TextColor3 = Color3.fromRGB(0, 0, 0)
+diedon.TextSize = 14.000
+diedon.MouseButton1Down:connect(function()
+diedoff.Visible = true
+diedon.Visible = false
+_G.reset = false
+end)
+
+loopneutral.Name = "loopneutral"
+loopneutral.Parent = GuiFrame2
+loopneutral.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+loopneutral.Position = UDim2.new(0.775510311, 0, 0.519005835, 0)
+loopneutral.Size = UDim2.new(0, 64, 0, 50)
+
+lpoff.Name = "lpoff"
+lpoff.Parent = loopneutral
+lpoff.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+lpoff.Position = UDim2.new(0.119402885, 0, 0.158767089, 0)
+lpoff.Size = UDim2.new(0, 47, 0, 34)
+lpoff.Font = Enum.Font.SourceSans
+lpoff.Text = "Lp off"
+lpoff.TextColor3 = Color3.fromRGB(0, 0, 0)
+lpoff.TextSize = 14.000
+lpoff.MouseButton1Down:connect(function()
+lpoff.Visible = false
+lpon.Visible = true
+
+_G.lp = true
+
+while _G.lp == true do wait()
+Workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+end
+end)
+
+lpon.Name = "lpon"
+lpon.Parent = loopneutral
+lpon.BackgroundColor3 = Color3.fromRGB(46, 255, 0)
+lpon.Position = UDim2.new(0.104477882, 0, 0.138767093, 0)
+lpon.Size = UDim2.new(0, 47, 0, 34)
+lpon.Visible = false
+lpon.Font = Enum.Font.SourceSans
+lpon.Text = "Lp on"
+lpon.TextColor3 = Color3.fromRGB(0, 0, 0)
+lpon.TextSize = 14.000
+lpon.MouseButton1Down:connect(function()
+lpoff.Visible = true
+lpon.Visible = false
+_G.lp = false
+end)
+
+_1x1x1.Name = "1x1x1"
+_1x1x1.Parent = GuiFrame2
+_1x1x1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+_1x1x1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+_1x1x1.Position = UDim2.new(0.0153061226, 0, 0.244067803, 0)
+_1x1x1.Size = UDim2.new(0, 199, 0, 50)
+_1x1x1.Font = Enum.Font.GothamBold
+_1x1x1.Text = "1x1x1"
+_1x1x1.TextColor3 = Color3.fromRGB(255, 255, 255)
+_1x1x1.TextSize = 14.000
+
+_1x1x1_2.Name = "1x1x1"
+_1x1x1_2.Parent = GuiFrame2
+_1x1x1_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+_1x1x1_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+_1x1x1_2.Position = UDim2.new(0.0153061226, 0, 0.583050847, 0)
+_1x1x1_2.Size = UDim2.new(0, 199, 0, 50)
+_1x1x1_2.Font = Enum.Font.GothamBold
+_1x1x1_2.Text = "1x1x1"
+_1x1x1_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+_1x1x1_2.TextSize = 14.000
+
+godmain.Name = "godmain"
+godmain.Parent = GuiFrame2
+godmain.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+godmain.Position = UDim2.new(0.742347062, 0, 0.746124506, 0)
+godmain.Size = UDim2.new(0, 64, 0, 50)
+
+godoff.Name = "godoff"
+godoff.Parent = godmain
+godoff.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+godoff.Position = UDim2.new(0.119402885, 0, 0.158767089, 0)
+godoff.Size = UDim2.new(0, 47, 0, 34)
+godoff.Font = Enum.Font.SourceSans
+godoff.Text = "God off"
+godoff.TextColor3 = Color3.fromRGB(0, 0, 0)
+godoff.TextSize = 14.000
+godoff.MouseButton1Down:connect(function()
+godoff.Visible = false
+godon.Visible = true
+
+_G.god = true
+
+while _G.god == true do wait(1)
+if game.Workspace.FilteringEnabled == false then
+game.Players.LocalPlayer.Character.Humanoid.MaxHealth = 0
+end
+if game.Workspace.FilteringEnabled == true then
+local player=game.Players.LocalPlayer.Character
+player.Humanoid:Remove()
+Instance.new('Humanoid',player)
+end
+end
+end)
+
+godoff.MouseButton1Down:connect(function()
+_G.god = true
+
+while _G.god == true do wait(5)
+	if (game.Players.LocalPlayer.Team.Name ~= "Criminals") then
+		local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+		local plr = game.Players.LocalPlayer.Name
+		local gayevent = game:GetService("Workspace").Remote.loadchar
+		gayevent:InvokeServer(plr)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+	else
+		local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+		Workspace.Remote.TeamEvent:FireServer("Bright orange")
+		wait()
+		local plr = game.Players.LocalPlayer.Name
+		local gayevent = game:GetService("Workspace").Remote.loadchar
+		gayevent:InvokeServer(plr)
+		LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+		LCS.CanCollide = false
+		LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+		LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		LCS.Transparency = 1
+		wait(0.5)
+		LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+		LCS.Size = Vector3.new(6, 0.2, 6)
+		LCS.Transparency = 0
+		wait()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+	end
+end
+end)
+
+godon.Name = "godon"
+godon.Parent = godmain
+godon.BackgroundColor3 = Color3.fromRGB(46, 255, 0)
+godon.Position = UDim2.new(0.104477882, 0, 0.138767093, 0)
+godon.Size = UDim2.new(0, 47, 0, 34)
+godon.Visible = false
+godon.Font = Enum.Font.SourceSans
+godon.Text = "God on"
+godon.TextColor3 = Color3.fromRGB(0, 0, 0)
+godon.TextSize = 14.000
+godon.MouseButton1Down:connect(function()
+godoff.Visible = true
+godon.Visible = false
+_G.god = false
+end)
+
+ScrollingFrame.Parent = GuiFrame
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame.BorderSizePixel = 2
+ScrollingFrame.Position = UDim2.new(0.522058785, 0, 0.115384616, 0)
+ScrollingFrame.Size = UDim2.new(0, 73, 0, 182)
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 1, 0)
+
+TextLabel.Parent = ScrollingFrame
+TextLabel.BackgroundColor3 = Color3.fromRGB(85, 170, 255)
+TextLabel.Size = UDim2.new(0, 59, 0, 50)
+TextLabel.Font = Enum.Font.GothamBold
+TextLabel.Text = "Be"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 22.000
+
+TextLabel_2.Parent = ScrollingFrame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(85, 170, 255)
+TextLabel_2.LayoutOrder = -6
+TextLabel_2.Position = UDim2.new(0, 0, 0.163461551, 0)
+TextLabel_2.Size = UDim2.new(0, 59, 0, 50)
+TextLabel_2.Font = Enum.Font.GothamBold
+TextLabel_2.Text = "happy"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextSize = 20.000
+TextLabel_2.TextWrapped = true
+
+TextLabel_3.Parent = ScrollingFrame
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(85, 170, 255)
+TextLabel_3.LayoutOrder = -6
+TextLabel_3.Position = UDim2.new(0, 0, 0.325320512, 0)
+TextLabel_3.Size = UDim2.new(0, 59, 0, 50)
+TextLabel_3.Font = Enum.Font.GothamBold
+TextLabel_3.Text = ":)"
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextSize = 20.000
+TextLabel_3.TextWrapped = true
+
+TextLabel_4.Parent = ScrollingFrame
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(85, 170, 255)
+TextLabel_4.LayoutOrder = -6
+TextLabel_4.Position = UDim2.new(0, 0, 0.838141084, 0)
+TextLabel_4.Size = UDim2.new(0, 59, 0, 50)
+TextLabel_4.Font = Enum.Font.GothamBold
+TextLabel_4.Text = "<3"
+TextLabel_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_4.TextSize = 20.000
+TextLabel_4.TextWrapped = true
+
+openmain.Name = "openmain"
+openmain.Parent = GuiNoAB
+openmain.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+openmain.Position = UDim2.new(0.0864392817, 0, 0.846970141, 0)
+openmain.Size = UDim2.new(0, 108, 0, 24)
+
+open.Name = "open"
+open.Parent = openmain
+open.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+open.BorderColor3 = Color3.fromRGB(255, 255, 255)
+open.Position = UDim2.new(1.11758709e-08, 0, 2.38418579e-07, 0)
+open.Size = UDim2.new(0, 108, 0, 24)
+open.Font = Enum.Font.GothamBold
+open.Text = "OPEN"
+open.TextColor3 = Color3.fromRGB(255, 255, 255)
+open.TextSize = 14.000
+open.MouseButton1Down:connect(function()
+openmain.Visible = false
+GuiFrame.Visible = true
+end)
