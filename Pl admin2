@@ -1,0 +1,1243 @@
+local client = { } 
+local data = { } 
+local alias = { } 
+
+local cmd = { } 
+local loop = { } 
+
+data.aliases = { }
+data.loops = { } 
+data.locations = { } 
+data.commands = { }
+data.fast_commands = { }
+
+--data default value setting
+data.prefix = "*"
+data.inf_stamina = false 
+data.speed = nil
+data.jump = nil 
+data.no_chat = false
+data.save_position = true
+data.save_tools1 = false 
+data.save_tools2 = false 
+data.click_kill = false
+data.click_arrest = false
+data.click_crim = false
+data.anti_arrest = false 
+data.auto_respawn = true
+data.i_care = {} 
+
+--services
+local players_service = game:GetService("Players")
+local teams_service = game:GetService("Teams")
+local run_service = game:GetService("RunService")
+local input_service = game:GetService("UserInputService")
+local context_action = game:GetService("ContextActionService")
+local rep_storage = game:GetService("ReplicatedStorage")
+local starter_gui = game:GetService("StarterGui")
+local core_gui = game:GetService("CoreGui") 
+local market_service = game:GetService("MarketplaceService")
+local teleport_service = game:GetService("TeleportService")
+
+--globals 
+local setreadonly = setreadonly or make_writable 
+local newcclosure = newcclosure or protect_function
+local create = coroutine.create 
+local resume = coroutine.resume 
+local wrap = coroutine.wrap 
+local yield = coroutine.yield 
+local table_insert = table.insert
+local table_remove = table.remove 
+local table_foreach = table.foreach
+
+local meta = getrawmetatable(game)
+local __index = meta.__index 
+local __namecall = meta.__namecall 
+local __newindex = meta.__newindex 
+setreadonly(meta,false) 
+
+
+--prison life objects
+local crim_spawn = workspace["Criminals Spawn"].SpawnLocation
+crim_spawn.CanCollide = false
+crim_spawn.Transparency = 1
+crim_spawn.Size = Vector3.new(10,10,10)
+local giver = workspace.Prison_ITEMS.giver 
+local shoot_remote = rep_storage.ShootEvent 
+local arrest_remote = workspace.Remote.arrest
+local melee_remote = rep_storage.meleeEvent 
+local team_remote = workspace.Remote.TeamEvent 
+local loadchar_remote = workspace.Remote.loadchar 
+local handler_remote = workspace.Remote.ItemHandler 
+
+Instance.new("Folder",rep_storage).Name = "ToolsSave1"
+Instance.new("Folder",rep_storage).Name = "ToolsSave2"
+
+
+--client 
+client.player = players_service.LocalPlayer 
+client.mouse = client.player:GetMouse() 
+client.backpack = client.player.Backpack 
+client.character = workspace:WaitForChild(client.player.Name) 
+client.humanoid = client.character:WaitForChild("Humanoid")
+client.rootpart = client.character:WaitForChild("HumanoidRootPart")
+
+function character_added(new_char)
+    client.backpack = client.player.Backpack 
+    client.character = new_char 
+    client.humanoid = new_char:WaitForChild("Humanoid")
+    client.rootpart = new_char:WaitForChild("HumanoidRootPart")
+    if data.protecc == true then 
+        local clone = client.rootpart:Clone()
+        clone.Parent = client.rootpart.Parent 
+        client.rootpart:Destroy()
+    end
+    if data.save_position and data.position then 
+        cmd:run("tp",data.position)
+    end
+    if data.save_tools1 and client.backpack and rep_storage:FindFirstChild("ToolsSave1") then 
+        for index,tool in pairs(rep_storage:FindFirstChild("ToolsSave1"):GetChildren()) do 
+            if tool:IsA("Tool") then 
+                tool.Parent = client.backpack 
+            end
+        end
+    end
+    if data.save_tools2 and client.character and rep_storage:FindFirstChild("ToolsSave2") then 
+        for index,tool in pairs(rep_storage:FindFirstChild("ToolsSave2"):GetChildren()) do 
+            if tool:IsA("Tool") then 
+                tool.Parent = client.backpack 
+                wait()
+                tool.Parent = client.character 
+            end
+        end
+    end
+    humanoid_props()
+    client.humanoid.Died:Connect(humanoid_died)
+end
+
+
+function humanoid_props()
+    local function humanoid_walkspeed()
+    if data.speed then 
+        client.humanoid.WalkSpeed = data.speed 
+    end
+end
+    local function humanoid_jumppower()
+    if data.jump then 
+        client.humanoid.JumpPower = data.speed 
+    end
+end
+client.humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(humanoid_walkspeed)
+client.humanoid:GetPropertyChangedSignal("JumpPower"):Connect(humanoid_jumppower)
+end
+
+function humanoid_died()
+    if data.save_position then 
+        if data.protecc ~= true then 
+        data.position = client.rootpart.CFrame 
+    elseif data.protecc == true then 
+        data.position = client.character.Head.Position 
+    end
+    end
+    if data.save_tools1 and rep_storage:FindFirstChild("ToolsSave1") then 
+        for index,tool in pairs(client.backpack:GetChildren()) do 
+            if tool:IsA("Tool") then 
+                tool.Parent = rep_storage:FindFirstChild("ToolsSave1")
+            end
+        end
+    end
+    if data.save_tools2 and rep_storage:FindFirstChild("ToolsSave2") then 
+        for index,tool in pairs(client.character:GetChildren()) do 
+            if tool:IsA("Tool") then 
+                tool.Parent = rep_storage:FindFirstChild("ToolsSave2")
+            end
+        end
+    end
+    if data.auto_respawn then 
+        loadchar_remote:InvokeServer()
+    end
+end
+
+
+--function stuff 
+function meta:__namecall(...)
+    local method = getnamecallmethod() 
+    local args = {...}
+    if self.Name == "SayMessageRequest" and data.no_chat and args[1]:sub(1,#data.prefix) == data.prefix then 
+        if type(data.no_chat) == "string" then 
+            return __namecall(self,data.no_chat,"all")
+        end
+            return 
+        end
+    if self.Name == "ShootEvent" then 
+        print(args[1][1])
+        for index,value in pairs(args[1][1]) do 
+            if index == "Hit" and typeof(value) == "Instance" then 
+                for i,care in pairs(data.i_care) do 
+                    local char = workspace:WaitForChild(care.Name,0.2) 
+                    if char and value:IsDescendantOf(char) then 
+                    return 
+                end
+                end
+            end
+        end
+    end
+    return __namecall(self,...)
+end
+
+function meta:__index(...)
+    local args = {...}
+
+    return __index(self,...)
+end 
+
+function meta:__newindex(...)
+    local args = {...}
+
+    return __newindex(self,...)
+end
+
+function stepped_stuff()
+    if data.no_clip == true and client.character then 
+        for index,value in pairs(client.character:GetDescendants()) do 
+            if value:IsA("BasePart") and value.CanCollide == true then 
+                value.CanCollide = false 
+            end
+        end
+    end
+end 
+
+function input_stuff(input) 
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then 
+        local hit = client.mouse.Target
+        local target = players_service:FindFirstChild(tostring(hit.Parent)) or players_service:FindFirstChild(tostring(hit.Parent.Parent))
+        if not target then return end 
+        if data.click_arrest == true and target then 
+             arrest_remote:InvokeServer(target.Character.Humanoid)
+        end
+        if data.click_kill == true and target then
+            cmd:run("kill2",tostring(target))
+        end
+        if data.click_crim and target then 
+            cmd:run("make_crim",tostring(target))
+        end 
+
+    end
+end
+
+function input_jump_stuff()
+    for i,func in pairs(getgc()) do 
+        if tostring(getfenv(func).script) == "ClientInputHandler" and #getupvalues(func) == 2 and typeof(getupvalue(func,1)) == "Instance" and type(getupvalue(func,2)) == "number" then
+            if data.inf_stamina then
+                setupvalue(func,2,13)
+            end
+        end
+    end
+end
+
+--loop creating/managing
+function loop:create(name,func,waiit,...)
+    local args = {...}
+    if data.loops[name] and data.loops[name].active ~= nil then return end 
+    data.loops[name] = { } 
+    data.loops[name].active = true 
+    data.loops[name].loop = create(function()
+        repeat
+            if type(waiit) == "userdata" then 
+                waiit:wait() 
+                elseif type(waiit) == "number" then 
+                    wait(waiit) 
+                else
+                    wait()
+                end
+            if data.loops[name].active == nil then break end 
+        if data.loops[name].active == true then 
+            func(unpack(args))
+        end
+    until false 
+end)
+end
+
+function loop:exist(name) 
+    return data.loops[name]
+end 
+
+function loop:status(name)
+    if loop:exist(name) then 
+    return data.loops[name].active
+end
+end 
+
+function loop:pause(name) 
+    if not data.loops[name] then return end 
+    data.loops[name].active = false
+end 
+
+function loop:destroy(name) 
+    if not data.loops[name] then return end
+    data.loops[name].active = nil
+end 
+
+function loop:resume(name) 
+    if not data.loops[name] then return end 
+    data.loops[name].active = true
+    resume(data.loops[name].loop)
+end 
+
+
+--helpful functions 
+function data:find_value(table,val) 
+    for index,value in pairs(table) do 
+        if type(value) ~= "table" and value == val then 
+            return true,value,index
+        end
+        if type(value) == "table" then 
+            return self:find_value(value,val) 
+        end
+    end
+    return false 
+end
+
+function data:iterate_table(tbl) 
+    for index,value in pairs(tbl) do 
+        if type(value) ~= "table" then 
+            print(tostring(index)..": "..tostring(value)) 
+        end
+        if type(value) == "table" then 
+            return data:iterate_table(value) 
+        end
+    end
+end
+
+function data:get_short_string(table,...)
+    local args = {...}
+    local found = { }
+    for index,value in pairs(args) do 
+        for a,z in pairs(table) do 
+            if tostring(z):lower():sub(1,#value) == value:lower() then 
+                found[#found + 1] = z
+            end
+        end
+    end
+    return found 
+end
+
+function data:get_player_parts(user) 
+local player = self:get_user(user) 
+if player then 
+    return 
+    {
+        character = workspace:WaitForChild(tostring(player),0.3);
+        rootpart = character and character:WaitForChild("HumanoidRootPart",0.3);
+        backpack = player.Backpack;
+        humanoid = character and character:WaitForChild("Humanoid",0.3);
+    }
+end
+end
+
+function data:get_username(...)
+    return self:get_short_string(players_service:GetPlayers(),...)
+end
+
+function data:get_teamname(...)
+    return self:get_short_string(teams_service:GetTeams(),...)
+end
+
+function data:get_user(...) 
+    local args = {...}
+    local user = args[1]
+    local users = players_service:GetPlayers() 
+    if #self:get_username(user) > 0 then 
+        return self:get_username(...)
+    end
+    if user == "all" then 
+        return users 
+    end 
+    if user == "others" then 
+        table_remove(users,1) 
+        return users 
+    end 
+    local team = self:get_teamname(user)[1] and self:get_teamname(user)[1]:GetPlayers() 
+    if type(team) == "table" and #team > 0 then
+        if not data.me2 and team[1] == client.player then 
+        table_remove(team,1)
+        return team
+    end
+    return team 
+end
+    return false
+end
+
+function data:bool_from_string(str) 
+    if str == "on" or str == "true" then 
+        return true 
+    end 
+    if str == "off" or str == "false" then 
+        return false 
+    end 
+end
+
+--command stuff
+function cmd:create(name,alias,desc,func)
+    if not name or not func then return end 
+    local name = name:lower()
+    if data.commands[name] then return end 
+    data.commands[name] = { } 
+    data.commands[name].func = func 
+    data.commands[name].alias = alias and alias or { }  
+    data.commands[name].desc = desc and desc or "no description"
+end
+
+function cmd:find(cmd) 
+    cmd = tostring(cmd) 
+    local cmd = cmd:lower()
+    if data.commands[cmd] then return cmd end 
+    for index,value in pairs(data.commands) do 
+        if data:find_value(value,cmd) and data.commands[index] then 
+            return index 
+        end
+    end
+end
+
+function cmd:run(cmd,...) 
+    if not self:find(cmd) then return end 
+    data.commands[cmd].func(...)
+end 
+
+function cmd:find_and(str,s)
+    if s == #str then return end 
+    local split = { } 
+    local x,y = str:find("and",s) 
+    if not x then return end 
+    local xx,yy = str:find("and",y)
+    if not xx then 
+        string.gsub(str:sub(y + 1),"%S+",function(l) table_insert(split,l) end)
+        local command = self:find(split[1])
+        if command and command ~= "cmd" then
+        self:run(command,select(2,unpack(split)))
+    end
+        return 
+    end 
+    string.gsub(str:sub(y + 1),"%S+",function(l) table_insert(split,l) end)
+    local command = self:find(split[1])
+    if self:find(command) and self:find(command) ~= "cmd" then 
+    self:run(command,select(2,unpack(split)))
+    end
+    return self:find_and(str,xx)
+end 
+
+function cmd:log(command,...)
+    warn("Command: "..tostring(command))
+    table_foreach({...},print)
+end 
+
+function cmd.exec(msg)
+    local self = cmd
+    if msg:lower():sub(1,#data.prefix) == data.prefix:lower() then 
+        local split = { }
+        msg:gsub("%S+",function(w) table_insert(split,w) end)
+        local command = self:find(split[1]:sub(#data.prefix+1))
+        if command then 
+            self:run(command,select(2,unpack(split))) 
+            self:find_and(msg,1) 
+            cmd:log(command,select(2,unpack(split))) 
+        end
+    end
+end
+
+--command creations
+cmd:create("tp",{"to","goto"},"teleports user to a player or location.",function(...) 
+    local self = data
+    local args = {...}
+    local value = args[1]
+    if client.character and client.humanoid and client.rootpart then 
+        if type(value) == "string" then 
+                value = self:get_user(value)
+                if type(value) ~= "table" then return end 
+                value = value[1].Name
+                local character = workspace:WaitForChild(value,0.5) 
+                if not character then return end
+                local humanoid = character:WaitForChild("Humanoid",0.5)
+                local rootpart = character:WaitForChild("HumanoidRootPart",0.5)
+                local head = character:WaitForChild("Head",0.5)
+                if character and humanoid and rootpart then 
+                    if data.protecc ~= true then 
+                    client.rootpart.CFrame = rootpart.CFrame 
+                elseif data.protecc == true then 
+                    client.character:MoveTo(rootpart.Position)
+                end
+                elseif character and humanoid and head then 
+                    if data.protecc ~= true then 
+                    client.rootpart.CFrame = head.CFrame
+                elseif data.protecc == true then 
+                    client.character:MoveTo(head.Position)
+                end
+                end
+        elseif type(value) == "table" then 
+            if data.protecc ~= true then 
+            client.rootpart.CFrame = CFrame.new(Vector3.new(unpack(value)))
+        elseif data.protecc == true then 
+            client.character:MoveTo(Vector3.new(unpack(value)))
+        end
+        elseif type(value) == "userdata" then 
+            if data.protecc ~= true then 
+            client.rootpart.CFrame = value 
+        elseif data.protecc == true then 
+            client.character:MoveTo(value.Position)
+        end
+        end
+    end
+end)
+
+cmd:create("tp2",{},"same as teleport but with then",function(...)
+    local self = data
+    local args = {...}
+    local number = tonumber(args[1]) 
+    local user1 = args[2]
+    local user2 = args[4]
+    spawn(function()
+    if args[3] == "then" then 
+        self:run("tp",user1) 
+        wait(number)
+        self:run("tp",user2) 
+    end
+end) 
+end)
+
+cmd:create("ws",{"speed","fast"},"changes the players walkspeed.",function(...)
+    local args = {...}
+    local value = args[1]
+    if tonumber(value) then 
+        data.speed = value 
+        if client.character and client.humanoid then 
+            client.humanoid.WalkSpeed = data.speed 
+        end 
+    end 
+end)
+
+cmd:create("jp",{"jump","high"},"changes the players jumppower.",function(...)
+    local args = {...}
+    local value = args[1]
+    if tonumber(value) then 
+        data.jump = value 
+        if client.character and client.humanoid then 
+            client.humanoid.JumpPower = data.jump 
+        end
+    end 
+end)
+
+cmd:create("inf_stamina",{"stam","stamina"},"infinite stamina toggle.",function(...)
+    local args = {...}
+    local bool = data:bool_from_string(args[1])
+
+    if type(bool) ~= "nil" then 
+    data.inf_stamina = bool 
+    return 
+end
+end)
+
+cmd:create("spawn",{"auto_spawn"},"changes whether the player auto spawns or not.",function(...)
+    local args = {...}
+    local bool = data:bool_from_string(args[1])
+
+    if type(bool) ~= "nil" then 
+    data.auto_respawn = bool 
+    return 
+end
+end)
+
+cmd:create("save_position",{"save"},"sets whether to save player position.",function(...)
+    local args = {...}
+    local bool = data:bool_from_string(args[1])
+
+    if type(bool) ~= "nil" then 
+    data.save_position = bool 
+    return 
+end
+end)
+
+cmd:create("set_nick",{"nick"},"creates a nickname for the specefied player.",function(...)
+    local self = data
+    local args = {...}
+    local user = self:get_username(args[1])[1]
+    local nick = args[2]
+    if user and nick then 
+    self:add_nick(user,nick)
+    end  
+end)
+
+cmd:create("set_group",{"group"},"creates a group out of the specefied players.",function(...)
+    local self = data
+    local args = {...}
+    local name = args[1]
+    self:add_group(name,select(2,unpack(args)))
+end)
+
+cmd:create("prefix",{"set"},"sets the prefix.",function(...)
+    local self = data
+    local args = {...}
+    local new_prefix = args[1] 
+    data.prefix = new_prefix 
+end)
+
+cmd:create("save_tools",{"st"},"saves the tools in backpack when the player dies and parents it back to backpack on spawn.",function(...)
+    local args = {...}
+    local option = args[1] 
+    local bool = data:bool_from_string(option)
+
+    if type(option) ~= "nil" then 
+        data.save_tools1 = bool
+        return 
+    end
+    if option == "now" then 
+         for index,tool in pairs(client.backpack:GetChildren()) do 
+            if tool:IsA("Tool") then 
+                tool.Parent = rep_storage:FindFirstChild("ToolsSave1")
+            end
+        end
+        return 
+    end
+    if option == "give" then 
+        if not rep_storage:FindFirstChild("ToolsSave1") then return end 
+            for index,tool in pairs(rep_storage:FindFirstChild("ToolsSave1"):GetChildren()) do 
+                if tool:IsA("Tool") then 
+                tool.Parent = client.backpack 
+            end
+        end
+        return 
+    end
+end)
+
+cmd:create("save_tools2",{"st2"},"saves the equipped tools when the player dies and re-equips when spawned.",function(...)
+    local args = {...}
+    local option = args[1] 
+    local bool = data:bool_from_string(option)
+    
+    if type(option) ~= nil then 
+        data.save_tools2 = bool
+        return 
+    end
+    if option == "now" then 
+         for index,tool in pairs(client.backpack:GetChildren()) do 
+            if tool:IsA("Tool") then 
+                tool.Parent = rep_storage:FindFirstChild("ToolsSave2")
+            end
+        end
+        return 
+    end
+    if option == "give" then 
+        if not rep_storage:FindFirstChild("ToolsSave2") then return end 
+            for index,tool in pairs(rep_storage:FindFirstChild("ToolsSave2"):GetChildren()) do 
+                if tool:IsA("Tool") then 
+                tool.Parent = client.backpack 
+            end
+        end
+        return 
+    end
+end)
+
+cmd:create("loadchar",{"lc"},"changes team using loadchar.",function(...)
+    local self = data
+    local args = {...}
+    data.position = client.rootpart.CFrame 
+    if #args == 0 then 
+        loadchar_remote:InvokeServer()
+        return  
+    end
+    if tostring(BrickColor.new(args[1])) ~= "Medium stone grey" then 
+        loadchar_remote:InvokeServer("LoL",args[1])
+    elseif tostring(BrickColor.new(args[1].."\32"..args[2])) ~= "Medium stone grey" then 
+        loadchar_remote:InvokeServer("LoL",args[1].."\32"..args[2])
+    elseif tostring(BrickColor.new(args[1].."\32"..args[2].."\32"..args[3])) ~= "Medium stone grey" then 
+        loadchar_remote:InvokeServer(args[1].."\32"..args[2].."\32"..args[3])
+    elseif tonumber(args[1]) and tonumber(args[2]) and tonumber(args[3]) then 
+        loadchar_remote:InvokeServer("LoL",Color3.fromRGB(tonumber(args[1]),tonumber(args[2]),tonumber(args[3])))
+    end 
+end) 
+
+cmd:create("loop_team",{"lt"},"loop teams to specefic team.",function(...)
+    local args = {...}
+    local option = args[1] 
+
+    if option == "p" and loop:status("loop_team") == true then 
+        loop:pause("loop_team")
+        return 
+    end 
+    if option == "r" and loop:status("loop_team") == false then 
+        loop:resume("loop_team") 
+        return 
+    end 
+    if option == "d" and loop:status("loop_team") == true or loop:status("loop_team") == false then 
+        loop:destroy("loop_team")
+        return 
+    end 
+    if loop:status("loop_team") == nil then 
+    loop:create("loop_team",function(...)
+        cmd:run("team",option)
+        end,run_service.Heartbeat)
+    loop:resume("loop_team")
+    end
+end)
+
+cmd:create("loop_fuck",{"lf"},"spams tps and crim and arrest",function(...)
+    local args = {...}
+    local option = args[1]
+    local user = data:get_user(option)
+    if user ~= false then 
+    user = tostring(user[1])
+    end
+    
+    if option == "d" and loop:status("crim_fuck") ~= nil then 
+    loop:destroy("crim_fuck")
+    return 
+    end 
+    
+    
+    if option == "p" and loop:status("crim_fuck") == true then 
+    loop:pause("crim_fuck")
+    return 
+    end
+    
+    
+    if option == "r" and loop:status("crim_fuck") == false then 
+    loop:resume("crim_fuck")
+    return 
+    end 
+    
+    if user ~= nil then 
+    loop:create("crim_fuck",function(...)
+    cmd:run("make_crim",user)
+    cmd:run("arrest",user)
+    end,0.3)
+    end 
+	loop:resume("crim_fuck")
+    end)
+
+cmd:create("loop_kill",{"lk"},"loop kills specefic player",function(...)
+    local args = {...}
+    local option = args[1] 
+    
+    if option == "p" and loop:status("loop_kill") == true then 
+        loop:pause("loop_kill")
+        return 
+    end 
+    if option == "r" and loop:status("loop_kill") == false then 
+        loop:resume("loop_kill") 
+        return 
+    end 
+    if option == "d" and loop:status("loop_kill") == true or loop:status("loop_kill") == false then 
+        loop:destroy("loop_kill")
+        return 
+    end 
+
+    if loop:status("loop_kill") == nil  then 
+    loop:create("loop_kill",function(...)
+        cmd:run("kill",unpack(args))
+        end,run_service.Heartbeat)
+    loop:resume("loop_kill")
+    end
+end)
+
+cmd:create("team",{"t"},"changes team using team event.",function(...)
+    local self = data
+    local args = {...}
+    local team = data:get_teamname(args[1]) 
+
+    if #team > 0 then 
+        team = team[1] 
+    elseif #team == 0 then
+        cmd:run("loadchar",unpack(args))
+        return
+    end 
+    if team == game.Teams.Criminals then 
+        cmd:run("loadchar","Really red")
+        return 
+    end 
+    if team == game.Teams.Guards and #game.Teams.Guards:GetPlayers() >= 8 then 
+        cmd:run("loadchar","Bright blue")
+        return 
+    end 
+    team_remote:FireServer(tostring(team.TeamColor))
+end)
+
+cmd:create("guns",{"pew"},"gives players all the guns in game",function(...)
+    local self = data
+    local args = {...}
+    local value = args[1]
+    local pass = market_service:UserOwnsGamePassAsync(client.player.userId, 96651) 
+    local get = self:get_short_string(giver:GetChildren(),value) 
+    if type(get) == "table" and #get > 0 then 
+        if get[1] == giver["M4A1"] or get[1] == giver["Riot Shield"] and not pass then return end 
+        handler_remote:InvokeServer(get[1].ITEMPICKUP)
+        return 
+    end
+    for index,gun in pairs(giver:GetChildren()) do
+            if tostring(gun) == "Remington 870" or tostring(gun) == "M9" or tostring(gun) == "AK-47" then 
+                handler_remote:InvokeServer(gun.ITEMPICKUP)
+            elseif (tostring(gun) == "M4A1" or tostring(gun) == "Riot Shield") and pass then 
+                handler:InvokeServer(gun.ITEMPICKUP)
+        end
+    end
+end)
+
+cmd:create("kill",{"die"},"kills the specefied player",function(...)
+    local users = data:get_user(...)
+    handler_remote:InvokeServer(giver["Remington 870"].ITEMPICKUP)
+    local location = (client.backpack:FindFirstChild("Remington 870") or client.character:FindFirstChild("Remington 870"))
+    if type(users) ~= "table" then return end 
+    if #users == 0 then return end
+    for index,player in pairs(users) do
+        if player == client.player then client.humanoid.Health = 0 end 
+        local head = workspace:WaitForChild(player.Name,0.3) and workspace:WaitForChild(player.Name,0.3):WaitForChild("Head",0.3)
+        if head then 
+        shoot_remote:FireServer({
+        {
+            ["RayObject"] = Ray.new(Vector3.new(827.412415, 101.489777, 2296.84326), Vector3.new(303.047546, 21.3568707, 260.203888)),
+            ["Hit"] = head,
+            ["Cframe"] = CFrame.new(832.390259, 101.550629, 2300.74097, 0.738044441, -0.112958886, 0.665229917, 7.45057971e-09, 0.985887885, 0.16740793, -0.674752235, -0.123554483, 0.727628946),
+            ["Distance"] = 4.8114862442017,
+        },
+        {
+            ["RayObject"] = Ray.new(Vector3.new(827.412415, 101.489777, 2296.84326), Vector3.new(303.047546, 21.3568707, 260.203888)),
+            ["Hit"] = head,
+            ["Cframe"] = CFrame.new(832.390259, 101.550629, 2300.74097, 0.738044441, -0.112958886, 0.665229917, 7.45057971e-09, 0.985887885, 0.16740793, -0.674752235, -0.123554483, 0.727628946),
+            ["Distance"] = 4.8114862442017,
+        },
+        {
+            ["RayObject"] = Ray.new(Vector3.new(827.412415, 101.489777, 2296.84326), Vector3.new(303.047546, 21.3568707, 260.203888)),
+            ["Hit"] = head,
+            ["Cframe"] = CFrame.new(832.390259, 101.550629, 2300.74097, 0.738044441, -0.112958886, 0.665229917, 7.45057971e-09, 0.985887885, 0.16740793, -0.674752235, -0.123554483, 0.727628946),
+            ["Distance"] = 4.8114862442017,
+        },
+        {
+            ["RayObject"] = Ray.new(Vector3.new(827.412415, 101.489777, 2296.84326), Vector3.new(303.047546, 21.3568707, 260.203888)),
+            ["Hit"] = head,
+            ["Cframe"] = CFrame.new(832.390259, 101.550629, 2300.74097, 0.738044441, -0.112958886, 0.665229917, 7.45057971e-09, 0.985887885, 0.16740793, -0.674752235, -0.123554483, 0.727628946),
+            ["Distance"] = 4.8114862442017,
+        },
+        {
+            ["RayObject"] = Ray.new(Vector3.new(827.412415, 101.489777, 2296.84326), Vector3.new(303.047546, 21.3568707, 260.203888)),
+            ["Hit"] = head,
+            ["Cframe"] = CFrame.new(832.390259, 101.550629, 2300.74097, 0.738044441, -0.112958886, 0.665229917, 7.45057971e-09, 0.985887885, 0.16740793, -0.674752235, -0.123554483, 0.727628946),
+            ["Distance"] = 4.8114862442017,
+        },
+        {
+            ["RayObject"] = Ray.new(Vector3.new(827.412415, 101.489777, 2296.84326), Vector3.new(303.047546, 21.3568707, 260.203888)),
+            ["Hit"] = head,
+            ["Cframe"] = CFrame.new(832.390259, 101.550629, 2300.74097, 0.738044441, -0.112958886, 0.665229917, 7.45057971e-09, 0.985887885, 0.16740793, -0.674752235, -0.123554483, 0.727628946),
+            ["Distance"] = 4.8114862442017,
+        },
+        {
+            ["RayObject"] = Ray.new(Vector3.new(827.412415, 101.489777, 2296.84326), Vector3.new(303.047546, 21.3568707, 260.203888)),
+            ["Hit"] = head,
+            ["Cframe"] = CFrame.new(832.390259, 101.550629, 2300.74097, 0.738044441, -0.112958886, 0.665229917, 7.45057971e-09, 0.985887885, 0.16740793, -0.674752235, -0.123554483, 0.727628946),
+            ["Distance"] = 4.8114862442017,
+        },
+        {
+            ["RayObject"] = Ray.new(Vector3.new(827.412415, 101.489777, 2296.84326), Vector3.new(303.047546, 21.3568707, 260.203888)),
+            ["Hit"] = head,
+            ["Cframe"] = CFrame.new(832.390259, 101.550629, 2300.74097, 0.738044441, -0.112958886, 0.665229917, 7.45057971e-09, 0.985887885, 0.16740793, -0.674752235, -0.123554483, 0.727628946),
+            ["Distance"] = 4.8114862442017,
+        },
+        {
+            ["RayObject"] = Ray.new(Vector3.new(827.412415, 101.489777, 2296.84326), Vector3.new(303.047546, 21.3568707, 260.203888)),
+            ["Hit"] = head,
+            ["Cframe"] = CFrame.new(832.390259, 101.550629, 2300.74097, 0.738044441, -0.112958886, 0.665229917, 7.45057971e-09, 0.985887885, 0.16740793, -0.674752235, -0.123554483, 0.727628946),
+            ["Distance"] = 4.8114862442017,
+        },
+        },location)
+    end 
+end 
+end)
+
+cmd:create("kill2",{"melee"},"kills the user using the melee event.",function(...)
+    local args = {...}
+    local users = data:get_user(args[1])
+
+    if type(users) ~= "table" then return end 
+    if #users == 0 then return end
+    for index,player in pairs(users) do     
+        if player == client.player and data.me2 then client.humanoid.Health = 0 end 
+        for i=1,20 do 
+          melee_remote:FireServer(player) 
+        end 
+    end
+end)
+
+cmd:create("cmd",{},"adds fast command to fast commands table.",function(...)
+    local args = {...}
+    local what = args[1] 
+    local name = args[2]
+
+    if what == "add" then 
+    if data.fast_commands[name] then return end 
+    data.fast_commands[name] = data.prefix..table.concat({select(3,unpack(args))}," ")
+    return end 
+    if what == "run" then 
+    if not data.fast_commands[name] then return end 
+    cmd.exec(data.fast_commands[name])
+    return end 
+end)
+
+cmd:create("no_chat",{},"unknown",function(...)
+    local args = {...}
+    local choice = args[1]
+    local bool = data:bool_from_string(choice) 
+
+    if type(bool) ~= "nil" then 
+        data.no_chat = bool
+        return 
+    end
+    data.no_chat = table.concat(args," ")
+end)
+
+cmd:create("chat",{},"chats unknown",function(...)
+    local args = {...}
+
+    rep_storage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(table.concat(args,"\32"),"all")
+end)
+
+cmd:create("click_kill",{"ck"},"lazy",function(...)
+    local args = {...}
+    local bool = data:bool_from_string(args[1])
+
+    if type(bool) ~= "nil" then 
+        data.click_kill = bool
+        return 
+    end 
+end)
+
+cmd:create("op_guns",{"fast_guns"},"fast guns ig",function(...)
+    local args = {...}
+    for index,gun in pairs(client.backpack:GetChildren()) do 
+        if client.character:FindFirstChildOfClass("Tool") then 
+            gun = client.character:FindFirstChildOfClass("Tool")
+        end
+    local weapon = gun
+    if weapon then 
+        local stats = require(weapon.GunStates) 
+        stats.MaxAmmo = math.huge 
+        stats.CurrentAmmo = math.huge 
+        stats.AutoFire = true 
+        stats.FireRate = 0
+        stats.Damage = math.huge 
+        stats.Range = 700
+        stats.Bullets = 30
+    end
+    end
+end)
+
+cmd:create("click_crim",{"cc"},"crim click?",function(...)
+    local args = {...}
+    local bool = data:bool_from_string(args[1])
+
+    if type(bool) ~= "nil" then 
+        data.click_crim = bool 
+        return 
+    end 
+end)
+
+cmd:create("click_arrest",{"ca"},"lazy",function(...)
+    local args = {...}
+    local bool = data:bool_from_string(args[1])
+
+    if type(bool) ~= "nil" then 
+        data.click_arrest = bool 
+        return 
+    end
+end)
+
+cmd:create("arrest",{},"lazy.",function(...)
+    local args = {...}
+	local users = data:get_user (args[1])
+    data.position = client.rootpart.CFrame 
+    if type(users) ~= "table" then return end 
+    if #users == 0 then return end
+    for index,player in pairs(users) do 
+    if workspace:WaitForChild(player.Name,0.5):FindFirstChild("Humanoid") then 
+        local bool
+        repeat 
+            run_service.Stepped:Wait() 
+            cmd:run("tp",player.Name)
+            bool = arrest_remote:InvokeServer(workspace:WaitForChild(player.Name,0.5):WaitForChild("Humanoid",0.3))
+        until bool == true 
+    end 
+    end
+end)
+
+cmd:create("make_crim",{"mc","crim"},"makes specefied player a criminal.",function(...)
+    local args = {...}
+    local users = data:get_user(...)
+    local backup  = client.rootpart.CFrame 
+
+    if type(users) ~= "table" then return end 
+    for index,player in pairs(users) do
+    local player = player 
+    local o = math.random()
+    warn(player)  
+    loop:create("crim"..o,function(...)
+        local oof = math.random()
+     if player.Team == game.Teams.Criminals then 
+        print("destroying crim loop for "..tostring(player))
+         loop:destroy("crim"..o)
+     end
+     cmd:run("tp",tostring(player)) 
+     cmd:run("kill2",tostring(player))
+     crim_spawn.CFrame = client.rootpart.CFrame  
+     end,run_service.Heartbeat)
+     loop:resume("crim"..o)
+ end
+end)
+
+
+cmd:create("protecc",{},"it halp me",function(...)
+    local args = {...}
+    local bool = data:bool_from_string(args[1])
+    local backup = client.rootpart.CFrame
+    if type(bool) ~= "nil" then 
+        data.protecc = bool 
+    end
+    if data.protecc == true then 
+        client.rootpart.CFrame = CFrame.new(Vector3.new(9e9)) 
+        local clone = client.rootpart:Clone()
+        clone.Parent = client.rootpart.Parent 
+        client.rootpart:Destroy()
+        return 
+    end 
+    if data.protecc == false then 
+        cmd:run("loadchar")
+        return 
+    end
+end)
+
+cmd:create("leave",{},"shuts game down",function(...)
+    game:Shutdown() 
+end)
+
+cmd:create("rejoin",{"r"},"rejoins into the current game.",function(...)
+    local args = {...}
+    teleport_service:Teleport(game.PlaceId,client.player) 
+end)
+
+cmd:create("noclip",{},"lazy again",function(...)
+    data.no_clip = true 
+end)
+
+cmd:create("clip",{},"lazy lazy",function(...)
+    data.no_clip = false 
+end)
+
+cmd:create("print",{},"aha.",function(...)
+    local args = {...}
+    local user = data:get_user(args[1]) 
+    for index,value in pairs(user) do 
+        print(value)
+    end 
+end)
+
+cmd:create("Btools",{"Build_Tools","tools"},"Btools",function(...)
+local args = {...}
+ wait(0.1)
+local tool1 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+local tool2 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+local tool3 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+tool1.BinType = "Clone"
+tool2.BinType = "Hammer"
+tool3.BinType = "Grab"
+end)
+
+cmd:create("me2","hurt_me","makes localplayer get damage when using teams or kil2",function(...)
+    local args = {...}
+    local bool = data:bool_from_string(args[1])
+
+    if type(bool) ~= "nil" then 
+    data.me2 = bool 
+    return 
+end
+end)
+
+cmd:create("op_sword",{"Sword"},"FE Op Sword",function(...)
+    local args = {...} --u dont need this only if ur accepting arguments like on or off or someting
+    local plr = game.Players.LocalPlayer
+    local tool = Instance.new("Tool",plr.Backpack)
+    tool.GripPos = Vector3.new(0.1,-1,0)
+    tool.Name = "Sword"
+    local k = Instance.new("Part",tool)
+    k.Name = "Handle"k.Size=Vector3.new(0.4,4,0.4)
+    local l = Instance.new("Animation",tool)l.AnimationId="rbxassetid://218504594"
+    local m = plr.Character.Humanoid:LoadAnimation(l)
+    db = true
+    da = false
+    tool.Equipped:connect(function()
+        tool.Activated:connect(function()
+            if db == true then 
+                db = false
+                m:Play()
+                wait()
+                da = true
+                db = true
+                wait(0.1)
+                da = false 
+            end 
+        end)
+    end)
+    k.Touched:connect(function(n)
+        if da == true then 
+            local o = n.Parent.Humanoid
+            if o ~= nil then 
+                local p = game.Players:FindFirstChild(n.Parent.Name)
+                for j = 1,10 do 
+                    game.ReplicatedStorage.meleeEvent:FireServer(p)
+                end 
+            end 
+        end 
+    end)
+end)
+
+cmd:create("cmds",{},"shows the commands in the data.commands table",function(...)
+    for command in pairs(data.commands) do 
+        print(command) 
+    end 
+    starter_gui:SetCore("ChatMakeSystemMessage",{
+        Color = Color3.fromRGB(245,66,66);
+        Text = "All Commands printed to console! (press f9 or type \"\\console\" in the chat)"
+    })
+end)
+
+cmd:create("Fly",{"fly"},"Fly's you basically",function(...)
+    local args = {...}
+repeat wait() 
+	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Torso") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid") 
+local mouse = game.Players.LocalPlayer:GetMouse() 
+repeat wait() until mouse
+local plr = game.Players.LocalPlayer 
+local torso = plr.Character.Torso 
+local flying = true
+local deb = true 
+local ctrl = {f = 0, b = 0, l = 0, r = 0} 
+local lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+local maxspeed = 50 
+local speed = 0 
+
+function Fly() 
+local bg = Instance.new("BodyGyro", torso) 
+bg.P = 9e4 
+bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) 
+bg.cframe = torso.CFrame 
+local bv = Instance.new("BodyVelocity", torso) 
+bv.velocity = Vector3.new(0,0.1,0) 
+bv.maxForce = Vector3.new(9e9, 9e9, 9e9) 
+repeat wait() 
+plr.Character.Humanoid.PlatformStand = true 
+if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then 
+speed = speed+.5+(speed/maxspeed) 
+if speed > maxspeed then 
+speed = maxspeed 
+end 
+elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then 
+speed = speed-1 
+if speed < 0 then 
+speed = 0 
+end 
+end 
+if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then 
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} 
+elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then 
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+else 
+bv.velocity = Vector3.new(0,0.1,0) 
+end 
+bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0) 
+until not flying 
+ctrl = {f = 0, b = 0, l = 0, r = 0} 
+lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+speed = 0 
+bg:Destroy() 
+bv:Destroy() 
+plr.Character.Humanoid.PlatformStand = false 
+end 
+mouse.KeyDown:connect(function(key) 
+if key:lower() == "e" then 
+if flying then flying = false 
+else 
+flying = true 
+Fly() 
+end 
+elseif key:lower() == "w" then 
+ctrl.f = 1 
+elseif key:lower() == "s" then 
+ctrl.b = -1 
+elseif key:lower() == "a" then 
+ctrl.l = -1 
+elseif key:lower() == "d" then 
+ctrl.r = 1 
+end 
+end) 
+mouse.KeyUp:connect(function(key) 
+if key:lower() == "w" then 
+ctrl.f = 0 
+elseif key:lower() == "s" then 
+ctrl.b = 0 
+elseif key:lower() == "a" then 
+ctrl.l = 0 
+elseif key:lower() == "d" then 
+ctrl.r = 0 
+end 
+end)
+Fly()
+end)
+local ScreenGui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local Cmd = Instance.new("TextBox")
+ 
+ScreenGui.Parent = game.CoreGui
+
+Main.Name = "Main"
+Main.Parent = ScreenGui
+Main.BackgroundColor3 = Color3.new(1, 1, 1)
+Main.Position = UDim2.new(0.00348027842, 0, 0.450199217, 0)
+Main.Size = UDim2.new(0, 522, 0, 28)
+Main.Visible = false
+Main.BorderSizePixel = 4
+Main.Visible = false 
+
+Cmd.Name = "Cmd"
+Cmd.Parent = Main
+Cmd.BackgroundColor3 = Color3.new(0.117647, 0.117647, 0.117647)
+Cmd.Position = UDim2.new(0, 0, -0.0216271542, 0)
+Cmd.Size = UDim2.new(0, 521, 0, 28)
+Cmd.Font = Enum.Font.Arcade
+Cmd.PlaceholderText = "Enter Command No Prefix Required"
+Cmd.Text = ""
+Cmd.TextColor3 = Color3.new(1, 1, 1)
+Cmd.TextScaled = true
+Cmd.TextSize = 14
+Cmd.TextWrapped = true
+
+Cmd.FocusLost:Connect(function()
+    cmd.exec(data.prefix..Cmd.Text)
+    Main.Visible = false 
+end)
+
+game.Players.LocalPlayer:GetMouse().KeyDown:connect(function(key)
+if key:lower() == ";" and not game:GetService("UserInputService"):GetFocusedTextBox() then
+    if Main.Visible == false then
+        Main.Visible = true
+        Cmd:CaptureFocus()
+    end
+end
+end)
+-- https://youtu.be/oZWXbFC10FA
+--hooking/event stuff
+meta.__namecall = newcclosure(meta.__namecall) 
+meta.__index = newcclosure(meta.__index) 
+meta.__newindex = newcclosure(meta.__newindex) 
+
+run_service.Stepped:Connect(stepped_stuff)
+input_service.InputBegan:Connect(input_stuff)
+input_service.JumpRequest:Connect(input_jump_stuff) 
+client.player.Chatted:Connect(cmd.exec) 
+client.player.CharacterAdded:Connect(character_added) 
+client.humanoid.Died:Connect(humanoid_died)
+humanoid_props()
