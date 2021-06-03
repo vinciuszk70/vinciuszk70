@@ -1,0 +1,1733 @@
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('vest')
+        local found2 =  game.workspace[v.Name]:FindFirstChild('vest')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
+
+local players = game:GetService('Players') 
+local lp = game.Players.LocalPlayer
+
+local oldPos = lp.Character.Head
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(players:GetPlayers()) do
+        local foundHandcuff = oldPos:FindFirstChild('handcuffedGui')
+        local found2 =  game.workspace[v.Name].Head:FindFirstChild('handcuffedGui')
+        if found2 then
+            found2:Remove()
+        end
+        if foundHandcuff then 
+            foundHandcuff:Remove()
+        end
+end
+end)
