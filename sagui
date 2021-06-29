@@ -1,0 +1,105 @@
+local Test = Instance.new("ScreenGui")
+local Background = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local SpamArrest = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local Player = Instance.new("TextBox")
+local UICorner_3 = Instance.new("UICorner")
+local Time = Instance.new("TextBox")
+local UICorner = Instance.new("UICorner")
+
+Test.Name = "Test"
+Test.Parent = game:GetService("CoreGui")
+Test.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Background.Name = "Background"
+Background.Parent = Test
+Background.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Background.BorderSizePixel = 0
+Background.Position = UDim2.new(0.306701005, 0, 0.279735684, 0)
+Background.Size = UDim2.new(0, 300, 0, 200)
+Background.Active = true
+Background.Draggable = true
+
+UICorner.Parent = Background
+
+SpamArrest.Name = "SpamArrest"
+SpamArrest.Parent = Background
+SpamArrest.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+SpamArrest.BorderSizePixel = 0
+SpamArrest.Position = UDim2.new(0.166666672, 0, 0.625, 0)
+SpamArrest.Size = UDim2.new(0, 200, 0, 50)
+SpamArrest.Font = Enum.Font.GothamBlack
+SpamArrest.Text = "Spam Arrest"
+SpamArrest.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpamArrest.TextSize = 20.000
+SpamArrest.TextWrapped = true
+
+UICorner_2.Parent = SpamArrest
+
+Player.Name = "Player"
+Player.Parent = Background
+Player.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Player.Position = UDim2.new(0.166666672, 0, 0.175000012, 0)
+Player.Size = UDim2.new(0, 200, 0, 50)
+Player.Font = Enum.Font.SourceSans
+Player.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+Player.PlaceholderText = "Player"
+Player.Text = ""
+Player.TextColor3 = Color3.fromRGB(255, 255, 255)
+Player.TextSize = 14.000
+Player.TextWrapped = true
+
+UICorner_3.Parent = Player
+
+Time.Name = "Time"
+Time.Parent = Background
+Time.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Time.Position = UDim2.new(0.166666672, 0, 0.375, 0)
+Time.Size = UDim2.new(0, 200, 0, 50)
+Time.Font = Enum.Font.SourceSans
+Time.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+Time.PlaceholderText = "Time"
+Time.Text = ""
+Time.TextColor3 = Color3.fromRGB(255, 255, 255)
+Time.TextSize = 14.000
+Time.TextWrapped = true
+
+UICorner.Parent = Time
+
+local function GetPlayer(String)
+	if not String then return end
+	local Yes = {}
+	for _,Player in ipairs(game:GetService("Players"):GetPlayers()) do
+		if Player ~= game:GetService("Players").LocalPlayer then
+			if string.lower(Player.Name):match(string.lower(String)) or string.lower(Player.DisplayName):match(string.lower(String)) then
+				table.insert(Yes, Player)
+			end
+		end
+	end
+	if #Yes > 0 then
+		return Yes[1]
+	elseif #Yes > 1 then
+		return nil
+	end
+end
+
+function Arrest(Player, Time)
+	for i = 1,Time do
+		workspace.Remote.arrest:InvokeServer(Player.Character.Head)
+	end
+end
+
+SpamArrest.MouseButton1Click:Connect(function()
+	local Player = GetPlayer(Player.Text)
+	if Player then
+		workspace.Remote.loadchar:InvokeServer()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Player.Character.HumanoidRootPart.CFrame
+		local Time = tonumber(Time.Text) or 10
+		for i = 1,Time do
+			coroutine.wrap(function()
+				Arrest(Player, math.huge)
+			end)()
+		end
+	end
+end)
