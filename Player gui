@@ -1,0 +1,450 @@
+local PlayerGui = Instance.new("ScreenGui")
+local Background = Instance.new("Frame")
+local PlayerHandler = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local Player = Instance.new("TextButton")
+local Label = Instance.new("TextLabel")
+local View = Instance.new("TextButton")
+local Unview = Instance.new("TextButton")
+local Goto = Instance.new("TextButton")
+local Kill = Instance.new("TextButton")
+local Bring = Instance.new("TextButton")
+local Void = Instance.new("TextButton")
+local Crim = Instance.new("TextButton")
+local Arrest = Instance.new("TextButton")
+local Hit = Instance.new("TextButton")
+
+PlayerGui.Name = "Player Gui"
+PlayerGui.Parent = game:GetService("CoreGui")
+PlayerGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Background.Name = "Background"
+Background.Parent = PlayerGui
+Background.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Background.BorderSizePixel = 0
+Background.Position = UDim2.new(0.272135407, 0, 0.0593406707, 0)
+Background.Size = UDim2.new(0, 350, 0, 400)
+Background.Active = true
+Background.Draggable = true
+
+PlayerHandler.Name = "PlayerHandler"
+PlayerHandler.Parent = Background
+PlayerHandler.Active = true
+PlayerHandler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerHandler.BackgroundTransparency = 1.000
+PlayerHandler.BorderSizePixel = 0
+PlayerHandler.Position = UDim2.new(0.0714285821, 0, 0.0699999854, 0)
+PlayerHandler.Size = UDim2.new(0, 300, 0, 250)
+PlayerHandler.ScrollBarThickness = 2
+PlayerHandler.AutomaticCanvasSize = "Y"
+
+UIListLayout.Parent = PlayerHandler
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 2)
+
+Player.Name = "Player"
+Player.Parent = nil
+Player.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Player.BorderSizePixel = 0
+Player.Size = UDim2.new(0, 300, 0, 30)
+Player.Font = Enum.Font.SourceSans
+Player.Text = "Player1"
+Player.TextColor3 = Color3.fromRGB(255, 255, 255)
+Player.TextScaled = true
+Player.TextSize = 14.000
+Player.TextWrapped = true
+
+Label.Name = "Label"
+Label.Parent = Background
+Label.BackgroundColor3 = Color3.fromRGB(0, 100, 100)
+Label.BorderSizePixel = 0
+Label.Size = UDim2.new(0, 350, 0, 20)
+Label.Font = Enum.Font.GothamBlack
+Label.Text = "Player Gui"
+Label.TextColor3 = Color3.fromRGB(255, 255, 255)
+Label.TextScaled = true
+Label.TextSize = 14.000
+Label.TextWrapped = true
+
+View.Name = "View"
+View.Parent = Background
+View.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+View.BorderColor3 = Color3.fromRGB(0, 0, 0)
+View.BorderSizePixel = 2
+View.Position = UDim2.new(0.0714285672, 0, 0.727500021, 0)
+View.Size = UDim2.new(0, 100, 0, 30)
+View.Font = Enum.Font.SourceSans
+View.Text = "View"
+View.TextColor3 = Color3.fromRGB(255, 255, 255)
+View.TextScaled = true
+View.TextSize = 14.000
+View.TextWrapped = true
+
+Unview.Name = "Unview"
+Unview.Parent = Background
+Unview.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Unview.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Unview.BorderSizePixel = 2
+Unview.Position = UDim2.new(0.357142866, 0, 0.727500021, 0)
+Unview.Size = UDim2.new(0, 100, 0, 30)
+Unview.Font = Enum.Font.SourceSans
+Unview.Text = "Unview"
+Unview.TextColor3 = Color3.fromRGB(255, 255, 255)
+Unview.TextScaled = true
+Unview.TextSize = 14.000
+Unview.TextWrapped = true
+
+Goto.Name = "Goto"
+Goto.Parent = Background
+Goto.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Goto.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Goto.BorderSizePixel = 2
+Goto.Position = UDim2.new(0.642857194, 0, 0.727500021, 0)
+Goto.Size = UDim2.new(0, 100, 0, 30)
+Goto.Font = Enum.Font.SourceSans
+Goto.Text = "Go to"
+Goto.TextColor3 = Color3.fromRGB(255, 255, 255)
+Goto.TextScaled = true
+Goto.TextSize = 14.000
+Goto.TextWrapped = true
+
+Kill.Name = "Kill"
+Kill.Parent = Background
+Kill.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Kill.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Kill.BorderSizePixel = 2
+Kill.Position = UDim2.new(0.071428597, 0, 0.80250001, 0)
+Kill.Size = UDim2.new(0, 100, 0, 30)
+Kill.Font = Enum.Font.SourceSans
+Kill.Text = "Kill"
+Kill.TextColor3 = Color3.fromRGB(255, 255, 255)
+Kill.TextScaled = true
+Kill.TextSize = 14.000
+Kill.TextWrapped = true
+
+Bring.Name = "Bring"
+Bring.Parent = Background
+Bring.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Bring.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Bring.BorderSizePixel = 2
+Bring.Position = UDim2.new(0.357142895, 0, 0.80250001, 0)
+Bring.Size = UDim2.new(0, 100, 0, 30)
+Bring.Font = Enum.Font.SourceSans
+Bring.Text = "Bring"
+Bring.TextColor3 = Color3.fromRGB(255, 255, 255)
+Bring.TextScaled = true
+Bring.TextSize = 14.000
+Bring.TextWrapped = true
+
+Void.Name = "Void"
+Void.Parent = Background
+Void.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Void.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Void.BorderSizePixel = 2
+Void.Position = UDim2.new(0.642857194, 0, 0.80250001, 0)
+Void.Size = UDim2.new(0, 100, 0, 30)
+Void.Font = Enum.Font.SourceSans
+Void.Text = "Void"
+Void.TextColor3 = Color3.fromRGB(255, 255, 255)
+Void.TextScaled = true
+Void.TextSize = 14.000
+Void.TextWrapped = true
+
+Crim.Name = "Crim"
+Crim.Parent = Background
+Crim.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Crim.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Crim.BorderSizePixel = 2
+Crim.Position = UDim2.new(0.071428597, 0, 0.877499998, 0)
+Crim.Size = UDim2.new(0, 100, 0, 30)
+Crim.Font = Enum.Font.SourceSans
+Crim.Text = "Crim"
+Crim.TextColor3 = Color3.fromRGB(255, 255, 255)
+Crim.TextScaled = true
+Crim.TextSize = 14.000
+Crim.TextWrapped = true
+
+Arrest.Name = "matar os abusers"
+Arrest.Parent = Background
+Arrest.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Arrest.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Arrest.BorderSizePixel = 3
+Arrest.Position = UDim2.new(0.357142895, 0, 0.877499998, 0)
+Arrest.Size = UDim2.new(0, 120, 0, 30)
+Arrest.Font = Enum.Font.SourceSans
+Arrest.Text = "Arrest"
+Arrest.TextColor3 = Color3.fromRGB(170, 0, 255)
+Arrest.TextScaled = true
+Arrest.TextSize = 15.000
+Arrest.TextWrapped = true
+
+Hit.Name = "Hit"
+Hit.Parent = Background
+Hit.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Hit.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Hit.BorderSizePixel = 2
+Hit.Position = UDim2.new(0.642857194, 0, 0.877499998, 0)
+Hit.Size = UDim2.new(0, 100, 0, 30)
+Hit.Font = Enum.Font.SourceSans
+Hit.Text = "Hit"
+Hit.TextColor3 = Color3.fromRGB(255, 255, 255)
+Hit.TextScaled = true
+Hit.TextSize = 14.000
+Hit.TextWrapped = true
+
+local Selecting
+local Viewing = nil
+
+local function GetPlayer(String)
+	if not String then return end
+	local Yes = {}
+	for i,v in ipairs(game.Players:GetPlayers()) do
+		if v ~= game.Players.LocalPlayer then
+			if string.lower(v.Name):match(string.lower(String)) or string.lower(v.DisplayName):match(string.lower(String)) then
+				table.insert(Yes, v)
+			end
+		end
+	end
+	if #Yes > 0 then
+		return Yes[1]
+	elseif #Yes < 1 then
+		return nil
+	end
+end
+
+function Add(Target)
+	local Clone = Player:Clone()
+	Clone.Name = Target.UserId
+	Clone.Text = Target.Name
+	Clone.Parent = PlayerHandler
+	Clone.MouseButton1Click:Connect(function()
+		for i,v in pairs(PlayerHandler:GetChildren()) do
+			if v:IsA("TextButton") then
+				v.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+			end
+		end
+		Clone.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+		Selecting = GetPlayer(Clone.Text)
+	end)
+end
+
+function TP(Target, Position)
+	if not Target or Target == nil then return end
+	local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	workspace.Remote.loadchar:InvokeServer()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+	workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+	local CHAR = game.Players.LocalPlayer.Character
+	CHAR.Humanoid.Name = "1"
+	local c = CHAR["1"]:Clone()
+	c.Name = "Humanoid"
+	c.Parent = CHAR
+	CHAR["1"]:Destroy()
+	game.Workspace.CurrentCamera.CameraSubject = CHAR
+	CHAR.Animate.Disabled = true
+	wait()
+	CHAR.Animate.Disabled = false
+	CHAR.Humanoid.DisplayDistanceType = "None"
+	game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("M9").Parent = CHAR
+	local STOP = 0
+	repeat wait(.1)
+		STOP = STOP + 1
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 0.75)
+	until (not game.Players.LocalPlayer.Character:FindFirstChild("M9") or not game.Players.LocalPlayer.Character.HumanoidRootPart or not Target.Character.HumanoidRootPart or not game.Players.LocalPlayer.Character.HumanoidRootPart.Parent or not Target.Character.HumanoidRootPart.Parent or STOP > 500) and STOP > 3
+	local STOP_2 = 0
+	repeat wait()
+		STOP_2 = STOP_2 + 1
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Position
+	until STOP_2 > 10
+	workspace.Remote.loadchar:InvokeServer()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+end
+
+function KILL(Target)
+	pcall(function()
+		if not Target or Target == nil then return end
+		if Target.TeamColor.Name == game.Players.LocalPlayer.TeamColor.Name then
+			local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+			local savedcamcf = workspace.CurrentCamera.CFrame
+			workspace.Remote.loadchar:InvokeServer(nil, BrickColor.random().Name)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+			workspace.CurrentCamera.CFrame = savedcamcf
+		end
+		local Gun = game.Players.LocalPlayer.Character:FindFirstChild("Remington 870") or game.Players.LocalPlayer.Backpack:FindFirstChild("Remington 870")
+		if not Gun then
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+		end
+		Gun = game.Players.LocalPlayer.Character:FindFirstChild("Remington 870") or game.Players.LocalPlayer.Backpack:FindFirstChild("Remington 870")
+		game.ReplicatedStorage.ShootEvent:FireServer({
+			{["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),["Distance"] = 0,["Cframe"] = CFrame.new(),["Hit"] = workspace[Target.Name].Head},
+			{["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),["Distance"] = 0,["Cframe"] = CFrame.new(),["Hit"] = workspace[Target.Name].Head},
+			{["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),["Distance"] = 0,["Cframe"] = CFrame.new(),["Hit"] = workspace[Target.Name].Head},
+			{["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),["Distance"] = 0,["Cframe"] = CFrame.new(),["Hit"] = workspace[Target.Name].Head},
+			{["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),["Distance"] = 0,["Cframe"] = CFrame.new(),["Hit"] = workspace[Target.Name].Head},
+			{["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),["Distance"] = 0,["Cframe"] = CFrame.new(),["Hit"] = workspace[Target.Name].Head},
+			{["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),["Distance"] = 0,["Cframe"] = CFrame.new(),["Hit"] = workspace[Target.Name].Head},
+			{["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),["Distance"] = 0,["Cframe"] = CFrame.new(),["Hit"] = workspace[Target.Name].Head}
+		}, Gun)
+		Gun.Parent = game.Players.LocalPlayer.Character
+		game.Players.LocalPlayer.Character:FindFirstChild("Remington 870"):Destroy()
+	end)
+end
+
+function ARREST(Target, Time)
+	if Target.TeamColor.Name ~= "Really red" then return end
+	local Time = Time or 1
+	local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	local savedcamcf = workspace.CurrentCamera.CFrame
+	local savedteam = game.Players.LocalPlayer.TeamColor.Name
+	if Target then
+		repeat wait()
+			pcall(function()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 1)
+				for i = 1,Time do
+					coroutine.wrap(function()
+						workspace.Remote.arrest:InvokeServer(Target.Character.Head)
+					end)()
+				end
+			end)
+		until Target.Character:FindFirstChild("Head"):FindFirstChild("handcuffedGui")
+		wait()
+	end
+	workspace.Remote.loadchar:InvokeServer(nil, BrickColor.new(savedteam).Name)
+	game.Players.LocalPlayer.Character.Humanoid.Sit = false
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+	workspace.CurrentCamera.CFrame = savedcamcf
+end
+
+Unview.MouseButton1Click:Connect(function()
+	Viewing = nil
+	workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
+end)
+
+View.MouseButton1Click:Connect(function()
+	local Plr = Selecting
+	if Plr ~= nil then
+		Viewing = Plr
+	end
+	while wait() do
+		if Viewing ~= nil then
+			pcall(function()
+				workspace.CurrentCamera.CameraSubject = workspace[Viewing.Name]
+			end)
+		end
+	end
+end)
+
+Goto.MouseButton1Click:Connect(function()
+	local Plr = Selecting
+	if Plr ~= nil then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace[Plr.Name].HumanoidRootPart.CFrame * CFrame.new(0, 0, 1)
+	end
+end)
+
+Bring.MouseButton1Click:Connect(function()
+	local Plr = Selecting
+	if Plr ~= nil then
+		TP(Plr, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+	end
+end)
+
+Void.MouseButton1Click:Connect(function()
+	local Plr = Selecting
+	if Plr ~= nil then
+		TP(Plr, CFrame.new(900000, 900000, 900000))
+	end
+end)
+
+Hit.MouseButton1Click:Connect(function()
+	local Plr = Selecting
+	if Plr ~= nil then
+		pcall(function()
+			local changes = false
+			local savedteam
+			if Plr.TeamColor.Name == game.Players.LocalPlayer.TeamColor.Name then
+				changes = true
+				savedteam = game.Players.LocalPlayer.TeamColor.Name
+				local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+				local savedcamcf = workspace.CurrentCamera.CFrame
+				workspace.Remote.loadchar:InvokeServer(nil, BrickColor.random().Name)
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+				workspace.CurrentCamera.CFrame = savedcamcf
+			end
+			local Gun = game.Players.LocalPlayer.Character:FindFirstChild("Remington 870") or game.Players.LocalPlayer.Backpack:FindFirstChild("Remington 870")
+			if not Gun then
+				workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+			end
+			Gun = game.Players.LocalPlayer.Character:FindFirstChild("Remington 870") or game.Players.LocalPlayer.Backpack:FindFirstChild("Remington 870")
+			game.ReplicatedStorage.ShootEvent:FireServer({
+				{["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),["Distance"] = 0,["Cframe"] = CFrame.new(),["Hit"] = workspace[Plr.Name].Head}
+			}, Gun)
+			Gun.Parent = game.Players.LocalPlayer.Character
+			game.Players.LocalPlayer.Character:FindFirstChild("Remington 870"):Destroy()
+			if changes then
+				changes = false
+				local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+				local savedcamcf = workspace.CurrentCamera.CFrame
+				workspace.Remote.loadchar:InvokeServer(nil, BrickColor.new(savedteam).Name)
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+				workspace.CurrentCamera.CFrame = savedcamcf
+			end
+		end)
+	end
+end)
+
+Crim.MouseButton1Click:Connect(function()
+	local Plr = Selecting
+	if Plr ~= nil then
+		TP(Plr, CFrame.new(-919, 96, 2138))
+	end
+end)
+
+Arrest.MouseButton1Click:Connect(function()
+	local Plr = Selecting
+	if Plr ~= nil then
+		ARREST(Plr, 50)
+	end
+end)
+
+Kill.MouseButton1Click:Connect(function()
+	local Plr = Selecting
+	if Plr ~= nil then
+		KILL(Plr)
+	end
+end)
+
+for _,v in pairs(game.Players:GetPlayers()) do
+	if v ~= game.Players.LocalPlayer then
+		Add(v)
+	end
+end
+
+game.Players.PlayerAdded:Connect(function()
+	for i,v in pairs(PlayerHandler:GetChildren()) do
+		if v:IsA("TextButton") then
+			v:Destroy()
+		end
+	end
+	for _,v in pairs(game.Players:GetPlayers()) do
+		if v ~= game.Players.LocalPlayer then
+			Add(v)
+		end
+	end
+end)
+
+game.Players.PlayerRemoving:Connect(function(Player)
+	if Player.Name == Viewing.Name then
+		Viewing = nil
+		workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
+	end
+	for i,v in pairs(PlayerHandler:GetChildren()) do
+		if v:IsA("TextButton") then
+			v:Destroy()
+		end
+	end
+	for _,v in pairs(game.Players:GetPlayers()) do
+		if v ~= game.Players.LocalPlayer then
+			Add(v)
+		end
+	end
+end)
