@@ -1,0 +1,5 @@
+box = Instance.new('Part',workspace)
+box.Anchored = true
+box.CanCollide = true
+box.Size = Vector3.new(200,1,200)
+box.Position = Vector3.new(-2.4567992085167e-09, -10.724304199219, -0.082238614559174)
