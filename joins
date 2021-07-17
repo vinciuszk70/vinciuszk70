@@ -1,0 +1,14 @@
+  game.Players.ChildAdded:Connect(function(player)
+  if not pcall (function()
+  SendNotification("[--Player Joined--]",""..player.Name.."  Has joined the server",2.5 )
+  end) then
+    print ("Error")
+  end
+  end)
+  game.Players.ChildRemoved:Connect(function(player)
+  if not pcall (function()
+  SendNotification("[--Player Left--]",""..player.Name.."  Has rage quit",2.5 )
+  end) then
+    print ("Error")
+  end
+  end)
