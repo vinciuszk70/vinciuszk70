@@ -1,0 +1,9 @@
+function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
+       
+        counter = 0
+       
+        while wait()do
+         game.Players.LocalPlayer.PlayerGui.Home.hud.MenuButton.MenuFrame.gamepasses.BackgroundColor3 = Color3.new(0, 0, 0)
+         
+         counter = counter + 0.01
+        end
