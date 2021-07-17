@@ -1,3 +1,11 @@
+local function SendNotification(title,text,duration,...)
+  game.StarterGui:SetCore("SendNotification", {
+    Title = title;
+    Text = text;
+	Icon = "";
+    Duration = duration;
+  })
+  end
   game.Players.ChildAdded:Connect(function(player)
   if not pcall (function()
   SendNotification("[--Player Joined--]",""..player.Name.."  Has joined the server",2.5 )
