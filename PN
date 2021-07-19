@@ -1,3 +1,18 @@
+ShowPainel.Name = "ShowCommands"
+ShowPainel.Parent = Main
+ShowPainel.Active = false
+ShowPainel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ShowPainel.BorderSizePixel = 0
+ShowPainel.Position = UDim2.new(0.727894659, 0, 0.0682889426, 0)
+ShowPainel.Selectable = false
+ShowPainel.Size = UDim2.new(0, 26, 0, 21)
+ShowPainel.Font = Enum.Font.GothamBlack
+ShowPainel.Text = "PN"
+ShowPainel.TextColor3 = Color3.fromRGB(0, 0, 1)
+ShowPainel.TextSize = 14.000
+ShowPainel.MouseButton1Down:connect(function()
+Background.Visible = true
+end)
 
 local PlayerGui = Instance.new("ScreenGui")
 local Background = Instance.new("Frame")
