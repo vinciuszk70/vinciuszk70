@@ -1,21 +1,6 @@
-ShowPainel.Name = "ShowCommands"
-ShowPainel.Parent = Main
-ShowPainel.Active = false
-ShowPainel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ShowPainel.BorderSizePixel = 0
-ShowPainel.Position = UDim2.new(0.727894659, 0, 0.0682889426, 0)
-ShowPainel.Selectable = false
-ShowPainel.Size = UDim2.new(0, 26, 0, 21)
-ShowPainel.Font = Enum.Font.GothamBlack
-ShowPainel.Text = "PN"
-ShowPainel.TextColor3 = Color3.fromRGB(0, 0, 1)
-ShowPainel.TextSize = 14.000
-ShowPainel.MouseButton1Down:connect(function()
-Background.Visible = true
-end)
-
 local PlayerGui = Instance.new("ScreenGui")
 local Background = Instance.new("Frame")
+local Background2 = Instance.new("Frame")
 local PlayerHandler = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
 local Player = Instance.new("TextButton")
@@ -30,6 +15,7 @@ local Crim = Instance.new("TextButton")
 local Arrest = Instance.new("TextButton")
 local Hit = Instance.new("TextButton")
 local Close = Instance.new("TextButton")
+local ShowPainel = Instance.new("TextButton")
 
 PlayerGui.Name = "Player Gui"
 PlayerGui.Parent = game:GetService("CoreGui")
@@ -42,6 +28,30 @@ Background.BorderSizePixel = 0
 Background.Position = UDim2.new(0.12, 0, 0.2493406707, 0)
 Background.Size = UDim2.new(0, 200, 0, 400)
 Background.Visible = false
+
+Background2.Name = "Background2"
+Background2.Parent = PlayerGui
+Background2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Background2.BorderSizePixel = 0
+Background2.Position = UDim2.new(0.128, 0, 0.8573406707, 0)
+Background2.Size = UDim2.new(0, 0, 0, 0)
+Background2.Visible = true
+
+ShowPainel.Name = "ShowCommands"
+ShowPainel.Parent = Background2
+ShowPainel.Active = false
+ShowPainel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ShowPainel.BorderSizePixel = 0
+ShowPainel.Position = UDim2.new(0.337894659, 0, 2.9982889426, 0)
+ShowPainel.Selectable = false
+ShowPainel.Size = UDim2.new(0, 26, 0, 21)
+ShowPainel.Font = Enum.Font.GothamBlack
+ShowPainel.Text = "PN"
+ShowPainel.TextColor3 = Color3.fromRGB(0, 0, 1)
+ShowPainel.TextSize = 14.000
+ShowPainel.MouseButton1Down:connect(function()
+Background.Visible = true
+end)
 
 PlayerHandler.Name = "PlayerHandler"
 PlayerHandler.Parent = Background
