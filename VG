@@ -96,12 +96,12 @@ end)
 main.Name             = "main"
 main.Parent           = R1Gui
 main.BackgroundColor3 = Color3.new(1, 1, 1)
-main.Position         = UDim2.new(0.00441803597, 0, 0.349908596, 0)
+main.Position         = UDim2.new(0.27441803597, 0, 0.447908596, 0)
 main.Size             = UDim2.new(0, 383, 0, 270)
 main.Style            = Enum.FrameStyle.RobloxRound
 main.Active           = true
 main.Draggable        = true
-main.Visible = false
+main.Visible = true
 
 title.Name             = "title"
 title.Parent           = main
