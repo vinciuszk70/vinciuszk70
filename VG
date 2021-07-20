@@ -101,7 +101,7 @@ main.Size             = UDim2.new(0, 383, 0, 270)
 main.Style            = Enum.FrameStyle.RobloxRound
 main.Active           = true
 main.Draggable        = true
-main.Visible = true
+main.Visible = false
 
 title.Name             = "title"
 title.Parent           = main
