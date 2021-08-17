@@ -1,0 +1,1990 @@
+-- Guis:
+
+local ADMINGUI = Instance.new("ScreenGui")
+local INPUT_BACKGROUND = Instance.new("Frame")
+local ICON_1 = Instance.new("TextLabel")
+local INPUT_HANDLER = Instance.new("TextLabel")
+local INPUT = Instance.new("TextBox")
+local NOTIFY_HANDLER = Instance.new("Frame")
+local NOTIFY_GUI = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local NOTIFYLABEL = Instance.new("TextLabel")
+local NOTIFYTEXT = Instance.new("TextLabel")
+local UILISTLAYOUT = Instance.new("UIListLayout")
+
+ADMINGUI.Name = "AdminGui"
+ADMINGUI.Parent = game:GetService("CoreGui")
+ADMINGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+INPUT_BACKGROUND.Name = "INPUT_BACKGROUND"
+INPUT_BACKGROUND.Parent = ADMINGUI
+INPUT_BACKGROUND.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+INPUT_BACKGROUND.BackgroundTransparency = 0.500
+INPUT_BACKGROUND.BorderSizePixel = 0
+INPUT_BACKGROUND.Position = UDim2.new(0.373991966, 0, 0.883138597, 0)
+INPUT_BACKGROUND.Size = UDim2.new(0, 250, 0, 40)
+
+ICON_1.Name = "ICON_1"
+ICON_1.Parent = INPUT_BACKGROUND
+ICON_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ICON_1.BackgroundTransparency = 1.000
+ICON_1.BorderSizePixel = 0
+ICON_1.Position = UDim2.new(-0.00214279164, 0, 0, 0)
+ICON_1.Size = UDim2.new(0, 30, 1, 0)
+ICON_1.Font = Enum.Font.SourceSans
+ICON_1.Text = ">"
+ICON_1.TextColor3 = Color3.fromRGB(255, 255, 255)
+ICON_1.TextScaled = true
+ICON_1.TextSize = 14.000
+ICON_1.TextWrapped = true
+
+INPUT_HANDLER.Name = "INPUT_HANDLER"
+INPUT_HANDLER.Parent = INPUT_BACKGROUND
+INPUT_HANDLER.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+INPUT_HANDLER.BackgroundTransparency = 1.000
+INPUT_HANDLER.BorderSizePixel = 0
+INPUT_HANDLER.Position = UDim2.new(0.118000001, 0, 0, 0)
+INPUT_HANDLER.Size = UDim2.new(0.882000029, 0, 1, 0)
+INPUT_HANDLER.ZIndex = 0
+INPUT_HANDLER.Font = Enum.Font.SourceSans
+INPUT_HANDLER.Text = ""
+INPUT_HANDLER.TextColor3 = Color3.fromRGB(155, 155, 155)
+INPUT_HANDLER.TextSize = 18.000
+INPUT_HANDLER.TextXAlignment = Enum.TextXAlignment.Left
+
+INPUT.Name = "INPUT"
+INPUT.Parent = INPUT_HANDLER
+INPUT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+INPUT.BackgroundTransparency = 1.000
+INPUT.BorderSizePixel = 0
+INPUT.Size = UDim2.new(1, 0, 1, 0)
+INPUT.Font = Enum.Font.SourceSans
+INPUT.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+INPUT.Text = ""
+INPUT.TextColor3 = Color3.fromRGB(255, 255, 255)
+INPUT.TextSize = 18.000
+INPUT.TextWrapped = true
+INPUT.TextXAlignment = Enum.TextXAlignment.Left
+
+NOTIFY_HANDLER.Name = "NOTIFY_HANDLER"
+NOTIFY_HANDLER.Parent = ADMINGUI
+NOTIFY_HANDLER.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+NOTIFY_HANDLER.BackgroundTransparency = 1.000
+NOTIFY_HANDLER.BorderSizePixel = 0
+NOTIFY_HANDLER.Position = UDim2.new(0.00806451589, 0, 0.320534229, 0)
+NOTIFY_HANDLER.Size = UDim2.new(0, 200, 0, 400)
+
+NOTIFY_GUI.Name = "NOTIFY_GUI"
+NOTIFY_GUI.Parent = nil
+NOTIFY_GUI.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+NOTIFY_GUI.BackgroundTransparency = 0.500
+NOTIFY_GUI.BorderSizePixel = 0
+NOTIFY_GUI.Size = UDim2.new(1, 0, 0, 75)
+
+UICorner.Parent = NOTIFY_GUI
+
+NOTIFYLABEL.Name = "NOTIFYLABEL"
+NOTIFYLABEL.Parent = NOTIFY_GUI
+NOTIFYLABEL.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NOTIFYLABEL.BackgroundTransparency = 1.000
+NOTIFYLABEL.BorderSizePixel = 0
+NOTIFYLABEL.Size = UDim2.new(1, 0, 0, 20)
+NOTIFYLABEL.Font = Enum.Font.GothamBlack
+NOTIFYLABEL.Text = "Success"
+NOTIFYLABEL.TextColor3 = Color3.fromRGB(0, 255, 0)
+NOTIFYLABEL.TextScaled = true
+NOTIFYLABEL.TextSize = 14.000
+NOTIFYLABEL.TextWrapped = true
+
+NOTIFYTEXT.Name = "NOTIFYTEXT"
+NOTIFYTEXT.Parent = NOTIFY_GUI
+NOTIFYTEXT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NOTIFYTEXT.BackgroundTransparency = 1.000
+NOTIFYTEXT.BorderSizePixel = 0
+NOTIFYTEXT.Position = UDim2.new(0, 0, 0, 20)
+NOTIFYTEXT.Size = UDim2.new(1, 0, 0, 55)
+NOTIFYTEXT.Font = Enum.Font.GothamBlack
+NOTIFYTEXT.Text = ""
+NOTIFYTEXT.TextColor3 = Color3.fromRGB(255, 255, 255)
+NOTIFYTEXT.TextSize = 18.000
+NOTIFYTEXT.TextWrapped = true
+NOTIFYTEXT.TextYAlignment = Enum.TextYAlignment.Top
+
+UILISTLAYOUT.Name = "UILISTLAYOUT"
+UILISTLAYOUT.Parent = NOTIFY_HANDLER
+UILISTLAYOUT.Padding = UDim.new(0, 3)
+UILISTLAYOUT.VerticalAlignment  = Enum.VerticalAlignment.Bottom
+UILISTLAYOUT.SortOrder = Enum.SortOrder.LayoutOrder
+
+local cmds = {
+	"me = you, player name = another player",
+	"cmds -- show commands",
+	"kill [player,all,inmate,guard,criminal] -- kill player",
+	"ded -- loop kill all",
+	"lb [player] -- loop bring player",
+	"unded -- unloop kill all",
+	"sa [player] -- spam arrest player",
+	"ka [player] -- kill aura player",
+	"lk [player] -- loop kill player",
+	"unlk [player] -- unloop kill player",
+	"goto [player] -- bring player",
+	"bring [player] -- bring player",
+	"crim [player] -- crim player",
+	"tase [player] -- tase player",
+	"taze -- tase all",
+	"void [player] -- void player",
+	"crash -- crash server",
+	"arrest [player] [time] -- arrest player",
+	"admin [player] -- admin player",
+	"unadmin [player] -- unadmin player",
+	"base [player] -- tp player to criminal base",
+	"yard [player] -- tp player to yard",
+	"nexus [player] -- tp player to nexus",
+	"color (r/g/b) -- change team color",
+	"stuck -- stuck you into the neutral spawn",
+	"unstuck -- unstuck you into the neutral spawn",
+	"view [player] -- view player",
+	"unview [player] -- unview player",
+	"disconnect -- disconnected server",
+	"rj -- rejoin server",
+	"team [inmate,guard,neutral,brickcolor]",
+	"re -- re",
+	"res -- respawn",
+	"key [player,all,inmate,criminal] -- give key card",
+	"cuffs [player,all,inmate,criminal] -- give hand cuffs"
+}
+
+local TWEENSERVICE = game:GetService("TweenService")
+
+function OpenInput()
+	local TWEENINFO = TweenInfo.new(
+		0.5, 
+		Enum.EasingStyle.Linear, 
+		Enum.EasingDirection.In, 
+		0,
+		false,
+		0
+	)
+	local MAKECHANGES = {
+		Position = UDim2.new(0.5, 0, 0.85, 0)
+	}
+	local TWEENING = TWEENSERVICE:Create(INPUT_BACKGROUND, TWEENINFO, MAKECHANGES)
+	TWEENING:Play()
+end
+
+function CloseInput()
+	local TWEENINFO = TweenInfo.new(
+		0.5, 
+		Enum.EasingStyle.Linear, 
+		Enum.EasingDirection.In, 
+		0,
+		false,
+		0
+	)
+	local MAKECHANGES = {
+		Position = UDim2.new(0.5, 0, 2, 0)
+	}
+	local TWEENING = TWEENSERVICE:Create(INPUT_BACKGROUND, TWEENINFO, MAKECHANGES)
+	TWEENING:Play()
+end
+
+function SendNotification(msg, typeofmsg, color)
+	local clr = color or Color3.fromRGB(255, 255, 255)
+	local clone = NOTIFY_GUI:Clone()
+	clone.NOTIFYLABEL.Text = typeofmsg
+	clone.NOTIFYTEXT.Text = msg
+	clone.Parent = NOTIFY_HANDLER
+	coroutine.wrap(function()
+		wait(1)
+		for i = 0,1,0.05 do
+			wait(.05)
+			if i > 0.5 then
+				clone.BackgroundTransparency = i
+				clone.NOTIFYTEXT.TextTransparency = i
+				clone.NOTIFYLABEL.TextTransparency = i
+			end
+		end
+		clone:Destroy()
+	end)()
+end
+
+CloseInput()
+
+local prefix = ":"
+
+game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+	if prefix == ":" then
+		prefix = ":" and ";"
+	elseif prefix == "?" then
+		prefix = "?" and "/"
+	elseif prefix == ">" then
+		prefix =  ">" and "."
+	elseif prefix == "<" then
+		prefix = "<" and ","
+	else
+		prefix = prefix and prefix:lower() and prefix:upper()
+	end
+	if key == prefix then
+		OpenInput()
+		wait()
+		INPUT:CaptureFocus()
+	end
+end)
+
+function GETPLR(STRING)
+	if not STRING then return end
+	if STRING == "me" then
+		return game.Players.LocalPlayer
+	else
+		local MATCH = {}
+		for _,plr in pairs(game.Players:GetPlayers()) do
+			if string.lower(plr.Name):match(string.lower(STRING)) then
+				table.insert(MATCH, plr.Name)
+			end
+			if string.lower(plr.DisplayName):match(string.lower(STRING)) then
+				table.insert(MATCH, plr.DisplayName)
+			end
+		end
+		if #MATCH > 0 then
+			return MATCH[math.random(1, #MATCH)]
+		elseif #MATCH < 1 then
+			return nil
+		end
+	end
+end
+
+game:GetService("UserInputService").InputBegan:Connect(function(key)
+	if key.KeyCode == Enum.KeyCode.Tab then
+		if INPUT_HANDLER.Text ~= "" then
+			INPUT.Text = INPUT_HANDLER.Text
+		end
+	end
+end)
+
+INPUT.Changed:Connect(function(change)
+	if change == "Text" then
+		if INPUT.Text ~= "" then
+			for i,v in pairs(cmds) do
+				if string.lower(v:split(" ")[1]):match(string.lower(INPUT.Text:split(" ")[1])) and not INPUT.Text:split(" ")[2] then
+					INPUT_HANDLER.Text = v:split(" ")[1]
+				end
+			end
+			if INPUT.Text:split(" ")[2] and not INPUT.Text:split(" ")[3] then
+				if string.lower("all"):match(string.lower(INPUT.Text:split(" ")[2])) then
+					INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." all"
+				elseif string.lower("me"):match(string.lower(INPUT.Text:split(" ")[2])) then
+					INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." me"
+				elseif string.lower("inmates"):match(string.lower(INPUT.Text:split(" ")[2])) then
+					INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." inmates"
+				elseif string.lower("guards"):match(string.lower(INPUT.Text:split(" ")[2])) then
+					INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." guards"
+				elseif string.lower("criminals"):match(string.lower(INPUT.Text:split(" ")[2])) then
+					INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." criminals"
+				else
+					local PLAYER = GETPLR(INPUT.Text:split(" ")[2])
+					if PLAYER ~= nil then
+						INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." "..PLAYER:lower()
+					end
+				end
+			end
+			if INPUT.Text:split(" ")[3] then
+				if string.lower("all"):match(string.lower(INPUT.Text:split(" ")[3])) then
+					INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." "..INPUT.Text:split(" ")[2].." all"
+				elseif string.lower("inmates"):match(string.lower(INPUT.Text:split(" ")[3])) then
+					INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." "..INPUT.Text:split(" ")[2].." inmates"
+				elseif string.lower("guards"):match(string.lower(INPUT.Text:split(" ")[3])) then
+					INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." "..INPUT.Text:split(" ")[2].." guards"
+				elseif string.lower("criminals"):match(string.lower(INPUT.Text:split(" ")[3])) then
+					INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." "..INPUT.Text:split(" ")[2].." criminals"
+				elseif string.lower("me"):match(string.lower(INPUT.Text:split(" ")[3])) then
+					INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." "..INPUT.Text:split(" ")[2].." me"
+				else
+					local PLAYER = GETPLR(INPUT.Text:split(" ")[3])
+					if PLAYER ~= nil then
+						INPUT_HANDLER.Text = INPUT.Text:split(" ")[1].." "..INPUT.Text:split(" ")[2].." "..PLAYER
+					end
+				end
+			end
+		else
+			INPUT_HANDLER.Text = ""
+		end
+	end
+end)
+
+-- Scripts:
+
+local players = game:GetService("Players")
+local run = game:GetService("RunService")
+local localplayer = players.LocalPlayer
+local character = localplayer.Character
+local humroot = character:FindFirstChild("HumanoidRootPart")
+local backpack = localplayer.Backpack
+local replicatedstorage = game:GetService("ReplicatedStorage")
+
+local usingcmd = false
+
+local prefix = ":"
+local states = {}
+local loopkill = {}
+local killaura = {}
+local admins = {}
+
+localplayer.CharacterAdded:Connect(function(char)
+	character = char
+	humroot = char:WaitForChild("HumanoidRootPart")
+	backpack = localplayer:WaitForChild("Backpack")
+end)
+
+function getplr(str, plr)
+	if not str then return end
+	local yes = {}
+	if str == "me" then
+		return plr
+	else
+		for _,plrs in ipairs(players:GetPlayers()) do
+			if string.lower(plrs.Name):match(string.lower(str)) or string.lower(plrs.DisplayName):match(string.lower(str)) then
+				table.insert(yes, plrs)
+			end
+		end
+	end
+	if #yes > 0 then
+		return yes[1]
+	elseif #yes < 1 then
+		return nil
+	end
+end
+
+function getpos()
+	local x,y,z = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame:ToOrientation()
+	return CFrame.new(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.X, game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.Y, game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.Z) * CFrame.fromOrientation(0, y, 0)
+end
+
+local savedcf = getpos()
+
+function savepos()
+	savedcf = getpos()
+end
+
+function loadpos()
+	humroot.CFrame = savedcf
+end
+
+function loadchar(color)
+	local color = color or nil
+	workspace.Remote.loadchar:InvokeServer(nil, color)
+end
+
+function fegod()
+	local CHAR = game.Players.LocalPlayer.Character
+	CHAR.Humanoid.Name = "1"
+	local c = CHAR["1"]:Clone()
+	c.Name = "Humanoid"
+	c.Parent = CHAR
+	CHAR["1"]:Destroy()
+	game.Workspace.CurrentCamera.CameraSubject = CHAR
+	CHAR.Animate.Disabled = true
+	wait()
+	CHAR.Animate.Disabled = false
+	CHAR.Humanoid.DisplayDistanceType = "None"
+end
+
+function tp(plr, pos)
+	if plr == localplayer then
+		humroot.CFrame = pos
+	else
+		savepos()
+		loadchar()
+		usingcmd = true
+		humroot.CFrame = pos
+		local CHAR = game.Players.LocalPlayer.Character
+		CHAR.Humanoid.Name = "1"
+		local c = CHAR["1"]:Clone()
+		c.Name = "Humanoid"
+		c.Parent = CHAR
+		CHAR["1"]:Destroy()
+		game.Workspace.CurrentCamera.CameraSubject = CHAR
+		CHAR.Animate.Disabled = true
+		wait()
+		CHAR.Animate.Disabled = false
+		CHAR.Humanoid.DisplayDistanceType = "None"
+		workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single.Hammer.ITEMPICKUP)
+		if not game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("Hammer") then
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver.M9.ITEMPICKUP)
+		end
+		local tool = game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("Hammer") or game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("M9")
+		tool.Parent = character
+		humroot.Anchored = true
+		local stop = 0
+		repeat wait(.1)
+			pcall(function()
+				stop = stop + 1
+				plr.Character.HumanoidRootPart.CFrame = humroot.CFrame * CFrame.new(0, 0, -0.75)
+			end)
+		until not character:FindFirstChildOfClass("Tool") or not localplayer.Character or not localplayer.Character.HumanoidRootPart or not game.Players:FindFirstChild(plr.Name) or stop > 500
+		humroot.Anchored = false
+		wait(.2)
+		loadchar()
+		usingcmd = true
+		loadpos()
+	end
+end
+
+function void(plr)
+	if plr == localplayer then
+		humroot.CFrame = CFrame.new(99999999999999, 99999999999999, 99999999999999)
+	else
+		savepos()
+		loadchar()
+		local CHAR = game.Players.LocalPlayer.Character
+		CHAR.Humanoid.Name = "1"
+		local c = CHAR["1"]:Clone()
+		c.Name = "Humanoid"
+		c.Parent = CHAR
+		CHAR["1"]:Destroy()
+		game.Workspace.CurrentCamera.CameraSubject = CHAR
+		CHAR.Animate.Disabled = true
+		wait()
+		CHAR.Animate.Disabled = false
+		CHAR.Humanoid.DisplayDistanceType = "None"
+		workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single.Hammer.ITEMPICKUP)
+		if not game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("Hammer") then
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver.M9.ITEMPICKUP)
+		end
+		local tool = game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("Hammer") or game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("M9")
+		tool.Parent = character
+		humroot.Anchored = true
+		local stop = 0
+		repeat wait(.1) 
+			pcall(function()
+				stop = stop + 1
+				plr.Character.HumanoidRootPart.CFrame = humroot.CFrame * CFrame.new(0, 0, -0.75)
+			end)
+		until not character:FindFirstChildOfClass("Tool") or not localplayer.Character or not localplayer.Character.HumanoidRootPart or not game.Players:FindFirstChild(plr.Name) or stop > 500
+		humroot.Anchored = false
+		for i = 1,10 do
+			wait()
+			usingcmd = true
+			humroot.CFrame = CFrame.new(99999999999999, 99999999999999, 99999999999999)
+		end
+		wait(.2)
+		loadchar()
+		usingcmd = true
+		loadpos()
+	end
+end
+
+local NOW = humroot.CFrame
+
+game:GetService("RunService").Stepped:Connect(function()
+	if states.loopbring then
+		humroot.CFrame = NOW
+	end
+end)
+
+function doloop()
+	savepos()
+	repeat wait()
+	until not states.loopbring
+	usingcmd = true
+	loadpos()
+end
+
+function loopbring(plr)
+	pcall(function()
+		loadchar()
+		local CHAR = game.Players.LocalPlayer.Character
+		CHAR.Humanoid.Name = "1"
+		local c = CHAR["1"]:Clone()
+		c.Name = "Humanoid"
+		c.Parent = CHAR
+		CHAR["1"]:Destroy()
+		game.Workspace.CurrentCamera.CameraSubject = CHAR
+		CHAR.Animate.Disabled = true
+		wait()
+		CHAR.Animate.Disabled = false
+		CHAR.Humanoid.DisplayDistanceType = "None"
+		workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single.Hammer.ITEMPICKUP)
+		if not game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("Hammer") then
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver.M9.ITEMPICKUP)
+		end
+		local tool = game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("Hammer") or game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("M9")
+		tool.Parent = character
+		humroot.Anchored = true
+		local stop = 0
+		repeat wait(.1)
+			pcall(function()
+				stop = stop + 1
+				plr.Character.HumanoidRootPart.CFrame = humroot.CFrame * CFrame.new(0, 0, -0.75)
+			end)
+		until not character:FindFirstChildOfClass("Tool") or not localplayer.Character or not localplayer.Character.HumanoidRootPart or not game.Players:FindFirstChild(plr.Name) or stop > 500
+		humroot.Anchored = false
+	end)
+end
+
+function tpV(plr, plr2)
+	if plr == localplayer then
+		humroot.CFrame = plr2.Character.HumanoidRootPart.CFrame
+	else
+		savepos()
+		loadchar()
+		usingcmd = true
+		humroot.CFrame = plr2.Character.HumanoidRootPart.CFrame
+		local CHAR = game.Players.LocalPlayer.Character
+		CHAR.Humanoid.Name = "1"
+		local c = CHAR["1"]:Clone()
+		c.Name = "Humanoid"
+		c.Parent = CHAR
+		CHAR["1"]:Destroy()
+		game.Workspace.CurrentCamera.CameraSubject = CHAR
+		CHAR.Animate.Disabled = true
+		wait()
+		CHAR.Animate.Disabled = false
+		CHAR.Humanoid.DisplayDistanceType = "None"
+		workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single.Hammer.ITEMPICKUP)
+		if not game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("Hammer") then
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver.M9.ITEMPICKUP)
+		end
+		local tool = game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("Hammer") or game.Players.LocalPlayer:FindFirstChild("Backpack"):FindFirstChild("M9")
+		tool.Parent = character
+		humroot.Anchored = true
+		local stop = 0
+		repeat wait(.1) 
+			pcall(function()
+				stop = stop + 1
+				plr.Character.HumanoidRootPart.CFrame = humroot.CFrame * CFrame.new(0, 0, -0.75)
+			end)
+		until not character:FindFirstChildOfClass("Tool") or not localplayer.Character or not localplayer.Character.HumanoidRootPart or not game.Players:FindFirstChild(plr.Name) or stop > 500
+		humroot.Anchored = false
+		for i = 1,10 do
+			wait()
+			usingcmd = true
+			humroot.CFrame = plr2.Character.HumanoidRootPart.CFrame
+		end
+		wait(.2)
+		loadchar()
+		usingcmd = true
+		loadpos()
+	end
+end
+
+function kill(plr)
+	if plr == localplayer then
+		if not character:FindFirstChild("Force Field") then
+			character.Humanoid.Health = 0
+		end
+	else
+		if plr.TeamColor.Name == localplayer.TeamColor.Name then
+			loadchar(BrickColor.random().Name)
+		end
+		workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+		local gun = backpack:FindFirstChild("Remington 870") or character:FindFirstChild("Remington 870")
+		local events = {}
+		for i = 1,15 do
+			events[#events + 1] = {
+				Hit = plr.Character:FindFirstChildOfClass("Part"),
+				Cframe = CFrame.new(),
+				Distance = 0,
+				RayObject = Ray.new(Vector3.new(), Vector3.new())
+			}
+		end
+		coroutine.wrap(function()
+			for i = 1,30 do
+				replicatedstorage.ReloadEvent:FireServer(gun)
+				wait(.3)
+			end
+		end)()
+		replicatedstorage.ShootEvent:FireServer(events, gun)
+	end
+end
+
+function killteam(brickcolor, whitelist)
+	if not brickcolor then return end
+	local events = {}
+	workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+	for _,plrs in pairs(players:GetPlayers()) do
+		if plrs.TeamColor.Name == brickcolor and plrs ~= localplayer and plrs ~= whitelist then
+			if plrs.TeamColor.Name == localplayer.TeamColor.Name then
+				savepos()
+				loadchar(BrickColor.random().Name)
+				wait(.1)
+				loadpos()
+				workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+			end
+			for i = 1,15 do
+				events[#events + 1] = {
+					Hit = plrs.Character:FindFirstChildOfClass("Part"),
+					Cframe = CFrame.new(),
+					Distance = 0,
+					RayObject = Ray.new(Vector3.new(), Vector3.new())
+				}
+			end
+		end
+	end
+	local gun = backpack:FindFirstChild("Remington 870") or character:FindFirstChild("Remington 870")
+	coroutine.wrap(function()
+		for i = 1,30 do
+			replicatedstorage.ReloadEvent:FireServer(gun)
+			wait(.3)
+		end
+	end)()
+	replicatedstorage.ShootEvent:FireServer(events, gun)
+end
+
+function killall(whitelist)
+	local events = {}
+	workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+	for _,plrs in pairs(players:GetPlayers()) do
+		if plrs ~= localplayer and plrs ~= whitelist then
+			if plrs.TeamColor.Name == localplayer.TeamColor.Name then
+				savepos()
+				loadchar(BrickColor.random().Name)
+				wait(.1)
+				loadpos()
+				workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+			end
+			for i = 1,15 do
+				events[#events + 1] = {
+					Hit = plrs.Character:FindFirstChildOfClass("Part"),
+					Cframe = CFrame.new(),
+					Distance = 0,
+					RayObject = Ray.new(Vector3.new(), Vector3.new())
+				}
+			end
+		end
+	end
+	local gun = backpack:FindFirstChild("Remington 870") or character:FindFirstChild("Remington 870")
+	coroutine.wrap(function()
+		for i = 1,30 do
+			replicatedstorage.ReloadEvent:FireServer(gun)
+			wait(.3)
+		end
+	end)()
+	replicatedstorage.ShootEvent:FireServer(events, gun)
+end
+
+function tase(plr)
+	local events = {}
+	savepos()
+	local oldteam = localplayer.TeamColor.Name
+	if not character:FindFirstChild("Taser") and not backpack:FindFirstChild("Taser") then
+		oldteam = localplayer.TeamColor.Name
+		loadchar(BrickColor.new("Bright blue").Name)
+		loadpos()
+	end
+	for i = 1,1 do
+		events[#events + 1] = {
+			Hit = plr.Character:FindFirstChildOfClass("Part"),
+			Cframe = CFrame.new(),
+			Distance = 0,
+			RayObject = Ray.new(Vector3.new(), Vector3.new())
+		}
+	end
+	local gun = backpack:FindFirstChild("Taser") or character:FindFirstChild("Taser")
+	coroutine.wrap(function()
+		for i = 1,30 do
+			replicatedstorage.ReloadEvent:FireServer(gun)
+			wait(.3)
+		end
+	end)()
+	replicatedstorage.ShootEvent:FireServer(events, gun)
+	if localplayer.TeamColor.Name ~= oldteam then
+		loadchar(BrickColor.new(oldteam).Name)
+	end
+	loadpos()
+end
+
+function taseall(whitelist)
+	local events = {}
+	savepos()
+	local oldteam = localplayer.TeamColor.Name
+	if not character:FindFirstChild("Taser") and not backpack:FindFirstChild("Taser") then
+		oldteam = localplayer.TeamColor.Name
+		loadchar(BrickColor.new("Bright blue").Name)
+		loadpos()
+	end
+	for _,plrs in pairs(players:GetPlayers()) do
+		if plrs ~= localplayer and plrs ~= whitelist then
+			for i = 1,1 do
+				events[#events + 1] = {
+					Hit = plrs.Character:FindFirstChildOfClass("Part"),
+					Cframe = CFrame.new(),
+					Distance = 0,
+					RayObject = Ray.new(Vector3.new(), Vector3.new())
+				}
+			end
+		end
+	end
+	local gun = backpack:FindFirstChild("Taser") or character:FindFirstChild("Taser")
+	coroutine.wrap(function()
+		for i = 1,30 do
+			replicatedstorage.ReloadEvent:FireServer(gun)
+			wait(.3)
+		end
+	end)()
+	replicatedstorage.ShootEvent:FireServer(events, gun)
+	if localplayer.TeamColor.Name ~= oldteam then
+		loadchar(BrickColor.new(oldteam).Name)
+	end
+	loadpos()
+end
+
+function arrest(plr, times)
+	savepos()
+	local times = tonumber(times) or 1
+	local stop = 0
+	repeat wait()
+		stop = stop + 1
+		character.Humanoid.Sit = false
+		usingcmd = true
+		humroot.CFrame = plr.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 0.75)
+		for i = 1,times do
+			coroutine.wrap(function()
+				workspace.Remote.arrest:InvokeServer(plr.Character.Head)
+			end)()
+		end
+	until plr.Character.Head:FindFirstChild("handcuffedGui") or stop > 100
+	character.Humanoid.Sit = false
+	loadchar()
+	usingcmd = true
+	loadpos()
+end
+
+function arrestevent(plr, times)
+	local times = tonumber(times) or 1
+	for i = 1,times do
+		pcall(function()
+			workspace.Remote.arrest:InvokeServer(plr.Character.Head)
+		end)
+	end
+end
+
+function key(plr)
+	local success, errorm = pcall(function()
+		if not backpack:FindFirstChild("Key card") and not character:FindFirstChild("Key card") then
+			local oldteam = localplayer.TeamColor.Name
+			savepos()
+			repeat wait(.2)
+				character:WaitForChild("Humanoid").Health = 0
+				usingcmd = true
+				loadchar(BrickColor.new("Bright blue").Name)
+			until workspace.Prison_ITEMS.single:FindFirstChild("Key card")
+			loadchar(BrickColor.new(oldteam).Name)
+			usingcmd = true
+			loadpos()
+			workspace:WaitForChild("Remote"):WaitForChild("ItemHandler"):InvokeServer(workspace:WaitForChild("Prison_ITEMS").single:WaitForChild("Key card"):FindFirstChild("ITEMPICKUP"))
+		end
+		local keycard = backpack:FindFirstChild("Key card") or character:FindFirstChild("Key card")
+		if keycard and game.Players:FindFirstChild(plr.Name) then
+			savepos()
+			local CHAR = game.Players.LocalPlayer.Character
+			CHAR.Humanoid.Name = "1"
+			local c = CHAR["1"]:Clone()
+			c.Name = "Humanoid"
+			c.Parent = CHAR
+			CHAR["1"]:Destroy()
+			game.Workspace.CurrentCamera.CameraSubject = CHAR
+			CHAR.Animate.Disabled = true
+			wait()
+			CHAR.Animate.Disabled = false
+			CHAR.Humanoid.DisplayDistanceType = "None"
+			keycard.Parent = character
+			local stop = 0
+			repeat wait(.1)
+				pcall(function()
+					stop = stop + 1
+					usingcmd = true
+					humroot.CFrame = plr.Character:FindFirstChild("Torso").CFrame * CFrame.new(0, 0, 0.75) or plr.Character:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0, 0, 0.75) or plr.Character:FindFirstChildOfClass("Part").CFrame * CFrame.new(0, 0, 0.75)
+				end)
+			until not character:FindFirstChild("Key card") or not game.Players:FindFirstChild(plr.Name) or stop > 500
+			wait(.2)
+			loadchar()
+			wait(.1)
+			usingcmd = true
+			loadpos()
+		end
+	end)
+	if success then
+		return true, ""
+	else
+		return false, errorm
+	end
+end
+
+function cuffs(plr)
+	local success, errorm = pcall(function()
+		savepos()
+		local hand_cuffs = backpack:FindFirstChild("Handcuffs") or character:FindFirstChild("Handcuffs")
+		local oldteam = localplayer.TeamColor.Name
+		if not hand_cuffs then
+			oldteam = localplayer.TeamColor.Name
+			loadchar(BrickColor.new("Bright blue").Name)
+		end
+		local CHAR = game.Players.LocalPlayer.Character
+		CHAR.Humanoid.Name = "1"
+		local c = CHAR["1"]:Clone()
+		c.Name = "Humanoid"
+		c.Parent = CHAR
+		CHAR["1"]:Destroy()
+		game.Workspace.CurrentCamera.CameraSubject = CHAR
+		CHAR.Animate.Disabled = true
+		wait()
+		CHAR.Animate.Disabled = false
+		CHAR.Humanoid.DisplayDistanceType = "None"
+		hand_cuffs = backpack:FindFirstChild("Handcuffs") or character:FindFirstChild("Handcuffs")
+		hand_cuffs.Parent = character
+		local stop = 0
+		repeat wait(.1)
+			pcall(function()
+				stop = stop + 1
+				usingcmd = true
+				humroot.CFrame = plr.Character:FindFirstChild("Torso").CFrame * CFrame.new(0, 0, 0.75) or plr.Character:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0, 0, 0.75) or plr.Character:FindFirstChildOfClass("Part").CFrame * CFrame.new(0, 0, 0.75)
+			end)
+		until not character:FindFirstChild("Handcuffs") or not humroot or not character or not game.Players:FindFirstChild(plr.Name) or stop > 500
+		wait(.2)
+		loadchar(BrickColor.new(oldteam).Name)
+		wait(.1)
+		usingcmd = true
+		loadpos()
+	end)
+end
+
+function teamevent(brickcolor)
+	workspace.Remote.TeamEvent:FireServer(brickcolor)
+end
+
+function chatnotify(msg)
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = msg,
+		Color = Color3.fromRGB(255, 0, 0),
+		Font = Enum.Font.SourceSans,
+		FontSize = Enum.FontSize.Size96
+	})
+end
+
+function chat(msg)
+	game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, "All")
+end
+
+function cmd(cmd)
+	return arg1 == prefix..cmd
+end
+
+function cmd2(cmds, plr)
+	return arg1 == admins[plr.Name].prefix..cmds
+end
+
+chatnotify("Admin loaded!, enjoy!")
+chatnotify("Made by        : ")
+chatnotify("Youtube        :       CXZ NAME_R")
+chatnotify("Discord        : LocalPlayer#7434")
+chatnotify("Helper Discord :       Zyrex#5659")
+
+function usecmd(msg)
+	arg = msg:split(" ")
+	arg1 = arg[1]
+	arg2 = arg[2]
+	arg3 = arg[3]
+	usingcmd = true
+	if cmd("cmds") then
+		chatnotify("Say '/console' or press F9 or Fn + F9 to see all commands")
+		for i,v in pairs(cmds) do
+			print(i..". "..v)
+		end
+		SendNotification("Say '/console' or press F9 or Fn + F9 to see all commands", "Success", Color3.fromRGB(0, 255, 0))
+	end
+	if cmd("res") then
+		usingcmd = true
+		loadchar()
+	end
+	if cmd("re") then
+		savepos()
+		loadchar()
+		wait(.1)
+		usingcmd = true
+		loadpos()
+	end
+	if cmd("team") then
+		if arg2 == "neutral" then
+			teamevent("Medium stone grey")
+		elseif arg2 == "guard" or arg2 == "guards" then
+			teamevent("Bright blue")
+		elseif arg2 == "inmate" or arg2 == "inmates" then
+			teamevent("Bright orange")
+		else
+			if arg3 ~= nil then
+				loadchar(BrickColor.new(arg2.." "..arg3))
+			else
+				loadchar(BrickColor.new(arg2))
+			end
+		end
+	end
+	--[[if cmd("bypass") then
+		local message = arg2
+		local space = "_"
+		if arg2 ~= nil then
+			local alpharbet = {
+				a = "a ͤ",
+				b = "b ͤ",
+				c = "c ͤ",
+				d = "d ͤ",
+				e = "e ͤ",
+				f = "f",
+				g = "g ͤ",
+				h = "h ͤ",
+				i = "i ͤ",
+				j = "j",
+				k = "k ͤ",
+				l = "l ͤ",
+				m = "m ͤ",
+				n = "n ͤ",
+				o = "○",
+				p = "p ͤ",
+				q = "q ͤ",
+				r = "r ͤ",
+				s = "s ͤ",
+				t = "t ͤ",
+				u = "u ͤ",
+				w = "w ͤ",
+				x = "x ͤ",
+				y = "y ͤ",
+				z = "z ͤ",
+				_ = " "
+			}
+			local bypasses
+			for t = 1,#message do
+				for i,v in pairs(alpharbet) do
+					if message:sub(1,t):lower() == i then
+						if bypasses == nil then
+							bypasses = v
+						else
+							bypasses = bypasses..v
+						end
+					end
+				end
+			end
+			chat(bypasses)
+		end
+	end]]
+	if cmd("rj") then
+		SendNotification("Rejoining server", "Success", Color3.fromRGB(0, 255, 0))
+		game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+	end
+	if cmd("disconnect") then
+		SendNotification("Disconnected server", "Success", Color3.fromRGB(0, 255, 0))
+		local events = {
+			[1] = {
+				Hit = workspace:FindFirstChildOfClass("Part"),
+				Cframe = CFrame.new(),
+				Distance = 0,
+				RayObject = Ray.new(Vector3.new(), Vector3.new())
+			}, [2] = {
+				Hit = workspace:FindFirstChildOfClass("Part"),
+				Cframe = CFrame.new(),
+				Distance = 0,
+				RayObject = Ray.new(Vector3.new(), Vector3.new())
+			}
+		}
+		workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+		local gun = character:FindFirstChild("Remington 870") or backpack:FindFirstChild("Remington 870")
+		for i = 1,math.huge do
+			wait()
+			game.ReplicatedStorage.ShootEvent:FireServer(events, gun)
+		end
+	end
+	if cmd("view") then
+		local plr = getplr(arg2, localplayer)
+		if plr then
+			SendNotification("Viewing "..plr.DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+			states.viewing = plr
+		else
+			SendNotification("No player found by name: "..arg2, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("unview") then
+		SendNotification("Unviewed "..states.viewing.DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+		states.viewing = nil
+		wait(.1)
+		workspace.CurrentCamera.CameraSubject = character
+	end
+	if cmd("stuck") then
+		states.stucking = true
+		wait(.2)
+		SendNotification("Stucked", "Success", Color3.fromRGB(0, 255, 0))
+		loadchar(BrickColor.new("Medium stone grey").Name)
+	end
+	if cmd("unstuck") then
+		SendNotification("Unstucked", "Success", Color3.fromRGB(0, 255, 0))
+		states.stucking = false
+	end
+	if cmd("color") then
+		local Arguaments = arg2
+		local Split = Arguaments:split("/")
+		savepos()
+		loadchar(Color3.fromRGB(Split[1], Split[2], Split[3]))
+		usingcmd = true
+		loadpos()
+		SendNotification("Color", "Success", Color3.fromRGB(0, 255, 0))
+	end
+	if cmd("lb") then
+		local plr = getplr(arg2, localplayer)
+		if plr then
+			states.loopbring = true
+			coroutine.wrap(function()
+				doloop()
+			end)()
+			usingcmd = true
+			NOW = CFrame.new(plr.Character:FindFirstChildOfClass("Part").CFrame.p)
+			SendNotification("Looped bring "..plr.DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+			repeat wait()
+				loopbring(plr)
+			until not states.loopbring or not players:FindFirstChild(plr.Name)
+			states.loopbring = false
+		else
+			SendNotification("No player found by name: "..arg2, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("unlb") then
+		SendNotification("Unlooped bring", "Success", Color3.fromRGB(0, 255, 0))
+		states.loopbring = false
+	end
+	if cmd("crash") then
+		SendNotification("Crashed server", "Success", Color3.fromRGB(0, 255 ,0))
+		local events = {
+			Hit = game:GetService("Workspace"):FindFirstChildOfClass("Part"),
+			Cframe = CFrame.new(),
+			Distance = math.huge,
+			RayObject = Ray.new(Vector3.new(), Vector3.new())
+		}
+		local events_package = {}
+		for i = 1,100000 do
+			events_package[i] = events
+		end
+		workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+		local gun = character:FindFirstChild("Remington 870") or backpack:FindFirstChild("Remington 870")
+		for i = 1,10 do
+			game.ReplicatedStorage.ShootEvent:FireServer(events_package, gun)
+		end
+	end
+	if cmd("sa") then
+		local plr = getplr(arg2, localplayer)
+		if plr then
+			SendNotification("Spam arrested "..plr.DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+			local CanArrest = false
+			if plr.TeamColor.Name == "Really red" then
+				CanArrest = true
+			end
+			if plr.TeamColor.Name ~= "Really red" and plr.TeamColor.Name ~= "Bright orange" and not CanArrest then
+				repeat wait()
+					tp(plr, CFrame.new(-975.58190917969, 109.32379150391, 2061.7973632813))
+				until plr.TeamColor.Name == "Really red" or not game.Players:FindFirstChild(plr.Name)
+			end
+			if plr.TeamColor.Name == "Bright orange" and not CanArrest then
+				repeat wait()
+					tp(plr, CFrame.new(976.48529052734, 99.990005493164, 2338.4716796875))
+					if (Vector3.new(976.48529052734, 99.990005493164, 2338.4716796875)-plr.Character:FindFirstChildOfClass("Part").Position).magnitude < 10 then
+						CanArrest = true
+					end
+				until CanArrest
+			end
+			loadchar()
+			coroutine.wrap(function()
+				for i = 1,100 do
+					coroutine.wrap(function()
+						arrestevent(plr, math.huge)
+					end)()
+				end
+			end)()
+			repeat wait() 
+				pcall(function()
+					local cframe = plr.Character:FindFirstChild("Torso") or plr.Character:FindFirstChild("HumanoidRootPart")
+					usingcmd = true
+					humroot.CFrame = cframe.CFrame * CFrame.new(0, 0.25, 1)
+				end)
+			until not plr.Character:FindFirstChild("Head"):FindFirstChild("handcuffedGui")
+		else
+			SendNotification("No player found by name: "..arg2, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("prefix") then
+		local newPrefix = tostring(arg2) or tostring(prefix)
+		if #newPrefix == 1 and newPrefix ~= prefix then
+			prefix = newPrefix
+			SendNotification("Changed prefix to "..prefix, "Success", Color3.fromRGB(0, 255, 0))
+		else
+			SendNotification("Prefix cannot have more than 1 letter", "Warn", Color3.fromRGB(255, 255, 0))
+		end
+	end
+	if cmd("admin") then
+		local plr = getplr(arg2, localplayer)
+		if plr and not admins[plr.Name] then
+			admins[plr.Name] = {plr = plr, prefix = ":"}
+			chat("/w "..plr.Name.." You have been adminned say :cmds for commands")
+		else
+			SendNotification(plr.DisplayName.." already have admin", "Warn", Color3.fromRGB(255, 255, 0))
+		end
+	end
+	if cmd("unadmin") then
+		local plr = getplr(arg2)
+		if plr and admins[plr.Name] then
+			admins[plr.Name] = nil
+			SendNotification("Adminned "..plr.DisplayName)
+			chat("/w "..plr.Name.." You have been unadminned")
+		else
+			SendNotification(plr.DisplayName.." donesn't have admin", "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("arrest") then
+		local plr = getplr(arg2, localplayer)
+		if plr then
+			SendNotification("Arrested "..plr.DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+			local times = tonumber(arg3) or 1
+			arrest(plr, times)
+		else
+			SendNotification("No player found by name: "..arg2)
+		end
+	end
+	if cmd("ka") then
+		local plr = getplr(arg2, localplayer)
+		if plr == localplayer then
+			SendNotification("Added kill aura to you", "Success", Color3.fromRGB(0, 255, 0))
+			states.killaura = true
+		elseif plr ~= nil and plr ~= localplayer then
+			if not killaura[plr.Name] then
+				SendNotification("Added kill aura to "..plr.DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+				killaura[plr.Name] = {plr = plr}
+			end
+		else
+			SendNotification("No player found by name: "..arg2, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("unka") then
+		local plr = getplr(arg2, localplayer)
+		if plr == localplayer then
+			states.killaura = false
+			SendNotification("Removed kill aura from you", "Success", Color3.fromRGB(0, 255, 0))
+		else
+			if killaura[plr.Name] then
+				killaura[plr.Name] = nil
+				SendNotification("Removed kill aura from "..plr.DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+			end
+		end
+	end
+	if cmd("taze") then
+		local success, errorm = pcall(function()
+			taseall()
+		end)
+		if success then
+			SendNotification("Taze all", "Success", Color3.fromRGB(0, 255, 0))
+		else
+			SendNotification(errorm, "Success", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("tase") then
+		local success, errorm = pcall(function()
+			tase(getplr(arg2, localplayer))
+		end)
+		if success then
+			SendNotification("Taze "..getplr(arg2, localplayer).DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+		else
+			SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("crim") then
+		local success, errorm = pcall(function()
+			tp(getplr(arg2, localplayer), CFrame.new(-919, 100, 2138))
+		end)
+		if success then
+			SendNotification("Crimmed "..getplr(arg2, localplayer).DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+		else
+			SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("bring") then
+		local success, errorm = pcall(function()
+			tp(getplr(arg2, localplayer), humroot.CFrame)
+		end)
+		if success then
+			SendNotification("Brought "..getplr(arg2, localplayer).DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+		else
+			SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("goto") then
+		local success, errorm = pcall(function()
+			humroot.CFrame = getplr(arg2, localplayer).Character.HumanoidRootPart.CFrame
+		end)
+		if success then
+			SendNotification("Gone to "..getplr(arg2, localplayer).DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+		else
+			SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("lk") then
+		local plr = getplr(arg2, localplayer)
+		if plr and not loopkill[plr.Name] then
+			loopkill[plr.Name] = {plr = plr}
+			SendNotification("Looped kills "..plr.DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+		elseif plr == nil then
+			SendNotification("No player found by name: "..arg2, "Error", Color3.fromRGB(255, 0, 0))
+		elseif plr and loopkill[plr.Name] then
+			SendNotification(plr.DisplayName.." already have loop kills", "Warn", Color3.fromRGB(255, 255, 0))
+		end
+	end
+	if cmd("unlk") then
+		local plr = getplr(arg2, localplayer)
+		if plr and loopkill[plr.Name] then
+			loopkill[plr.Name] = nil
+			SendNotification("Unlooped kills "..plr.DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+		elseif plr == nil then
+			SendNotification("No player found by name: "..arg2, "Error", Color3.fromRGB(255, 0, 0))
+		elseif plr and not loopkill[plr.Name] then
+			SendNotification(plr.DisplayName.." doesn't have loop kills", "Warn", Color3.fromRGB(255, 255, 0))
+		end
+	end
+	if cmd("void") then
+		local success, errorm = pcall(function()
+			void(getplr(arg2, localplayer))
+		end)
+		if success then
+			SendNotification("Voided "..getplr(arg2, localplayer), "Success", Color3.fromRGB(0, 255, 0))
+		else
+			SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("kill") then
+		if arg2 == "all" then
+			local success, errorm = pcall(function()
+				killall()
+			end)
+			if success then
+				SendNotification("Killed all", "Success", Color3.fromRGB(0, 255, 0))
+			else
+				SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+			end
+		elseif arg2 == "inmate" or arg2 == "inmates" then
+			local success, errorm = pcall(function()
+				killteam(BrickColor.new("Bright orange").Name)
+			end)
+			if success then
+				SendNotification("Killed inmates", "Success", Color3.fromRGB(0, 255, 0))
+			else
+				SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+			end
+		elseif arg2 == "guard" or arg2 == "guards" then
+			local success, errorm = pcall(function()
+				killteam(BrickColor.new("Bright blue").Name)
+			end)
+			if success then
+				SendNotification("Killed guards", "Success", Color3.fromRGB(0, 255, 0))
+			else
+				SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+			end
+		elseif arg2 == "criminal" or arg2 == "criminals" then
+			local success, errorm = pcall(function()
+				killteam(BrickColor.new("Really red").Name)
+			end)
+			if success then
+				SendNotification("Killed criminals", "Success", Color3.fromRGB(0, 255, 0))
+			else
+				SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+			end
+		else
+			local plr = getplr(arg2, localplayer)
+			local success, errorm = pcall(function()
+				kill(plr)
+			end)
+			if success then
+				SendNotification("Killed "..plr.DisplayName, "Success", Color3.fromRGB(0, 255, 0))
+			else
+				SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+			end
+		end
+	end
+	if cmd("ded") then
+		states.loopkillall = true
+	end
+	if cmd("unded") then
+		states.loopkillall = false
+	end
+	if cmd("tp") then
+		local plr = getplr(arg2, localplayer)
+		local plr2 = getplr(arg3, localplayer)
+		if plr and plr2 then
+			tpV(plr, plr2)
+		end
+	end
+	if cmd("nexus") then
+		local success, errorm = pcall(function()
+			tp(getplr(arg2, localplayer), CFrame.new(888, 100, 2388))
+		end)
+		if success then
+			SendNotification("Tp "..getplr(arg2, localplayer).DisplayName.." to prison nexus", "Success", Color3.fromRGB(0, 255, 0))
+		else
+			SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("yard") then
+		local success, errorm = pcall(function()
+			tp(getplr(arg2, localplayer), CFrame.new(791, 98, 2498))
+		end)
+		if success then
+			SendNotification("Tp "..getplr(arg2, localplayer).DisplayName.." to prison yard", "Success", Color3.fromRGB(0, 255, 0))
+		else
+			SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("base") then
+		local success, errorm = pcall(function()
+			tp(getplr(arg2, localplayer), CFrame.new(-943, 95, 2055))
+		end)
+		if success then
+			SendNotification("Tp "..getplr(arg2, localplayer).DisplayName.." to criminal base", "Success", Color3.fromRGB(0, 255, 0))
+		else
+			SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+		end
+	end
+	if cmd("key") then
+		local plr = getplr(arg2, localplayer)
+		if arg2 == "all" then
+			savepos()
+			for i,v in pairs(players:GetPlayers()) do
+				if v ~= localplayer then
+					pcall(function()
+						key(v)
+					end)
+				end
+			end
+			loadpos()
+		elseif arg2 == "inmate" or arg2 == "inmates" then
+			savepos()
+			for i,v in pairs(players:GetPlayers()) do
+				if v ~= localplayer and v.TeamColor.Name == "Bright orange" then
+					pcall(function()
+						key(v)
+					end)
+				end
+			end
+			loadpos()
+		elseif arg2 == "guard" or arg2 == "guards" then
+			savepos()
+			for i,v in pairs(players:GetPlayers()) do
+				if v ~= localplayer and v.TeamColor.Name == "Bright blue" then
+					pcall(function()
+						key(v)
+					end)
+				end
+			end
+			loadpos()
+		elseif arg2 == "criminal" or arg2 == "criminals" then
+			savepos()
+			for i,v in pairs(players:GetPlayers()) do
+				if v ~= localplayer and v.TeamColor.Name == "Really red" then
+					pcall(function()
+						key(v)
+					end)
+				end
+			end
+			loadpos()
+		else
+			if plr ~= nil then
+				if plr == localplayer then
+					local success, errorm = pcall(function()
+						if not backpack:FindFirstChild("Key card") and not character:FindFirstChild("Key card") then
+							local oldteam = localplayer.TeamColor.Name
+							savepos()
+							repeat wait(.2)
+								character:WaitForChild("Humanoid").Health = 0
+								usingcmd = true
+								loadchar(BrickColor.new("Bright blue").Name)
+							until workspace.Prison_ITEMS.single:FindFirstChild("Key card")
+							loadchar(BrickColor.new(oldteam).Name)
+							usingcmd = true
+							loadpos()
+							workspace:WaitForChild("Remote"):WaitForChild("ItemHandler"):InvokeServer(workspace:WaitForChild("Prison_ITEMS").single:WaitForChild("Key card"):FindFirstChild("ITEMPICKUP"))
+							SendNotification("Obtains key card", "Success", Color3.fromRGB(0, 255, 0))
+						else
+							SendNotification("You already have key card", "Warn", Color3.fromRGB(255, 255, 0))
+						end
+					end)
+					if not success then
+						SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+					end
+				else
+					local success, errorm = key(plr)
+					if success then
+						SendNotification("Gave "..plr.DisplayName.." key card", "Success", Color3.fromRGB(0, 255, 0))
+					else
+						SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+					end
+				end
+			end
+		end
+	end
+	if cmd("cuffs") then
+		local plr = getplr(arg2, localplayer)
+		if arg2 == "all" then
+			savepos()
+			for i,v in pairs(players:GetPlayers()) do
+				if v ~= localplayer then
+					pcall(function()
+						cuffs(v)
+					end)
+				end
+			end
+			loadpos()
+		elseif arg2 == "inmate" or arg2 == "inmates" then
+			savepos()
+			for i,v in pairs(players:GetPlayers()) do
+				if v ~= localplayer and v.TeamColor.Name == "Bright orange" then
+					pcall(function()
+						cuffs(v)
+					end)
+				end
+			end
+			loadpos()
+		elseif arg2 == "guard" or arg2 == "guards" then
+			savepos()
+			for i,v in pairs(players:GetPlayers()) do
+				if v ~= localplayer and v.TeamColor.Name == "Bright blue" then
+					pcall(function()
+						cuffs(v)
+					end)
+				end
+			end
+			loadpos()
+		elseif arg2 == "criminal" or arg2 == "criminals" then
+			savepos()
+			for i,v in pairs(players:GetPlayers()) do
+				if v ~= localplayer and v.TeamColor.Name == "Really red" then
+					pcall(function()
+						cuffs(v)
+					end)
+				end
+			end
+			loadpos()
+		else
+			if plr ~= nil then
+				if plr == localplayer then
+					local success, errorm = pcall(function()
+						local oldteam = localplayer.TeamColor.Name
+						loadchar(BrickColor.new("Bright blue").Name)
+						if oldteam == "Bright blue" or oldteam == "Bright orange" or oldteam == "Medium stone grey" then
+							teamevent(oldteam)
+						elseif oldteam == "Really red" then
+							SendNotification("Cannot change team back to normal team", "Warn", Color3.fromRGB(255, 255, 0))
+						else
+							teamevent("Medium ston grey")
+						end
+					end)
+					if success then
+						SendNotification("Obtains hand cuffs", "Success", Color3.fromRGB(0, 255, 0))
+					else
+						SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+					end
+				else
+					local success, errorm = cuffs(plr)
+					if success then
+						SendNotification("Gave "..plr.DisplayName.." hand cuffs")
+					else
+						SendNotification(errorm, "Error", Color3.fromRGB(255, 0, 0))
+					end
+				end
+			end
+		end
+	end
+end
+
+function usecmds(msg, plr)
+	arg = msg:split(" ")
+	arg1 = arg[1]
+	arg2 = arg[2]
+	arg3 = arg[3]
+	usingcmd = true
+	local PF = admins[plr.Name].prefix
+	if cmd2("cmds", plr) then
+		chat("/w "..plr.Name.." "..PF.."kill [player] "..PF.."bring [player] "..PF.."goto [player] "..PF.."nexus [player] "..PF.."crim [player] "..PF.."ka [player] "..PF.."unka [player] ")
+		chat("/w "..plr.Name.." "..PF.."kill [all,inmate,criminal,guard] "..PF.."base [player] "..PF.."yard [player] "..PF.."lk [player] "..PF.."unlk [player] " )
+	end
+	if cmd2("prefix", plr) then
+		local newPrefix = tostring(arg2) or tostring(admins[plr.Name].prefix)
+		if newPrefix ~= admins[plr.Name].prefix and #newPrefix == 1 then
+			admins[plr.Name].prefix = newPrefix
+		end
+	end
+	if cmd2("ka", plr) then
+		local plr = getplr(arg2, plr)
+		if plr and not killaura[plr.Name] then
+			killaura[plr.Name] = {plr = plr}
+		end
+	end
+	if cmd2("unka", plr) then
+		local plr = getplr(arg2, plr)
+		if plr and killaura[plr.Name] then
+			killaura[plr.Name] = nil
+		end
+	end
+	if cmd2("kill", plr) then
+		if arg2 == "all" then
+			killall(plr)
+		elseif arg2 == "inmate" or arg2 == "inmates" then
+			killteam(BrickColor.new("Bright orange").Name, plr)
+		elseif arg2 == "guard" or arg2 == "guards" then
+			killteam(BrickColor.new("Bright blue").Name, plr)
+		elseif arg2 == "criminal" or arg2 == "criminals" then
+			killteam(BrickColor.new("Really red").Name, plr)
+		else
+			kill(getplr(arg2, plr))
+		end
+	end
+	if cmd2("bring", plr) then
+		tpV(getplr(arg2, plr), plr)
+	end
+	if cmd2("goto", plr) then
+		tpV(plr, getplr(arg2, plr))
+	end
+	if cmd2("nexus", plr) then
+		tp(getplr(arg2, plr), CFrame.new(888, 100, 2388))
+	end
+	if cmd2("yard", plr) then
+		tp(getplr(arg2, plr), CFrame.new(791, 98, 2498))
+	end
+	if cmd2("base", plr) then
+		tp(getplr(arg2, plr), CFrame.new(-943, 95, 2055))
+	end
+	if cmd2("crim", plr) then
+		local plr = getplr(arg2, plr)
+		if plr then
+			tp(plr, CFrame.new(-919, 100, 2138))
+		end
+	end
+	if cmd2("lk", plr) then
+		local plr = getplr(arg2, plr)
+		if plr and not loopkill[plr.Name] then
+			loopkill[plr.Name] = {plr = plr}
+		end
+	end
+	if cmd2("unlk", plr) then
+		local plr = getplr(arg2, plr)
+		if plr and loopkill[plr.Name] then
+			loopkill[plr.Name] = nil
+		end
+	end
+end
+
+for _,v in pairs(players:GetPlayers()) do
+	if v ~= localplayer then
+		v.Chatted:Connect(function(msg)
+			if admins[v.Name] then
+				usecmds(msg, v)
+			end
+		end)
+	end
+end
+
+players.PlayerAdded:Connect(function(plr)
+	plr.Chatted:Connect(function(msg)
+		if admins[plr.Name] then
+			usecmds(msg, plr)
+		end
+	end)
+end)
+
+localplayer.Chatted:Connect(usecmd)
+
+spawn(function()
+	while wait(.75) do
+		if states.loopkillall then
+			pcall(function()
+				killall()
+			end)
+		end
+	end
+end)
+
+spawn(function()
+	while wait(.75) do
+		for i,v in pairs(loopkill) do
+			pcall(function()
+				if v.plr and game.Players:FindFirstChild(v.plr.Name) then
+					if v.plr.TeamColor.Name == localplayer.TeamColor.Name then
+						savepos()
+						loadchar(BrickColor.random().Name)
+						wait(.1)
+						loadpos()
+					end
+					workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+					local gun = backpack:FindFirstChild("Remington 870") or character:FindFirstChild("Remington 870")
+					local events = {}
+					for i = 1,15 do
+						events[#events + 1] = {
+							Hit = v.plr.Character:FindFirstChildOfClass("Part"),
+							Cframe = CFrame.new(),
+							Distance = 0,
+							RayObject = Ray.new(Vector3.new(), Vector3.new())
+						}
+					end
+					coroutine.wrap(function()
+						for i = 1,30 do
+							replicatedstorage.ReloadEvent:FireServer(gun)
+							wait(.3)
+						end
+					end)()
+					replicatedstorage.ShootEvent:FireServer(events, gun)
+				end
+			end)
+		end
+	end
+end)
+
+spawn(function()
+	while wait(.2) do
+		if states.killaura then
+			pcall(function()
+				for i,v in pairs(players:GetPlayers()) do
+					if v ~= localplayer then
+						if (character:FindFirstChildOfClass("Part").CFrame.p-v.Character:FindFirstChildOfClass("Part").CFrame.p).magnitude < 20 and v.Character.Humanoid.Health > 0 then
+							kill(v)
+						end
+					end
+				end
+			end)
+		end
+	end
+end)
+
+spawn(function()
+	while wait(.2) do
+		for i,v in pairs(killaura) do
+			pcall(function()
+				local events = {}
+				for _,p in pairs(players:GetPlayers()) do
+					if p ~= localplayer and p ~= v.plr then
+						if (v.plr.Character:FindFirstChildOfClass("Part").CFrame.p-p.Character:FindFirstChildOfClass("Part").CFrame.p).magnitude < 20 then
+							if v.plr and game.Players:FindFirstChild(v.plr.Name) and v.plr.Character.Humanoid.Health > 0 then
+								for i = 1,15 do
+									events[#events + 1] = {
+										Hit = p.Character:FindFirstChildOfClass("Part"),
+										Cframe = CFrame.new(),
+										Distance = 0,
+										RayObject = Ray.new(Vector3.new(), Vector3.new())
+									}
+								end
+							end
+						end
+					end
+				end
+				workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+				local gun
+				for _,v2 in pairs(backpack:GetChildren()) do
+					if v2.Name ~= "Taser" and v:FindFirstChild("GunStates") then
+						if gun == nil then
+							gun = v
+						end
+					end
+				end
+				if gun == nil then
+					for _,v2 in pairs(backpack:GetChildren()) do
+						if v.Name ~= "Taser" and v:FindFirstChild("GunStates") then
+							if gun == nil then
+								gun = v2
+							end
+						end
+					end
+				end
+				coroutine.wrap(function()
+					for i = 1,30 do
+						replicatedstorage.ReloadEvent:FireServer(gun)
+						wait(.3)
+					end
+				end)()
+				game:GetService("ReplicatedStorage"):WaitForChild("ShootEvent"):FireServer(events, gun)
+			end)
+		end
+	end
+end)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			if game.Players.LocalPlayer.Character.Humanoid.Health < 1 then
+				if game.Players.LocalPlayer.TeamColor.Name ~= "Medium stone grey" then
+					savepos()
+					loadchar()
+					wait(.1)
+					loadpos()
+				else
+					teamevent("Bright orange")
+					savepos()
+					loadchar()
+					wait(.1)
+					loadpos()
+					teamevent("Medium stone grey")
+				end
+			end
+		end)
+	end
+end)
+
+local oldposition = humroot.Position
+local oldcframe = getpos()
+
+game:GetService("RunService").Stepped:Connect(function()
+	pcall(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+	end)
+end)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-oldposition).magnitude > 8 and not usingcmd then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldcframe
+			elseif usingcmd then
+				wait(.1)
+				usingcmd = false
+				oldposition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+				oldcframe = getpos()
+			end
+			if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-oldposition).magnitude < 8 and not usingcmd then
+				oldposition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+				oldcframe = getpos()
+			end
+		end)
+	end
+end)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			if localplayer.TeamColor.Name == "Really red" then
+				loadchar(BrickColor.new("Bright green").Name)
+				usingcmd = true
+				humroot.CFrame = CFrame.new(888, 100, 2388)
+				teamevent("Medium stone grey")
+			end
+			if character.Head:FindFirstChild("handcuffedGui") then
+				loadchar(BrickColor.new("Bright green").Name)
+				usingcmd = true
+				humroot.CFrame = CFrame.new(888, 100, 2388)
+				teamevent("Medium stone grey")
+			end
+		end)
+	end
+end)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y < 1 then
+				usingcmd = true
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(888, 100, 2388)
+			end
+			if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y > 10000 then
+				usingcmd = true
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(888, 100, 2388)
+			end
+			if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X > 10000 then
+				usingcmd = true
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(888, 100, 2388)
+			end
+		end)
+	end
+end)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			local arrestPlayer = getconnections(game:GetService("Workspace"):WaitForChild("Remote"):WaitForChild("arrestPlayer").OnClientEvent)
+			for i,v in pairs(arrestPlayer) do
+				v:Disable()
+			end
+		end)
+	end
+end)
+
+spawn(function()
+	while wait() do
+		for i,v in pairs(game.Players:GetPlayers()) do
+			if v ~= localplayer then
+				pcall(function()
+					coroutine.wrap(function()
+						for t = 1,1000 do
+							v.Character.Head:FindFirstChild("handcuffedGui"):Destroy()
+						end
+					end)()
+				end)
+			end
+		end
+	end
+end)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			getsenv(game.Players.LocalPlayer.Character.ClientInputHandler).cs.isFighting = false
+			getsenv(game.Players.LocalPlayer.Character.ClientInputHandler).cs.isRunning = false
+		end)
+	end
+end)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			local tazePlayer = getconnections(workspace.Remote.tazePlayer.OnClientEvent)
+			for i,v in pairs(tazePlayer) do
+				v:Disable()
+			end
+		end)
+	end
+end)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			if states.viewing ~= nil then
+				workspace.CurrentCamera.CameraSubject = states.viewing.Character
+			end
+		end)
+	end
+end)
+
+localplayer.CharacterAdded:Connect(function()
+	if localplayer.TeamColor.Name == "Medium stone grey" and states.stucking then
+		wait(.5)
+		game.Players.LocalPlayer.PlayerGui.Home.intro.Visible = false
+		game.Players.LocalPlayer.PlayerGui.Home.hud.Visible = true
+		workspace.CurrentCamera.FieldOfView = 70
+		game:GetService("StarterGui"):SetCoreGuiEnabled("Chat", true)
+		game:GetService("StarterGui"):SetCoreGuiEnabled("Backpack", true)
+		game:GetService("StarterGui"):SetCoreGuiEnabled("PlayerList", true)
+		workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+	end
+end)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			for i,v in pairs(players:GetPlayers()) do
+				if v.Character:FindFirstChild("vest") then
+					for i = 1,25 do
+						coroutine.wrap(function()
+							v.Character:FindFirstChild("vest"):Destroy()
+						end)()
+					end
+				end
+			end
+		end)
+	end
+end)
+
+local replicatedEvent = getconnections(game:GetService("ReplicatedStorage"):WaitForChild("ReplicateEvent").OnClientEvent)
+
+for i,v in pairs(replicatedEvent) do
+	v:Disable()
+end
+
+localplayer.CharacterAdded:Connect(function()
+	workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+	if game:GetService("MarketplaceService"):UserOwnsGamePassAsync(localplayer.UserId, 96651) then
+		workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
+	end
+	workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+	workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+	local Remington_870 = character:FindFirstChild("Remington 870") or backpack:FindFirstChild("Remington 870")
+	local AK_47 = character:FindFirstChild("AK-47") or backpack:FindFirstChild("AK-47")
+	local M4A1
+	if game:GetService("MarketplaceService"):UserOwnsGamePassAsync(localplayer.UserId, 96651) then
+		M4A1 = character:FindFirstChild("M4A1") or backpack:FindFirstChild("M4A1")
+	end
+	local M9 = character:FindFirstChild("M9") or backpack:FindFirstChild("M9")
+	local Taser
+	if character:FindFirstChild("Taser") or backpack:FindFirstChild("Taser") then
+		Taser = character:FindFirstChild("Taser") or backpack:FindFirstChild("Taser")
+	end
+	local GUNS = {
+		Remington_870,
+		AK_47,
+		M4A1,
+		M9,
+		Taser
+	}
+	for i,v in pairs(GUNS) do
+		local req = require(v:WaitForChild("GunStates"))
+		req["ReloadTime"] = -math.huge
+		req["FireRate"] = -math.huge
+		req["AutoFire"] = true
+		req["StoredAmmo"] = math.huge
+		req["AmmoPerClip"] = math.huge
+		req["CurrentAmmo"] = math.huge
+		req["MaxAmmo"] = math.huge
+	end
+end)
+
+for i,v in pairs(workspace["Criminals Spawn"]:children()) do
+	v:Destroy()
+end
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			coroutine.wrap(function()
+				local Remington_870 = character:FindFirstChild("Remington 870") or backpack:FindFirstChild("Remington 870")
+				local AK_47 = character:FindFirstChild("AK-47") or backpack:FindFirstChild("AK-47")
+				local M4A1
+				if game:GetService("MarketplaceService"):UserOwnsGamePassAsync(localplayer.UserId, 96651) then
+					M4A1 = character:FindFirstChild("M4A1") or backpack:FindFirstChild("M4A1")
+				end
+				local M9 = character:FindFirstChild("M9") or backpack:FindFirstChild("M9")
+				local Taser
+				if character:FindFirstChild("Taser") or backpack:FindFirstChild("Taser") then
+					Taser = character:FindFirstChild("Taser") or backpack:FindFirstChild("Taser")
+				end
+				local Guns = {
+					Remington_870,
+					AK_47,
+					M4A1,
+					M9,
+					Taser
+				}
+				for i,v in pairs(Guns) do
+					local req = require(v:WaitForChild("GunStates"))
+					for t = 1,2 do
+						game:GetService("ReplicatedStorage"):WaitForChild("ReloadEvent"):FireServer(v)
+						wait(.5)
+					end
+				end
+			end)()
+		end)
+	end
+end)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			localplayer:WaitForChild("Status"):WaitForChild("isBadGuard").Value = false
+			localplayer:WaitForChild("Status"):WaitForChild("toolIsEquipped").Value = false
+			localplayer:WaitForChild("Status"):WaitForChild("playerCell").Value = nil
+		end)
+	end
+end)
+
+INPUT.FocusLost:Connect(function()
+	if INPUT.Text:sub(1,1) ~= prefix then
+		usecmd(prefix..INPUT.Text)
+	else
+		usecmd(INPUT.Text)
+	end
+	wait()
+	INPUT.Text = ""
+	INPUT_HANDLER.Text = ""
+	CloseInput()
+end)
+
+savepos()
+loadchar(BrickColor.random().Name)
+wait(.1)
+usingcmd = true
+loadpos()
+
+game:GetService("Workspace"):WaitForChild("Doors"):Destroy()
