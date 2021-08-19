@@ -178,6 +178,12 @@ function PlayerChatted(Message)
 	Arg2 = Split[2]
 	Arg3 = Split[3]
 	Arg4 = Split[4]
+	if Command("tase") then
+		local Player = GetPlayer(Arg2)
+		if Player ~= nil then
+			Tase(Player)
+		end
+	end
 	if Command("lk") or Command("loopkill") then
 		local Player = GetPlayer(Arg2)
 		if Player ~= nil and not LoopKill[Player.UserId] then
