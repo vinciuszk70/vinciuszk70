@@ -1,0 +1,1614 @@
+Name = "Peka" -- Nick in text Label
+PekaColor = Color3.fromRGB(0, 170, 0) -- Text Color
+Color01 = Color3.fromRGB(0, 0, 0) -- Background Color
+Color02 = Color3.fromRGB(0, 170, 0) -- Borde Collor
+ColorTHZ = Color3.fromRGB(0, 0, 0) -- Background Button colors
+ColorKay = Color3.fromRGB(0, 0, 0) -- Borde button color
+PukeColor = Color3.fromRGB(0, 170, 0) -- borde color Lock2,Guns2,Re2
+Bormod = Color3.fromRGB(0, 0, 0) -- auto borde collor
+
+-- Customize Slot:
+
+local function xGuns() -- Weapon inventories
+	if (game.Players.LocalPlayer.Backpack:FindFirstChild("M9")) then
+		game.Players.LocalPlayer.Backpack:FindFirstChild("M9").Parent = game.Players.LocalPlayer
+	end
+	if (game.Players.LocalPlayer.Backpack:FindFirstChild("Taser")) then
+		game.Players.LocalPlayer.Backpack.Taser:Destroy()
+	end
+	if (game.Players.LocalPlayer.Backpack:FindFirstChild("Handcuffs")) then
+		game.Players.LocalPlayer.Backpack.Handcuffs:Destroy()
+	end
+	game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+	game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
+	game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+	game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+	if game.Players.LocalPlayer:FindFirstChild("M9") then
+		game.Players.LocalPlayer:FindFirstChild("M9").Parent = game.Players.LocalPlayer.Backpack
+	end
+end
+
+local function autoGuns()
+	game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+	game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
+	game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+	game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+end
+
+-- Message:
+
+game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage",{
+		Text = "GuiPeka: 6.0.0",
+		Color = PekaColor
+})
+
+game.StarterGui:SetCore("SendNotification", {
+Title = "Peka Script";
+Text = "Successfully loaded!!!1";
+Duration = 5;
+})
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local spy = Instance.new("TextButton")
+local Guns = Instance.new("TextButton")
+local Lock = Instance.new("TextButton")
+local Respawn = Instance.new("TextButton")
+local AutoGunon = Instance.new("TextButton")
+local fps = Instance.new("TextButton")
+local Peka = Instance.new("TextLabel")
+local Criminal = Instance.new("TextButton")
+local cop = Instance.new("TextButton")
+local Prisioner = Instance.new("TextButton")
+local Neutral = Instance.new("TextButton")
+local HDS = Instance.new("TextButton")
+local AntiShield = Instance.new("TextButton")
+local OnelegsK = Instance.new("TextButton")
+local AntiBring = Instance.new("TextButton")
+local Yield = Instance.new("TextButton")
+local ArmoryTP = Instance.new("TextButton")
+local BackTP = Instance.new("TextButton")
+local BaseTP = Instance.new("TextButton")
+local CafeTP = Instance.new("TextButton")
+local CellsTP = Instance.new("TextButton")
+local NexusTP = Instance.new("TextButton")
+local EntranceTP = Instance.new("TextButton")
+local RoofTP = Instance.new("TextButton")
+local StreetTP = Instance.new("TextButton")
+local TowerTP = Instance.new("TextButton")
+local YardTP1 = Instance.new("TextButton")
+local AutoGunoff = Instance.new("TextButton")
+local AdminPeka = Instance.new("TextButton")
+local ShopTP = Instance.new("TextButton")
+local ParkingTP = Instance.new("TextButton")
+local _1v1TP = Instance.new("TextButton")
+local RoadTP = Instance.new("TextButton")
+local BuildingTP = Instance.new("TextButton")
+local Close = Instance.new("TextButton")
+local YardTP2 = Instance.new("TextButton")
+local YardTP3 = Instance.new("TextButton")
+local cop_2 = Instance.new("TextButton")
+local Auto = Instance.new("Frame")
+local AutoRespa = Instance.new("TextLabel")
+local On = Instance.new("TextButton")
+local Off = Instance.new("TextButton")
+local Open = Instance.new("TextButton")
+local Guns2 = Instance.new("TextButton")
+local Respawn2 = Instance.new("TextButton")
+local Lock2 = Instance.new("TextButton")
+local NameCollor = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local Red = Instance.new("TextButton")
+local Black = Instance.new("TextButton")
+local White = Instance.new("TextButton")
+local Yellow = Instance.new("TextButton")
+local Blue = Instance.new("TextButton")
+local Green = Instance.new("TextButton")
+local OldAutogun = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Frame.Parent = ScreenGui
+Frame.Active = true
+Frame.BackgroundColor3 = Color01
+Frame.BorderColor3 = Color02
+Frame.BorderSizePixel = 3
+Frame.Position = UDim2.new(0.102257825, 0, 0.306861728, 0)
+Frame.Size = UDim2.new(0, 201, 0, 312)
+Frame.Visible = true
+Frame.Active = true
+Frame.Draggable = true
+
+spy.Name = "spy"
+spy.Parent = Frame
+spy.BackgroundColor3 = ColorTHZ
+spy.BorderColor3 = ColorKay
+spy.Position = UDim2.new(0.896733165, 0, -0.0496290848, 0)
+spy.Size = UDim2.new(0, 42, 0, 25)
+spy.Font = Enum.Font.SciFi
+spy.Text = "Spy"
+spy.TextColor3 = PekaColor
+spy.TextScaled = true
+spy.TextSize = 14.000
+spy.TextStrokeTransparency = 9.000
+spy.TextWrapped = true
+spy.MouseButton1Down:connect(function()
+	enabled = true --chat "/spy" to toggle!
+	spyOnMyself = false --if true will check your messages too
+	public = false --if true will chat the logs publicly (fun, risky)
+	publicItalics = true --if true will use /me to stand out
+	privateProperties = { --customize private logs
+		Color = Color3.fromRGB(0,255,255); 
+		Font = Enum.Font.SourceSansBold;
+		TextSize = 18;
+	}
+
+
+	local StarterGui = game:GetService("StarterGui")
+	local Players = game:GetService("Players")
+	local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() or Players.LocalPlayer
+	local saymsg = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest")
+	local getmsg = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("OnMessageDoneFiltering")
+	local instance = (_G.chatSpyInstance or 0) + 1
+	_G.chatSpyInstance = instance
+
+	local function onChatted(p,msg)
+		if _G.chatSpyInstance == instance then
+			if p==player and msg:lower():sub(1,4)=="/spy" then
+				enabled = not enabled
+				wait(0.3)
+				privateProperties.Text = "{SPY "..(enabled and "EN" or "DIS").."ABLED}"
+				StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+			elseif enabled and (spyOnMyself==true or p~=player) then
+				msg = msg:gsub("[\n\r]",''):gsub("\t",' '):gsub("[ ]+",' ')
+				local hidden = true
+				local conn = getmsg.OnClientEvent:Connect(function(packet,channel)
+					if packet.SpeakerUserId==p.UserId and packet.Message==msg:sub(#msg-#packet.Message+1) and (channel=="All" or (channel=="Team" and public==false and Players[packet.FromSpeaker].Team==player.Team)) then
+						hidden = false
+					end
+				end)
+				wait(1)
+				conn:Disconnect()
+				if hidden and enabled then
+					if public then
+						saymsg:FireServer((publicItalics and "/me " or '').."{SPY} [".. p.Name .."]: "..msg,"All")
+					else
+						privateProperties.Text = "{SPY} [".. p.Name .."]: "..msg
+						StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+					end
+				end
+			end
+		end
+	end
+
+	for _,p in ipairs(Players:GetPlayers()) do
+		p.Chatted:Connect(function(msg) onChatted(p,msg) end)
+	end
+	Players.PlayerAdded:Connect(function(p)
+		p.Chatted:Connect(function(msg) onChatted(p,msg) end)
+	end)
+	privateProperties.Text = "{SPY "..(enabled and "EN" or "DIS").."ABLED}"
+	StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+	if not player.PlayerGui:FindFirstChild("Chat") then wait(3) end
+	local chatFrame = player.PlayerGui.Chat.Frame
+	chatFrame.ChatChannelParentFrame.Visible = true
+	chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
+end)
+
+Guns.Name = "Guns"
+Guns.Parent = Frame
+Guns.BackgroundColor3 = ColorTHZ
+Guns.BorderColor3 = ColorKay
+Guns.Position = UDim2.new(0.561684132, 0, 0.205441236, 0)
+Guns.Size = UDim2.new(0, 52, 0, 34)
+Guns.Font = Enum.Font.SciFi
+Guns.Text = "Guns"
+Guns.TextColor3 = PekaColor
+Guns.TextScaled = true
+Guns.TextSize = 14.000
+Guns.TextStrokeTransparency = 9.000
+Guns.TextWrapped = true
+Guns.MouseButton1Down:connect(function()
+	xGuns()
+end)
+
+Lock.Name = "Lock"
+Lock.Parent = Frame
+Lock.BackgroundColor3 = ColorTHZ
+Lock.BorderColor3 = ColorKay
+Lock.Position = UDim2.new(0.233711183, 0, 0.212098017, 0)
+Lock.Size = UDim2.new(0, 49, 0, 32)
+Lock.Font = Enum.Font.SciFi
+Lock.Text = "Lock"
+Lock.TextColor3 = PekaColor
+Lock.TextScaled = true
+Lock.TextSize = 14.000
+Lock.TextStrokeTransparency = 9.000
+Lock.TextWrapped = true
+Lock.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 24
+	game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+	game.Players.LocalPlayer.CharacterAdded:connect(function()
+		game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
+		game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+	end)
+end)
+
+Respawn.Name = "Respawn"
+Respawn.Parent = Frame
+Respawn.BackgroundColor3 = ColorTHZ
+Respawn.BorderColor3 = ColorKay
+Respawn.Position = UDim2.new(0.896270692, 0, 0.170476496, 0)
+Respawn.Size = UDim2.new(0, 42, 0, 25)
+Respawn.Font = Enum.Font.SciFi
+Respawn.Text = "Re"
+Respawn.TextColor3 = PekaColor
+Respawn.TextScaled = true
+Respawn.TextSize = 14.000
+Respawn.TextStrokeTransparency = 9.000
+Respawn.TextWrapped = true
+Respawn.MouseButton1Down:connect(function()
+	local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+	local plr = game.Players.LocalPlayer.Name
+	local gayevent = game:GetService("Workspace").Remote.loadchar
+	gayevent:InvokeServer(plr)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+end)
+
+AutoGunon.Name = "AutoGun on"
+AutoGunon.Parent = Frame
+AutoGunon.BackgroundColor3 = ColorTHZ
+AutoGunon.BorderColor3 = ColorKay
+AutoGunon.Position = UDim2.new(-0.0630253255, 0, 0.168369308, 0)
+AutoGunon.Size = UDim2.new(0, 42, 0, 25)
+AutoGunon.Font = Enum.Font.SciFi
+AutoGunon.Text = "AutoOn"
+AutoGunon.TextColor3 = PekaColor
+AutoGunon.TextScaled = true
+AutoGunon.TextSize = 14.000
+AutoGunon.TextStrokeTransparency = 9.000
+AutoGunon.TextWrapped = true
+AutoGunon.MouseButton1Down:connect(function()
+	autoGuns()
+
+boquete = true
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function(newChar)
+    if boquete then
+        char = newChar 
+        rootpart = newChar:WaitForChild("HumanoidRootPart",0.3)
+        wait()
+            autoGuns()
+end
+end)
+end)
+
+fps.Name = "fps"
+fps.Parent = Frame
+fps.BackgroundColor3 = ColorTHZ
+fps.BorderColor3 = ColorKay
+fps.Position = UDim2.new(-0.0616983697, 0, -0.0496222004, 0)
+fps.Size = UDim2.new(0, 41, 0, 25)
+fps.Font = Enum.Font.SciFi
+fps.Text = "Fps"
+fps.TextColor3 = PekaColor
+fps.TextScaled = true
+fps.TextSize = 14.000
+fps.TextStrokeTransparency = 9.000
+fps.TextWrapped = true
+fps.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/Q6dyC8kL",true))()
+end)
+
+Peka.Name = "Peka"
+Peka.Parent = Frame
+Peka.BackgroundColor3 = Color01
+Peka.BorderColor3 = Color02
+Peka.BorderSizePixel = 2
+Peka.Position = UDim2.new(0.202632695, 0, -0.00256665517, 0)
+Peka.Size = UDim2.new(0, 124, 0, 25)
+Peka.Font = Enum.Font.SourceSans
+Peka.Text = Name
+Peka.TextColor3 = PekaColor
+Peka.TextSize = 24.000
+
+Criminal.Name = "Criminal"
+Criminal.Parent = Frame
+Criminal.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Criminal.BorderSizePixel = 0
+Criminal.Position = UDim2.new(0.183888823, 0, 0.339312345, 0)
+Criminal.Size = UDim2.new(0, 17, 0, 30)
+Criminal.Font = Enum.Font.SourceSans
+Criminal.Text = "C"
+Criminal.TextColor3 = Color3.fromRGB(0, 0, 0)
+Criminal.TextScaled = true
+Criminal.TextSize = 14.000
+Criminal.TextWrapped = true
+Criminal.MouseButton1Down:connect(function()
+	LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+	LCS.CanCollide = false
+	LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+	LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	LCS.Transparency = 1
+	wait(0.5)
+	LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+	LCS.Size = Vector3.new(6, 0.2, 6)
+	LCS.Transparency = 0
+end)
+
+cop.Name = "cop"
+cop.Parent = Frame
+cop.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+cop.BorderColor3 = Color3.fromRGB(0, 0, 127)
+cop.BorderSizePixel = 0
+cop.Position = UDim2.new(0.309031487, 0, 0.339312285, 0)
+cop.Size = UDim2.new(0, 18, 0, 30)
+cop.Font = Enum.Font.SourceSans
+cop.Text = "C2"
+cop.TextColor3 = Color3.fromRGB(0, 0, 0)
+cop.TextScaled = true
+cop.TextSize = 14.000
+cop.TextWrapped = true
+cop.MouseButton1Down:connect(function()
+	Workspace.Remote.TeamEvent:FireServer("Bright blue")
+end)
+
+Prisioner.Name = "Prisioner"
+Prisioner.Parent = Frame
+Prisioner.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+Prisioner.BorderSizePixel = 0
+Prisioner.Position = UDim2.new(0.557264209, 0, 0.339312345, 0)
+Prisioner.Size = UDim2.new(0, 17, 0, 30)
+Prisioner.Font = Enum.Font.SourceSans
+Prisioner.Text = "I"
+Prisioner.TextColor3 = Color3.fromRGB(0, 0, 0)
+Prisioner.TextScaled = true
+Prisioner.TextSize = 14.000
+Prisioner.TextWrapped = true
+Prisioner.MouseButton1Down:connect(function()
+	Workspace.Remote.TeamEvent:FireServer("Bright orange")
+end)
+
+Neutral.Name = "Neutral"
+Neutral.Parent = Frame
+Neutral.BackgroundColor3 = Color3.fromRGB(153, 153, 153)
+Neutral.BorderSizePixel = 0
+Neutral.Position = UDim2.new(0.679717541, 0, 0.339312285, 0)
+Neutral.Size = UDim2.new(0, 17, 0, 30)
+Neutral.Font = Enum.Font.SourceSans
+Neutral.Text = "N"
+Neutral.TextColor3 = Color3.fromRGB(0, 0, 0)
+Neutral.TextScaled = true
+Neutral.TextSize = 14.000
+Neutral.TextWrapped = true
+Neutral.MouseButton1Down:connect(function()
+	Workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+end)
+
+HDS.Name = "HDS"
+HDS.Parent = Frame
+HDS.BackgroundColor3 = ColorTHZ
+HDS.BorderColor3 = ColorKay
+HDS.Position = UDim2.new(0.630204678, 0, 0.0932165235, 0)
+HDS.Size = UDim2.new(0, 37, 0, 26)
+HDS.Font = Enum.Font.SciFi
+HDS.Text = "Headless"
+HDS.TextColor3 = PekaColor
+HDS.TextScaled = true
+HDS.TextSize = 10.000
+HDS.TextStrokeTransparency = 9.000
+HDS.TextWrapped = true
+HDS.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.Head.Transparency = 1
+for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
+if (v:IsA("Decal")) then
+v:Destroy()
+end
+end
+end)
+
+AntiShield.Name = "AntiShield"
+AntiShield.Parent = Frame
+AntiShield.BackgroundColor3 = ColorTHZ
+AntiShield.BorderColor3 = ColorKay
+AntiShield.Position = UDim2.new(-0.0661119968, 0, 0.0598431677, 0)
+AntiShield.Size = UDim2.new(0, 42, 0, 25)
+AntiShield.Font = Enum.Font.SciFi
+AntiShield.Text = "Anti Shield"
+AntiShield.TextColor3 = PekaColor
+AntiShield.TextScaled = true
+AntiShield.TextSize = 10.000
+AntiShield.TextStrokeTransparency = 9.000
+AntiShield.TextWrapped = true
+AntiShield.MouseButton1Down:connect(function()
+	game:GetService("UserInputService").InputBegan:connect(function(inputObject, gameProcessedEvent)
+		if gameProcessedEvent then return end
+		if inputObject.KeyCode == Enum.KeyCode.G then
+			for _,player in pairs(game.Players:GetPlayers()) do
+				local minecraft = game.Workspace:FindFirstChild(player.Name).Torso:FindFirstChild("ShieldFolder")
+				if minecraft then
+					minecraft:Destroy()
+				end
+				local fortnite = game.Workspace:FindFirstChild(player.Name):FindFirstChild("Riot Shield")
+				if fortnite then
+					fortnite:Destroy()
+				end
+			end
+		end
+	end)
+end)
+
+OnelegsK.Name = "OnelegsK"
+OnelegsK.Parent = Frame
+OnelegsK.BackgroundColor3 = ColorTHZ
+OnelegsK.BorderColor3 = ColorKay
+OnelegsK.Position = UDim2.new(0.894753456, 0, 0.058543548, 0)
+OnelegsK.Size = UDim2.new(0, 42, 0, 25)
+OnelegsK.Font = Enum.Font.SciFi
+OnelegsK.Text = "Cursor"
+OnelegsK.TextColor3 = PekaColor
+OnelegsK.TextSize = 14.000
+OnelegsK.TextStrokeTransparency = 9.000
+OnelegsK.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character['Right Leg']:remove()
+end)
+
+AntiBring.Name = "AntiBring"
+AntiBring.Parent = Frame
+AntiBring.BackgroundColor3 = ColorTHZ
+AntiBring.BorderColor3 = ColorKay
+AntiBring.Position = UDim2.new(0.439287603, 0, 0.102348708, 0)
+AntiBring.Size = UDim2.new(0, 37, 0, 26)
+AntiBring.Font = Enum.Font.SciFi
+AntiBring.Text = "Anti Bring"
+AntiBring.TextColor3 = PekaColor
+AntiBring.TextScaled = true
+AntiBring.TextSize = 10.000
+AntiBring.TextStrokeTransparency = 9.000
+AntiBring.TextWrapped = true
+AntiBring.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/CjsBKmRW",true))()
+end)
+
+Yield.Name = "Yield"
+Yield.Parent = Frame
+Yield.BackgroundColor3 = ColorTHZ
+Yield.BorderColor3 = ColorKay
+Yield.Position = UDim2.new(0.227508292, 0, 0.0931179374, 0)
+Yield.Size = UDim2.new(0, 37, 0, 26)
+Yield.Font = Enum.Font.SciFi
+Yield.Text = "Yield"
+Yield.TextColor3 = PekaColor
+Yield.TextScaled = true
+Yield.TextSize = 16.000
+Yield.TextStrokeTransparency = 9.000
+Yield.TextWrapped = true
+Yield.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet(('https://pastebin.com/raw/tzTXmYf2'),true))()
+end)
+
+ArmoryTP.Name = "ArmoryTP"
+ArmoryTP.Parent = Frame
+ArmoryTP.BackgroundColor3 = ColorTHZ
+ArmoryTP.BorderColor3 = ColorKay
+ArmoryTP.Position = UDim2.new(0.272634298, 0, 0.458359569, 0)
+ArmoryTP.Size = UDim2.new(0, 40, 0, 31)
+ArmoryTP.Font = Enum.Font.SourceSans
+ArmoryTP.Text = "Armory"
+ArmoryTP.TextColor3 = PekaColor
+ArmoryTP.TextScaled = true
+ArmoryTP.TextSize = 19.000
+ArmoryTP.TextWrapped = true
+ArmoryTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(798,99,2260)
+end)
+
+BackTP.Name = "BackTP"
+BackTP.Parent = Frame
+BackTP.BackgroundColor3 = ColorTHZ
+BackTP.BorderColor3 = ColorKay
+BackTP.Position = UDim2.new(-0.0489023626, 0, 0.489469469, 0)
+BackTP.Size = UDim2.new(0, 36, 0, 28)
+BackTP.Font = Enum.Font.SourceSans
+BackTP.Text = "Back"
+BackTP.TextColor3 = PekaColor
+BackTP.TextScaled = true
+BackTP.TextSize = 19.000
+BackTP.TextWrapped = true
+BackTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(980, 101, 2327)
+end)
+
+BaseTP.Name = "BaseTP"
+BaseTP.Parent = Frame
+BaseTP.BackgroundColor3 = ColorTHZ
+BaseTP.BorderColor3 = ColorKay
+BaseTP.Position = UDim2.new(0.558423698, 0, 0.459956974, 0)
+BaseTP.Size = UDim2.new(0, 42, 0, 28)
+BaseTP.Font = Enum.Font.SourceSans
+BaseTP.Text = "Base"
+BaseTP.TextColor3 = PekaColor
+BaseTP.TextScaled = true
+BaseTP.TextSize = 19.000
+BaseTP.TextWrapped = true
+BaseTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-861,99,2053) 
+end)
+
+CafeTP.Name = "CafeTP"
+CafeTP.Parent = Frame
+CafeTP.BackgroundColor3 = ColorTHZ
+CafeTP.BorderColor3 = ColorKay
+CafeTP.Position = UDim2.new(0.257392198, 0, 0.581657767, 0)
+CafeTP.Size = UDim2.new(0, 41, 0, 31)
+CafeTP.Font = Enum.Font.SourceSans
+CafeTP.Text = "Cafe"
+CafeTP.TextColor3 = PekaColor
+CafeTP.TextScaled = true
+CafeTP.TextSize = 21.000
+CafeTP.TextWrapped = true
+CafeTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(879,99,2247)
+end)
+
+CellsTP.Name = "CellsTP"
+CellsTP.Parent = Frame
+CellsTP.BackgroundColor3 = ColorTHZ
+CellsTP.BorderColor3 = ColorKay
+CellsTP.Position = UDim2.new(0.887547791, 0, 0.492283642, 0)
+CellsTP.Size = UDim2.new(0, 36, 0, 31)
+CellsTP.Font = Enum.Font.SourceSans
+CellsTP.Text = "Cells"
+CellsTP.TextColor3 = PekaColor
+CellsTP.TextScaled = true
+CellsTP.TextSize = 19.000
+CellsTP.TextWrapped = true
+CellsTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(910,99,2477)
+end)
+
+NexusTP.Name = "NexusTP"
+NexusTP.Parent = Frame
+NexusTP.BackgroundColor3 = ColorTHZ
+NexusTP.BorderColor3 = ColorKay
+NexusTP.Position = UDim2.new(0.558119953, 0, 0.846814036, 0)
+NexusTP.Size = UDim2.new(0, 42, 0, 31)
+NexusTP.Font = Enum.Font.SourceSans
+NexusTP.Text = "Nexus"
+NexusTP.TextColor3 = PekaColor
+NexusTP.TextScaled = true
+NexusTP.TextSize = 19.000
+NexusTP.TextWrapped = true
+NexusTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(879,99,2377)
+end)
+
+EntranceTP.Name = "EntranceTP"
+EntranceTP.Parent = Frame
+EntranceTP.BackgroundColor3 = ColorTHZ
+EntranceTP.BorderColor3 = ColorKay
+EntranceTP.Position = UDim2.new(0.246218994, 0, 0.850097477, 0)
+EntranceTP.Size = UDim2.new(0, 41, 0, 28)
+EntranceTP.Font = Enum.Font.SourceSans
+EntranceTP.Text = "Entrance"
+EntranceTP.TextColor3 = PekaColor
+EntranceTP.TextScaled = true
+EntranceTP.TextSize = 19.000
+EntranceTP.TextWrapped = true
+EntranceTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(600,99,2242) 
+end)
+
+RoofTP.Name = "RoofTP"
+RoofTP.Parent = Frame
+RoofTP.BackgroundColor3 = ColorTHZ
+RoofTP.BorderColor3 = ColorKay
+RoofTP.Position = UDim2.new(-0.0475920662, 0, 0.649793625, 0)
+RoofTP.Size = UDim2.new(0, 35, 0, 28)
+RoofTP.Font = Enum.Font.SourceSans
+RoofTP.Text = "Roof"
+RoofTP.TextColor3 = PekaColor
+RoofTP.TextScaled = true
+RoofTP.TextSize = 19.000
+RoofTP.TextWrapped = true
+RoofTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(933.268, 134.784, 2463.6)
+end)
+
+StreetTP.Name = "StreetTP"
+StreetTP.Parent = Frame
+StreetTP.BackgroundColor3 = ColorTHZ
+StreetTP.BorderColor3 = ColorKay
+StreetTP.Position = UDim2.new(0.886528611, 0, 0.652415872, 0)
+StreetTP.Size = UDim2.new(0, 36, 0, 28)
+StreetTP.Font = Enum.Font.SourceSans
+StreetTP.Text = "Street"
+StreetTP.TextColor3 = PekaColor
+StreetTP.TextScaled = true
+StreetTP.TextSize = 19.000
+StreetTP.TextWrapped = true
+StreetTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-170, 54, 2489)
+end)
+
+TowerTP.Name = "TowerTP"
+TowerTP.Parent = Frame
+TowerTP.BackgroundColor3 = ColorTHZ
+TowerTP.BorderColor3 = ColorKay
+TowerTP.Position = UDim2.new(0.560019493, 0, 0.588255227, 0)
+TowerTP.Size = UDim2.new(0, 42, 0, 28)
+TowerTP.Font = Enum.Font.SourceSans
+TowerTP.Text = "Tower"
+TowerTP.TextColor3 = PekaColor
+TowerTP.TextScaled = true
+TowerTP.TextSize = 19.000
+TowerTP.TextWrapped = true
+TowerTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(795.592, 122.32, 2592.388)
+end)
+
+YardTP1.Name = "YardTP1"
+YardTP1.Parent = Frame
+YardTP1.BackgroundColor3 = ColorTHZ
+YardTP1.BorderColor3 = ColorKay
+YardTP1.Position = UDim2.new(-0.054697521, 0, 0.962681293, 0)
+YardTP1.Size = UDim2.new(0, 35, 0, 24)
+YardTP1.Font = Enum.Font.SourceSans
+YardTP1.Text = "Yard I"
+YardTP1.TextColor3 = PekaColor
+YardTP1.TextScaled = true
+YardTP1.TextSize = 19.000
+YardTP1.TextWrapped = true
+YardTP1.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(779,99,2477)
+end)
+
+AutoGunoff.Name = "AutoGun off"
+AutoGunoff.Parent = Frame
+AutoGunoff.BackgroundColor3 = ColorTHZ
+AutoGunoff.BorderColor3 = ColorKay
+AutoGunoff.Position = UDim2.new(-0.0618688464, 0, 0.281245708, 0)
+AutoGunoff.Size = UDim2.new(0, 42, 0, 25)
+AutoGunoff.Font = Enum.Font.SciFi
+AutoGunoff.Text = "AutoOff"
+AutoGunoff.TextColor3 = PekaColor
+AutoGunoff.TextScaled = true
+AutoGunoff.TextSize = 14.000
+AutoGunoff.TextStrokeTransparency = 9.000
+AutoGunoff.TextWrapped = true
+AutoGunoff.MouseButton1Down:connect(function()
+	xGuns()
+
+boquete = false
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function(newChar)
+    if boquete then
+        char = newChar 
+        rootpart = newChar:WaitForChild("HumanoidRootPart",0.3)
+        wait()
+            autoGuns()
+end
+end)
+end)
+
+AdminPeka.Name = "AdminPeka"
+AdminPeka.Parent = Frame
+AdminPeka.BackgroundColor3 = ColorTHZ
+AdminPeka.BorderColor3 = ColorKay
+AdminPeka.Position = UDim2.new(0.896270692, 0, 0.281245708, 0)
+AdminPeka.Size = UDim2.new(0, 42, 0, 25)
+AdminPeka.Font = Enum.Font.SciFi
+AdminPeka.Text = "AdminPekaV2"
+AdminPeka.TextColor3 = PekaColor
+AdminPeka.TextScaled = true
+AdminPeka.TextSize = 14.000
+AdminPeka.TextStrokeTransparency = 9.000
+AdminPeka.TextWrapped = true
+AdminPeka.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/ALBwuPVp",true))()
+end)
+
+ShopTP.Name = "ShopTP"
+ShopTP.Parent = Frame
+ShopTP.BackgroundColor3 = ColorTHZ
+ShopTP.BorderColor3 = ColorKay
+ShopTP.Position = UDim2.new(0.560901344, 0, 0.713954329, 0)
+ShopTP.Size = UDim2.new(0, 42, 0, 28)
+ShopTP.Font = Enum.Font.SourceSans
+ShopTP.Text = "Shop"
+ShopTP.TextColor3 = PekaColor
+ShopTP.TextScaled = true
+ShopTP.TextSize = 19.000
+ShopTP.TextWrapped = true
+ShopTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(532, 10, 1085)
+end)
+
+ParkingTP.Name = "ParkingTP"
+ParkingTP.Parent = Frame
+ParkingTP.BackgroundColor3 = ColorTHZ
+ParkingTP.BorderColor3 = ColorKay
+ParkingTP.Position = UDim2.new(0.260906398, 0, 0.713954329, 0)
+ParkingTP.Size = UDim2.new(0, 42, 0, 28)
+ParkingTP.Font = Enum.Font.SourceSans
+ParkingTP.Text = "Parking lot"
+ParkingTP.TextColor3 = PekaColor
+ParkingTP.TextScaled = true
+ParkingTP.TextSize = 14.000
+ParkingTP.TextWrapped = true
+ParkingTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-509, 54, 1800)
+end)
+
+_1v1TP.Name = "1v1TP"
+_1v1TP.Parent = Frame
+_1v1TP.BackgroundColor3 = ColorTHZ
+_1v1TP.BorderColor3 = ColorKay
+_1v1TP.Position = UDim2.new(0.646794975, 0, 0.962681293, 0)
+_1v1TP.Size = UDim2.new(0, 35, 0, 24)
+_1v1TP.Font = Enum.Font.SourceSans
+_1v1TP.Text = "1v1"
+_1v1TP.TextColor3 = PekaColor
+_1v1TP.TextScaled = true
+_1v1TP.TextSize = 19.000
+_1v1TP.TextWrapped = true
+_1v1TP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(900, 10, 1000)
+end)
+
+RoadTP.Name = "RoadTP"
+RoadTP.Parent = Frame
+RoadTP.BackgroundColor3 = ColorTHZ
+RoadTP.BorderColor3 = ColorKay
+RoadTP.Position = UDim2.new(0.886528611, 0, 0.800108194, 0)
+RoadTP.Size = UDim2.new(0, 36, 0, 28)
+RoadTP.Font = Enum.Font.SourceSans
+RoadTP.Text = "Road"
+RoadTP.TextColor3 = PekaColor
+RoadTP.TextScaled = true
+RoadTP.TextSize = 19.000
+RoadTP.TextWrapped = true
+RoadTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-149, 54, 1850)
+end)
+
+BuildingTP.Name = "BuildingTP"
+BuildingTP.Parent = Frame
+BuildingTP.BackgroundColor3 = ColorTHZ
+BuildingTP.BorderColor3 = ColorKay
+BuildingTP.Position = UDim2.new(-0.0526018143, 0, 0.800108194, 0)
+BuildingTP.Size = UDim2.new(0, 36, 0, 28)
+BuildingTP.Font = Enum.Font.SourceSans
+BuildingTP.Text = "Building"
+BuildingTP.TextColor3 = PekaColor
+BuildingTP.TextScaled = true
+BuildingTP.TextSize = 19.000
+BuildingTP.TextWrapped = true
+BuildingTP.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-367, 113, 1990)
+end)
+
+Close.Name = "Close"
+Close.Parent = Frame
+Close.BackgroundColor3 = ColorTHZ
+Close.BorderColor3 = Color02
+Close.Position = UDim2.new(0.943478286, 0, 0.972307682, 0)
+Close.Size = UDim2.new(0, 23, 0, 19)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "X"
+Close.TextColor3 = PekaColor
+Close.TextSize = 14.000
+Close.TextWrapped = true
+
+YardTP2.Name = "YardTP2"
+YardTP2.Parent = Frame
+YardTP2.BackgroundColor3 = ColorTHZ
+YardTP2.BorderColor3 = ColorKay
+YardTP2.Position = UDim2.new(0.184108436, 0, 0.962681293, 0)
+YardTP2.Size = UDim2.new(0, 35, 0, 24)
+YardTP2.Font = Enum.Font.SourceSans
+YardTP2.Text = "Yard II"
+YardTP2.TextColor3 = PekaColor
+YardTP2.TextScaled = true
+YardTP2.TextSize = 19.000
+YardTP2.TextWrapped = true
+YardTP2.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1000,99,2477)
+end)
+
+YardTP3.Name = "YardTP3"
+YardTP3.Parent = Frame
+YardTP3.BackgroundColor3 = ColorTHZ
+YardTP3.BorderColor3 = ColorKay
+YardTP3.Position = UDim2.new(0.412964165, 0, 0.962681293, 0)
+YardTP3.Size = UDim2.new(0, 35, 0, 24)
+YardTP3.Font = Enum.Font.SourceSans
+YardTP3.Text = "Yard III"
+YardTP3.TextColor3 = PekaColor
+YardTP3.TextScaled = true
+YardTP3.TextSize = 19.000
+YardTP3.TextWrapped = true
+YardTP3.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1000,99,2135)
+end)
+
+cop_2.Name = "cop"
+cop_2.Parent = Frame
+cop_2.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+cop_2.BorderColor3 = Color3.fromRGB(0, 0, 127)
+cop_2.BorderSizePixel = 0
+cop_2.Position = UDim2.new(0.438384742, 0, 0.339312285, 0)
+cop_2.Size = UDim2.new(0, 18, 0, 30)
+cop_2.Font = Enum.Font.SourceSans
+cop_2.Text = "C2"
+cop_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+cop_2.TextScaled = true
+cop_2.TextSize = 14.000
+cop_2.TextWrapped = true
+cop_2.MouseButton1Down:connect(function()
+	local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+	workspace.Remote.loadchar:InvokeServer("", "Bright blue")
+	wait()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+end)
+
+Auto.Name = "Auto"
+Auto.Parent = ScreenGui
+Auto.Active = true
+Auto.BackgroundColor3 = Color01
+Auto.BorderColor3 = Color02
+Auto.ClipsDescendants = true
+Auto.Position = UDim2.new(0.939550161, 0, 0.865275145, 0)
+Auto.Selectable = true
+Auto.Size = UDim2.new(0, 61, 0, 66)
+Auto.Visible = true
+Auto.Active = true
+Auto.Draggable = true
+
+AutoRespa.Name = "AutoRespa"
+AutoRespa.Parent = Auto
+AutoRespa.BackgroundColor3 = Color01
+AutoRespa.BorderColor3 = Bormod
+AutoRespa.Position = UDim2.new(0.136444092, 0, 0.0909090936, 0)
+AutoRespa.Size = UDim2.new(0, 45, 0, 26)
+AutoRespa.Font = Enum.Font.Sarpanch
+AutoRespa.Text = "Auto Re"
+AutoRespa.TextColor3 = PekaColor
+AutoRespa.TextSize = 14.000
+
+On.Name = "On"
+On.Parent = Auto
+On.BackgroundColor3 = Color01
+On.BorderColor3 = Bormod
+On.Position = UDim2.new(0.136444092, 0, 0.484848499, 0)
+On.Size = UDim2.new(0, 44, 0, 23)
+On.Font = Enum.Font.SciFi
+On.Text = "On"
+On.TextColor3 = PekaColor
+On.TextSize = 14.000
+
+Off.Name = "Off"
+Off.Parent = Auto
+Off.BackgroundColor3 = Color01
+Off.BorderColor3 = Bormod
+Off.Position = UDim2.new(0.136444092, 0, 0.560606062, 0)
+Off.Size = UDim2.new(0, 44, 0, 23)
+Off.Font = Enum.Font.SciFi
+Off.Text = "Off"
+Off.TextColor3 = PekaColor
+Off.TextSize = 14.000
+
+Open.Name = "Open"
+Open.Parent = ScreenGui
+Open.BackgroundColor3 = ColorTHZ
+Open.BorderColor3 = ColorKay
+Open.BorderSizePixel = 3
+Open.Position = UDim2.new(0.005859375, 0, 0.554216862, 0)
+Open.Size = UDim2.new(0, 51, 0, 26)
+Open.Font = Enum.Font.SourceSans
+Open.Text = "Open"
+Open.TextColor3 = PekaColor
+Open.TextScaled = true
+Open.TextSize = 14.000
+Open.TextWrapped = true
+
+Guns2.Name = "Guns2"
+Guns2.Parent = ScreenGui
+Guns2.BackgroundColor3 = ColorTHZ
+Guns2.BorderColor3 = PukeColor
+Guns2.BorderSizePixel = 2
+Guns2.Position = UDim2.new(0.791992188, 0, 0.841365457, 0)
+Guns2.Size = UDim2.new(0, 29, 0, 48)
+Guns2.Font = Enum.Font.SourceSans
+Guns2.Text = "Guns"
+Guns2.TextColor3 = PekaColor
+Guns2.TextScaled = true
+Guns2.TextSize = 14.000
+Guns2.TextWrapped = true
+Guns2.MouseButton1Down:connect(function()
+	xGuns()
+end)
+
+Respawn2.Name = "Respawn2"
+Respawn2.Parent = ScreenGui
+Respawn2.BackgroundColor3 = ColorTHZ
+Respawn2.BorderColor3 = PukeColor
+Respawn2.BorderSizePixel = 2
+Respawn2.Position = UDim2.new(0.826171875, 0, 0.841365457, 0)
+Respawn2.Size = UDim2.new(0, 29, 0, 48)
+Respawn2.Font = Enum.Font.SourceSans
+Respawn2.Text = "Re"
+Respawn2.TextColor3 = PekaColor
+Respawn2.TextScaled = true
+Respawn2.TextSize = 14.000
+Respawn2.TextWrapped = true
+Respawn2.MouseButton1Down:connect(function()
+	local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+	local plr = game.Players.LocalPlayer.Name
+	local gayevent = game:GetService("Workspace").Remote.loadchar
+	gayevent:InvokeServer(plr)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+end)
+
+Lock2.Name = "Lock2"
+Lock2.Parent = ScreenGui
+Lock2.BackgroundColor3 = ColorTHZ
+Lock2.BorderColor3 = PukeColor
+Lock2.BorderSizePixel = 2
+Lock2.Position = UDim2.new(0.860351563, 0, 0.841365457, 0)
+Lock2.Size = UDim2.new(0, 29, 0, 48)
+Lock2.Font = Enum.Font.SourceSans
+Lock2.Text = "Lock"
+Lock2.TextColor3 = PekaColor
+Lock2.TextScaled = true
+Lock2.TextSize = 14.000
+Lock2.TextWrapped = true
+Lock2.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 24
+	game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+	game.Players.LocalPlayer.CharacterAdded:connect(function()
+		game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
+		game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+	end)
+end)
+
+NameCollor.Name = "NameCollor"
+NameCollor.Parent = ScreenGui
+NameCollor.BackgroundColor3 = Color01
+NameCollor.BorderColor3 = Color02
+NameCollor.BorderSizePixel = 2
+NameCollor.Position = UDim2.new(0.890779018, 0, 0, 0)
+NameCollor.Size = UDim2.new(0, 149, 0, 118)
+NameCollor.Visible = true
+NameCollor.Active = true
+NameCollor.Draggable = true
+
+TextLabel.Parent = NameCollor
+TextLabel.BackgroundColor3 = Color01
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(-0.177401543, 0, -0.125869185, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Collor Name"
+TextLabel.TextColor3 = PekaColor
+TextLabel.TextSize = 14.000
+
+Red.Name = "Red"
+Red.Parent = NameCollor
+Red.BackgroundColor3 = ColorTHZ
+Red.BorderColor3 = ColorKay
+Red.Position = UDim2.new(0.0591069944, 0, 0.340208322, 0)
+Red.Size = UDim2.new(0, 41, 0, 25)
+Red.Font = Enum.Font.SciFi
+Red.Text = "Red"
+Red.TextColor3 = PekaColor
+Red.TextScaled = true
+Red.TextSize = 14.000
+Red.TextStrokeTransparency = 9.000
+Red.TextWrapped = true
+Red.MouseButton1Down:connect(function()
+	saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local tbl_main = 
+{
+      game:GetService("Players").LocalPlayer, 
+      "Crimson"
+}
+game:GetService("Workspace").Remote.loadchar:InvokeServer(unpack(tbl_main))
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage",{
+		Text = "{Team} You are now on the 'Red' team.",
+		Color = Color3.fromRGB(255, 255, 255)
+	})
+end)
+
+Black.Name = "Black"
+Black.Parent = NameCollor
+Black.BackgroundColor3 = ColorTHZ
+Black.BorderColor3 = ColorKay
+Black.Position = UDim2.new(0.361120403, 0, 0.340208322, 0)
+Black.Size = UDim2.new(0, 41, 0, 25)
+Black.Font = Enum.Font.SciFi
+Black.Text = "Black"
+Black.TextColor3 = PekaColor
+Black.TextScaled = true
+Black.TextSize = 14.000
+Black.TextStrokeTransparency = 9.000
+Black.TextWrapped = true
+Black.MouseButton1Down:connect(function()
+	saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local tbl_main = 
+{
+      game:GetService("Players").LocalPlayer, 
+      "Really black"
+}
+game:GetService("Workspace").Remote.loadchar:InvokeServer(unpack(tbl_main))
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage",{
+		Text = "{Team} You are now on the 'Black' team.",
+		Color = Color3.fromRGB(255, 255, 255)
+	})
+end)
+
+White.Name = "White"
+White.Parent = NameCollor
+White.BackgroundColor3 = ColorTHZ
+White.BorderColor3 = ColorKay
+White.Position = UDim2.new(0.68326807, 0, 0.34868291, 0)
+White.Size = UDim2.new(0, 41, 0, 25)
+White.Font = Enum.Font.SciFi
+White.Text = "White"
+White.TextColor3 = PekaColor
+White.TextScaled = true
+White.TextSize = 14.000
+White.TextStrokeTransparency = 9.000
+White.TextWrapped = true
+White.MouseButton1Down:connect(function()
+	saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local tbl_main = 
+{
+      game:GetService("Players").LocalPlayer, 
+      "White"
+}
+game:GetService("Workspace").Remote.loadchar:InvokeServer(unpack(tbl_main))
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage",{
+		Text = "{Team} You are now on the 'White' team.",
+		Color = Color3.fromRGB(255, 255, 255)
+	})
+end)
+
+Yellow.Name = "Yellow"
+Yellow.Parent = NameCollor
+Yellow.BackgroundColor3 = ColorTHZ
+Yellow.BorderColor3 = ColorKay
+Yellow.Position = UDim2.new(0.68326807, 0, 0.645293117, 0)
+Yellow.Size = UDim2.new(0, 41, 0, 25)
+Yellow.Font = Enum.Font.SciFi
+Yellow.Text = "Yellow"
+Yellow.TextColor3 = PekaColor
+Yellow.TextScaled = true
+Yellow.TextSize = 14.000
+Yellow.TextStrokeTransparency = 9.000
+Yellow.TextWrapped = true
+Yellow.MouseButton1Down:connect(function()
+	saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local tbl_main = 
+{
+      game:GetService("Players").LocalPlayer, 
+      "New Yeller"
+}
+game:GetService("Workspace").Remote.loadchar:InvokeServer(unpack(tbl_main))
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage",{
+		Text = "{Team} You are now on the 'Yellow' team.",
+		Color = Color3.fromRGB(255, 255, 255)
+	})
+end)
+
+Blue.Name = "Blue"
+Blue.Parent = NameCollor
+Blue.BackgroundColor3 = ColorTHZ
+Blue.BorderColor3 = ColorKay
+Blue.Position = UDim2.new(0.354409009, 0, 0.645293117, 0)
+Blue.Size = UDim2.new(0, 41, 0, 25)
+Blue.Font = Enum.Font.SciFi
+Blue.Text = "Blue"
+Blue.TextColor3 = PekaColor
+Blue.TextScaled = true
+Blue.TextSize = 14.000
+Blue.TextStrokeTransparency = 9.000
+Blue.TextWrapped = true
+Blue.MouseButton1Down:connect(function()
+	saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local tbl_main = 
+{
+      game:GetService("Players").LocalPlayer, 
+      "Really blue"
+}
+game:GetService("Workspace").Remote.loadchar:InvokeServer(unpack(tbl_main))
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage",{
+		Text = "{Team} You are now on the 'Blue' team.",
+		Color = Color3.fromRGB(255, 255, 255)
+	})
+end)
+
+Green.Name = "Green"
+Green.Parent = NameCollor
+Green.BackgroundColor3 = ColorTHZ
+Green.BorderColor3 = ColorKay
+Green.Position = UDim2.new(0.0591069907, 0, 0.645293117, 0)
+Green.Size = UDim2.new(0, 41, 0, 25)
+Green.Font = Enum.Font.SciFi
+Green.Text = "Green"
+Green.TextColor3 = PekaColor
+Green.TextScaled = true
+Green.TextSize = 14.000
+Green.TextStrokeTransparency = 9.000
+Green.TextWrapped = true
+Green.MouseButton1Down:connect(function()
+	saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local tbl_main = 
+{
+      game:GetService("Players").LocalPlayer, 
+      "Lime green"
+}
+game:GetService("Workspace").Remote.loadchar:InvokeServer(unpack(tbl_main))
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage",{
+		Text = "{Team} You are now on the 'Green' team.",
+		Color = Color3.fromRGB(255, 255, 255)
+	})
+end)
+
+OldAutogun.Name = "OldAutogun"
+OldAutogun.Parent = ScreenGui
+OldAutogun.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OldAutogun.BorderColor3 = Color3.fromRGB(0, 0, 0)
+OldAutogun.Position = UDim2.new(0.00951683708, 0, 0.890656054, 0)
+OldAutogun.Size = UDim2.new(0, 94, 0, 34)
+OldAutogun.Font = Enum.Font.SciFi
+OldAutogun.Text = "InfAutoGun"
+OldAutogun.TextColor3 = Color3.fromRGB(0, 170, 0)
+OldAutogun.TextScaled = true
+OldAutogun.TextSize = 14.000
+OldAutogun.TextStrokeColor3 = Color3.fromRGB(0, 170, 0)
+OldAutogun.TextWrapped = true
+OldAutogun.MouseButton1Down:connect(function()
+	autoGuns()
+
+boquete = true
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function(newChar)
+    if boquete then
+        char = newChar 
+        rootpart = newChar:WaitForChild("HumanoidRootPart",0.3)
+        wait()
+            autoGuns()
+end
+end)
+end)
+
+-- Scripts:
+
+local function ULVYV_fake_script() -- Close.LocalScript 
+	local script = Instance.new('LocalScript', Close)
+
+	script.Parent.MouseButton1Click:Connect (function()
+		script.Parent.Parent.Visible = false
+	
+	end)
+end
+coroutine.wrap(ULVYV_fake_script)()
+local function OPILVMW_fake_script() -- Open.LocalScript 
+	local script = Instance.new('LocalScript', Open)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Frame.Visible = true
+	end)
+	
+end
+
+game:GetService("UserInputService").InputBegan:connect(function(inputObject, gameProcessedEvent)
+	if gameProcessedEvent then return end
+	local children = Frame:GetChildren()
+	if inputObject.KeyCode == Enum.KeyCode.Z then
+		if ChatEnabled then
+			ChatEnabled = false
+			game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
+			for i, player in pairs(game.Players:GetPlayers()) do
+				player:WaitForChild("PlayerScripts").BubbleChat.Disabled = true
+				player:WaitForChild("PlayerGui").BubbleChat:Destroy()
+			end
+		else
+			ChatEnabled = true
+			game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat, true)
+			for i, player in pairs(game.Players:GetPlayers()) do
+				player:WaitForChild("PlayerScripts").BubbleChat.Disabled = false
+			end
+		end
+	end
+	if inputObject.KeyCode == Enum.KeyCode.Slash then
+		ChatEnabled = true
+		game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Chat, true)
+	end
+	if inputObject.KeyCode == Enum.KeyCode.X then
+		if BubblesEnabled then
+			BubblesEnabled = false
+			for i, player in pairs(game.Players:GetPlayers()) do
+				player:WaitForChild("PlayerScripts").BubbleChat.Disabled = true
+				player:WaitForChild("PlayerGui").BubbleChat:Destroy()
+			end
+		else
+			BubblesEnabled = true
+			for i, player in pairs(game.Players:GetPlayers()) do
+				player:WaitForChild("PlayerScripts").BubbleChat.Disabled = false
+			end
+		end
+	end
+	if inputObject.KeyCode == Enum.KeyCode.E then
+		xGuns()
+	end
+         if gameProcessedEvent then return end
+	 if inputObject.KeyCode == Enum.KeyCode.N then -- to Nexus
+	  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(879,99,2377)
+ 	end
+ 	if inputObject.KeyCode == Enum.KeyCode.Y then -- to Yard
+ 	 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(779,99,2477)
+	 end
+	 if inputObject.KeyCode == Enum.KeyCode.M then -- to Back
+	  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(980, 101, 2327)
+	 end
+	if inputObject.KeyCode == Enum.KeyCode.K then -- to Base
+	 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-861,99,2053) 
+	end
+	if inputObject.KeyCode == Enum.KeyCode.B then -- to Armory
+	 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(798,99,2260)
+	end
+	if inputObject.KeyCode == Enum.KeyCode.L then -- to Roof
+ 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(933.268, 134.784, 2463.6)
+	end
+	if inputObject.KeyCode == Enum.KeyCode.H then -- to Tower
+ 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(795.592, 122.32, 2592.388)
+	end
+	if inputObject.KeyCode == Enum.KeyCode.Q then
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 24
+	game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+	game.Players.LocalPlayer.CharacterAdded:connect(function()
+		game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
+		game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+	end)
+	end
+	 if inputObject.KeyCode == Enum.KeyCode.T then
+	local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+	local plr = game.Players.LocalPlayer.Name
+	local gayevent = game:GetService("Workspace").Remote.loadchar
+	gayevent:InvokeServer(plr)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+	 end
+	if inputObject.KeyCode == Enum.KeyCode.J then
+	local gunscript = game.Players.LocalPlayer.PlayerScripts.ClientGunReplicator
+	gunscript.Disabled = true
+
+	game.StarterGui:SetCore("SendNotification", {
+	Title = "Anticrash enabled";
+	Text = "Uses P to disable";
+	Duration = 5;
+	})
+	 end
+	if inputObject.KeyCode == Enum.KeyCode.P then
+	local gunscript = game.Players.LocalPlayer.PlayerScripts.ClientGunReplicator
+	gunscript.Disabled = false
+
+	game.StarterGui:SetCore("SendNotification", {
+	Title = "Anticrash disabled";
+	Text = "Uses J to Activate";
+	Duration = 5;
+	})
+	 end
+	if inputObject.KeyCode == Enum.KeyCode.V then
+	loadstring(game:HttpGet("https://pastebin.com/raw/Q6dyC8kL",true))()
+	 end
+end)
+
+
+
+function dragify(Frame)
+	dragToggle = nil
+	dragSpeed = 100000 -- You can edit this.
+	dragInput = nil
+	dragStart = nil
+	dragPos = nil
+
+	function updateInput(input)
+		Delta = input.Position - dragStart
+		Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+		game:GetService("TweenService"):Create(Frame, TweenInfo.new(0), {Position = Position}):Play()
+	end
+
+	Frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+			dragToggle = true
+			dragStart = input.Position
+			startPos = Frame.Position
+			input.Changed:Connect(function()
+				if (input.UserInputState == Enum.UserInputState.End) then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+
+	Frame.InputChanged:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+			dragInput = input
+		end
+	end)
+
+	game:GetService("UserInputService").InputChanged:Connect(function(input)
+		if (input == dragInput and dragToggle) then
+			updateInput(input)
+		end
+	end)
+end
+
+dragify(Frame)
+
+local function MKANE_fake_script() -- On.LocalScript 
+	local script = Instance.new('LocalScript', On)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Visible = false
+		script.Parent.Parent.Off.Visible = true
+		_G.Loop = false
+
+		while _G.Loop == true do
+			wait()
+			if game.Players.LocalPlayer.Character.Humanoid.Health <= 15 then
+				local location = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+				local A_1 = "\66\114\111\121\111\117\98\97\100\100"
+				local Event = game:GetService("Workspace").Remote.loadchar
+				Event:InvokeServer(A_1)
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = location
+			end
+		end
+	end)
+end
+coroutine.wrap(MKANE_fake_script)()
+local function ARECQSO_fake_script() -- Off.LocalScript 
+	local script = Instance.new('LocalScript', Off)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Text = "Off"
+		script.Parent.Visible = false
+		script.Parent.Parent.On.Visible = true
+		_G.Loop = true
+
+		while _G.Loop == true do
+			wait()
+			if game.Players.LocalPlayer.Character.Humanoid.Health <= 15 then
+				local location = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+				local A_1 = "\66\114\111\121\111\117\98\97\100\100"
+				local Event = game:GetService("Workspace").Remote.loadchar
+				Event:InvokeServer(A_1)
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = location
+			end
+		end
+	end)
+end
+coroutine.wrap(ARECQSO_fake_script)()
+local function VYXMZ_fake_script() -- Frame.drag 
+	local script = Instance.new('LocalScript', Frame)
+
+	local UserInputService = game:GetService("UserInputService")
+
+	local gui = script.Parent
+
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = gui:TweenPosition(UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y), 'Out', 'Linear', 0.09, true); -- drag speed
+	end
+
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end
+
+	local Player = game.Players.LocalPlayer
+
+	Player.Chatted:connect(function(cht)
+		if cht:match("?guns") then
+			xGuns()
+		elseif cht:match("?re") then 
+			local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+			local plr = game.Players.LocalPlayer.Name
+			local gayevent = game:GetService("Workspace").Remote.loadchar
+			gayevent:InvokeServer(plr)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+		elseif cht:match("?M4A1") then
+			game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
+		elseif cht:match("?m9") then
+			game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+		elseif cht:match("?reg") then
+			game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+		elseif cht:match("?Remington") then
+			game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+		elseif cht:match("?AK") then
+			game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+		elseif cht:match("?lock") then
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 24
+			game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+			game.Players.LocalPlayer.CharacterAdded:connect(function()
+				game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
+				game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+			end)
+		elseif cht:match("?enableauto") then
+			autoGuns()
+
+			boquete = true
+
+			game.Players.LocalPlayer.CharacterAdded:Connect(function(newChar)
+   			 if boquete then
+      			  char = newChar 
+      			  rootpart = newChar:WaitForChild("HumanoidRootPart",0.3)
+        			wait()
+          			  autoGuns()
+			end
+			end)
+		elseif cht:match("?disableauto") then
+			autoGuns()
+
+			boquete = false
+
+			game.Players.LocalPlayer.CharacterAdded:Connect(function(newChar)
+   			 if boquete then
+      			  char = newChar 
+      			  rootpart = newChar:WaitForChild("HumanoidRootPart",0.3)
+        			wait()
+          			  autoGuns()
+			end
+			end)
+		elseif cht:match("?spy") then
+			enabled = true --chat "/spy" to toggle!
+			spyOnMyself = false --if true will check your messages too
+			public = false --if true will chat the logs publicly (fun, risky)
+			publicItalics = true --if true will use /me to stand out
+			privateProperties = { --customize private logs
+				Color = Color3.fromRGB(0,255,255); 
+				Font = Enum.Font.SourceSansBold;
+				TextSize = 18;
+			}
+
+
+			local StarterGui = game:GetService("StarterGui")
+			local Players = game:GetService("Players")
+			local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() or Players.LocalPlayer
+			local saymsg = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest")
+			local getmsg = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("OnMessageDoneFiltering")
+			local instance = (_G.chatSpyInstance or 0) + 1
+			_G.chatSpyInstance = instance
+
+			local function onChatted(p,msg)
+				if _G.chatSpyInstance == instance then
+					if p==player and msg:lower():sub(1,4)=="/spy" then
+						enabled = not enabled
+						wait(0.3)
+						privateProperties.Text = "{SPY "..(enabled and "EN" or "DIS").."ABLED}"
+						StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+					elseif enabled and (spyOnMyself==true or p~=player) then
+						msg = msg:gsub("[\n\r]",''):gsub("\t",' '):gsub("[ ]+",' ')
+						local hidden = true
+						local conn = getmsg.OnClientEvent:Connect(function(packet,channel)
+							if packet.SpeakerUserId==p.UserId and packet.Message==msg:sub(#msg-#packet.Message+1) and (channel=="All" or (channel=="Team" and public==false and Players[packet.FromSpeaker].Team==player.Team)) then
+								hidden = false
+							end
+						end)
+						wait(1)
+						conn:Disconnect()
+						if hidden and enabled then
+							if public then
+								saymsg:FireServer((publicItalics and "/me " or '').."{SPY} [".. p.Name .."]: "..msg,"All")
+							else
+								privateProperties.Text = "{SPY} [".. p.Name .."]: "..msg
+								StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+							end
+						end
+					end
+				end
+			end
+
+			for _,p in ipairs(Players:GetPlayers()) do
+				p.Chatted:Connect(function(msg) onChatted(p,msg) end)
+			end
+			Players.PlayerAdded:Connect(function(p)
+				p.Chatted:Connect(function(msg) onChatted(p,msg) end)
+			end)
+			privateProperties.Text = "{SPY "..(enabled and "EN" or "DIS").."ABLED}"
+			StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+			if not player.PlayerGui:FindFirstChild("Chat") then wait(3) end
+			local chatFrame = player.PlayerGui.Chat.Frame
+			chatFrame.ChatChannelParentFrame.Visible = true
+			chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
+		elseif cht:match("?yard") then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(779,99,2477)
+		elseif cht:match("?nex") then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(879,99,2377)
+		elseif cht:match("?tower") then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(795.592, 122.32, 2592.388)
+		elseif cht:match("?back") then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(980, 101, 2327)
+		elseif cht:match("?roof") then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(933.268, 134.784, 2463.6)
+		elseif cht:match("?teamc") then
+			LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+			LCS.CanCollide = false
+			LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+			LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+			LCS.Transparency = 1
+			wait(0.5)
+			LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+			LCS.Size = Vector3.new(6, 0.2, 6)
+			LCS.Transparency = 0
+		elseif cht:match("?teamp") then
+			Workspace.Remote.TeamEvent:FireServer("Bright blue")
+		elseif cht:match("?teami") then
+			Workspace.Remote.TeamEvent:FireServer("Bright orange")
+		elseif cht:match("?teamn") then
+			Workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+		elseif cht:match("?criminals") then
+			LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+			LCS.CanCollide = false
+			LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+			LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+			LCS.Transparency = 1
+			wait(0.5)
+			LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+			LCS.Size = Vector3.new(6, 0.2, 6)
+			LCS.Transparency = 0
+		elseif cht:match("?police") then
+			Workspace.Remote.TeamEvent:FireServer("Bright blue")
+		elseif cht:match("?prisioner") then
+			Workspace.Remote.TeamEvent:FireServer("Bright orange")
+		elseif cht:match("?neutral") then
+			Workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+		elseif cht.match("?fps") then
+			loadstring(game:HttpGet("https://pastebin.com/raw/Q6dyC8kL",true))()
+		elseif cht.match("?rj") then
+			game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+		elseif cht.match("?quit") then
+			game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("bye all", "All")
+			game:Shutdown()
+		end
+	end)
+coroutine.wrap(OPILVMW_fake_script)()
