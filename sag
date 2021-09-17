@@ -1,0 +1,315 @@
+_G.MaxPower = 10000000000000000000
+_G.DefaultPower = 5
+
+--[Instances]--
+local UltraArrestScreenGui = Instance.new("ScreenGui")
+local UltraArrestFrame = Instance.new("Frame")
+local ToggleButton = Instance.new("TextButton")
+local Crim = Instance.new("TextButton")
+local PowerTextBox = Instance.new("TextBox")
+local player = Instance.new("TextBox")
+local TitleTextLabel = Instance.new("TextLabel")
+local ExitButton = Instance.new("TextButton")
+local PlayerTextBoxSuggestions = Instance.new("TextLabel")
+local PlayerTextBox = Instance.new("TextBox")
+local YOffsetTextBox = Instance.new("TextBox")
+
+--[Properties]--
+UltraArrestScreenGui.Name = "UltraArrestScreenGui"
+if syn and syn.protect_gui then
+        syn.protect_gui(UltraArrestScreenGui)
+end
+UltraArrestScreenGui.Parent = game:GetService("CoreGui")
+
+UltraArrestFrame.Name = "UltraArrestFrame"
+UltraArrestFrame.Parent = UltraArrestScreenGui
+UltraArrestFrame.Active = true
+UltraArrestFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+UltraArrestFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+UltraArrestFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+UltraArrestFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+UltraArrestFrame.Size = UDim2.new(0, 200, 0, 105)
+UltraArrestFrame.Draggable = true
+
+local function GetPlayerFromString(nameString)
+	if not nameString then return end 
+	local matches= {}
+	for _, player in ipairs (game.Players:GetPlayers()) do
+		if string.lower(player.Name):match(string.lower(nameString)) then
+			table.insert(matches, player)
+		end
+	end
+	if #matches== 1 then
+		return matches[1]
+	else
+		return nil
+	end
+end
+
+ToggleButton.Name = "ToggleButton"
+ToggleButton.Parent = UltraArrestFrame
+ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ToggleButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.Position = UDim2.new(0.5, 5, 0, 70)
+ToggleButton.Size = UDim2.new(1, -110, 0, 30)
+ToggleButton.Font = Enum.Font.GothamBlack
+ToggleButton.Text = "OFF"
+ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.TextSize = 18.000
+ToggleButton.TextWrapped = true
+
+Crim.Name = "Crim"
+Crim.Parent = UltraArrestFrame
+Crim.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Crim.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Crim.Position = UDim2.new(0, 5, 0, 70)
+Crim.Size = UDim2.new(1, -110, 0, 30)
+Crim.Font = Enum.Font.GothamBlack
+Crim.Text = "Crim"
+Crim.TextColor3 = Color3.fromRGB(255, 255, 255)
+Crim.TextSize = 18.000
+Crim.TextWrapped = true
+
+
+PowerTextBox.Name = "PowerTextBox"
+PowerTextBox.Parent = UltraArrestFrame
+PowerTextBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+PowerTextBox.BorderColor3 = Color3.fromRGB(255, 255, 255)
+PowerTextBox.Position = UDim2.new(0, 5, 0, 35)
+PowerTextBox.Size = UDim2.new(1, -110, 0, 30)
+PowerTextBox.Font = Enum.Font.GothamBlack
+PowerTextBox.PlaceholderColor3 = Color3.fromRGB(197, 197, 197)
+PowerTextBox.PlaceholderText = "Power"
+PowerTextBox.Text = ""
+PowerTextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+PowerTextBox.TextSize = 16.000
+
+player.Name = "player"
+player.Parent = UltraArrestFrame
+player.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+player.BorderColor3 = Color3.fromRGB(255, 255, 255)
+player.Position = UDim2.new(0.5, 5, 0, 35)
+player.Size = UDim2.new(1, -110, 0, 30)
+player.Font = Enum.Font.GothamBlack
+player.PlaceholderColor3 = Color3.fromRGB(197, 197, 197)
+player.PlaceholderText = "Player"
+player.Text = ""
+player.TextColor3 = Color3.fromRGB(255, 255, 255)
+player.TextSize = 16.000
+
+TitleTextLabel.Name = "TitleTextLabel"
+TitleTextLabel.Parent = UltraArrestFrame
+TitleTextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TitleTextLabel.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TitleTextLabel.Size = UDim2.new(1, 0, 0, 30)
+TitleTextLabel.Font = Enum.Font.GothamBlack
+TitleTextLabel.Text = "  Opion Spam Gui"
+TitleTextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TitleTextLabel.TextSize = 20.000
+TitleTextLabel.TextWrapped = true
+TitleTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+ExitButton.Name = "ExitButton"
+ExitButton.Parent = TitleTextLabel
+ExitButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ExitButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
+ExitButton.Position = UDim2.new(1, -30, 1, -30)
+ExitButton.Size = UDim2.new(0, 30, 1, 0)
+ExitButton.Font = Enum.Font.GothamBlack
+ExitButton.Text = "X"
+ExitButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ExitButton.TextSize = 18.000
+ExitButton.TextWrapped = true
+
+--[Functions]--
+local function GetPlayer(String)
+        String = String:lower() -- Turns string to lower case
+
+        for Index, Player in pairs(game:GetService("Players"):GetPlayers()) do
+                if string.sub(String, 1, #String) == string.sub(Player.Name:lower(), 1, #String) then
+                        return(Player)
+                end
+        end
+end
+
+-- UI
+ExitButton.MouseButton1Click:Connect(function()
+        antilag = false
+        UltraArrestScreenGui:Remove()
+        ToggleButton.Text = "OFF"
+        UltraArrestScreenGui.Enabled = false
+        game:GetService("RunService"):UnbindFromRenderStep("UI Clear")
+end)
+
+Crim.MouseButton1Down:connect(function()
+Crim(GetPlayerFromString(player.Text))
+end)
+
+-- Arrest
+local function GetPower()
+        if PowerTextBox.Text ~= "" or tonumber(PowerTextBox.Text) then
+                return(tonumber(PowerTextBox.Text))
+        else
+                return(_G.DefaultPower)
+        end
+end
+
+antilag = true
+game:GetService("RunService").Stepped:Connect(function()
+if antilag then
+for i,v in pairs(game:GetService('Players'):GetPlayers()) do
+local NName = game.workspace[v.Name]
+  if NName.Head:FindFirstChild('handcuffedGui') then
+  for i = 1,1000 do
+  NName.Head:FindFirstChild('handcuffedGui'):Remove()
+  print('Worked')
+end
+end
+end
+end
+end)
+
+function Crim(diefaggot,mebitch)
+local diefaggot = GetPlayerFromString(player.Text)
+ rug = game.Players.LocalPlayer
+	if diefaggot ~= nil then
+		local NormPos = rug.Character.HumanoidRootPart.CFrame
+		savecf = rug.Character.HumanoidRootPart.CFrame
+		workspace.Remote.loadchar:InvokeServer()
+		workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+		rug.Character.HumanoidRootPart.CFrame = savecf
+function Wait(t)
+  local RS = game:GetService("RunService")
+  if type(t) == "number" then
+    local Start = tick()
+    repeat RS.Stepped:Wait() until tick() - Start >= t
+    return
+  else
+    return(RS.Stepped:Wait())
+  end  
+end
+Wait()
+local hrp = rug.Character.HumanoidRootPart
+    	local char = rug.Character
+    	local tchar = diefaggot.Character
+    	local hum = rug.Character:FindFirstChildOfClass("Humanoid")
+    	local hrp = rug.Character.HumanoidRootPart
+    	local hrp2 = diefaggot.Character.HumanoidRootPart
+    	hum.Name = "1"
+    	local newHum = hum:Clone()
+    	newHum.Parent = char
+    	newHum.Name = "Humanoid"
+    	hum:Destroy()
+    	workspace.CurrentCamera.CameraSubject = char
+    	newHum.DisplayDistanceType = "None"
+    	local tool = rug:FindFirstChildOfClass("Backpack"):FindFirstChildOfClass("Tool") or rug.Character:FindFirstChildOfClass("Tool")
+    	tool.Parent = char
+    	hrp.CFrame = hrp2.CFrame * CFrame.new(0, 0, 0) * CFrame.new(math.random(-100, 100)/200,math.random(-100, 100)/200,math.random(-100, 100)/200)
+    	local n = 0
+    	repeat
+       		Wait()
+    		n = n + 1
+    		hrp.CFrame = hrp2.CFrame
+    	until (tool.Parent ~= char or not hrp or not hrp2 or not hrp.Parent or not hrp2.Parent or n > 250) and n > 2
+		for i = 1,10 do
+
+			hrp.CFrame = NormPos
+		end
+dfp = game.Workspace["Criminals Spawn"].SpawnLocation
+        local PartPos = dfp.CFrame
+        dfp.CanCollide = false
+        dfp.Transparency = 1
+        dfp.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        Wait(0.3)
+        dfp.CFrame = PartPos
+workspace.Remote.loadchar:InvokeServer()
+		umm = NormPos * CFrame.Angles(math.rad(0), 0, 0)
+        rug.Character.HumanoidRootPart.CFrame = umm
+	end
+end
+
+function Goto()
+local Player = GetPlayerFromString(player.Text)
+local Players = game:GetService("Players")
+local Plc = Player.Character
+local PlL = Players.LocalPlayer
+PlL.Character.HumanoidRootPart.CFrame = Plc.HumanoidRootPart.CFrame
+end
+
+local function Arrest(Plr)-- Ultra Arrest UI
+        coroutine.resume(coroutine.create(function()
+                pcall(function()
+                local Player = GetPlayerFromString(player.Text)
+                        if Plr and Plr.Name and Plr ~= game.Players.LocalPlayer then
+                                local Playe = Plr
+
+                                if Playe and Playe.Character and Playe.Character:FindFirstChild("Head") then
+                                        local PlrHead = {Playe.Character:FindFirstChild("Head")}
+
+                                        if Playe and PlrHead ~= ({} or nil) then
+                                                -- Arrest
+                                                local Power =  GetPower()
+                                                for i = 1, Power, 1 do
+                                                        coroutine.resume(coroutine.create(function()
+                                                                if ToggleButton.Text == "ON" then
+                                                                                for i = 1, Power, 1 do
+                                                                                        coroutine.resume(coroutine.create(function()
+                                                                                                workspace.Remote.arrest:InvokeServer(Player.Character.Head)
+                                                                                        end))
+                                                                                end
+                                                                        end
+                                                        end))
+                                                end
+                                        end
+                                end
+                        end
+                end)
+        end))
+end
+
+spawn(function()
+        game:GetService("RunService"):BindToRenderStep("Ultra Arrest Aura", 1, function()
+                if ToggleButton.Text == "ON" then
+                local Player = GetPlayerFromString(player.Text)
+                                coroutine.resume(coroutine.create(function()
+                                        if ToggleButton.Text == "ON" then
+                                                Arrest(Player)
+                                        end
+                                end))
+                            end
+        end)
+end)
+
+ToggleButton.MouseButton1Click:Connect(function()
+        if ToggleButton.Text == "OFF" then
+                ToggleButton.Text = "Not Found"
+                Arrest(GetPlayer(PlayerTextBox.Text))
+                ToggleButton.Text = "ON"
+            Goto()
+        else
+                ToggleButton.Text = "OFF"
+                --game:GetService("RunService"):UnbindFromRenderStep("Ultra Arrest Aura")
+        end
+end)
+
+spawn(function()
+        game:GetService("RunService"):BindToRenderStep("UI Clear", 1, function() 
+                pcall(function()
+                        coroutine.resume(coroutine.create(function()
+                                for Index, Player in pairs(game.Players:GetPlayers()) do
+                                        coroutine.resume(coroutine.create(function()
+                                                if Player.Character and Player.Character:FindFirstChildOfClass("BillboardGui", true) then
+                                                        for i, v in pairs(Player.Character.Head:GetChildren()) do
+                                                                coroutine.resume(coroutine.create(function()
+                                                                        if v:IsA("BillboardGui") then
+                                                                                v:Destroy()
+                                                                        end
+                                                                end))
+                                                        end
+                                                end
+                                        end))
+                                end
+                        end))
+                end)
+        end)
+end)
