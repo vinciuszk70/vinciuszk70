@@ -1,4 +1,7 @@
+wait(5)
 Prefix = "-"
+
+LPlayer = game:GetService("Players").gay
 
 LPlayer.Chatted:Connect(function(Tk)
 if string.sub(Tk, 1, 6) == (Prefix.."kskid") then
