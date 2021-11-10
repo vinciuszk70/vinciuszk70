@@ -4825,11 +4825,3 @@ AbuserNotify()
 end
 end)
 end
-
-if game.Players:FindFirstChild("king_pro433") then
-if game.Players.LocalPlayer.Name == "king_pro433" then
-for i = 1,math.huge do
-print('idiota')
-end
-end
-end
