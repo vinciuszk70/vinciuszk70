@@ -117,6 +117,7 @@ local Commands = {
 "quit - leave the server",
 "cmds - show  cmds bar",
 "prefix - changes prefix",
+"shotblack unshotblack - shots is black",
 "cgun black, white, gold, red, blue, green, pink and violet",
 "dong rem ak m9 long smoke mgum side troll",
 "color - color team gui",
@@ -1126,6 +1127,60 @@ function Kill(Player)
 end
 end)
 end
+
+function ShootWhite()
+local Color = "Black"
+local Player = game.Players.LocalPlayer
+local Taser = Player.Character:FindFirstChild("Taser")
+local M9 = Player.Character:FindFirstChild("M9")
+local M4 = Player.Character:FindFirstChild("M4A1")
+local AK = Player.Character:FindFirstChild("AK-47")
+local Remi = Player.Character:FindFirstChild("Remington 870")
+
+if Remi then
+local RayP = Remi:FindFirstChild("RayPart")
+if RayP then
+RayP.BrickColor = BrickColor.new(Color)
+RayP.Name = "1"
+end
+end
+if M9 then
+local RayP = M9:FindFirstChild("RayPart")
+if RayP then
+RayP.BrickColor = BrickColor.new(Color)
+RayP.Name = "1"
+end
+end
+if AK then
+local RayP = AK:FindFirstChild("RayPart")
+if RayP then
+RayP.BrickColor = BrickColor.new(Color)
+RayP.Name = "1"
+end
+end
+if M4 then
+local RayP = M4:FindFirstChild("RayPart")
+if RayP then
+RayP.BrickColor = BrickColor.new(Color)
+RayP.Name = "1"
+end
+end
+if Taser then
+local RayP = Taser:FindFirstChild("RayPart")
+if RayP then
+RayP.BrickColor = BrickColor.new(Color)
+RayP.Name = "1"
+end
+end
+end
+
+game:GetService("RunService").Stepped:Connect(function()
+if M4ShotColorWhite then
+for i = 1,100 do
+ShootWhite()
+end
+end
+end)
 
 function KillServer()
 game:GetService("RunService").Stepped:Connect(function()
@@ -3867,6 +3922,17 @@ function PlayerChatted(Message)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
         workspace.CurrentCamera.CFrame = savedcamcf
         Cgun(Arg2:lower())
+    end
+    if Command("shotblack") then
+    M4ShotColorWhite = true
+    end
+    if Command("unshotblack") then
+    M4ShotColorWhite = false
+        local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        local savedcamcf = workspace.CurrentCamera.CFrame
+        workspace.Remote.loadchar:InvokeServer()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+        workspace.CurrentCamera.CFrame = savedcamcf
     end
 	if Command("dong") then
 		Dong(Arg2:lower())
