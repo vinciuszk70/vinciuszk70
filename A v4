@@ -117,6 +117,7 @@ local Commands = {
 "quit - leave the server",
 "cmds - show  cmds bar",
 "prefix - changes prefix",
+"m9op unm9op - m9 op shots",
 "m9ghost unm9ghost - m9 invisible shots",
 "shotblack unshotblack - shots is black",
 "cgun black, white, gold, red, blue, green, pink and violet",
@@ -2797,6 +2798,22 @@ function PlayerChatted(Message)
     asam = false
     end
     if Command("fast") then
+    if inf == true then
+    inf = false
+    local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    local savedcamcf = workspace.CurrentCamera.CFrame
+    workspace.Remote.loadchar:InvokeServer()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+    workspace.CurrentCamera.CFrame = savedcamcf
+    end
+    if infammo == true then
+    infammo = false
+    local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    local savedcamcf = workspace.CurrentCamera.CFrame
+    workspace.Remote.loadchar:InvokeServer()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+    workspace.CurrentCamera.CFrame = savedcamcf
+    end
     fast = true
     game:GetService("RunService").Stepped:Connect(function()
     if fast then
@@ -2824,6 +2841,14 @@ function PlayerChatted(Message)
     workspace.CurrentCamera.CFrame = savedcamcf
     end
     if Command("inf") then
+    if fast == true then
+    fast = false
+    local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    local savedcamcf = workspace.CurrentCamera.CFrame
+    workspace.Remote.loadchar:InvokeServer()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+    workspace.CurrentCamera.CFrame = savedcamcf
+    end
     infammo = true
     game:GetService("RunService").Stepped:Connect(function()
     if infammo then
@@ -2847,6 +2872,14 @@ function PlayerChatted(Message)
     workspace.CurrentCamera.CFrame = savedcamcf
     end
     if Command("blh") then
+    if fast == true then
+    fast = false
+    local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    local savedcamcf = workspace.CurrentCamera.CFrame
+    workspace.Remote.loadchar:InvokeServer()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+    workspace.CurrentCamera.CFrame = savedcamcf
+    end
     local runservice = game:GetService("RunService")
     inf = true
     runservice.Stepped:Connect(function()
@@ -3936,6 +3969,9 @@ function PlayerChatted(Message)
         workspace.CurrentCamera.CFrame = savedcamcf
     end
     if Command("m9ghost") then
+    if M9Op == true then
+    M9Op = false
+    end
     M9InvisibleShot = true
     local Player = game.Players.LocalPlayer
     local Run = game:GetService("RunService")
@@ -4016,6 +4052,96 @@ function PlayerChatted(Message)
     end
     if Command("unm9ghost") then
     M9InvisibleShot = false
+        local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        local savedcamcf = workspace.CurrentCamera.CFrame
+        workspace.Remote.loadchar:InvokeServer()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+        workspace.CurrentCamera.CFrame = savedcamcf
+    end
+    if Command("m9op") then
+    if M9InvisibleShot == true then
+    M9InvisibleShot = false
+    end
+    M9Op = true
+    local Player = game.Players.LocalPlayer
+    local Run = game:GetService("RunService")
+    local Remote = workspace.Remote
+    local Replicate = game:GetService('ReplicatedStorage')
+    local Mouse = game.Players.LocalPlayer:GetMouse()
+
+    Run.Stepped:Connect(function()
+    if M9Op then
+    workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+    local M9 = Player.Character:FindFirstChild("M9")
+
+    if M9 then
+    local j = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
+    game.ReplicatedStorage.ReloadEvent:FireServer(j)
+
+    for i, v in next, debug.getregistry() do if type(v) == "table"
+    then if v.Bullets then v.CurrentAmmo = math.huge v.MaxAmmo = math.huge
+    end
+    end
+    end
+    end
+    end
+    end)
+
+    Run.Stepped:Connect(function()
+    if M9Op then
+    local Rem = Player.Character:FindFirstChild("Remington 870")
+    local Ak = Player.Character:FindFirstChild("AK-47")
+    local M4 = Player.Character:FindFirstChild("M4A1")
+    local Taser = Player.Character:FindFirstChild("Taser")
+
+    if Rem then
+    for i, v in pairs(Rem:GetChildren()) do
+    v:Remove()
+    end
+    end
+    if Ak then
+    for i, v in pairs(Ak:GetChildren()) do
+    v:Remove()
+    end
+    end
+    if M4 then
+    for i, v in pairs(M4:GetChildren()) do
+    v:Remove()
+    end
+    end
+    if Taser then
+    for i, v in pairs(Taser:GetChildren()) do
+    v:Remove()
+    end
+    end
+    end
+    end)
+
+    Mouse.Button1Down:connect(function()
+    local Obj = Mouse.Target
+
+    local Arg = {}
+
+    for i = 1,1 do
+    Arg[i] = {
+    RayObject = Ray.new(Vector3.new(0,0,0), Vector3.new(0,0,0)),
+    Distance = 0,
+    Cframe = CFrame.new(),
+    Hit = Obj
+    }
+    end
+
+    local M9 = Player.Character:FindFirstChild("M9")
+
+    if M9 then
+    if M9Op then
+    Replicate.ShootEvent:FireServer(Arg,M9)
+    end
+    end
+    end)
+    end
+    if Command("unm9op") then
+    M9Op = false
         local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         local savedcamcf = workspace.CurrentCamera.CFrame
         workspace.Remote.loadchar:InvokeServer()
