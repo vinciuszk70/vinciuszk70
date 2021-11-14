@@ -4059,6 +4059,14 @@ function PlayerChatted(Message)
         workspace.CurrentCamera.CFrame = savedcamcf
     end
     if Command("m9op") then
+    if fast == true then
+    fast = false
+    local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    local savedcamcf = workspace.CurrentCamera.CFrame
+    workspace.Remote.loadchar:InvokeServer()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+    workspace.CurrentCamera.CFrame = savedcamcf
+    end
     if M9InvisibleShot == true then
     M9InvisibleShot = false
     end
