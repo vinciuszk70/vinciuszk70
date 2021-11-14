@@ -117,6 +117,7 @@ local Commands = {
 "quit - leave the server",
 "cmds - show  cmds bar",
 "prefix - changes prefix",
+"nomuzzle unnomuzzle - no muzzle",
 "m9op unm9op - m9 op shots",
 "m9ghost unm9ghost - m9 invisible shots",
 "shotblack unshotblack - shots is black",
@@ -4150,6 +4151,30 @@ function PlayerChatted(Message)
     end
     if Command("unm9op") then
     M9Op = false
+        local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        local savedcamcf = workspace.CurrentCamera.CFrame
+        workspace.Remote.loadchar:InvokeServer()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+        workspace.CurrentCamera.CFrame = savedcamcf
+    end
+    if Command("nomuzzle") then
+    local Player = game.Players.LocalPlayer
+
+    MuzzleToggle = true
+
+    game:GetService("RunService").Stepped:Connect(function()
+    if MuzzleToggle then
+    if Player.Character:FindFirstChildOfClass("Tool") then
+    local Muzzle = Player.Character:FindFirstChildOfClass("Tool"):FindFirstChild("Muzzle")
+    if Muzzle then
+    Muzzle:Remove()
+    end
+    end
+    end
+    end)
+    end
+    if Command("unnomuzzle") then
+    MuzzleToggle = false
         local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         local savedcamcf = workspace.CurrentCamera.CFrame
         workspace.Remote.loadchar:InvokeServer()
