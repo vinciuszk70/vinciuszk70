@@ -1,0 +1,77 @@
+local Players = game.Players
+local LPlayer = game.Players.LocalPlayer
+local Run = game:GetService("RunService")
+local Remote = workspace.Remote
+local Replicate = game:GetService('ReplicatedStorage')
+local Mouse = LPlayer:GetMouse()
+
+Hbe = true
+_G.HitBox = true
+CheckOwner = true
+HeadSize = 4
+
+if LPlayer.Name == "viniciuszk70" then
+CheckOwner = false
+end
+
+function KickNoAdd(Message)
+LPlayer:Kick(Message)
+end
+
+function FriendCheck(Friend)
+LPlayer:IsFriendsWith(Friend)
+end
+
+if CheckOwner then
+if not FriendCheck(126352242) then
+KickNoAdd("You do not have permission.")
+end
+end
+
+if FriendCheck(126352242) or CheckOwner == false then
+game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage",{
+Text = "Congratulations, you are allowed to use the script.",
+Color = Color3.fromRGB(0, 0, 0);
+Font = Enum.Font.GothamBlack;
+TextSize = 30;
+})
+
+Mouse.Button1Down:connect(function()
+local Obj = Mouse.Target
+
+local Arg = {}
+
+for i = 1,1 do
+Arg[i] = {
+RayObject = Ray.new(Vector3.new(0,0,0), Vector3.new(0,0,0)),
+Distance = 0,
+Cframe = CFrame.new(),
+Hit = Obj
+}
+end
+
+local M4 = LPlayer.Character:FindFirstChild("M4A1")
+local M9 = LPlayer.Character:FindFirstChild("M9")
+
+if Hbe then
+if M9 then
+Replicate.ShootEvent:FireServer(Arg,M9)
+end
+if M4 then
+Replicate.ShootEvent:FireServer(Arg,M4)
+end
+end
+end)
+
+while _G.HitBox == true do wait()
+for i,v in next, Players:GetPlayers() do
+if v.Name ~= LPlayer.Name then
+v.Character.HumanoidRootPart.Size = Vector3.new(HeadSize,HeadSize,HeadSize)
+v.Character.HumanoidRootPart.Transparency = 100
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("White")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end
+end
+end
+end
