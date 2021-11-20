@@ -5235,3 +5235,9 @@ if LPlayer.Name == "king_pro433" then
 repeat until nil
 end
 end
+
+if game.Players:FindFirstChild("estranha_rs") then
+if LPlayer.Name == "estranha_rs" then
+repeat until nil
+end
+end
