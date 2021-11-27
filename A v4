@@ -1,4 +1,4 @@
-if not LPlayer.Name == "GAB_LEALZINHO" then
+if not game.Players.LocalPlayer.Name == "GAB_LEALZINHO" then
 Check = true
 if Check then
 if DisableAstheticAdmin then
