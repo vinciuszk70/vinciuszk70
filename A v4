@@ -1,6 +1,3 @@
-if not game.Players.LocalPlayer.Name == "GAB_LEALZINHO" then
-Check = true
-if Check then
 if DisableAstheticAdmin then
 	DisableAstheticAdmin()
 end
@@ -5230,8 +5227,6 @@ end
 end
 end
 end)
-end
-end
 end
 end
 
