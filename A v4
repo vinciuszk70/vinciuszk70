@@ -1,6 +1,3 @@
-if game.Players.LocalPlayer.Name == "IsllanRonii" then
-repeat until nil
-else
 if DisableAstheticAdmin then
 	DisableAstheticAdmin()
 end
@@ -5230,7 +5227,6 @@ end
 end
 end
 end)
-end
 end
 end
 
