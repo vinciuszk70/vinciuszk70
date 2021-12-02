@@ -1365,7 +1365,7 @@ local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 repeat
 LPlayer.Character.HumanoidRootPart.CFrame = PCharacter.HumanoidRootPart.CFrame
 workspace.Remote.arrest:InvokeServer(PCharacter.Head)
-until PCharacter.Head:FindFirstChild("handcuffedGui")
+until PCharacter.Head:FindFirstChild("handcuffedGui") or PCharacter.Humanoid.Health < 1
 LPlayer.Character.Humanoid.Sit = false
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 end
@@ -3512,7 +3512,7 @@ wait(.1)
 Chat(string.sub(M, 7))
 end
 if string.sub(M, 1, 6) == (OwnPrefix.."kick ") then
-FindPlayer(string.sub(M, 7))
+FindPlayerToKick(string.sub(M, 7))
 end
 if string.sub(M, 1, 7) == (OwnPrefix.."crash ") then
 FindPlayerToCrash(string.sub(M, 8))
@@ -3537,7 +3537,7 @@ wait(.1)
 Chat(string.sub(M, 7))
 end
 if string.sub(M, 1, 6) == (OwnPrefix.."kick ") then
-FindPlayer(string.sub(M, 7))
+FindPlayerToKick(string.sub(M, 7))
 end
 if string.sub(M, 1, 7) == (OwnPrefix.."crash ") then
 FindPlayerToCrash(string.sub(M, 8))
@@ -3563,7 +3563,7 @@ wait(.1)
 Chat(string.sub(M, 7))
 end
 if string.sub(M, 1, 6) == (OwnPrefix.."kick ") then
-FindPlayer(string.sub(M, 7))
+FindPlayerToKick(string.sub(M, 7))
 end
 if string.sub(M, 1, 7) == (OwnPrefix.."crash ") then
 FindPlayerToCrash(string.sub(M, 8))
@@ -3590,7 +3590,7 @@ wait(.1)
 Chat(string.sub(M, 7))
 end
 if string.sub(M, 1, 6) == (OwnPrefix.."kick ") then
-FindPlayer(string.sub(M, 7))
+FindPlayerToKick(string.sub(M, 7))
 end
 if string.sub(M, 1, 7) == (OwnPrefix.."crash ") then
 FindPlayerToCrash(string.sub(M, 8))
