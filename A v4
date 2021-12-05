@@ -1,3 +1,5 @@
+if not game.Players.LocalPlayer.Name == "estranha_rs" then
+if not game.Players.LocalPlayer.Name == "Estranho_rs" then
 if DisableAstheticAdmin then
 	DisableAstheticAdmin()
 end
@@ -5227,6 +5229,8 @@ end
 end
 end
 end)
+end
+end
 end
 end
 
