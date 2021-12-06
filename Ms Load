@@ -1454,6 +1454,7 @@ end
 
 function ArrestA(Everyone)
 if Everyone == "a" or Everyone == "all" or Everyone == "everyone" or Everyone == "todos" then
+if LPlayer.Character:FindFirstChild("HumanoidRootPart") then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 for i,v in pairs(game.Teams.Criminals:GetPlayers()) do
 if v.Name ~= LPlayer.Name then
@@ -1461,12 +1462,15 @@ local i = 10
 repeat
 wait()
 i = i-1
+if v.Character:FindFirstChild("HumanoidRootPart") then
 game.Workspace.Remote.arrest:InvokeServer(v.Character.HumanoidRootPart)
 LPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 1.3)
+end
 until i == 0
 end
 end
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+end
 end
 end
 
@@ -3200,7 +3204,7 @@ if Command("unlk") or Command("unloopkill") then
 
 if Arg2 == "i" or Arg2 == "inmates" or Arg2 == "presos" or Arg2 == "g" or Arg2 == "guards" or Arg2 == "policiais" or Arg2 == "c" or Arg2 == "criminals" or Arg2 == "criminosos" or Arg2 == "n" or Arg2 == "neutrals" or Arg2 == "neutros" or Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
 
-Lk(Arg2:lower())
+Unlk(Arg2:lower())
 
 else
 
@@ -3303,9 +3307,17 @@ AntiCrash(Arg2:lower())
 end
 
 if Command("copy") or Command("copiar") then
-local Player = GetPlayer(Arg2) or Arg2
 
-CopyTeam(Player)
+if Arg2 == "off" then
+
+CopyTeam(Arg2:lower())
+
+else
+
+CopyTeam(GetPlayer(Arg2))
+
+end
+
 end
 
 if Command("antispam") then
@@ -3627,7 +3639,7 @@ if Command("unlk") or Command("unloopkill") then
 
 if Arg2 == "i" or Arg2 == "inmates" or Arg2 == "presos" or Arg2 == "g" or Arg2 == "guards" or Arg2 == "policiais" or Arg2 == "c" or Arg2 == "criminals" or Arg2 == "criminosos" or Arg2 == "n" or Arg2 == "neutrals" or Arg2 == "neutros" or Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
 
-Lk(Arg2:lower())
+Unlk(Arg2:lower())
 
 else
 
