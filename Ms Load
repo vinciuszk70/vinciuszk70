@@ -311,14 +311,21 @@ end
 end
 
 function CrimSagui(diefaggot,mebitch)
-local diefaggot = GetPlayerString(Player.Text)
-rug = game.Players.LocalPlayer
-if diefaggot ~= nil then
-local NormPos = rug.Character.HumanoidRootPart.CFrame
-savecf = rug.Character.HumanoidRootPart.CFrame
+local Player = GetPlayerString(Player.Text)
+
+if LPlayer.TeamColor.Name == "Bright blue" then
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer(nil, "12")
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+
+if Player ~= nil then
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 workspace.Remote.loadchar:InvokeServer()
 ItemHandler:InvokeServer(ItemSingle["Hammer"].ITEMPICKUP)
-rug.Character.HumanoidRootPart.CFrame = savecf
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 function Wait(t)
 local RS = game:GetService("RunService")
 if type(t) == "number" then
@@ -330,12 +337,12 @@ return(RS.Stepped:Wait())
 end  
 end
 Wait()
-local hrp = rug.Character.HumanoidRootPart
-local char = rug.Character
-local tchar = diefaggot.Character
-local hum = rug.Character:FindFirstChildOfClass("Humanoid")
-local hrp = rug.Character.HumanoidRootPart
-local hrp2 = diefaggot.Character.HumanoidRootPart
+local hrp = LPlayer.Character.HumanoidRootPart
+local char = LPlayer.Character
+local tchar = Player.Character
+local hum = LPlayer.Character:FindFirstChildOfClass("Humanoid")
+local hrp = LPlayer.Character.HumanoidRootPart
+local hrp2 = Player.Character.HumanoidRootPart
 hum.Name = "1"
 local newHum = hum:Clone()
 newHum.Parent = char
@@ -343,7 +350,7 @@ newHum.Name = "Humanoid"
 hum:Destroy()
 workspace.CurrentCamera.CameraSubject = char
 newHum.DisplayDistanceType = "None"
-local tool = rug:FindFirstChildOfClass("Backpack"):FindFirstChild("Hammer") or rug.Character:FindFirstChild("Hammer")
+local tool = LPlayer:FindFirstChildOfClass("Backpack"):FindFirstChild("Hammer") or LPlayer.Character:FindFirstChild("Hammer")
 tool.Parent = char
 hrp.CFrame = hrp2.CFrame * CFrame.new(0, 0, 0) * CFrame.new(math.random(-100, 100)/200,math.random(-100, 100)/200,math.random(-100, 100)/200)
 local n = 0
@@ -354,18 +361,18 @@ hrp.CFrame = hrp2.CFrame
 until (tool.Parent ~= char or not hrp or not hrp2 or not hrp.Parent or not hrp2.Parent or n > 250) and n > 2
 for i = 1,10 do
 
-hrp.CFrame = NormPos
+hrp.CFrame = SaveFrame
 end
 dfp = game.Workspace["Criminals Spawn"].SpawnLocation
 local PartPos = dfp.CFrame
 dfp.CanCollide = false
 dfp.Transparency = 1
-dfp.CFrame = game.Players.LocaLPlayer.Character.HumanoidRootPart.CFrame
+dfp.CFrame = LPlayer.Character.HumanoidRootPart.CFrame
 Wait(0.3)
 dfp.CFrame = PartPos
 workspace.Remote.loadchar:InvokeServer()
-umm = NormPos * CFrame.Angles(math.rad(0), 0, 0)
-rug.Character.HumanoidRootPart.CFrame = umm
+umm = SaveFrame * CFrame.Angles(math.rad(0), 0, 0)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 end
 end
 
@@ -3280,9 +3287,7 @@ Bring(GetPlayer(Arg2), LPlayer.Character.HumanoidRootPart.CFrame)
 end
 
 if Command("crim") then
-local Player = GetPlayer(Arg2)
-
-Crim(Player)
+Crim(GetPlayer(Arg2))
 end
 
 if Command("antibring") then
