@@ -8,6 +8,10 @@ local Players = game.Players
 local LPlayer = game.Players.LocalPlayer
 local Run = game:GetService("RunService")
 local Replicate = game:GetService("ReplicatedStorage")
+local ShootEvent = Replicate.ShootEvent
+local ItemHandler = workspace.Remote.ItemHandler
+local ItemGiver = workspace.Prison_ITEMS.giver
+local ItemSingle = workspace.Prison_ITEMS.single
 local StarterGui = game:GetService("StarterGui")
 local Marketplace = game:GetService("MarketplaceService")
 local CheckGamePass = Marketplace:UserOwnsGamePassAsync(tonumber((LPlayer.CharacterAppearance):split('=')[#((LPlayer.CharacterAppearance):split('='))]), 96651)
@@ -313,7 +317,7 @@ if diefaggot ~= nil then
 local NormPos = rug.Character.HumanoidRootPart.CFrame
 savecf = rug.Character.HumanoidRootPart.CFrame
 workspace.Remote.loadchar:InvokeServer()
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single["Hammer"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemSingle["Hammer"].ITEMPICKUP)
 rug.Character.HumanoidRootPart.CFrame = savecf
 function Wait(t)
 local RS = game:GetService("RunService")
@@ -356,7 +360,7 @@ dfp = game.Workspace["Criminals Spawn"].SpawnLocation
 local PartPos = dfp.CFrame
 dfp.CanCollide = false
 dfp.Transparency = 1
-dfp.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+dfp.CFrame = game.Players.LocaLPlayer.Character.HumanoidRootPart.CFrame
 Wait(0.3)
 dfp.CFrame = PartPos
 workspace.Remote.loadchar:InvokeServer()
@@ -477,19 +481,73 @@ end)
 
 local Commands = {
 "-- Player --",
-"re - respawn",
-"t - team color",
-"quit - leave the game",
-"ws - walk speed",
-"jp - jump power",
+"cmds",
+"sagui",
+"prefix",
+"re",
+"lock",
+"rejoin",
+"quit",
+"t [team]",
+"gv [number]",
+"ws [number]",
+"jp [number]",
+"",
 "-- Players --",
-"k - kill player",
-"k g - kill guards",
-"k i - kill inmates",
-"k c - kill criminals",
-"k a - kill all",
-"tase - tase player",
-"tase all - tase all players"
+"easyadmin [plr]",
+"admin [plr]",
+"follow [plr]",
+"unfollow [plr]",
+"view [plr]",
+"unview [plr]",
+"copy [plr]",
+"uncopy [plr]",
+"kill [plr, i, g, c, n, a]",
+"lk [plr, i, g, c, n, a]",
+"unlk [plr, i, g, c, n, a]",
+"crash [mobile, players, server]",
+"tase [plr, a]",
+"to [plr]",
+"bring [plr]",
+"crim [plr]",
+"",
+"-- Toggles -- ",
+"auto [on/off]",
+"autoguns [slot1, slot2, slot3, off]",
+"inf [on/off]",
+"arrest [plr, a]",
+"autolock [on/off]",
+"god [on/off]",
+"antibring [on/off]",
+"lt [i, g, off]",
+"infstam [on/off]",
+"ff [on/off]",
+"anticrash [on/off]",
+"antispam [on/off]",
+"remove [on/off]",
+"antishield [on/off]",
+"ak [on/off]",
+"aura [on/off]",
+"gnod [long, small, smoke, mgum, side]",
+"fly [on/off]",
+"noclip [on/off]",
+"flyspeed [number]",
+"clt [on/off]",
+"time [day, night, off]",
+"sp [on/off]",
+"fp [on/off]",
+"walls [on/off]",
+"doors [on/off]",
+"",
+"-- Tps --",
+"nex",
+"tow",
+"cells",
+"roof",
+"arm",
+"cbase",
+"yar",
+"back"
 }
 
 for i,v in pairs(Commands) do
@@ -727,7 +785,7 @@ local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, Split)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 end
 
 function KillTeam(TP)
@@ -738,7 +796,7 @@ if LPlayer.TeamColor.Name == "Bright orange" then
 RespawnSplit("12")
 end
 
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
 
@@ -752,7 +810,7 @@ end
 
 ReloadEvent()
 
-Replicate.ShootEvent:FireServer(Arg,Gun)
+ShootEvent:FireServer(Arg,Gun)
 
 end
 
@@ -762,7 +820,7 @@ if LPlayer.TeamColor.Name == "Bright blue" then
 RespawnSplit("12")
 end
 
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
 
@@ -776,7 +834,7 @@ end
 
 ReloadEvent()
 
-Replicate.ShootEvent:FireServer(Arg,Gun)
+ShootEvent:FireServer(Arg,Gun)
 
 end
 
@@ -786,7 +844,7 @@ if LPlayer.TeamColor.Name == "Really red" then
 RespawnSplit("12")
 end
 
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
 
@@ -800,7 +858,7 @@ end
 
 ReloadEvent()
 
-Replicate.ShootEvent:FireServer(Arg,Gun)
+ShootEvent:FireServer(Arg,Gun)
 
 end
 
@@ -810,7 +868,7 @@ if LPlayer.TeamColor.Name == "Medium stone grey" then
 RespawnSplit("12")
 end
 
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
 
@@ -824,7 +882,7 @@ end
 
 ReloadEvent()
 
-Replicate.ShootEvent:FireServer(Arg,Gun)
+ShootEvent:FireServer(Arg,Gun)
 
 end
 
@@ -832,7 +890,7 @@ if TP == "a" or TP == "all" or TP == "everyone" or TP == "todos" then
 
 RespawnSplit("12")
 
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
 
@@ -846,7 +904,7 @@ end
 
 ReloadEvent()
 
-Replicate.ShootEvent:FireServer(Arg,Gun)
+ShootEvent:FireServer(Arg,Gun)
 
 end
 
@@ -869,7 +927,7 @@ _G.i = true
 while _G.i == true do wait(.3)
 
 pcall(function()
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
 
@@ -901,7 +959,7 @@ end
 end
 end
 
-Replicate.ShootEvent:FireServer(Arg,Gun)
+ShootEvent:FireServer(Arg,Gun)
 end)
 end
 end
@@ -921,7 +979,7 @@ _G.c = true
 while _G.c == true do wait(.3)
 
 pcall(function()
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
 
@@ -953,7 +1011,7 @@ end
 end
 end
 
-Replicate.ShootEvent:FireServer(Arg,Gun)
+ShootEvent:FireServer(Arg,Gun)
 end)
 end
 end
@@ -973,7 +1031,7 @@ _G.g = true
 while _G.g == true do wait(.3)
 
 pcall(function()
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
 
@@ -1005,7 +1063,7 @@ end
 end
 end
 
-Replicate.ShootEvent:FireServer(Arg,Gun)
+ShootEvent:FireServer(Arg,Gun)
 end)
 end
 end
@@ -1020,7 +1078,7 @@ _G.n = true
 
 while _G.n == true do wait(.3)
 
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
 
@@ -1034,7 +1092,7 @@ end
 
 ReloadEvent()
 
-Replicate.ShootEvent:FireServer(Arg,Gun)
+ShootEvent:FireServer(Arg,Gun)
 end
 
 end
@@ -1052,7 +1110,7 @@ _G.a = true
 while _G.a == true do wait(.3)
 
 pcall(function()
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
 
@@ -1084,7 +1142,7 @@ end
 end
 end
 
-Replicate.ShootEvent:FireServer(Arg,Gun)
+ShootEvent:FireServer(Arg,Gun)
 end)
 end
 end
@@ -1121,7 +1179,7 @@ LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 end
 
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
 
@@ -1147,7 +1205,7 @@ end
 end
 end
 
-Replicate.ShootEvent:FireServer(Arg,Gun)
+ShootEvent:FireServer(Arg,Gun)
 end
 end
 end)
@@ -1171,14 +1229,14 @@ end
 
 if Slot1 then
 if CheckGamePass then
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 else
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 end
 end
 
@@ -1186,14 +1244,14 @@ LPlayer.CharacterAdded:Connect(function(newChar)
 if Slot1 then
 newChar:WaitForChild("HumanoidRootPart",0.3)
 if CheckGamePass then
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 else
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 end
 end
 end)
@@ -1215,28 +1273,28 @@ end
 
 if Slot2 then
 if CheckGamePass then
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 else
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 end
 end
 
 LPlayer.CharacterAdded:Connect(function(newChar)
 if Slot2 then
 if CheckGamePass then
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 else
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 end
 end
 end)
@@ -1259,14 +1317,14 @@ end
 
 if Slot3 then
 if CheckGamePass then
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 else
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 end
 end
 
@@ -1274,20 +1332,20 @@ LPlayer.CharacterAdded:Connect(function(newChar)
 if Slot3 then
 newChar:WaitForChild("HumanoidRootPart",0.3)
 if CheckGamePass then
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 else
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 end
 end
 end)
 end
 
-if Slot == "off" then
+if Slot == "off" or Slot == "desligado" then
 if Slot1 == true or Slot2 == true or Slot3 == true then
 Slot1 = false
 Slot2 = false
@@ -1306,12 +1364,12 @@ end
 
 function InfToggle(Toggle)
 
-if Toggle == "on" then
+if Toggle == "on" or Toggle == "ligado" then
 Inf = true
 
 Run.Stepped:Connect(function()
 if Inf then
-local j = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
+local j = LPlayer.Character:FindFirstChildOfClass("Tool")
 game.ReplicatedStorage.ReloadEvent:FireServer(j)
 
 for i, v in next, debug.getregistry() do if type(v) == "table"
@@ -1323,7 +1381,7 @@ end
 end)
 end
 
-if Toggle == "off" then
+if Toggle == "off" or Toggle == "desligado" then
 Inf = false
 
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
@@ -1395,7 +1453,7 @@ end
 end
 
 function ArrestA(Everyone)
-if Everyone == "a" or Everyone == "all" or Everyone == "everyone" then
+if Everyone == "a" or Everyone == "all" or Everyone == "everyone" or Everyone == "todos" then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 for i,v in pairs(game.Teams.Criminals:GetPlayers()) do
 if v.Name ~= LPlayer.Name then
@@ -1465,7 +1523,7 @@ end
 
 function GodMode(Toggle)
 
-if Toggle == "on" then
+if Toggle == "on" or Toggle == "ligado" then
 
 local GodPosition = LPlayer.Character.HumanoidRootPart.CFrame
 
@@ -1526,7 +1584,7 @@ NewHum()
 end
 end
 
-if Toggle == "off" then
+if Toggle == "off" or Toggle == "desligado" then
 
 _G.GodModeActive = false
 
@@ -1553,7 +1611,7 @@ end
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 workspace.Remote.loadchar:InvokeServer()
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single["Hammer"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemSingle["Hammer"].ITEMPICKUP)
 LPlayer.Character.Humanoid.Name = "1"
 local C = LPlayer.Character["1"]:Clone()
 C.Name = "Humanoid"
@@ -1593,7 +1651,7 @@ end
 if Player ~= nil then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 workspace.Remote.loadchar:InvokeServer()
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single["Hammer"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemSingle["Hammer"].ITEMPICKUP)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 function Wait(t)
 local RS = game:GetService("RunService")
@@ -1697,7 +1755,7 @@ end
 
 function InfStam(Toggle)
 
-if Toggle == "on" then
+if Toggle == "on" or Toggle == "ligado" then
 
 Stam = true
 
@@ -1732,7 +1790,7 @@ end
 end)
 end
 
-if Toggle == "off" then
+if Toggle == "off" or Toggle == "desligado" then
 
 if Stam == true then
 
@@ -1837,7 +1895,7 @@ end
 
 function ForceField(Toggle)
 
-if Toggle == "on" then
+if Toggle == "on" or Toggle == "ligado" then
 
 _G.FF = true
 
@@ -1880,7 +1938,7 @@ end
 end
 end
 
-if Toggle == "off" then
+if Toggle == "off" or Toggle == "desligado" then
 
 if _G.FF == true then
 _G.FF = false
@@ -2127,7 +2185,7 @@ local Arg = {
     }
 }
 
-Replicate.ShootEvent:FireServer(Arg, Taser)
+ShootEvent:FireServer(Arg, Taser)
 
 
 workspace.Remote.loadchar:InvokeServer(nil ,SaveTeam)
@@ -2164,7 +2222,7 @@ table.insert(Arg,GetPlayer(v))
 end
 end
 
-Replicate.ShootEvent:FireServer(Arg,Taser)
+ShootEvent:FireServer(Arg,Taser)
 
 workspace.Remote.loadchar:InvokeServer(nil ,SaveTeam)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
@@ -2272,7 +2330,7 @@ if KillAura then
 for i,v in pairs(game.Players:GetPlayers()) do
 pcall(function()
 if v ~= game.Players.LocalPlayer then
-local Distance = (v.Character:FindFirstChildOfClass("Part").Position - game.Players.LocalPlayer.Character:FindFirstChildOfClass("Part").Position).magnitude
+local Distance = (v.Character:FindFirstChildOfClass("Part").Position - game.Players.LocaLPlayer.Character:FindFirstChildOfClass("Part").Position).magnitude
 if Distance <= 10 then
 for i = 1, 15 do
 game.ReplicatedStorage.meleeEvent:FireServer(v)
@@ -2303,12 +2361,12 @@ if v:IsA("Tool") then
 v.Parent = LPlayer.Backpack
 end
 end
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single["Hammer"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single["Crude Knife"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemSingle["Hammer"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemSingle["Crude Knife"].ITEMPICKUP)
 LPlayer.Backpack["M9"].Parent = LPlayer.Character
 LPlayer.Backpack["AK-47"].Parent = LPlayer.Character
 LPlayer.Backpack["Remington 870"].Parent = LPlayer.Character
@@ -2343,11 +2401,11 @@ if v:IsA("Tool") then
 v.Parent = LPlayer.Backpack
 end
 end
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single["Hammer"].ITEMPICKUP)
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single["Crude Knife"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemSingle["Hammer"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemSingle["Crude Knife"].ITEMPICKUP)
 LPlayer.Backpack["M9"].Parent = LPlayer.Character
 LPlayer.Backpack["AK-47"].Parent = LPlayer.Character
 LPlayer.Backpack["Remington 870"].Parent = LPlayer.Character
@@ -2382,7 +2440,7 @@ if v:IsA("Tool") then
 v.Parent = LPlayer.Backpack
 end
 end
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 LPlayer.Backpack["Remington 870"].Parent = LPlayer.Character
 wait()
 LPlayer.Character:FindFirstChildOfClass("Tool").GripForward = Vector3.new(10,1,500)
@@ -2402,7 +2460,7 @@ if v:IsA("Tool") then
 v.Parent = LPlayer.Backpack
 end
 end
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 LPlayer.Backpack["Remington 870"].Parent = LPlayer.Character
 wait()
 LPlayer.Character:FindFirstChildOfClass("Tool").GripForward = Vector3.new(10,1,500)
@@ -2425,7 +2483,7 @@ if v:IsA("Tool") then
 v.Parent = LPlayer.Backpack
 end
 end
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 LPlayer.Backpack["Remington 870"].Parent = LPlayer.Character
 wait()
 LPlayer.Character:FindFirstChildOfClass("Tool").GripPos = Vector3.new(0.1,-0.1,0.3)
@@ -2447,7 +2505,7 @@ if v:IsA("Tool") then
 v.Parent = LPlayer.Backpack
 end
 end
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 LPlayer.Backpack["M9"].Parent = LPlayer.Character
 wait()
 LPlayer.Character:FindFirstChildOfClass("Tool").GripPos = Vector3.new(0.9,2,0)
@@ -2465,7 +2523,7 @@ end
 
 function Fly(Toggle)
 
-if Toggle == "on" then
+if Toggle == "on" or Toggle == "ligado" then
 
 ReCheckFly = true
 
@@ -2562,7 +2620,7 @@ end)
 
 end
 
-if Toggle == "off" then
+if Toggle == "off" or Toggle == "desligado" then
 
 ReCheckFly = false
 
@@ -2800,7 +2858,7 @@ end
 
 function Times(Time)
 
-if Time == "day" then
+if Time == "day" or Time == "dia" then
 
 if Night == true then
 Night = false
@@ -2820,7 +2878,7 @@ end)
 
 end
 
-if Time == "night" then
+if Time == "night" or Time == "noite" then
 
 if Day == true then
 Day = false
@@ -2938,6 +2996,90 @@ end
 if Toggle == "off" then
 
 FastPunch = false
+
+end
+
+end
+
+function Crash(Arg)
+
+if Arg == "mobiles" or Arg == "mobile" or Arg == "movil" or Arg == "movils" then
+
+CrashPlayers = true
+
+Run.Stepped:Connect(function()
+
+if CrashPlayers then
+
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+local M9 = LPlayer.Character:FindFirstChild("M9") or LPlayer.Backpack:FindFirstChild("M9")
+
+local Locate = {}
+
+for i = 1,10000 do
+Locate[i] = {
+Cframe = CFrame.new(),
+Hit = workspace:FindFirstChildOfClass("Part")
+}
+end
+
+for i = 1,2 do
+ShootEvent:FireServer(Locate,M9)
+end
+
+end
+
+end)
+
+wait()
+
+CrashPlayers = false
+
+end
+
+if Arg == "players" or Arg == "all" or Arg == "a" or Arg == "everyone" then
+
+CrashPlayers = true
+
+Run.Stepped:Connect(function()
+
+if CrashPlayers then
+
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+local M9 = LPlayer.Character:FindFirstChild("M9") or LPlayer.Backpack:FindFirstChild("M9")
+
+local Locate = {}
+
+for i = 1,100000 do
+Locate[i] = {
+Cframe = CFrame.new(),
+Hit = workspace:FindFirstChildOfClass("Part")
+}
+end
+
+ShootEvent:FireServer(Locate,M9)
+
+end
+
+end)
+
+wait()
+
+CrashPlayers = false
+
+end
+
+if Arg == "server" or Arg == "servidor" or Arg == "sv" then
+
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+
+local Rem = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
+
+local Arg = {}
+
+for i = 1,1000 do
+ShootEvent:FireServer(Arg,Rem)
+end
 
 end
 
@@ -3071,11 +3213,11 @@ end
 
 end
 
-if Command("rj") or Command("rejoin") then
+if Command("rj") or Command("rejoin") or Command("reconectar") then
 game:GetService("TeleportService"):Teleport(game.PlaceId, LPlayer)
 end
 
-if Command("quit") or Command("leave") then
+if Command("quit") or Command("leave") or Command("sair") then
 game:Shutdown()
 end
 
@@ -3083,21 +3225,21 @@ if Command("auto") or Command("autore") then
 AutoToggle(Arg2)
 end
 
-if Command("autoguns") then
+if Command("autoguns") or Command("autoarmas") then
 AG(Arg2:lower())
 end
 
-if Command("inf") then
+if Command("inf") or Command("tiroinfinito") then
 InfToggle(Arg2:lower())
 end
 
-if Command("t") then
+if Command("t") or Command("time") then
 TeamColor(Arg2)
 end
 
-if Command("arrest") then
+if Command("arrest") or Command("prender") then
 
-if Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" then
+if Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
 
 ArrestA(Arg2:lower())
 
@@ -3123,11 +3265,11 @@ if Command("autolock") then
 ALock(Arg2:lower())
 end
 
-if Command("god") then
+if Command("god") or Command("deus") then
 GodMode(Arg2:lower())
 end
 
-if Command("bring") then
+if Command("bring") or Command("trazer") then
 local Player = GetPlayer(Arg2)
 
 Bring(GetPlayer(Arg2), LPlayer.Character.HumanoidRootPart.CFrame)
@@ -3148,11 +3290,11 @@ local Player = GetPlayer(Arg2)
 LoopTeam(Arg2:lower())
 end
 
-if Command("infstam") then
+if Command("infstam") or Command("puloinfinito") then
 InfStam(Arg2:lower())
 end
 
-if Command("ff") then
+if Command("ff") or Command("proteção") then
 ForceField(Arg2:lower())
 end
 
@@ -3160,7 +3302,7 @@ if Command("anticrash") then
 AntiCrash(Arg2:lower())
 end
 
-if Command("copy") then
+if Command("copy") or Command("copiar") then
 local Player = GetPlayer(Arg2) or Arg2
 
 CopyTeam(Player)
@@ -3194,7 +3336,7 @@ if Command("gnod") then
 Gnod(Arg2:lower())
 end
 
-if Command("fly") then
+if Command("fly") or Command("voar") then
 Fly(Arg2:lower())
 end
 
@@ -3246,7 +3388,7 @@ if Command("clt") then
 ClothingToggle(Arg2:lower())
 end
 
-if Command("time") then
+if Command("time") or Command("tempo") then
 Times(Arg2:lower())
 end
 
@@ -3258,7 +3400,7 @@ if Command("fp") then
 FastPunch(Arg2:lower())
 end
 
-if Command("cmds") then
+if Command("cmds") or Command("comandos") then
 CmdsOn()
 end
 
@@ -3276,6 +3418,10 @@ local NewPrefix = Arg2
 if NewPrefix ~= nil then
 Prefix = NewPrefix
 end
+end
+
+if Command("crash") then
+Crash(Arg2:lower())
 end
 
 if Command("easyadmin") then
@@ -3432,36 +3578,66 @@ if Command("cbase") then
 Bring(Player, CFrame.new(-913.828125, 94.1287842, 2065.8103))
 end
 
-if Command("k") or Command("kill") then
-local Player = GetPlayer(Arg2)
+if Command("k") or Command("kill") or Command("matar") then
+
+if Arg2 == "i" or Arg2 == "inmates" or Arg2 == "presos" or Arg2 == "g" or Arg2 == "guards" or Arg2 == "policiais" or Arg2 == "c" or Arg2 == "criminals" or Arg2 == "criminosos" or Arg2 == "n" or Arg2 == "neutrals" or Arg2 == "neutros" or Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
 
 KillTeam(Arg2:lower())
-Kill(Player)
+
+else
+
+Kill(GetPlayer(Arg2))
+
+end
+
 end
 
 if Command("tase") then
-local Player = GetPlayer(Arg2)
 
-Tase(Player)
+if Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" then
+
 TaseAll(Arg2:lower())
+
+else
+
+Tase(GetPlayer(Arg2))
+
+end
+
 end
 
 if Command("lk") or Command("loopkill") then
+
+if Arg2 == "i" or Arg2 == "inmates" or Arg2 == "presos" or Arg2 == "g" or Arg2 == "guards" or Arg2 == "policiais" or Arg2 == "c" or Arg2 == "criminals" or Arg2 == "criminosos" or Arg2 == "n" or Arg2 == "neutrals" or Arg2 == "neutros" or Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
+
 Lk(Arg2:lower())
+
+else
 
 local Player = GetPlayer(Arg2)
 if Player ~= nil and not LoopKill[Player.UserId] then
 LoopKill[Player.UserId] = {Player = Player}
 end
+
+end
+
 end
 
 if Command("unlk") or Command("unloopkill") then
-Unlk(Arg2:lower())
+
+if Arg2 == "i" or Arg2 == "inmates" or Arg2 == "presos" or Arg2 == "g" or Arg2 == "guards" or Arg2 == "policiais" or Arg2 == "c" or Arg2 == "criminals" or Arg2 == "criminosos" or Arg2 == "n" or Arg2 == "neutrals" or Arg2 == "neutros" or Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
+
+Lk(Arg2:lower())
+
+else
 
 local Player = GetPlayer(Arg2)
 if Player ~= nil and LoopKill[Player.UserId] then
 LoopKill[Player.UserId] = nil
 end
+
+end
+
 end
 
 if Command("cmds") then
