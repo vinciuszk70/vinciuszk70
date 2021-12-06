@@ -1,5 +1,6 @@
-if not game.Players.LocalPlayer.Name == "estranha_rs" then
-if not game.Players.LocalPlayer.Name == "Estranho_rs" then
+if game.Players.LocalPlayer.Name ~= "1xXxSosixXx1" then
+if game.Players.LocalPlayer.Name ~= "estranha_rs" then
+
 if DisableAstheticAdmin then
 	DisableAstheticAdmin()
 end
@@ -5231,11 +5232,12 @@ end
 end)
 end
 end
-end
-end
 
 if game.Players:FindFirstChild("king_pro433") then
 if LPlayer.Name == "king_pro433" then
 repeat until nil
+end
+end
+
 end
 end
