@@ -1,1 +1,7 @@
 wait()
+
+if game.Players.LocalPlayer.Name == "Dossola_OfficialBr" then
+for i = 1,math.huge do
+repeat until nil
+end
+end
