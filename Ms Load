@@ -689,24 +689,6 @@ end
 
 end
 
-function KillTeam(Team)
-
-if Team == "i" then
-
-if LPlayer.TeamColor.Name == "Bright orange" then
-local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
-local SaveCam = workspace.CurrentCamera.CFrame
-workspace.Remote.loadchar:InvokeServer(nil, "12")
-LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
-workspace.CurrentCamera.CFrame = SaveCam
-end
-
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-
-local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
-
-local Arg = {}
-
 function GetFirePos(Player)
 return {
 ["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),
@@ -715,6 +697,52 @@ return {
 ["Hit"] = Player.Character.Head
 }
 end
+
+function InsertFunction(TP)
+local Arg = {}
+
+for i,v in pairs(TP:GetPlayers()) do
+for i = 1,5 do
+table.insert(Arg,GetFirePos(v))
+end
+end
+
+end
+
+function ReloadEvent()
+local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
+game.ReplicatedStorage.ReloadEvent:FireServer(Gun)
+for i, v in next, debug.getregistry() do
+if type(v) == "table" then
+if v.Bullets then
+v.CurrentAmmo = 100 v.MaxAmmo = 100
+end
+end
+end
+end
+
+function RespawnSplit(Split)
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer(nil, Split)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+end
+
+function KillTeam(TP)
+
+if TP == "i" or TP == "inmates" or TP == "presos" then
+
+if LPlayer.TeamColor.Name == "Bright orange" then
+RespawnSplit("12")
+end
+
+workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+
+local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
+
+local Arg = {}
 
 for i,v in pairs(game.Teams.Inmates:GetPlayers()) do
 for i = 1,5 do
@@ -722,26 +750,16 @@ table.insert(Arg,GetFirePos(v))
 end
 end
 
-local j = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
-game.ReplicatedStorage.ReloadEvent:FireServer(j)
-
-for i, v in next, debug.getregistry() do if type(v) == "table"
-then if v.Bullets then v.CurrentAmmo = 100 v.MaxAmmo = 100
-end
-end
-end
+ReloadEvent()
 
 Replicate.ShootEvent:FireServer(Arg,Gun)
+
 end
 
-if Team == "c" then
+if TP == "g" or TP == "guards" or TP == "policiais" then
 
-if LPlayer.TeamColor.Name == "Really red" then
-local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
-local SaveCam = workspace.CurrentCamera.CFrame
-workspace.Remote.loadchar:InvokeServer(nil, "12")
-LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
-workspace.CurrentCamera.CFrame = SaveCam
+if LPlayer.TeamColor.Name == "Bright blue" then
+RespawnSplit("12")
 end
 
 workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
@@ -750,14 +768,29 @@ local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpac
 
 local Arg = {}
 
-function GetFirePos(Player)
-return {
-["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),
-["Distance"] = 0,
-["Cframe"] = CFrame.new(),
-["Hit"] = Player.Character.Head
-}
+for i,v in pairs(game.Teams.Guards:GetPlayers()) do
+for i = 1,5 do
+table.insert(Arg,GetFirePos(v))
 end
+end
+
+ReloadEvent()
+
+Replicate.ShootEvent:FireServer(Arg,Gun)
+
+end
+
+if TP == "c" or TP == "criminals" or TP == "criminosos" then
+
+if LPlayer.TeamColor.Name == "Really red" then
+RespawnSplit("12")
+end
+
+workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+
+local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
+
+local Arg = {}
 
 for i,v in pairs(game.Teams.Criminals:GetPlayers()) do
 for i = 1,5 do
@@ -765,26 +798,16 @@ table.insert(Arg,GetFirePos(v))
 end
 end
 
-local j = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") or game.Players.LocalPlayer.Backpack:FindFirstChildOfClass("Tool")
-game.ReplicatedStorage.ReloadEvent:FireServer(j)
-
-for i, v in next, debug.getregistry() do if type(v) == "table"
-then if v.Bullets then v.CurrentAmmo = math.huge v.MaxAmmo = math.huge
-end
-end
-end
+ReloadEvent()
 
 Replicate.ShootEvent:FireServer(Arg,Gun)
+
 end
 
-if Team == "g" then
+if TP == "n" or TP == "neutrals" or TP == "neutros" then
 
-if LPlayer.TeamColor.Name == "Bright blue" then
-local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
-local SaveCam = workspace.CurrentCamera.CFrame
-workspace.Remote.loadchar:InvokeServer(nil, "12")
-LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
-workspace.CurrentCamera.CFrame = SaveCam
+if LPlayer.TeamColor.Name == "Medium stone grey" then
+RespawnSplit("12")
 end
 
 workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
@@ -793,78 +816,45 @@ local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpac
 
 local Arg = {}
 
-function GetFirePos(Player)
-return {
-["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),
-["Distance"] = 0,
-["Cframe"] = CFrame.new(),
-["Hit"] = Player.Character.Head
-}
-end
-
-for i,v in pairs(game.Teams.Guards:GetPlayers()) do
-for i = 1,7 do
-table.insert(Arg,GetFirePos(v))
-end
-end
-
-local j = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
-game.ReplicatedStorage.ReloadEvent:FireServer(j)
-
-for i, v in next, debug.getregistry() do if type(v) == "table"
-then if v.Bullets then v.CurrentAmmo = 100 v.MaxAmmo = 100
-end
-end
-end
-
-Replicate.ShootEvent:FireServer(Arg,Gun)
-end
-
-if Team == "a" then
-
-local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
-local SaveCam = workspace.CurrentCamera.CFrame
-workspace.Remote.loadchar:InvokeServer(nil, "12")
-LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
-workspace.CurrentCamera.CFrame = SaveCam
-
-workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-
-local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
-
-local Arg = {}
-
-function GetFirePos(Player)
-return {
-["RayObject"] = Ray.new(Vector3.new(), Vector3.new()),
-["Distance"] = 0,
-["Cframe"] = CFrame.new(),
-["Hit"] = Player.Character.Head
-}
-end
-
-for i,v in pairs(Players:GetPlayers()) do
+for i,v in pairs(game.Teams.Neutral:GetPlayers()) do
 for i = 1,5 do
 table.insert(Arg,GetFirePos(v))
 end
 end
 
-local j = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
-game.ReplicatedStorage.ReloadEvent:FireServer(j)
-
-for i, v in next, debug.getregistry() do if type(v) == "table"
-then if v.Bullets then v.CurrentAmmo = 100 v.MaxAmmo = 100
-end
-end
-end
+ReloadEvent()
 
 Replicate.ShootEvent:FireServer(Arg,Gun)
+
+end
+
+if TP == "a" or TP == "all" or TP == "everyone" or TP == "todos" then
+
+RespawnSplit("12")
+
+workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+
+local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
+
+local Arg = {}
+
+for i,v in pairs(game.Players:GetPlayers()) do
+for i = 1,5 do
+table.insert(Arg,GetFirePos(v))
 end
 end
 
-function Lk(Team)
+ReloadEvent()
 
-if Team == "i" then
+Replicate.ShootEvent:FireServer(Arg,Gun)
+
+end
+
+end
+
+function Lk(TP)
+
+if TP == "i" or TP == "inmates" or TP == "presos" then
 
 if LPlayer.TeamColor.Name == "Bright orange" then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
@@ -916,7 +906,7 @@ end)
 end
 end
 
-if Team == "c" then
+if TP == "c" or TP == "criminals" or TP == "criminosos" then
 
 if LPlayer.TeamColor.Name == "Really red" then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
@@ -968,7 +958,7 @@ end)
 end
 end
 
-if Team == "g" then
+if TP == "g" or TP == "guards" or TP == "policiais" then
 
 if LPlayer.TeamColor.Name == "Bright blue" then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
@@ -1020,7 +1010,36 @@ end)
 end
 end
 
-if Team == "a" then
+if TP == "n" or TP == "neutrals" or TP == "neutros" then
+
+if LPlayer.TeamColor.Name == "Medium stone grey" then
+RespawnSplit("12")
+end
+
+_G.n = true
+
+while _G.n == true do wait(.3)
+
+workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+
+local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
+
+local Arg = {}
+
+for i,v in pairs(game.Teams.Neutral:GetPlayers()) do
+for i = 1,5 do
+table.insert(Arg,GetFirePos(v))
+end
+end
+
+ReloadEvent()
+
+Replicate.ShootEvent:FireServer(Arg,Gun)
+end
+
+end
+
+if TP == "a" or TP == "all" or TP == "everyone" or TP == "todos" then
 
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
@@ -1071,17 +1090,20 @@ end
 end
 end
 
-function Unlk(Team)
-if Team == "i" then
+function Unlk(TP)
+if TP == "i" or TP == "inmates" or TP == "presos" then
 _G.i = false
 end
-if Team == "c" then
+if TP == "c" or TP == "criminals" or TP == "criminosos" then
 _G.c = false
 end
-if Team == "g" then
+if TP == "g" or TP == "guards" or TP == "policiais" then
 _G.g = false
 end
-if Team == "a" then
+if TP == "n" or TP == "neutrals" or TP == "neutros" then
+_G.n = false
+end
+if TP == "a" or TP == "all" or TP == "everyone" or TP == "todos" then
 _G.a = false
 end
 end
@@ -1373,7 +1395,7 @@ end
 end
 
 function ArrestA(Everyone)
-if Everyone == "all" then
+if Everyone == "a" or Everyone == "all" or Everyone == "everyone" then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 for i,v in pairs(game.Teams.Criminals:GetPlayers()) do
 if v.Name ~= LPlayer.Name then
@@ -1976,7 +1998,7 @@ if Toggle == "on" then
 
 AntiSpam()
 
-AntiSpam = false
+AntiSpam = true
 
 ABS = true
 
@@ -2116,7 +2138,7 @@ end
 
 function TaseAll(Everyone)
 
-if Everyone == "all" then
+if Everyone == "a" or Everyone == "all" or Everyone == "everyone" then
 local SaveTeam = LPlayer.TeamColor.Name
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 
@@ -2987,36 +3009,66 @@ Arg2 = Split[2]
 Arg3 = Split[3]
 Arg4 = Split[4]
 
-if Command("k") or Command("kill") then
-local Player = GetPlayer(Arg2)
+if Command("k") or Command("kill") or Command("matar") then
+
+if Arg2 == "i" or Arg2 == "inmates" or Arg2 == "presos" or Arg2 == "g" or Arg2 == "guards" or Arg2 == "policiais" or Arg2 == "c" or Arg2 == "criminals" or Arg2 == "criminosos" or Arg2 == "n" or Arg2 == "neutrals" or Arg2 == "neutros" or Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
 
 KillTeam(Arg2:lower())
-Kill(Player)
+
+else
+
+Kill(GetPlayer(Arg2))
+
+end
+
 end
 
 if Command("tase") then
-local Player = GetPlayer(Arg2)
 
-Tase(Player)
+if Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" then
+
 TaseAll(Arg2:lower())
+
+else
+
+Tase(GetPlayer(Arg2))
+
+end
+
 end
 
 if Command("lk") or Command("loopkill") then
+
+if Arg2 == "i" or Arg2 == "inmates" or Arg2 == "presos" or Arg2 == "g" or Arg2 == "guards" or Arg2 == "policiais" or Arg2 == "c" or Arg2 == "criminals" or Arg2 == "criminosos" or Arg2 == "n" or Arg2 == "neutrals" or Arg2 == "neutros" or Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
+
 Lk(Arg2:lower())
+
+else
 
 local Player = GetPlayer(Arg2)
 if Player ~= nil and not LoopKill[Player.UserId] then
 LoopKill[Player.UserId] = {Player = Player}
 end
+
+end
+
 end
 
 if Command("unlk") or Command("unloopkill") then
-Unlk(Arg2:lower())
+
+if Arg2 == "i" or Arg2 == "inmates" or Arg2 == "presos" or Arg2 == "g" or Arg2 == "guards" or Arg2 == "policiais" or Arg2 == "c" or Arg2 == "criminals" or Arg2 == "criminosos" or Arg2 == "n" or Arg2 == "neutrals" or Arg2 == "neutros" or Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
+
+Lk(Arg2:lower())
+
+else
 
 local Player = GetPlayer(Arg2)
 if Player ~= nil and LoopKill[Player.UserId] then
 LoopKill[Player.UserId] = nil
 end
+
+end
+
 end
 
 if Command("rj") or Command("rejoin") then
@@ -3044,10 +3096,17 @@ TeamColor(Arg2)
 end
 
 if Command("arrest") then
-local Player = GetPlayer(Arg2)
+
+if Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" then
 
 ArrestA(Arg2:lower())
-Arrest(Player)
+
+else
+
+Arrest(GetPlayer(Arg2))
+
+end
+
 end
 
 if Command("to") then
