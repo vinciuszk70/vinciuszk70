@@ -1401,7 +1401,6 @@ end
 end
 
 function TeamColor(Team)
-if Team == "i" or Team == "g" or Team == "c" or Team == "n" then
 
 if Team == "i" then
 workspace.Remote.TeamEvent:FireServer("Bright orange")
@@ -1426,17 +1425,6 @@ if Team == "n" then
 workspace.Remote.TeamEvent:FireServer("Medium stone grey")
 end
 
-else
-
-if Team ~= nil then
-local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
-workspace.Remote.loadchar:InvokeServer(nil ,Team)
-LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
-else
-return nil
-end
-
-end
 end
 
 function Arrest(Player)
@@ -3245,7 +3233,25 @@ InfToggle(Arg2:lower())
 end
 
 if Command("t") or Command("time") then
-TeamColor(Arg2)
+
+if Arg2 == "i" or Arg2 == "g" or Arg2 == "c" or Arg2 == "n" then
+
+TeamColor(Arg2:lower())
+
+else
+
+if Arg3 == nil then
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+workspace.Remote.loadchar:InvokeServer(nil, Arg2)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+else
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+workspace.Remote.loadchar:InvokeServer(nil, Arg2.." "..Arg3)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+end
+
+end
+
 end
 
 if Command("arrest") or Command("prender") then
