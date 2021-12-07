@@ -3557,14 +3557,14 @@ if Guns then
 local Part = Guns:FindFirstChild('Part')
 local Model = Guns:FindFirstChild('Model')
 if Part then
-Part.BrickColor = BrickColor.new("Violet")
+Part.BrickColor = BrickColor.new("Bright violet")
 Part.Material = "Neon"
 Part.Name = "Part1"
 end
 if Model then
 local PartOfModel = Model:FindFirstChild('Part')
 if PartOfModel then
-PartOfModel.BrickColor = BrickColor.new("Violet")
+PartOfModel.BrickColor = BrickColor.new("Bright violet")
 PartOfModel.Material = "Neon"
 PartOfModel.Name = "Part1"
 end
@@ -3775,7 +3775,7 @@ if Green then
 CGunGreen()
 end
 if Gold then
-CGuGold()
+CGunGold()
 end
 if Pink then
 CGunPink()
