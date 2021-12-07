@@ -18,6 +18,8 @@ local ShootEvent = Replicate.ShootEvent
 local ItemHandler = workspace.Remote.ItemHandler
 local ItemGiver = workspace.Prison_ITEMS.giver
 local ItemSingle = workspace.Prison_ITEMS.single
+local ItemClothes = workspace.Prison_ITEMS.clothes
+local TeamEvent = workspace.Remote.TeamEvent
 local StarterGui = game:GetService("StarterGui")
 local Marketplace = game:GetService("MarketplaceService")
 local CheckGamePass = Marketplace:UserOwnsGamePassAsync(tonumber((LPlayer.CharacterAppearance):split('=')[#((LPlayer.CharacterAppearance):split('='))]), 96651)
@@ -519,6 +521,7 @@ local Commands = {
 "lk [plr, i, g, c, n, a]",
 "unlk [plr, i, g, c, n, a]",
 "crash [mobile, players, server]",
+"lag [server, swat], [on/off]",
 "tase [plr, a]",
 "to [plr]",
 "bring [plr]",
@@ -542,6 +545,7 @@ local Commands = {
 "ak [on/off]",
 "aura [on/off]",
 "gnod [long, small, smoke, mgum, side]",
+"inv [on/off]",
 "fly [on/off]",
 "noclip [on/off]",
 "flyspeed [number]",
@@ -840,6 +844,11 @@ local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpac
 local Arg = {}
 
 for i,v in pairs(game.Teams.Guards:GetPlayers()) do
+if game.workspace[v.Name]:FindFirstChild("vest") then
+for i = 1,7 do
+table.insert(Arg,GetFirePos(v))
+end
+end
 for i = 1,5 do
 table.insert(Arg,GetFirePos(v))
 end
@@ -910,6 +919,11 @@ local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpac
 local Arg = {}
 
 for i,v in pairs(game.Players:GetPlayers()) do
+if v.Character:FindFirstChild("vest") then
+for i = 1,7 do
+table.insert(Arg,GetFirePos(v))
+end
+end
 for i = 1,5 do
 table.insert(Arg,GetFirePos(v))
 end
@@ -1060,10 +1074,13 @@ return {
 end
 
 for i,v in pairs(game.Teams.Guards:GetPlayers()) do
-if v.Character:FindFirstChild("HumanoidRootPart") then
+if game.workspace[v.Name]:FindFirstChild("vest") then
 for i = 1,7 do
 table.insert(Arg,GetFirePos(v))
 end
+end
+for i = 1,5 do
+table.insert(Arg,GetFirePos(v))
 end
 end
 
@@ -1139,6 +1156,11 @@ return {
 end
 
 for i,v in pairs(Players:GetPlayers()) do
+if v.Character:FindFirstChild("vest") then
+for i = 1,7 do
+table.insert(Arg,GetFirePos(v))
+end
+end
 if v.Character:FindFirstChild("HumanoidRootPart") then
 for i = 1,5 do
 table.insert(Arg,GetFirePos(v))
@@ -1205,8 +1227,14 @@ local AFire = {
 ["Hit"] = Player.Character.Head
 }
 
+if Player.Character:FindFirstChild("vest") then
 for i = 1,7 do
 table.insert(Arg,AFire)
+end
+else
+for i = 1,5 do
+table.insert(Arg,AFire)
+end
 end
 
 local j = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
@@ -1409,11 +1437,11 @@ end
 function TeamColor(Team)
 
 if Team == "i" then
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 end
 
 if Team == "g" then
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 end
 
 if Team == "c" then
@@ -1428,7 +1456,7 @@ Bruh.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0,
 end
 
 if Team == "n" then
-workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+TeamEvent:FireServer("Medium stone grey")
 end
 
 end
@@ -1464,6 +1492,9 @@ repeat
 wait()
 i = i-1
 if v.Character:FindFirstChild("HumanoidRootPart") then
+if LPlayer.Character.Humanoid.Sit == true then
+LPlayer.Character.Humanoid.Sit = false
+end
 game.Workspace.Remote.arrest:InvokeServer(v.Character.HumanoidRootPart)
 LPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 1.3)
 end
@@ -1835,7 +1866,7 @@ Run.Stepped:Connect(function()
 if Inmate then
 if LPlayer.TeamColor.Name == "Bright orange" then
 else
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 end
 end
 end)
@@ -1855,7 +1886,7 @@ Run.Stepped:Connect(function()
 if Guard then
 if LPlayer.TeamColor.Name == "Bright blue" then
 else
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 end
 end
 end)
@@ -1906,7 +1937,7 @@ _G.FF = true
 
 while _G.FF == true do wait()
 
-Workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 
 if LPlayer.TeamColor.Name == "Bright blue" then
 FFCop = true
@@ -1935,7 +1966,7 @@ workspace.Remote.loadchar:InvokeServer(nil, "1004")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 if LPlayer.TeamColor.Name == "Really red" then
-workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+TeamEvent:FireServer("Medium stone grey")
 end
 end
 
@@ -2149,7 +2180,7 @@ Cam.FieldOfView = 70
 Cam.CameraSubject = workspace:WaitForChild(LPlayer.Name,0.4) 
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.All,true)
 
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 
 workspace.Remote.loadchar:InvokeServer()
 
@@ -2681,7 +2712,7 @@ if LPlayer.Character:FindFirstChild("Clothing") then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 else
@@ -2689,7 +2720,7 @@ if LPlayer.Character:FindFirstChild("Humanoid").Health < 1 then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 else
@@ -2697,7 +2728,7 @@ if ReCh then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 end
@@ -2709,7 +2740,7 @@ if LPlayer.Character:FindFirstChild("Clothing") then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
@@ -2718,7 +2749,7 @@ if LPlayer.Character:FindFirstChild("Humanoid").Health < 1 then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
@@ -2727,7 +2758,7 @@ if ReCh then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
@@ -2741,13 +2772,13 @@ if CopPvp == true then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 else
 if LPlayer.TeamColor.Name == "Medium stone grey" then
 if LPlayer.PlayerGui.Home.intro.Visible == true then
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 
 workspace.Remote.loadchar:InvokeServer()
 RemoveCam()
@@ -2755,10 +2786,10 @@ else
 RemoveCam()
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 workspace.Remote.loadchar:InvokeServer()
 wait(.1)
-workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+TeamEvent:FireServer("Medium stone grey")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 end
@@ -2796,7 +2827,7 @@ else
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 end
@@ -2822,7 +2853,7 @@ if LPlayer.Character:FindFirstChild("Clothing") then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
@@ -2833,7 +2864,7 @@ if LPlayer.Character:FindFirstChild("Clothing") then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 end
@@ -3082,16 +3113,231 @@ local Rem = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpac
 
 local Arg = {}
 
-for i = 1,1 do
-Arg[i] = {
-Cframe = CFrame.new(),
-Hit = workspace:FindFirstChildOfClass("Part")
-}
-end
-
-for i = 1,1000 do
+for i = 1,3000 do
 ShootEvent:FireServer(Arg,Rem)
 end
+
+end
+
+end
+
+function Lag(One,Two)
+
+if One == "server" or One == "sv" or One == "servidor" then
+
+if Two == "on" or Two == "ligado" then
+
+local M9 = LPlayer.Character:FindFirstChild("M9") or LPlayer.Backpack:FindFirstChild("M9")
+
+LagServer = true
+
+while wait() do
+
+if LagServer then
+
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+
+local Locate = {}
+
+for i = 1,2 do
+ShootEvent:FireServer(Locate,M9)
+end
+
+end
+
+end
+
+end
+
+end
+
+if One == "server" or One == "sv" or One == "servidor" then
+
+if Two == "off" or Two == "desligado" then
+
+LagServer = false
+
+end
+
+end
+
+if One == "armor" or One == "amr" or One == "swat" then
+
+if Two == "on" or Two == "ligado" then
+
+LagArmor = true
+
+Run.Stepped:Connect(function()
+while wait() do
+
+if LagArmor then
+
+TeamEvent:FireServer("Bright blue")
+
+ItemHandler:InvokeServer(ItemClothes["Riot Police"].ITEMPICKUP)
+
+end
+
+end
+
+end)
+
+end
+
+end
+
+if One == "armor" or One == "amr" or One == "swat" then
+
+if Two == "off" or Two == "desligado" then
+
+LagArmor = false
+
+RespawnSplit("01")
+
+end
+
+end
+
+end
+
+function Invisible(Toggle)
+
+if Toggle == "on" then
+
+local LPlayer = game.Players.LocalPlayer
+Char  = LPlayer.Character
+touched,tpdback = false, false
+
+LPlayer.CharacterAdded:connect(function(char)
+if script.Disabled ~= true then
+wait(.25)
+loc = Char.HumanoidRootPart.Position
+Char:MoveTo(box.Position + Vector3.new(0,.5,0))
+end
+end)
+
+game:GetService('UserInputService').InputBegan:connect(function(key)
+if key.KeyCode == Enum.KeyCode.Equals then
+if script.Disabled ~= true then
+script.Disabled = true
+print'you may re-execute'
+end
+end
+end)
+
+box = Instance.new('Part',workspace)
+box.Anchored = true
+box.CanCollide = true
+box.Size = Vector3.new(10,1,10)
+box.Position = Vector3.new(0,700,0)
+
+box.Touched:connect(function(part)
+if (part.Parent.Name == LPlayer.Name) then
+if touched == false then
+touched = true
+function apply()
+if script.Disabled ~= true then
+no = Char.HumanoidRootPart:Clone()
+wait(.25)
+Char.HumanoidRootPart:Destroy()
+no.Parent = Char
+Char:MoveTo(loc)
+touched = false
+end end
+if Char then
+apply()
+end
+end
+end
+end)
+
+repeat wait() until Char
+loc = Char.HumanoidRootPart.Position
+Char:MoveTo(box.Position + Vector3.new(0,.5,0))
+
+LPlayer.CharacterAdded:Connect(function(newChar)
+if AutoInv then
+newChar:WaitForChild("HumanoidRootPart",0.3)
+wait(2.3)
+
+local LPlayer = game.Players.LocalPlayer
+Char  = LPlayer.Character
+touched,tpdback = false, false
+
+LPlayer.CharacterAdded:connect(function(char)
+if script.Disabled ~= true then
+wait(2.3)
+loc = Char.HumanoidRootPart.Position
+Char:MoveTo(box.Position + Vector3.new(0,.5,0))
+end
+end)
+
+game:GetService('UserInputService').InputBegan:connect(function(key)
+if key.KeyCode == Enum.KeyCode.Equals then
+if script.Disabled ~= true then
+script.Disabled = true
+print'you may re-execute'
+end
+end
+end)
+
+box = Instance.new('Part',workspace)
+box.Anchored = true
+box.CanCollide = true
+box.Size = Vector3.new(10,1,10)
+box.Position = Vector3.new(0,700,0)
+
+box.Touched:connect(function(part)
+if (part.Parent.Name == LPlayer.Name) then
+if touched == false then
+touched = true
+function apply()
+if script.Disabled ~= true then
+no = Char.HumanoidRootPart:Clone()
+wait(.25)
+Char.HumanoidRootPart:Destroy()
+no.Parent = Char
+Char:MoveTo(loc)
+touched = false
+end end
+if Char then
+apply()
+end
+end
+end
+end)
+
+repeat wait() until Char
+loc = Char.HumanoidRootPart.Position
+Char:MoveTo(box.Position + Vector3.new(0,.5,0))
+end
+end)
+
+AutoInv = true
+
+while wait() do
+if AutoInv then
+if LPlayer.Character.Humanoid.Sit == true then
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer(nil, "12")
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+end
+end
+
+end
+
+if Toggle == "off" then
+
+AutoInv = false
+
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer(nil, "12")
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
 
 end
 
@@ -3245,7 +3491,7 @@ if Command("inf") or Command("tiroinfinito") then
 InfToggle(Arg2:lower())
 end
 
-if Command("t") or Command("time") then
+if Command("t") then
 
 if Arg2 == "i" or Arg2 == "g" or Arg2 == "c" or Arg2 == "n" then
 
@@ -3458,6 +3704,14 @@ end
 
 if Command("crash") then
 Crash(Arg2:lower())
+end
+
+if Command("lag") then
+Lag(Arg2:lower(),Arg3:lower())
+end
+
+if Command("inv") then
+Invisible(Arg2:lower())
 end
 
 if Command("easyadmin") then
@@ -3912,7 +4166,7 @@ if LPlayer.Character:FindFirstChild("Clothing") then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 else
@@ -3920,7 +4174,7 @@ if LPlayer.Character:FindFirstChild("Humanoid").Health < 1 then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 else
@@ -3928,7 +4182,7 @@ if ReCh then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 end
@@ -3940,7 +4194,7 @@ if LPlayer.Character:FindFirstChild("Clothing") then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
@@ -3949,7 +4203,7 @@ if LPlayer.Character:FindFirstChild("Humanoid").Health < 1 then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
@@ -3958,7 +4212,7 @@ if ReCh then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
@@ -3972,13 +4226,13 @@ if CopPvp == true then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
-workspace.Remote.TeamEvent:FireServer("Bright blue")
+TeamEvent:FireServer("Bright blue")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 else
 if LPlayer.TeamColor.Name == "Medium stone grey" then
 if LPlayer.PlayerGui.Home.intro.Visible == true then
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 
 workspace.Remote.loadchar:InvokeServer()
 RemoveCam()
@@ -3986,10 +4240,10 @@ else
 RemoveCam()
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
-workspace.Remote.TeamEvent:FireServer("Bright orange")
+TeamEvent:FireServer("Bright orange")
 workspace.Remote.loadchar:InvokeServer()
 wait(.1)
-workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+TeamEvent:FireServer("Medium stone grey")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 end
