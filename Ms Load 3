@@ -530,6 +530,8 @@ local Commands = {
 "-- Toggles -- ",
 "auto [on/off]",
 "autoguns [slot1, slot2, slot3, off]",
+"cgun [white, black, gold, blue, green,",
+"red, pink, violet, off]",
 "inf [on/off]",
 "arrest [plr, a]",
 "autolock [on/off]",
@@ -3347,6 +3349,447 @@ end
 
 end
 
+function CGunWhite()
+local M9 = LPlayer.Character:FindFirstChild("M9")
+local Rem = LPlayer.Character:FindFirstChild("Remington 870")
+local Ak = LPlayer.Character:FindFirstChild("AK-47")
+local M4 = LPlayer.Character:FindFirstChild("M4A1")
+local Guns = M9 or Rem or Ak or M4
+
+for i = 1,50 do
+if Guns then
+local Part = Guns:FindFirstChild('Part')
+local Model = Guns:FindFirstChild('Model')
+if Part then
+Part.BrickColor = BrickColor.new("White")
+Part.Material = "Neon"
+Part.Name = "Part1"
+end
+if Model then
+local PartOfModel = Model:FindFirstChild('Part')
+if PartOfModel then
+PartOfModel.BrickColor = BrickColor.new("White")
+PartOfModel.Material = "Neon"
+PartOfModel.Name = "Part1"
+end
+end
+end
+end
+end
+
+function CGunBlack()
+local M9 = LPlayer.Character:FindFirstChild("M9")
+local Rem = LPlayer.Character:FindFirstChild("Remington 870")
+local Ak = LPlayer.Character:FindFirstChild("AK-47")
+local M4 = LPlayer.Character:FindFirstChild("M4A1")
+local Guns = M9 or Rem or Ak or M4
+
+for i = 1,50 do
+if Guns then
+local Part = Guns:FindFirstChild('Part')
+local Model = Guns:FindFirstChild('Model')
+if Part then
+Part.BrickColor = BrickColor.new("Really black")
+Part.Material = "Neon"
+Part.Name = "Part1"
+end
+if Model then
+local PartOfModel = Model:FindFirstChild('Part')
+if PartOfModel then
+PartOfModel.BrickColor = BrickColor.new("Really black")
+PartOfModel.Material = "Neon"
+PartOfModel.Name = "Part1"
+end
+end
+end
+end
+end
+
+function CGunGold()
+local M9 = LPlayer.Character:FindFirstChild("M9")
+local Rem = LPlayer.Character:FindFirstChild("Remington 870")
+local Ak = LPlayer.Character:FindFirstChild("AK-47")
+local M4 = LPlayer.Character:FindFirstChild("M4A1")
+local Guns = M9 or Rem or Ak or M4
+
+for i = 1,50 do
+if Guns then
+local Part = Guns:FindFirstChild('Part')
+local Model = Guns:FindFirstChild('Model')
+if Part then
+Part.BrickColor = BrickColor.new("Gold")
+Part.Material = "Neon"
+Part.Name = "Part1"
+end
+if Model then
+local PartOfModel = Model:FindFirstChild('Part')
+if PartOfModel then
+PartOfModel.BrickColor = BrickColor.new("Gold")
+PartOfModel.Material = "Neon"
+PartOfModel.Name = "Part1"
+end
+end
+end
+end
+end
+
+function CGunBlue()
+local M9 = LPlayer.Character:FindFirstChild("M9")
+local Rem = LPlayer.Character:FindFirstChild("Remington 870")
+local Ak = LPlayer.Character:FindFirstChild("AK-47")
+local M4 = LPlayer.Character:FindFirstChild("M4A1")
+local Guns = M9 or Rem or Ak or M4
+
+for i = 1,50 do
+if Guns then
+local Part = Guns:FindFirstChild('Part')
+local Model = Guns:FindFirstChild('Model')
+if Part then
+Part.BrickColor = BrickColor.new("Bright blue")
+Part.Material = "Neon"
+Part.Name = "Part1"
+end
+if Model then
+local PartOfModel = Model:FindFirstChild('Part')
+if PartOfModel then
+PartOfModel.BrickColor = BrickColor.new("Bright blue")
+PartOfModel.Material = "Neon"
+PartOfModel.Name = "Part1"
+end
+end
+end
+end
+end
+
+function CGunRed()
+local M9 = LPlayer.Character:FindFirstChild("M9")
+local Rem = LPlayer.Character:FindFirstChild("Remington 870")
+local Ak = LPlayer.Character:FindFirstChild("AK-47")
+local M4 = LPlayer.Character:FindFirstChild("M4A1")
+local Guns = M9 or Rem or Ak or M4
+
+for i = 1,50 do
+if Guns then
+local Part = Guns:FindFirstChild('Part')
+local Model = Guns:FindFirstChild('Model')
+if Part then
+Part.BrickColor = BrickColor.new("Really red")
+Part.Material = "Neon"
+Part.Name = "Part1"
+end
+if Model then
+local PartOfModel = Model:FindFirstChild('Part')
+if PartOfModel then
+PartOfModel.BrickColor = BrickColor.new("Really red")
+PartOfModel.Material = "Neon"
+PartOfModel.Name = "Part1"
+end
+end
+end
+end
+end
+
+function CGunGreen()
+local M9 = LPlayer.Character:FindFirstChild("M9")
+local Rem = LPlayer.Character:FindFirstChild("Remington 870")
+local Ak = LPlayer.Character:FindFirstChild("AK-47")
+local M4 = LPlayer.Character:FindFirstChild("M4A1")
+local Guns = M9 or Rem or Ak or M4
+
+for i = 1,50 do
+if Guns then
+local Part = Guns:FindFirstChild('Part')
+local Model = Guns:FindFirstChild('Model')
+if Part then
+Part.BrickColor = BrickColor.new("Lime green")
+Part.Material = "Neon"
+Part.Name = "Part1"
+end
+if Model then
+local PartOfModel = Model:FindFirstChild('Part')
+if PartOfModel then
+PartOfModel.BrickColor = BrickColor.new("Lime green")
+PartOfModel.Material = "Neon"
+PartOfModel.Name = "Part1"
+end
+end
+end
+end
+end
+
+function CGunPink()
+local M9 = LPlayer.Character:FindFirstChild("M9")
+local Rem = LPlayer.Character:FindFirstChild("Remington 870")
+local Ak = LPlayer.Character:FindFirstChild("AK-47")
+local M4 = LPlayer.Character:FindFirstChild("M4A1")
+local Guns = M9 or Rem or Ak or M4
+
+for i = 1,50 do
+if Guns then
+local Part = Guns:FindFirstChild('Part')
+local Model = Guns:FindFirstChild('Model')
+if Part then
+Part.BrickColor = BrickColor.new("Pink")
+Part.Material = "Neon"
+Part.Name = "Part1"
+end
+if Model then
+local PartOfModel = Model:FindFirstChild('Part')
+if PartOfModel then
+PartOfModel.BrickColor = BrickColor.new("Pink")
+PartOfModel.Material = "Neon"
+PartOfModel.Name = "Part1"
+end
+end
+end
+end
+end
+
+function CGunViolet()
+local M9 = LPlayer.Character:FindFirstChild("M9")
+local Rem = LPlayer.Character:FindFirstChild("Remington 870")
+local Ak = LPlayer.Character:FindFirstChild("AK-47")
+local M4 = LPlayer.Character:FindFirstChild("M4A1")
+local Guns = M9 or Rem or Ak or M4
+
+for i = 1,50 do
+if Guns then
+local Part = Guns:FindFirstChild('Part')
+local Model = Guns:FindFirstChild('Model')
+if Part then
+Part.BrickColor = BrickColor.new("Violet")
+Part.Material = "Neon"
+Part.Name = "Part1"
+end
+if Model then
+local PartOfModel = Model:FindFirstChild('Part')
+if PartOfModel then
+PartOfModel.BrickColor = BrickColor.new("Violet")
+PartOfModel.Material = "Neon"
+PartOfModel.Name = "Part1"
+end
+end
+end
+end
+end
+
+function GunColor(GC)
+
+if GC == "off" then
+if CGunCheck == true then
+CGunCheck = false
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+end
+
+if GC == "black" or GC == "green" or GC == "white" or GC == "gold" or GC == "blue" or GC == "red" or GC == "pink" or GC == "violet" then
+
+if GC == "black" then
+local Color = "Black"
+Black = true
+CGunCheck = true
+if White == true or Gold == true or Red == true or Blue == true or Pink == true or Green == true or Violet == true then
+White = false
+Gold = false
+Blue = false
+Pink = false
+Red = false
+Green = false
+Violet = false
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+end
+
+if GC == "white" then
+local Color = "White"
+White = true
+CGunCheck = true
+if Black == true or Gold == true or Red == true or Blue == true or Pink == true or Green == true or Violet == true then
+Black = false
+Gold = false
+Blue = false
+Red = false
+Pink = false
+Green = false
+Violet = false
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+end
+
+if GC == "gold" then
+local Color = "Gold"
+Gold = true
+CGunCheck = true
+if Black == true or White == true or Red == true or Blue == true or Pink == true or Green == true or Violet == true then
+Black = false
+White = false
+Blue = false
+Red = false
+Green = false
+Pink = false
+Violet = false
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+end
+
+if GC == "red" then
+local Color = "Really red"
+Red = true
+CGunCheck = true
+if Black == true or Gold == true or White == true or Blue == true or Pink == true or Green == true or Violet == true then
+Black = false
+Gold = false
+Blue = false
+White = false
+Green = false
+Violet = false
+Pink = false
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+end
+
+if GC == "blue" then
+local Color = "Bright blue"
+Blue = true
+CGunCheck = true
+if Black == true or Gold == true or White == true or Red == true or Pink == true or Green == true or Violet == true then
+Black = false
+Gold = false
+White = false
+Red = false
+Green = false
+Violet = false
+Pink = false
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+end
+
+if GC == "green" then
+local Color = "Lime green"
+Green = true
+CGunCheck = true
+if Black == true or Gold == true or White == true or Red == true or Pink == true or Blue == true or Violet == true then
+Black = false
+Gold = false
+White = false
+Red = false
+Blue = false
+Violet = false
+Pink = false
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+end
+
+if GC == "pink" then
+local Color = "Pink"
+Pink = true
+CGunCheck = true
+if Black == true or Gold == true or White == true or Red == true or Green == true or Blue == true or Violet == true then
+Black = false
+Gold = false
+White = false
+Red = false
+Blue = false
+Violet = false
+Green = false
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+end
+
+if GC == "violet" then
+local Color = "Bright violet"
+Violet = true
+CGunCheck = true
+if Black == true or Gold == true or White == true or Red == true or Green == true or Blue == true or Pink == true then
+Black = false
+Gold = false
+White = false
+Red = false
+Blue = false
+Pink = false
+Green = false
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+end
+
+Run.Stepped:Connect(function()
+if CGunCheck then
+if Black then
+CGunBlack()
+end
+if White then
+CGunWhite()
+end
+if Blue then
+CGunBlue()
+end
+if Red then
+CGunRed()
+end
+if Green then
+CGunGreen()
+end
+if Gold then
+CGuGold()
+end
+if Pink then
+CGunPink()
+end
+if Violet then
+CGunViolet()
+end
+end
+end)
+
+end
+
+end
+
 function Follow(Player)
 
 Follow = true
@@ -3716,6 +4159,10 @@ end
 
 if Command("inv") then
 Invisible(Arg2:lower())
+end
+
+if Command("cgun") then
+GunColor(Arg2:lower())
 end
 
 if Command("easyadmin") then
