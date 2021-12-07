@@ -7,6 +7,7 @@ end
 local Prefix = "-"
 local PPref = "-"
 local OwnPrefix = ">"
+local LoopTk = {}
 local LoopKill = {}
 local EasyAdmin = {}
 local Admin = {}
@@ -595,6 +596,8 @@ local Commands = {
 "kill [plr, i, g, c, n, a]",
 "lk [plr, i, g, c, n, a]",
 "unlk [plr, i, g, c, n, a]",
+"ltk [plr]",
+"unltk [plr]",
 "crash [mobile, players, server]",
 "lag [server, swat], [on/off]",
 "tase [plr, a]",
@@ -3865,6 +3868,40 @@ end
 
 end
 
+function Tk(Player)
+
+if not Player.Character:FindFirstChildOfClass("ForceField", true) and Player.Character.Humanoid.Health ~= 0 then
+
+local States = {}
+
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+
+States.Crim2 = true
+
+while wait() do
+
+if States.Crim2 then
+
+LPlayer.Character.HumanoidRootPart.CFrame = Player.Character.HumanoidRootPart.CFrame
+
+for i = 1,15 do
+game.ReplicatedStorage.meleeEvent:FireServer(Player)
+end
+
+if Player.Character.Humanoid.Health == 0 then
+States.Crim2 = false
+States = nil
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+end
+
+end
+
+end
+
+end
+
+end
+
 function Follow(Player)
 
 Follow = true
@@ -4240,6 +4277,24 @@ if Command("cgun") then
 GunColor(Arg2:lower())
 end
 
+if Command("tk") then
+Tk(GetPlayer(Arg2))
+end
+
+if Command("ltk") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not LoopTk[Player.UserId] then
+LoopTk[Player.UserId] = {Player = Player}
+end
+end
+
+if Command("unltk") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and LoopTk[Player.UserId] then
+LoopTk[Player.UserId] = nil
+end
+end
+
 if Command("easyadmin") then
 local Player = GetPlayer(Arg2)
 
@@ -4522,6 +4577,13 @@ if v.Player.Character:FindFirstChild("Humanoid") then
 if v.Player and v.Player.Character and v.Player.Character:FindFirstChild("Head") and v.Player.Character.Humanoid.Health ~= 0 then
 Kill(v.Player)
 end
+end
+end)
+end
+for i,v in pairs(LoopTk) do
+pcall(function()
+if v.Player.Character:FindFirstChild("Humanoid") then
+Tk(v.Player)
 end
 end)
 end
