@@ -3121,29 +3121,33 @@ end
 
 end
 
+function LagNumber(Number)
+pcall(function()
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+local M9 = LPlayer.Character:FindFirstChild("M9") or LPlayer.Backpack:FindFirstChild("M9")
+local Arrg = {
+["RayObject"] = Ray.new(Vector3.new(), Vector3.new()), 
+["Distance"] = 0, 
+["Cframe"] = CFrame.new(), 
+["Hit"] = workspace
+}
+for i = 1,Number do
+ShootEvent:FireServer(Arrg,M9)
+end
+end)
+end
+
 function Lag(One,Two)
 
 if One == "server" or One == "sv" or One == "servidor" then
 
 if Two == "on" or Two == "ligado" then
 
-local M9 = LPlayer.Character:FindFirstChild("M9") or LPlayer.Backpack:FindFirstChild("M9")
+_G.Lag = true
 
-LagServer = true
+while _G.Lag == true do wait()
 
-while wait() do
-
-if LagServer then
-
-ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
-
-local Locate = {}
-
-for i = 1,2 do
-ShootEvent:FireServer(Locate,M9)
-end
-
-end
+LagNumber(2)
 
 end
 
@@ -3155,7 +3159,7 @@ if One == "server" or One == "sv" or One == "servidor" then
 
 if Two == "off" or Two == "desligado" then
 
-LagServer = false
+_G.Lag = false
 
 end
 
@@ -3943,6 +3947,11 @@ Player.Chatted:Connect(function(Msg)
 if EasyAdmin[Player.UserId] then
 EasyAdminPlayerChatted(Msg, Player)
 end
+end)
+end
+
+function CheckPermissions2(Player)
+Player.Chatted:Connect(function(Msg)
 if Admin[Player.UserId] then
 AdminPlayerChatted(Msg, Player)
 end
@@ -3952,6 +3961,12 @@ end
 for i,v in pairs(game.Players:GetPlayers()) do
 if v ~= game.Players.LocalPlayer then
 CheckPermissions(v)
+end
+end
+
+for i,v in pairs(game.Players:GetPlayers()) do
+if v ~= game.Players.LocalPlayer then
+CheckPermissions2(v)
 end
 end
 
