@@ -3876,15 +3876,13 @@ local States = {}
 
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 
-States.Tk = true
+States.Tika = true
 
 while wait() do
 
-if States.Tk then
+if States.Tika then
 
-if LPlayer.Character.Humanoid.Sit == true then
 LPlayer.Character.Humanoid.Sit = false
-end
 
 LPlayer.Character.HumanoidRootPart.CFrame = Player.Character.HumanoidRootPart.CFrame
 
@@ -3893,8 +3891,9 @@ game.ReplicatedStorage.meleeEvent:FireServer(Player)
 end
 
 if Player.Character.Humanoid.Health == 0 then
-States.Tk = false
-States.Tk = nil
+States.Tika = false
+States = nil
+LPlayer.Character.Humanoid.Sit = false
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 end
 
