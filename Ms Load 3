@@ -7,10 +7,14 @@ end
 local Prefix = "-"
 local PPref = "-"
 local OwnPrefix = ">"
+local Follow = {}
 local LoopTk = {}
+local LoopTs = {}
+local LoopPunish = {}
 local LoopKill = {}
 local EasyAdmin = {}
 local Admin = {}
+local Vip = {}
 local Players = game.Players
 local LPlayer = game.Players.LocalPlayer
 local Run = game:GetService("RunService")
@@ -586,24 +590,33 @@ local Commands = {
 "",
 "-- Players --",
 "easyadmin [plr]",
+"uneasyadmin [plr]",
 "admin [plr]",
+"unadmin [plr]",
+"vip [plr]",
+"unvip [plr]",
 "follow [plr]",
 "unfollow [plr]",
 "view [plr]",
 "unview [plr]",
-"copy [plr]",
+"copy [plr, off]",
 "uncopy [plr]",
 "kill [plr, i, g, c, n, a]",
 "lk [plr, i, g, c, n, a]",
 "unlk [plr, i, g, c, n, a]",
 "ltk [plr]",
 "unltk [plr]",
+"lts [plr]",
+"unlts [plr]",
+"lp [plr]",
+"unlp [plr]",
 "crash [mobile, players, server]",
 "lag [server, swat], [on/off]",
-"tase [plr, a]",
+"tase [plr, all]",
 "to [plr]",
 "bring [plr]",
 "crim [plr]",
+"arrest [plr, all]",
 "",
 "-- Toggles -- ",
 "auto [on/off]",
@@ -611,9 +624,10 @@ local Commands = {
 "cgun [white, black, gold, blue, green,",
 "red, pink, violet, off]",
 "inf [on/off]",
-"arrest [plr, a]",
+"arrest [plr, all]",
 "autolock [on/off]",
 "god [on/off]",
+"antiarrest [on/off]",
 "antibring [on/off]",
 "lt [i, g, off]",
 "infstam [on/off]",
@@ -2281,7 +2295,7 @@ end
 
 function Tase(Player)
 pcall(function()
-if Player.Character:FindFirstChild("HumanoidRootPart") then
+if Player.Character:FindFirstChild("HumanoidRootPart") and Player.Character.Humanoid ~= 0 then
 
 local SaveTeam = LPlayer.TeamColor.Name
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
@@ -3252,7 +3266,8 @@ if Two == "on" or Two == "ligado" then
 LagArmor = true
 
 Run.Stepped:Connect(function()
-while wait() do
+
+for i = 1,10 do
 
 if LagArmor then
 
@@ -3905,44 +3920,6 @@ end
 
 end
 
-function Follow(Player)
-
-Follow = true
-
-Run.Stepped:connect(function()
-if Follow then
-LPlayer.Character.HumanoidRootPart.CFrame = Player.Character.HumanoidRootPart.CFrame + Player.Character.HumanoidRootPart.CFrame.lookVector * -2
-end
-end)
-
-end
-
-function UnFollow()
-
-Follow = false
-
-end
-
-function View(Player)
-
-View = true
-
-Run.Stepped:connect(function()
-if View then
-workspace.CurrentCamera.CameraSubject = Player.Character.Head
-end
-end)
-
-end
-
-function UnView()
-
-View = false
-
-workspace.CurrentCamera.CameraSubject = LPlayer.Character.Head
-
-end
-
 function WalkSpeed(Number)
 LPlayer.Character.Humanoid.WalkSpeed = Number
 end
@@ -3997,6 +3974,34 @@ Tase(GetPlayer(Arg2))
 
 end
 
+end
+
+if Command("lp") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not LoopPunish[Player.UserId] then
+LoopPunish[Player.UserId] = {Player = Player}
+end
+end
+
+if Command("unlp") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and LoopPunish[Player.UserId] then
+LoopPunish[Player.UserId] = nil
+end
+end
+
+if Command("lts") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not LoopTs[Player.UserId] then
+LoopTs[Player.UserId] = {Player = Player}
+end
+end
+
+if Command("unlts") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and LoopTs[Player.UserId] then
+LoopTs[Player.UserId] = nil
+end
 end
 
 if Command("lk") or Command("loopkill") then
@@ -4205,23 +4210,46 @@ JumpPower(Arg2)
 end
 
 if Command("follow") then
+
 local Player = GetPlayer(Arg2)
 
-Follow(Player)
+Follow = true
+
+Run.Stepped:Connect(function()
+if Follow then
+if Player ~= nil then
+if Player.Character:FindFirstChild("Humanoid") then
+LPlayer.Character.HumanoidRootPart.CFrame = Player.Character.HumanoidRootPart.CFrame + Player.Character.HumanoidRootPart.CFrame.lookVector * -1.7
+end
+end
+end
+end)
+
 end
 
 if Command("unfollow") then
-UnFollow()
+Follow = false
 end
 
 if Command("view") then
+
 local Player = GetPlayer(Arg2)
 
-View(Player)
+View = true
+
+Run.Stepped:connect(function()
+if View then
+if Player ~= nil then
+workspace.CurrentCamera.CameraSubject = Player.Character.Head
+end
+end
+end)
+
 end
 
 if Command("unview") then
-UnView()
+View = false
+workspace.CurrentCamera.CameraSubject = LPlayer.Character.Head
 end
 
 if Command("coppvp") then
@@ -4312,7 +4340,7 @@ local Player = GetPlayer(Arg2)
 
 if Player ~= nil and EasyAdmin[Player.UserId] then
 EasyAdmin[Player.UserId] = nil
-Chat(""..Player.Name.." you lost the easy admin kid.")
+Chat(""..Player.Name..", you lost the easy admin, kid.")
 end
 end
 
@@ -4330,8 +4358,39 @@ local Player = GetPlayer(Arg2)
 
 if Player ~= nil and Admin[Player.UserId] then
 Admin[Player.UserId] = nil
-Chat(""..Player.Name.." you lost the normal admin kid.")
+Chat(""..Player.Name..", you lost the normal admin, kid.")
 end
+end
+
+if Command("vip") then
+local Player = GetPlayer(Arg2)
+
+if Player ~= nil and not Vip[Player.UserId] then
+Vip[Player.UserId] = {Player = Player}
+Chat("Hello "..Player.Name..", you have vip requirements. Use "..Prefix.."cmds to access your permissions.")
+end
+end
+
+if Command("unvip") then
+local Player = GetPlayer(Arg2)
+
+if Player ~= nil and Vip[Player.UserId] then
+Vip[Player.UserId] = nil
+Chat(""..Player.Name..", you lost the vip, kid.")
+end
+end
+
+if Command("antiarrest") then
+if Arg2 == "on" then
+AntiArrst()
+end
+if Arg2 == "off" then
+UnAntiArrst()
+end
+end
+
+if Command("crs") then
+CrashPlayerTeste(GetPlayer(Arg2))
 end
 
 if Command("walls") then
@@ -4416,7 +4475,7 @@ end
 
 if Command("cmds") then
 Chat("/w "..Player.Name.." "..Prefix.."nex "..Prefix.."cafe "..Prefix.."back")
-Chat("/w "..Player.Name.." "..Prefix.."arm "..Prefix.."tow "..Prefix.."cbase")
+Chat("/w "..Player.Name.." "..Prefix.."arm "..Prefix.."tow")
 end
 
 end
@@ -4515,40 +4574,200 @@ end
 end
 
 if Command("cmds") then
-Chat("/w "..Player.Name.." "..Prefix.."nex "..Prefix.."cafe "..Prefix.."back")
-Chat("/w "..Player.Name.." "..Prefix.."arm "..Prefix.."tow "..Prefix.."cbase") wait(1)
+Chat("/w "..Player.Name.." "..Prefix.."nex "..Prefix.."cafe "..Prefix.."back "..Prefix.."arm "..Prefix.."tow ")
 Chat("/w "..Player.Name.." "..Prefix.."kill [plr or i, g, c, a] "..Prefix.."tase [plr or all] "..Prefix.."lk [plr or i, g, c, a] "..Prefix.."unlk [plr or i, g, c, a]")
+end
+
+end
+
+function VipPlayerChatted(Msg, Player)
+Split = Msg:split(" ")
+Arg1 = Split[1]
+Arg2 = Split[2]
+Arg3 = Split[3]
+Arg4 = Split[4]
+
+if Command("nex") then
+Bring(Player, CFrame.new(888, 100, 2388))
+end
+
+if Command("cafe") then
+Bring(Player, CFrame.new(877, 100, 2256))
+end
+
+if Command("back") then
+Bring(Player,  CFrame.new(982, 100, 2334))
+end
+
+if Command("arm") then
+Bring(Player, CFrame.new(789, 100, 2260))
+end
+
+if Command("tow") then
+Bring(Player, CFrame.new(822, 131, 2588))
+end
+
+if Command("cbase") then
+Bring(Player, CFrame.new(-913.828125, 94.1287842, 2065.8103))
+end
+
+if Command("lp") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not LoopPunish[Player.UserId] then
+LoopPunish[Player.UserId] = {Player = Player}
+end
+end
+
+if Command("unlp") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and LoopPunish[Player.UserId] then
+LoopPunish[Player.UserId] = nil
+end
+end
+
+if Command("lts") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not LoopTs[Player.UserId] then
+LoopTs[Player.UserId] = {Player = Player}
+end
+end
+
+if Command("unlts") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and LoopTs[Player.UserId] then
+LoopTs[Player.UserId] = nil
+end
+end
+
+if Command("tk") then
+Tk(GetPlayer(Arg2))
+end
+
+if Command("ltk") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not LoopTk[Player.UserId] then
+LoopTk[Player.UserId] = {Player = Player}
+end
+end
+
+if Command("unltk") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and LoopTk[Player.UserId] then
+LoopTk[Player.UserId] = nil
+end
+end
+
+if Command("arrest") or Command("prender") then
+
+if Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
+
+ArrestA(Arg2:lower())
+
+else
+
+Arrest(GetPlayer(Arg2))
+
+end
+
+end
+
+if Command("crim") then
+Crim(GetPlayer(Arg2))
+end
+
+if Command("k") or Command("kill") or Command("matar") then
+
+if Arg2 == "i" or Arg2 == "inmates" or Arg2 == "presos" or Arg2 == "g" or Arg2 == "guards" or Arg2 == "policiais" or Arg2 == "c" or Arg2 == "criminals" or Arg2 == "criminosos" or Arg2 == "n" or Arg2 == "neutrals" or Arg2 == "neutros" or Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
+
+KillTeam(Arg2:lower())
+
+else
+
+Kill(GetPlayer(Arg2))
+
+end
+
+end
+
+if Command("tase") then
+
+if Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" then
+
+TaseAll(Arg2:lower())
+
+else
+
+Tase(GetPlayer(Arg2))
+
+end
+
+end
+
+if Command("lk") or Command("loopkill") then
+
+if Arg2 == "i" or Arg2 == "inmates" or Arg2 == "presos" or Arg2 == "g" or Arg2 == "guards" or Arg2 == "policiais" or Arg2 == "c" or Arg2 == "criminals" or Arg2 == "criminosos" or Arg2 == "n" or Arg2 == "neutrals" or Arg2 == "neutros" or Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
+
+Lk(Arg2:lower())
+
+else
+
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not LoopKill[Player.UserId] then
+LoopKill[Player.UserId] = {Player = Player}
+end
+
+end
+
+end
+
+if Command("unlk") or Command("unloopkill") then
+
+if Arg2 == "i" or Arg2 == "inmates" or Arg2 == "presos" or Arg2 == "g" or Arg2 == "guards" or Arg2 == "policiais" or Arg2 == "c" or Arg2 == "criminals" or Arg2 == "criminosos" or Arg2 == "n" or Arg2 == "neutrals" or Arg2 == "neutros" or Arg2 == "a" or Arg2 == "all" or Arg2 == "everyone" or Arg2 == "todos" then
+
+Unlk(Arg2:lower())
+
+else
+
+local Player = GetPlayer(Arg2)
+if Player ~= nil and LoopKill[Player.UserId] then
+LoopKill[Player.UserId] = nil
+end
+
+end
+
+end
+
+if Command("cmds") then
+Chat("/w "..Player.Name.." "..Prefix.."nex "..Prefix.."cafe "..Prefix.."back "..Prefix.."arm "..Prefix.."tow "..Prefix.."cbase "..Prefix.."crim [plr] "..Prefix.."arrest [plr, all] ")
+Chat("/w "..Player.Name.." "..Prefix.."kill [plr or i, g, c, a] "..Prefix.."tase [plr or all] "..Prefix.."lk [plr or i, g, c, a] "..Prefix.."unlk [plr or i, g, c, a]") wait(2)
+Chat("/w "..Player.Name.." "..Prefix.."tk [plr] "..Prefix.."ltk [plr] "..Prefix.."unltk [plr] "..Prefix.."lts [plr] "..Prefix.."unlts [plr] "..Prefix.."lp [plr] "..Prefix.."unlp [plr]")
 end
 
 end
 
 function CheckPermissions(Player)
 Player.Chatted:Connect(function(Msg)
+if Admin[Player.UserId] then
+AdminPlayerChatted(Msg, Player)
+end
+if Vip[Player.UserId] then
+VipPlayerChatted(Msg, Player)
+end
 if EasyAdmin[Player.UserId] then
 EasyAdminPlayerChatted(Msg, Player)
 end
 end)
 end
 
-function CheckPermissions2(Player)
-Player.Chatted:Connect(function(Msg)
-if Admin[Player.UserId] then
-AdminPlayerChatted(Msg, Player)
-end
-end)
-end
-
-for i,v in pairs(game.Players:GetPlayers()) do
-if v ~= game.Players.LocalPlayer then
+for i,v in pairs(Players:GetPlayers()) do
+if v ~= LPlayer then
 CheckPermissions(v)
 end
 end
 
-for i,v in pairs(game.Players:GetPlayers()) do
-if v ~= game.Players.LocalPlayer then
-CheckPermissions2(v)
-end
-end
+Players.PlayerAdded:Connect(function(v)
+CheckPermissions(v)
+end)
 
 LPlayer:GetMouse().KeyDown:connect(function(Key)
 if Prefix == "/" then
@@ -4576,17 +4795,51 @@ spawn(function()
 while wait() do
 for i,v in pairs(LoopKill) do
 pcall(function()
+if v ~= nil then
 if v.Player.Character:FindFirstChild("Humanoid") then
 if v.Player and v.Player.Character and v.Player.Character:FindFirstChild("Head") and v.Player.Character.Humanoid.Health ~= 0 then
 Kill(v.Player)
+end
 end
 end
 end)
 end
 for i,v in pairs(LoopTk) do
 pcall(function()
+if v ~= nil then
 if v.Player.Character:FindFirstChild("Humanoid") then
 Tk(v.Player)
+end
+end
+end)
+end
+end
+end)
+
+spawn(function()
+while wait(4) do
+for i,v in pairs(LoopTs) do
+pcall(function()
+if v ~= nil then
+if v.Player.Character:FindFirstChild("Humanoid") then
+Tase(v.Player)
+end
+end
+end)
+end
+end
+end)
+
+spawn(function()
+while wait(4) do
+for i,v in pairs(LoopPunish) do
+pcall(function()
+if v ~= nil then
+if v.Player.Character:FindFirstChild("Humanoid") then
+Tase(v.Player)
+wait(.5)
+Kill(v.Player)
+end
 end
 end)
 end
@@ -4756,6 +5009,67 @@ end
 end)
 end
 end)
+
+function UnAntiArrst()
+AntiArrest = false
+end
+
+function AntiArrst()
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+
+AntiArrest = true
+
+local function RespawnAntiArrest(CFrame)
+local hum = LPlayer.Character.Humanoid
+local hr = LPlayer.Character.HumanoidRootPart
+
+if hum and hr then
+hr.CFrame = CFrame
+end
+end
+
+function CheckArrest()
+if AntiArrest then
+if LPlayer.Character:FindFirstChild('HumanoidRootPart') then
+if LPlayer.Character.Head:FindFirstChild('handcuffedGui') then
+local SaveTeam = LPlayer.TeamColor.Name
+workspace.Remote.loadchar:InvokeServer(nil, SaveTeam)
+wait(.1)
+RespawnAntiArrest(SaveFrame)
+wait(11)
+workspace.Remote.loadchar:InvokeServer(nil, SaveTeam)
+wait(.1)
+RespawnAntiArrest(SaveFrame)
+end
+end
+end
+end
+
+Run.Stepped:Connect(function()
+if AntiArrest then
+if LPlayer.Character:FindFirstChild('HumanoidRootPart') then
+if LPlayer.Character.Head:FindFirstChild('handcuffedGui') then
+SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+end
+end)
+
+LPlayer.CharacterAdded:Connect(function(newChar)
+while wait() do
+if AntiArrest then
+newChar:WaitForChild("HumanoidRootPart",0.3)
+CheckArrest()
+end
+end
+end)
+
+while wait() do
+if AntiArrest then
+CheckArrest()
+end
+end
+end
 
 spawn(function()
 while wait() do
