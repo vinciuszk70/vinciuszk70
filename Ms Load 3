@@ -2130,21 +2130,13 @@ Run.Stepped:Connect(function()
 if AntiSpam then
 
 if LPlayer.TeamColor.Name == "Really red" then
-LPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916.297546, 99.9900055, 2383.50928)
-local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
-local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12") 
-LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
-workspace.CurrentCamera.CFrame = SaveCam
+LPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916.297546, 99.9900055, 2383.50928)
 end
 
 if LPlayer.Character.Head:FindFirstChild("handcuffedGui") then
-LPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916.297546, 99.9900055, 2383.50928)
-local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
-local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12") 
-LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
-workspace.CurrentCamera.CFrame = SaveCam
+LPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916.297546, 99.9900055, 2383.50928)
 end
 
 end
@@ -2262,7 +2254,6 @@ Run.Stepped:Connect(function()
 if Remove then
 if LPlayer.PlayerGui.Home.intro.Visible == true then
 if LPlayer.TeamColor.Name == "Medium stone grey" then
-if LPlayer.TeamColor.Name ~= "Bright orange" then
 
 local Cam = workspace.CurrentCamera 
 
@@ -2274,11 +2265,6 @@ Cam.FieldOfView = 70
 Cam.CameraSubject = workspace:WaitForChild(LPlayer.Name,0.4) 
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.All,true)
 
-TeamEvent:FireServer("Bright orange")
-
-workspace.Remote.loadchar:InvokeServer()
-
-end
 end
 end
 end
@@ -2449,6 +2435,10 @@ end
 
 end
 
+function UnAura()
+KillAura = false
+end
+
 function Aura(Toggle)
 
 if Toggle == "on" then
@@ -2457,13 +2447,13 @@ KillAura = true
 
 while wait() do
 if KillAura then
-for i,v in pairs(game.Players:GetPlayers()) do
+for i,v in pairs(Players:GetPlayers()) do
 pcall(function()
-if v ~= game.Players.LocalPlayer then
-local Distance = (v.Character:FindFirstChildOfClass("Part").Position - game.Players.LocaLPlayer.Character:FindFirstChildOfClass("Part").Position).magnitude
+if v ~= LPlayer then
+local Distance = (v.Character:FindFirstChildOfClass("Part").Position - LPlayer.Character:FindFirstChildOfClass("Part").Position).magnitude
 if Distance <= 10 then
 for i = 1, 15 do
-game.ReplicatedStorage.meleeEvent:FireServer(v)
+Replicate.meleeEvent:FireServer(v)
 end
 end
 end
@@ -2475,7 +2465,7 @@ end
 end
 
 if Toggle == "off" then
-KillAura = false
+UnAura()
 end
 
 end
@@ -5020,8 +5010,8 @@ local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 AntiArrest = true
 
 local function RespawnAntiArrest(CFrame)
-local hum = LPlayer.Character.Humanoid
-local hr = LPlayer.Character.HumanoidRootPart
+local hum = LPlayer.Character:FindFirstChild('Humanoid')
+local hr = LPlayer.Character:FindFirstChild('HumanoidRootPart')
 
 if hum and hr then
 hr.CFrame = CFrame
@@ -5056,20 +5046,53 @@ end
 end)
 
 LPlayer.CharacterAdded:Connect(function(newChar)
+local Locates = {}
+Locates.AntiArrest = false
+Locates = nil
+local Locates = {}
+Locates.AntiArrest = true
 while wait() do
 if AntiArrest then
+if Locates.AntiArrest then
 newChar:WaitForChild("HumanoidRootPart",0.3)
 CheckArrest()
+end
 end
 end
 end)
 
 while wait() do
+local Locates = {}
+Locates.AntiArrest = false
+Locates = nil
+local Locates = {}
+Locates.AntiArrest = true
 if AntiArrest then
+if Locates.AntiArrest then
 CheckArrest()
 end
 end
 end
+end
+
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+
+Run.Stepped:Connect(function()
+if AutoRespawn == true then
+if LPlayer.Character:FindFirstChild('HumanoidRootPart') then
+SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+end)
+
+LPlayer.CharacterAdded:Connect(function()
+if AutoRespawn == true then
+AutoRespawn = false
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+AutoRespawn = true
+end
+end)
 
 spawn(function()
 while wait() do
