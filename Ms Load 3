@@ -5145,7 +5145,10 @@ local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 Run.Stepped:Connect(function()
 if AutoRespawn == true then
 if LPlayer.Character:FindFirstChild('HumanoidRootPart') then
+if LPlayer.Character:FindFirstChild("Humanoid").Health < 1 then
+else
 SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+end
 end
 end
 end)
