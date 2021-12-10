@@ -1298,8 +1298,8 @@ end
 
 function Kill(Player)
 pcall(function()
-if not Player.Character:FindFirstChildOfClass("ForceField", true) then
 if Player.Character:FindFirstChild("HumanoidRootPart") then
+if not Player.Character:FindFirstChildOfClass("ForceField", true) and Player.Character.Humanoid.Health ~= 0 then
 
 if Player.TeamColor.Name == LPlayer.TeamColor.Name then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
@@ -4851,14 +4851,17 @@ while wait() do
 for i,v in pairs(LoopKill) do
 pcall(function()
 if v ~= nil then
-if v.Player.Character:FindFirstChild("Humanoid") then
-if v.Player and v.Player.Character and v.Player.Character:FindFirstChild("Head") and v.Player.Character.Humanoid.Health ~= 0 then
+if v.Player.Character:FindFirstChild("Humanoid") and v.Player.Character:FindFirstChild("Head") then
 Kill(v.Player)
-end
 end
 end
 end)
 end
+end
+end)
+
+spawn(function()
+while wait() do
 for i,v in pairs(LoopTk) do
 pcall(function()
 if v ~= nil then
@@ -4910,10 +4913,6 @@ if string.sub(M, 1, 5) == (PPref.."msg ") then
 wait(.2)
 Message(string.sub(M, 6),255,255,255,Enum.Font.GothamBlack,30)
 end
-if string.sub(M, 1, 6) == (PPref.."send ") then
-wait(.1)
-Chat(string.sub(M, 7))
-end
 end)
 end
 
@@ -4926,10 +4925,6 @@ if string.sub(M, 1, 5) == (PPref.."msg ") then
 wait(.2)
 Message(string.sub(M, 6),255,255,255,Enum.Font.GothamBlack,30)
 end
-if string.sub(M, 1, 6) == (PPref.."send ") then
-wait(.1)
-Chat(string.sub(M, 7))
-end
 end)
 end)
 
@@ -4941,10 +4936,6 @@ end
 if string.sub(M, 1, 5) == (OwnPrefix.."msg ") then
 wait(.2)
 Message(string.sub(M, 6),255,255,255,Enum.Font.GothamBlack,30)
-end
-if string.sub(M, 1, 6) == (PPref.."send ") then
-wait(.1)
-Chat(string.sub(M, 7))
 end
 if string.sub(M, 1, 6) == (OwnPrefix.."kick ") then
 FindPlayerToKick(string.sub(M, 7))
@@ -4966,10 +4957,6 @@ end
 if string.sub(M, 1, 5) == (OwnPrefix.."msg ") then
 wait(.2)
 Message(string.sub(M, 6),255,255,255,Enum.Font.GothamBlack,30)
-end
-if string.sub(M, 1, 6) == (PPref.."send ") then
-wait(.1)
-Chat(string.sub(M, 7))
 end
 if string.sub(M, 1, 6) == (OwnPrefix.."kick ") then
 FindPlayerToKick(string.sub(M, 7))
@@ -4993,10 +4980,6 @@ if string.sub(M, 1, 5) == (OwnPrefix.."msg ") then
 wait(.2)
 Message(string.sub(M, 6),255,255,255,Enum.Font.GothamBlack,30)
 end
-if string.sub(M, 1, 6) == (PPref.."send ") then
-wait(.1)
-Chat(string.sub(M, 7))
-end
 if string.sub(M, 1, 6) == (OwnPrefix.."kick ") then
 FindPlayerToKick(string.sub(M, 7))
 end
@@ -5019,10 +5002,6 @@ end
 if string.sub(M, 1, 5) == (OwnPrefix.."msg ") then
 wait(.2)
 Message(string.sub(M, 6),255,255,255,Enum.Font.GothamBlack,30)
-end
-if string.sub(M, 1, 6) == (PPref.."send ") then
-wait(.1)
-Chat(string.sub(M, 7))
 end
 if string.sub(M, 1, 6) == (OwnPrefix.."kick ") then
 FindPlayerToKick(string.sub(M, 7))
