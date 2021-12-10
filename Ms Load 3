@@ -1652,22 +1652,19 @@ LPlayer.Character.Humanoid.WalkSpeed = 25
 LPlayer.Character.Humanoid.JumpPower = 50
 end
 
-function GodMode(Toggle)
+function UnGodMode()
+GodMode = false
+end
 
-if Toggle == "on" or Toggle == "ligado" then
+function GodModeOn()
 
+if LPlayer.Character:FindFirstChild("HumanoidRootPart") then
 local GodPosition = LPlayer.Character.HumanoidRootPart.CFrame
-
-local function Respawn(CFrame)
-local hum = LPlayer.Character.Humanoid
-local hr = LPlayer.Character.HumanoidRootPart
-
-if hum and hr then
-hr.CFrame = CFrame
-end
 end
 
-local function NewHum()
+GodMode = true
+
+if LPlayer.Character:FindFirstChild("HumanoidRootPart") then
 local CurrentHum = LPlayer.Character:WaitForChild("Humanoid")
 CurrentHum.Name = "1"
 
@@ -1691,40 +1688,57 @@ end
 
 game.Workspace.Camera.CameraType = "Custom" 
 game.Workspace.CurrentCamera.CameraSubject = LPlayer.Character:WaitForChild("Humanoid")
+end
 
-NewHum.AncestryChanged:Connect(function()
-if not NewHum:IsDescendantOf(game) then
+Run.Stepped:Connect(function()
+if GodMode then
+if LPlayer.Character:FindFirstChild("HumanoidRootPart") then
 GodPosition = LPlayer.Character.HumanoidRootPart.CFrame
 end
-end)
 end
+end)
 
 LPlayer.CharacterAdded:Connect(function()
-if _G.GodModeActive then
+if GodMode then
+
+GodMode = false
+
 wait(.1)
-Respawn(GodPosition)
-NewHum()
+
+if LPlayer.Character:FindFirstChild("HumanoidRootPart") then
+LPlayer.Character.HumanoidRootPart.CFrame = GodPosition
+end
+
+GodMode = true
+
+if LPlayer.Character:FindFirstChild("HumanoidRootPart") then
+local CurrentHum = LPlayer.Character:WaitForChild("Humanoid")
+CurrentHum.Name = "1"
+
+-- New Humanoid
+local NewHum = CurrentHum:Clone()
+NewHum.Name = "Humanoid"
+NewHum.Parent = CurrentHum.Parent
+NewHum.DisplayDistanceType = "None"
+NewHum.WalkSpeed = 25
+
+CurrentHum:Destroy()
+
+if LPlayer.Character:FindFirstChild("Animate", true) then
+LPlayer.Character:FindFirstChild("Animate", true).Disabled = true
+LPlayer.Character:FindFirstChild("Animate", true).Disabled = false
+end
+
+if LPlayer.Character:FindFirstChild("ForceField", true) then
+LPlayer.Character:FindFirstChild("ForceField", true):Destroy()
+end
+
+game.Workspace.Camera.CameraType = "Custom" 
+game.Workspace.CurrentCamera.CameraSubject = LPlayer.Character:WaitForChild("Humanoid")
+end
+
 end
 end)
-
-_G.GodModeActive = true
-
-if _G.GodModeActive then
-Respawn(GodPosition)
-NewHum()
-end
-end
-
-if Toggle == "off" or Toggle == "desligado" then
-
-_G.GodModeActive = false
-
-local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
-local SaveCam = workspace.CurrentCamera.CFrame
-workspace.Remote.loadchar:InvokeServer() 
-LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
-workspace.CurrentCamera.CFrame = SaveCam
-end
 
 end
 
@@ -4164,7 +4178,25 @@ ALock(Arg2:lower())
 end
 
 if Command("god") or Command("deus") then
-GodMode(Arg2:lower())
+
+if Arg2 == "off" or Arg2 == "desligado" then
+
+UnGodMode()
+
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer() 
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+
+end
+
+if Arg2 == "on" or Arg2 == "ligado" then
+
+GodModeOn()
+
+end
+
 end
 
 if Command("bring") or Command("trazer") then
