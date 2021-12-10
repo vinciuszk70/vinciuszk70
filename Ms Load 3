@@ -3427,6 +3427,7 @@ local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer(nil, "12")
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
+wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916.297546, 99.9900055, 2383.50928)
 end
 end
