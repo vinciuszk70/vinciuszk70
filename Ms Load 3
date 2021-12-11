@@ -1562,6 +1562,46 @@ if Team == "n" then
 TeamEvent:FireServer("Medium stone grey")
 end
 
+if Team == "white" then
+RespawnSplit("1001")
+end
+
+if Team == "black" then
+RespawnSplit("1003")
+end
+
+if Team == "blue" then
+RespawnSplit("307")
+end
+
+if Team == "red" then
+RespawnSplit("21")
+end
+
+if Team == "green" then
+RespawnSplit("1020")
+end
+
+if Team == "yellow" then
+RespawnSplit("1009")
+end
+
+if Team == "purple" then
+RespawnSplit("1015")
+end
+
+if Team == "pink" then
+RespawnSplit("1032")
+end
+
+if Team == "orange" then
+RespawnSplit("1005")
+end
+
+if Team == "grey" then
+RespawnSplit("2")
+end
+
 end
 
 function Arrest(Player)
@@ -4162,7 +4202,7 @@ end
 
 if Command("t") then
 
-if Arg2 == "i" or Arg2 == "g" or Arg2 == "c" or Arg2 == "n" then
+if Arg2 == "i" or Arg2 == "g" or Arg2 == "c" or Arg2 == "n" or Arg2 == "white" or Arg2 == "black" or Arg2 == "blue" or Arg2 == "red" or Arg2 == "green" or Arg2 == "purple" or Arg2 == "grey" or Arg2 == "pink" or Arg2 == "yellow" or Arg2 == "orange" then
 
 TeamColor(Arg2:lower())
 
