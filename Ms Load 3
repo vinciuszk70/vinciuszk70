@@ -1733,6 +1733,25 @@ end)
 
 end
 
+if Slot == "off" or Slot == "desligado" then
+
+if Slot1 == true or Slot2 == true or Slot3 == true then
+
+Slot1 = false
+Slot2 = false
+Slot3 = false
+
+
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+
+end
+
+end
+
 end
 
 function InfToggle(Toggle)
