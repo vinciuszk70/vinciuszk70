@@ -27,6 +27,7 @@ local ItemGiver = workspace.Prison_ITEMS.giver
 local ItemSingle = workspace.Prison_ITEMS.single
 local ItemClothes = workspace.Prison_ITEMS.clothes
 local TeamEvent = workspace.Remote.TeamEvent
+local RobloxGui = game.CoreGui.RobloxGui
 local StarterGui = game:GetService("StarterGui")
 local Marketplace = game:GetService("MarketplaceService")
 local CheckGamePass = Marketplace:UserOwnsGamePassAsync(tonumber((LPlayer.CharacterAppearance):split('=')[#((LPlayer.CharacterAppearance):split('='))]), 96651)
@@ -1367,6 +1368,7 @@ Slot2 = false
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer()
+wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 end
@@ -1377,28 +1379,108 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "M4A1" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+end
 else
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+end
 end
 end
 
-LPlayer.CharacterAdded:Connect(function(newChar)
+LPlayer.CharacterAdded:Connect(function()
 if Slot1 then
-newChar:WaitForChild("HumanoidRootPart",0.3)
 if CheckGamePass then
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "M4A1" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+end
 else
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+end
 end
 end
 end)
+
 end
 
 if Slot == "slot2" then
@@ -1411,6 +1493,7 @@ Slot1 = false
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer()
+wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 end
@@ -1421,27 +1504,108 @@ ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "M4A1" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+end
 else
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+end
 end
 end
 
-LPlayer.CharacterAdded:Connect(function(newChar)
+LPlayer.CharacterAdded:Connect(function()
 if Slot2 then
 if CheckGamePass then
 ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "M4A1" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+end
 else
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+end
 end
 end
 end)
+
 end
 
 if Slot == "slot3" then
@@ -1454,54 +1618,119 @@ Slot2 = false
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
 workspace.Remote.loadchar:InvokeServer()
+wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 end
 
-
 if Slot3 then
 if CheckGamePass then
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= "M4A1" then
+RespawnCheckGun = true
+end
+
+end
 else
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+end
 end
 end
 
-LPlayer.CharacterAdded:Connect(function(newChar)
+LPlayer.CharacterAdded:Connect(function()
 if Slot3 then
-newChar:WaitForChild("HumanoidRootPart",0.3)
 if CheckGamePass then
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= "M4A1" then
+RespawnCheckGun = true
+end
+
+end
 else
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
+
+wait(1)
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
+
+if RobloxGui.Backpack.Hotbar["1"].ToolName.Text ~= "Remington 870" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["2"].ToolName.Text ~= "M9" then
+RespawnCheckGun = true
+end
+
+if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "AK-47" then
+RespawnCheckGun = true
+end
+
+end
 end
 end
 end)
-end
 
-if Slot == "off" or Slot == "desligado" then
-if Slot1 == true or Slot2 == true or Slot3 == true then
-Slot1 = false
-Slot2 = false
-Slot3 = false
-
-
-local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
-local SaveCam = workspace.CurrentCamera.CFrame
-workspace.Remote.loadchar:InvokeServer()
-LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
-workspace.CurrentCamera.CFrame = SaveCam
-end
 end
 
 end
@@ -5500,3 +5729,17 @@ end
 end
 end
 end)
+
+while wait(2) do
+if Slot1 == true or Slot2 == true or Slot3 == true then
+if RespawnCheckGun == true then
+RespawnCheckGun = false
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+wait(.2)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+end
+end
