@@ -1380,7 +1380,7 @@ ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1406,7 +1406,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -1434,7 +1434,7 @@ ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1460,7 +1460,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -1505,7 +1505,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1531,7 +1531,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -1559,7 +1559,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1585,7 +1585,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -1630,7 +1630,7 @@ ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1656,7 +1656,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -1684,7 +1684,7 @@ ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1710,7 +1710,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 
-wait(1)
+wait(2)
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -5749,7 +5749,7 @@ end
 end
 end)
 
-while wait(3) do
+while wait(2) do
 if Slot1 == true or Slot2 == true or Slot3 == true then
 if RespawnCheckGun == true then
 RespawnCheckGun = false
