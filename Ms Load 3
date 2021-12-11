@@ -8,6 +8,7 @@ local Prefix = "-"
 local PPref = "-"
 local OwnPrefix = ">"
 local Follow = {}
+local LoopSa = {}
 local LoopTk = {}
 local LoopTs = {}
 local LoopPunish = {}
@@ -610,6 +611,8 @@ local Commands = {
 "unlts [plr]",
 "lp [plr]",
 "unlp [plr]",
+"sa [plr]",
+"unsa [plr]",
 "crash [mobile, players, server]",
 "lag [server, swat], [on/off]",
 "tase [plr, all]",
@@ -943,9 +946,10 @@ if v.Character:FindFirstChild("vest") then
 for i = 1,7 do
 table.insert(Arg,GetFirePos(v))
 end
-end
+else
 for i = 1,5 do
 table.insert(Arg,GetFirePos(v))
+end
 end
 end
 
@@ -1018,9 +1022,10 @@ if v.Character:FindFirstChild("vest") then
 for i = 1,7 do
 table.insert(Arg,GetFirePos(v))
 end
-end
+else
 for i = 1,5 do
 table.insert(Arg,GetFirePos(v))
+end
 end
 end
 
@@ -1173,9 +1178,10 @@ if v.Character:FindFirstChild("vest") then
 for i = 1,7 do
 table.insert(Arg,GetFirePos(v))
 end
-end
+else
 for i = 1,5 do
 table.insert(Arg,GetFirePos(v))
+end
 end
 end
 
@@ -1255,8 +1261,7 @@ if v.Character:FindFirstChild("vest") then
 for i = 1,7 do
 table.insert(Arg,GetFirePos(v))
 end
-end
-if v.Character:FindFirstChild("HumanoidRootPart") then
+else
 for i = 1,5 do
 table.insert(Arg,GetFirePos(v))
 end
@@ -2267,8 +2272,6 @@ Remove = true
 
 Run.Stepped:Connect(function()
 if Remove then
-if LPlayer.PlayerGui.Home.intro.Visible == true then
-if LPlayer.TeamColor.Name == "Medium stone grey" then
 
 local Cam = workspace.CurrentCamera 
 
@@ -2280,8 +2283,6 @@ Cam.FieldOfView = 70
 Cam.CameraSubject = workspace:WaitForChild(LPlayer.Name,0.4) 
 game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.All,true)
 
-end
-end
 end
 end)
 end
@@ -4046,6 +4047,20 @@ end
 
 end
 
+if Command("sa") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not LoopSa[Player.UserId] then
+LoopSa[Player.UserId] = {Player = Player}
+end
+end
+
+if Command("unsa") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and LoopSa[Player.UserId] then
+LoopSa[Player.UserId] = nil
+end
+end
+
 if Command("lp") then
 local Player = GetPlayer(Arg2)
 if Player ~= nil and not LoopPunish[Player.UserId] then
@@ -4699,6 +4714,20 @@ if Command("cbase") then
 Bring(Player, CFrame.new(-913.828125, 94.1287842, 2065.8103))
 end
 
+if Command("sa") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not LoopSa[Player.UserId] then
+LoopSa[Player.UserId] = {Player = Player}
+end
+end
+
+if Command("unsa") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and LoopSa[Player.UserId] then
+LoopSa[Player.UserId] = nil
+end
+end
+
 if Command("lp") then
 local Player = GetPlayer(Arg2)
 if Player ~= nil and not LoopPunish[Player.UserId] then
@@ -4828,7 +4857,7 @@ end
 if Command("cmds") then
 Chat("/w "..Player.Name.." "..Prefix.."nex "..Prefix.."cafe "..Prefix.."back "..Prefix.."arm "..Prefix.."tow "..Prefix.."cbase "..Prefix.."crim [plr] "..Prefix.."arrest [plr, all] ")
 Chat("/w "..Player.Name.." "..Prefix.."kill [plr or i, g, c, a] "..Prefix.."tase [plr or all] "..Prefix.."lk [plr or i, g, c, a] "..Prefix.."unlk [plr or i, g, c, a]") wait(2)
-Chat("/w "..Player.Name.." "..Prefix.."tk [plr] "..Prefix.."ltk [plr] "..Prefix.."unltk [plr] "..Prefix.."lts [plr] "..Prefix.."unlts [plr] "..Prefix.."lp [plr] "..Prefix.."unlp [plr]")
+Chat("/w "..Player.Name.." "..Prefix.."tk [plr] "..Prefix.."ltk [plr] "..Prefix.."unltk [plr] "..Prefix.."lts [plr] "..Prefix.."unlts [plr] "..Prefix.."lp [plr] "..Prefix.."unlp [plr]"..Prefix.."sa [plr] "..Prefix.."unsa [plr]")
 end
 
 end
@@ -4930,6 +4959,103 @@ if v.Player.Character:FindFirstChild("Humanoid") then
 Tase(v.Player)
 wait(.5)
 Kill(v.Player)
+end
+end
+end)
+end
+end
+end)
+
+spawn(function()
+while wait() do
+for i,v in pairs(LoopSa) do
+pcall(function()
+if v ~= nil then
+if v.Player.Character:FindFirstChild("HumanoidRootPart") then
+if v.Player.TeamColor.Name ~= "Really red" then
+local Player = v.Player
+if LPlayer.TeamColor.Name == "Bright blue" then
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer(nil, "12")
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+
+if Player ~= nil then
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+workspace.Remote.loadchar:InvokeServer()
+ItemHandler:InvokeServer(ItemSingle["Hammer"].ITEMPICKUP)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+function Wait(t)
+local RS = game:GetService("RunService")
+if type(t) == "number" then
+local Start = tick()
+repeat RS.Stepped:Wait() until tick() - Start >= t
+return
+else
+return(RS.Stepped:Wait())
+end  
+end
+Wait()
+local hrp = LPlayer.Character.HumanoidRootPart
+local char = LPlayer.Character
+local tchar = Player.Character
+local hum = LPlayer.Character:FindFirstChildOfClass("Humanoid")
+local hrp = LPlayer.Character.HumanoidRootPart
+local hrp2 = Player.Character.HumanoidRootPart
+hum.Name = "1"
+local newHum = hum:Clone()
+newHum.Parent = char
+newHum.Name = "Humanoid"
+hum:Destroy()
+workspace.CurrentCamera.CameraSubject = char
+newHum.DisplayDistanceType = "None"
+local tool = LPlayer:FindFirstChildOfClass("Backpack"):FindFirstChild("Hammer") or LPlayer.Character:FindFirstChild("Hammer")
+tool.Parent = char
+hrp.CFrame = hrp2.CFrame * CFrame.new(0, 0, 0) * CFrame.new(math.random(-100, 100)/200,math.random(-100, 100)/200,math.random(-100, 100)/200)
+local n = 0
+repeat
+Wait()
+n = n + 1
+hrp.CFrame = hrp2.CFrame
+until (tool.Parent ~= char or not hrp or not hrp2 or not hrp.Parent or not hrp2.Parent or n > 250) and n > 2
+for i = 1,10 do
+
+hrp.CFrame = SaveFrame
+end
+dfp = game.Workspace["Criminals Spawn"].SpawnLocation
+local PartPos = dfp.CFrame
+dfp.CanCollide = false
+dfp.Transparency = 1
+dfp.CFrame = LPlayer.Character.HumanoidRootPart.CFrame
+Wait(0.3)
+dfp.CFrame = PartPos
+workspace.Remote.loadchar:InvokeServer()
+umm = SaveFrame * CFrame.Angles(math.rad(0), 0, 0)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+end
+end
+end
+end
+end)
+end
+end
+end)
+
+spawn(function()
+while wait() do
+for i,v in pairs(LoopSa) do
+pcall(function()
+if v.Player.Character:FindFirstChild("HumanoidRootPart") then
+if v.Player.TeamColor.Name == "Really red" then
+AntiLag = true
+for i = 1,60 do
+coroutine.wrap(function()
+LPlayer.Character.HumanoidRootPart.CFrame = v.Player.Character.HumanoidRootPart.CFrame
+workspace.Remote.arrest:InvokeServer(v.Player.Character.Head)
+end)()
+end
 end
 end
 end)
