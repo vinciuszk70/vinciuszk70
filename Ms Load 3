@@ -5749,7 +5749,7 @@ end
 end
 end)
 
-while wait(2) do
+while wait(3) do
 if Slot1 == true or Slot2 == true or Slot3 == true then
 if RespawnCheckGun == true then
 RespawnCheckGun = false
