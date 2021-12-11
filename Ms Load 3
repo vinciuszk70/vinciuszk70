@@ -629,6 +629,7 @@ local Commands = {
 "-- Toggles -- ",
 "auto [on/off]",
 "autoguns [slot1, slot2, slot3, off]",
+"vslot [on/off]",
 "cgun [white, black, gold, blue, green,",
 "red, pink, violet, off]",
 "inf [on/off]",
@@ -1380,7 +1381,7 @@ ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(2)
+wait(3)
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1406,7 +1407,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(2)
+wait(3)
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -1434,7 +1435,7 @@ ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(2)
+wait(3)
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1460,7 +1461,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(2)
+wait(3)
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -1505,7 +1506,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(2)
+wait(3)
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1531,7 +1532,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(2)
+wait(3)
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -1559,7 +1560,9 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(2)
+wait(3)
+
+if VerifySlot then
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1580,12 +1583,17 @@ RespawnCheckGun = true
 end
 
 end
+
+end
+
 else
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 
-wait(2)
+wait(3)
+
+if VerifySlot then
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -1601,6 +1609,7 @@ if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "M9" then
 RespawnCheckGun = true
 end
 
+end
 end
 end
 end
@@ -1630,7 +1639,9 @@ ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 
-wait(2)
+wait(3)
+
+if VerifySlot then
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1651,12 +1662,17 @@ RespawnCheckGun = true
 end
 
 end
+
+end
+
 else
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 
-wait(2)
+wait(3)
+
+if VerifySlot then
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -1672,6 +1688,7 @@ if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "AK-47" then
 RespawnCheckGun = true
 end
 
+end
 end
 end
 end
@@ -1684,7 +1701,9 @@ ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M4A1"].ITEMPICKUP)
 
-wait(2)
+wait(3)
+
+if VerifySlot then
 
 if RobloxGui.Backpack.Hotbar["4"].ToolName.Text ~= nil then
 
@@ -1705,12 +1724,17 @@ RespawnCheckGun = true
 end
 
 end
+
+end
+
 else
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
 ItemHandler:InvokeServer(ItemGiver["AK-47"].ITEMPICKUP)
 
-wait(2)
+wait(3)
+
+if VerifySlot then
 
 if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= nil then
 
@@ -1726,6 +1750,7 @@ if RobloxGui.Backpack.Hotbar["3"].ToolName.Text ~= "AK-47" then
 RespawnCheckGun = true
 end
 
+end
 end
 end
 end
@@ -4282,6 +4307,33 @@ local chatFrame = player.PlayerGui.Chat.Frame
 chatFrame.ChatChannelParentFrame.Visible = true
 end
 
+function VerifySlotT(Toggle)
+
+if Toggle == "on" then
+
+VerifySlot = true
+
+if Slot1 == true or Slot2 == true or Slot3 == true then
+
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer()
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+
+end
+
+end
+
+if Toggle == "off" then
+
+VerifySlot = false
+
+end
+
+end
+
 function WalkSpeed(Number)
 LPlayer.Character.Humanoid.WalkSpeed = Number
 end
@@ -4442,6 +4494,10 @@ end
 
 if Command("autoguns") or Command("autoarmas") then
 AG(Arg2:lower())
+end
+
+if Command("vslot") then
+VerifySlotT(Arg2:lower())
 end
 
 if Command("inf") or Command("tiroinfinito") then
