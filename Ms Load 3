@@ -8,6 +8,7 @@ local Prefix = "-"
 local PPref = "-"
 local OwnPrefix = ">"
 local Follow = {}
+local LoopBring = {}
 local LoopSa = {}
 local LoopTk = {}
 local LoopTs = {}
@@ -613,6 +614,8 @@ local Commands = {
 "unlp [plr]",
 "sa [plr]",
 "unsa [plr]",
+"lb [plr]",
+"unlb [plr]",
 "crash [mobile, players, server]",
 "lag [server, swat], [on/off]",
 "tase [plr, all]",
@@ -4047,6 +4050,20 @@ end
 
 end
 
+if Command("lb") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not LoopBring[Player.UserId] then
+LoopBring[Player.UserId] = {Player = Player}
+end
+end
+
+if Command("unlb") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and LoopBring[Player.UserId] then
+LoopBring[Player.UserId] = nil
+end
+end
+
 if Command("sa") then
 local Player = GetPlayer(Arg2)
 if Player ~= nil and not LoopSa[Player.UserId] then
@@ -4443,7 +4460,7 @@ local Player = GetPlayer(Arg2)
 
 if Player ~= nil and EasyAdmin[Player.UserId] then
 EasyAdmin[Player.UserId] = nil
-Chat(""..Player.Name..", you lost the easy admin, kid.")
+Chat(""..Player.Name.." you lost the easy admin, kid.")
 end
 end
 
@@ -4461,7 +4478,7 @@ local Player = GetPlayer(Arg2)
 
 if Player ~= nil and Admin[Player.UserId] then
 Admin[Player.UserId] = nil
-Chat(""..Player.Name..", you lost the normal admin, kid.")
+Chat(""..Player.Name.." you lost the normal admin, kid.")
 end
 end
 
@@ -4479,7 +4496,7 @@ local Player = GetPlayer(Arg2)
 
 if Player ~= nil and Vip[Player.UserId] then
 Vip[Player.UserId] = nil
-Chat(""..Player.Name..", you lost the vip, kid.")
+Chat(""..Player.Name.." you lost the vip, kid.")
 end
 end
 
@@ -4714,6 +4731,20 @@ if Command("cbase") then
 Bring(Player, CFrame.new(-913.828125, 94.1287842, 2065.8103))
 end
 
+if Command("lb") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not LoopBring[Player.UserId] then
+LoopBring[Player.UserId] = {Player = Player}
+end
+end
+
+if Command("unlb") then
+local Player = GetPlayer(Arg2)
+if Player ~= nil and LoopBring[Player.UserId] then
+LoopBring[Player.UserId] = nil
+end
+end
+
 if Command("sa") then
 local Player = GetPlayer(Arg2)
 if Player ~= nil and not LoopSa[Player.UserId] then
@@ -4857,7 +4888,7 @@ end
 if Command("cmds") then
 Chat("/w "..Player.Name.." "..Prefix.."nex "..Prefix.."cafe "..Prefix.."back "..Prefix.."arm "..Prefix.."tow "..Prefix.."cbase "..Prefix.."crim [plr] "..Prefix.."arrest [plr, all] ")
 Chat("/w "..Player.Name.." "..Prefix.."kill [plr or i, g, c, a] "..Prefix.."tase [plr or all] "..Prefix.."lk [plr or i, g, c, a] "..Prefix.."unlk [plr or i, g, c, a]") wait(2)
-Chat("/w "..Player.Name.." "..Prefix.."tk [plr] "..Prefix.."ltk [plr] "..Prefix.."unltk [plr] "..Prefix.."lts [plr] "..Prefix.."unlts [plr] "..Prefix.."lp [plr] "..Prefix.."unlp [plr]"..Prefix.."sa [plr] "..Prefix.."unsa [plr]")
+Chat("/w "..Player.Name.." "..Prefix.."tk [plr] "..Prefix.."ltk [plr] "..Prefix.."unltk [plr] "..Prefix.."lts [plr] "..Prefix.."unlts [plr] "..Prefix.."lp [plr] "..Prefix.."unlp [plr] "..Prefix.."sa [plr] "..Prefix.."unsa [plr] "..Prefix.."lb [plr] "..Prefix.."unlb [plr]")
 end
 
 end
@@ -5057,6 +5088,18 @@ workspace.Remote.arrest:InvokeServer(v.Player.Character.Head)
 end)()
 end
 end
+end
+end)
+end
+end
+end)
+
+spawn(function()
+while wait() do
+for i,v in pairs(LoopBring) do
+pcall(function()
+if v.Player.Character:FindFirstChild("HumanoidRootPart") then
+Bring(v.Player, LPlayer.Character.HumanoidRootPart.CFrame)
 end
 end)
 end
