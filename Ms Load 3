@@ -3587,9 +3587,11 @@ if Two == "on" or Two == "ligado" then
 
 LagArmor = true
 
-Run.Stepped:Connect(function()
+while wait() do
 
-for i = 1,10 do
+for i = 1,20 do
+
+coroutine.wrap(function()
 
 if LagArmor then
 
@@ -3599,9 +3601,11 @@ ItemHandler:InvokeServer(ItemClothes["Riot Police"].ITEMPICKUP)
 
 end
 
+end)()
+
 end
 
-end)
+end
 
 end
 
