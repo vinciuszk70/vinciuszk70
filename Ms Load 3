@@ -4332,7 +4332,9 @@ if ClickKillToggle then
 
 if Player ~= nil then
 
-if LPlayer.Character:FindFirstChild("HumanoidRootPart") then
+if Player.Character:FindFirstChild("HumanoidRootPart") then
+
+if not Player.Character:FindFirstChildOfClass("ForceField", true) and Player.Character.Humanoid.Health ~= 0 then
 
 local Arg = {}
 
@@ -4369,9 +4371,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Rem = LPlayer.Backpack:FindFirstChild("Remington 870") or LPlayer.Character:FindFirstChild("Remington 870")
 
-local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
-
-game.ReplicatedStorage.ReloadEvent:FireServer(Gun)
+game.ReplicatedStorage.ReloadEvent:FireServer(Rem)
 for i, v in next, debug.getregistry() do
 if type(v) == "table" then
 if v.Bullets then
@@ -4393,8 +4393,7 @@ ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
 
 local Rem = LPlayer.Backpack:FindFirstChild("Remington 870") or LPlayer.Character:FindFirstChild("Remington 870")
 
-local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
-game.ReplicatedStorage.ReloadEvent:FireServer(Gun)
+game.ReplicatedStorage.ReloadEvent:FireServer(Rem)
 for i, v in next, debug.getregistry() do
 if type(v) == "table" then
 if v.Bullets then
@@ -4404,6 +4403,8 @@ end
 end
 
 ShootEvent:FireServer(Arg,Rem)
+
+end
 
 end
 
