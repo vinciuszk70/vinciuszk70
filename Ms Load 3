@@ -607,6 +607,7 @@ local Commands = {
 "kill [plr, i, g, c, n, a]",
 "lk [plr, i, g, c, n, a]",
 "unlk [plr, i, g, c, n, a]",
+"clk [on/off]",
 "ltk [plr]",
 "unltk [plr]",
 "lts [plr]",
@@ -3362,10 +3363,6 @@ function SuperPunch(Toggle)
 
 if Toggle == "on" then
 
-if FastPunch == true then
-FastPunch = false
-end
-
 Punch = true
 
 mainRemotes = game.ReplicatedStorage
@@ -3420,34 +3417,6 @@ end
 if Toggle == "off" then
 
 Punch = false
-
-end
-
-end
-
-function FastPunch(Toggle)
-
-if Toggle == "on" then
-
-if Punch == true then
-Punch = false
-end
-
-FastPunch = true
-
-Run.Stepped:Connect(function()
-if FastPunch then
-pcall(function()
-getsenv(LPlayer.Character.ClientInputHandler).cs.isFighting = false
-end)
-end
-end)
-
-end
-
-if Toggle == "off" then
-
-FastPunch = false
 
 end
 
@@ -4338,6 +4307,124 @@ end
 
 end
 
+function ClickKill(Toggle)
+
+if Toggle == "on" then
+
+ClickKillToggle = true
+
+local Mouse = LPlayer:GetMouse()
+
+local function GetPlayerFromCharacter(Character)
+for _, Player in pairs(Players:GetPlayers()) do
+if Player.Character == Character then
+return Player
+end
+end
+end
+
+Mouse.Button1Down:connect(function()
+local Obj = Mouse.Target
+
+local Player = GetPlayerFromCharacter(Obj.Parent)
+
+if ClickKillToggle then
+
+if Player ~= nil then
+
+if LPlayer.Character:FindFirstChild("HumanoidRootPart") then
+
+local Arg = {}
+
+if Player.Character:FindFirstChild("vest") then
+for i = 1,7 do
+Arg[i] = {
+RayObject = Ray.new(Vector3.new(0,0,0), Vector3.new(0,0,0)),
+Distance = 0,
+Cframe = CFrame.new(),
+Hit = Player.Character.Head
+}
+end
+else
+for i = 1,5 do
+Arg[i] = {
+RayObject = Ray.new(Vector3.new(0,0,0), Vector3.new(0,0,0)),
+Distance = 0,
+Cframe = CFrame.new(),
+Hit = Player.Character.Head
+}
+end
+end
+
+if LPlayer.TeamColor.Name == Player.TeamColor.Name then
+
+local SaveTeam = LPlayer.TeamColor.Name
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+workspace.Remote.loadchar:InvokeServer(nil, "12")
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+
+local Rem = LPlayer.Backpack:FindFirstChild("Remington 870") or LPlayer.Character:FindFirstChild("Remington 870")
+
+local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
+
+game.ReplicatedStorage.ReloadEvent:FireServer(Gun)
+for i, v in next, debug.getregistry() do
+if type(v) == "table" then
+if v.Bullets then
+v.CurrentAmmo = 100 v.MaxAmmo = 100
+end
+end
+end
+
+ShootEvent:FireServer(Arg,Rem)
+
+workspace.Remote.loadchar:InvokeServer(nil, SaveTeam)
+wait(.1)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+
+else
+
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+
+local Rem = LPlayer.Backpack:FindFirstChild("Remington 870") or LPlayer.Character:FindFirstChild("Remington 870")
+
+local Gun = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpack:FindFirstChild("Remington 870")
+game.ReplicatedStorage.ReloadEvent:FireServer(Gun)
+for i, v in next, debug.getregistry() do
+if type(v) == "table" then
+if v.Bullets then
+v.CurrentAmmo = 100 v.MaxAmmo = 100
+end
+end
+end
+
+ShootEvent:FireServer(Arg,Rem)
+
+end
+
+end
+
+end
+
+end
+
+end)
+
+end
+
+if Toggle == "off" then
+
+ClickKillToggle = false
+
+end
+
+end
+
 function WalkSpeed(Number)
 LPlayer.Character.Humanoid.WalkSpeed = Number
 end
@@ -4737,7 +4824,12 @@ SuperPunch(Arg2:lower())
 end
 
 if Command("fp") then
-FastPunch(Arg2:lower())
+if Arg2 == "on" then
+FastPunch = true
+end
+if Arg2 == "off" then
+FastPunch = false
+end
 end
 
 if Command("cmds") or Command("comandos") then
@@ -4792,6 +4884,10 @@ local Player = GetPlayer(Arg2)
 if Player ~= nil and LoopTk[Player.UserId] then
 LoopTk[Player.UserId] = nil
 end
+end
+
+if Command("clk") then
+ClickKill(Arg2:lower())
 end
 
 if Command("easyadmin") then
@@ -5591,6 +5687,16 @@ if LPlayer.Character.HumanoidRootPart.Position.Y < 1 then
 LPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(888, 100, 2388)
 end
 end)
+end
+end)
+
+spawn(function()
+while wait() do
+if FastPunch then
+pcall(function()
+getsenv(LPlayer.Character.ClientInputHandler).cs.isFighting = false
+end)
+end
 end
 end)
 
