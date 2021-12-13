@@ -625,6 +625,10 @@ local Commands = {
 "bring [plr, all]",
 "crim [plr, all]",
 "arrest [plr, all]",
+"poop [plr]",
+"trash [plr]",
+"trap [plr]",
+"void [plr]",
 "spy",
 "",
 "-- Toggles -- ",
@@ -4794,6 +4798,22 @@ end
 
 end
 
+if Command("poop") then
+Bring(GetPlayer(Arg2), CFrame.new(916.485535, 78.7005768, 2430.50732, -0.996189117, -7.05086256e-09, -0.0872193575, -1.16639146e-11, 1, -8.07073448e-08, 0.0872193575, -8.03987632e-08, -0.996189117))
+end
+
+if Command("trash") then
+Bring(GetPlayer(Arg2), CFrame.new(364.903992, 15.8086777, 1098.53833, 0.0436516255, -1.23421714e-07, -0.999046803, -4.5819093e-10, 1, -1.23559488e-07, 0.999046803, 5.85132698e-09, 0.0436516255))
+end
+
+if Command("trap") then
+Bring(GetPlayer(Arg2), CFrame.new(948.616455, 101.350426, 2339.98193, 0.999582648, 2.74375775e-08, -0.0288888104, -2.68324705e-08, 1, 2.13337312e-08, 0.0288888104, -2.05496686e-08, 0.999582648))
+end
+
+if Command("void") then
+Bring(GetPlayer(Arg2), CFrame.new(4117.70898, 318.655792, 2242.9375, 8.11200589e-05, -0.317001164, 0.948425174, -3.85828294e-08, 0.948425174, 0.317001164, -1, -2.5751744e-05, 7.69240723e-05))
+end
+
 if Command("bring") or Command("trazer") then
 
 if Arg2 == "all" or Arg2 == "a" or Arg2 == "everyone" or Arg2 == "todos" then
@@ -5408,6 +5428,30 @@ end
 
 end
 
+if Command("poop") then
+Bring(GetPlayer(Arg2), CFrame.new(916.485535, 78.7005768, 2430.50732, -0.996189117, -7.05086256e-09, -0.0872193575, -1.16639146e-11, 1, -8.07073448e-08, 0.0872193575, -8.03987632e-08, -0.996189117))
+end
+
+if Command("trash") then
+Bring(GetPlayer(Arg2), CFrame.new(364.903992, 15.8086777, 1098.53833, 0.0436516255, -1.23421714e-07, -0.999046803, -4.5819093e-10, 1, -1.23559488e-07, 0.999046803, 5.85132698e-09, 0.0436516255))
+end
+
+if Command("trap") then
+Bring(GetPlayer(Arg2), CFrame.new(948.616455, 101.350426, 2339.98193, 0.999582648, 2.74375775e-08, -0.0288888104, -2.68324705e-08, 1, 2.13337312e-08, 0.0288888104, -2.05496686e-08, 0.999582648))
+end
+
+if Command("void") then
+Bring(GetPlayer(Arg2), CFrame.new(4117.70898, 318.655792, 2242.9375, 8.11200589e-05, -0.317001164, 0.948425174, -3.85828294e-08, 0.948425174, 0.317001164, -1, -2.5751744e-05, 7.69240723e-05))
+end
+
+if Command("to") then
+Bring(Player, GetPlayer(Arg2))
+end
+
+if Command("bring") then
+Bring(GetPlayer(Arg2), Player)
+end
+
 if Command("crim") then
 
 if Arg2 == "all" or Arg2 == "a" or Arg2 == "everyone" then
@@ -5485,9 +5529,10 @@ end
 end
 
 if Command("cmds") then
-Chat("/w "..Player.Name.." "..Prefix.."nex "..Prefix.."cafe "..Prefix.."back "..Prefix.."arm "..Prefix.."tow "..Prefix.."cbase "..Prefix.."crim [plr, all] "..Prefix.."arrest [plr, all] ")
+Chat("/w "..Player.Name.." "..Prefix.."nex "..Prefix.."cafe "..Prefix.."back "..Prefix.."arm "..Prefix.."tow "..Prefix.."cbase "..Prefix.."crim [plr, all] "..Prefix.."arrest [plr, all]")
 Chat("/w "..Player.Name.." "..Prefix.."kill [plr or i, g, c, a] "..Prefix.."tase [plr or all] "..Prefix.."lk [plr or i, g, c, a] "..Prefix.."unlk [plr or i, g, c, a]") wait(2)
-Chat("/w "..Player.Name.." "..Prefix.."tk [plr] "..Prefix.."ltk [plr] "..Prefix.."unltk [plr] "..Prefix.."lts [plr] "..Prefix.."unlts [plr] "..Prefix.."lp [plr] "..Prefix.."unlp [plr] "..Prefix.."sa [plr] "..Prefix.."unsa [plr] "..Prefix.."lb [plr] "..Prefix.."unlb [plr]")
+Chat("/w "..Player.Name.." "..Prefix.."tk [plr] "..Prefix.."ltk [plr] "..Prefix.."unltk [plr] "..Prefix.."lts [plr] "..Prefix.."unlts [plr] "..Prefix.."lp [plr] "..Prefix.."unlp [plr] "..Prefix.."sa [plr] "..Prefix.."unsa [plr] "..Prefix.."lb [plr] "..Prefix.."unlb [plr]")wait(2)
+Chat("/w "..Player.Name.." "..Prefix.."to [plr] "..Prefix.."bring [plr] "..Prefix.."poop [plr] "..Prefix.."trash [plr] "..Prefix.."trap [plr] "..Prefix.."void [plr]")
 end
 
 end
