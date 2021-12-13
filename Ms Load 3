@@ -622,8 +622,8 @@ local Commands = {
 "lag [server, swat], [on/off]",
 "tase [plr, all]",
 "to [plr]",
-"bring [plr]",
-"crim [plr]",
+"bring [plr, all]",
+"crim [plr, all]",
 "arrest [plr, all]",
 "spy",
 "",
@@ -1891,7 +1891,7 @@ local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 repeat
 LPlayer.Character.HumanoidRootPart.CFrame = PCharacter.HumanoidRootPart.CFrame
 workspace.Remote.arrest:InvokeServer(PCharacter.Head)
-until PCharacter.Head:FindFirstChild("handcuffedGui") or PCharacter.Humanoid.Health < 1
+until PCharacter.Head:FindFirstChild("handcuffedGui") or PCharacter.Humanoid.Health < 1 or Player.TeamColor.Name ~= "Really red"
 LPlayer.Character.Humanoid.Sit = false
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 end
@@ -2104,6 +2104,59 @@ workspace.Remote.loadchar:InvokeServer()
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 end
 
+function BringA()
+if LPlayer.Character:FindFirstChild("HumanoidRootPart") then
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+for i,v in pairs(Players:GetPlayers()) do
+if v ~= LPlayer and v.Character.Humanoid.Health ~= 0 and v.Character.Humanoid.Sit ~= true then
+local i = 1
+repeat wait()
+i = i-1
+if v.Character:FindFirstChild("HumanoidRootPart") then
+if LPlayer.Character.Humanoid.Sit == true then
+LPlayer.Character.Humanoid.Sit = false
+end
+
+if LPlayer.TeamColor.Name == "Bright blue" then
+workspace.Remote.loadchar:InvokeServer(nil, "12")
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+
+workspace.Remote.loadchar:InvokeServer()
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+ItemHandler:InvokeServer(ItemSingle["Hammer"].ITEMPICKUP)
+LPlayer.Character.Humanoid.Name = "1"
+local C = LPlayer.Character["1"]:Clone()
+C.Name = "Humanoid"
+C.Parent = LPlayer.Character
+LPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject = LPlayer.Character
+LPlayer.Character.Animate.Disabled = true
+wait()
+LPlayer.Character.Animate.Disabled = false
+LPlayer.Character.Humanoid.DisplayDistanceType = "None"
+LPlayer:FindFirstChild("Backpack"):FindFirstChild("Hammer").Parent = LPlayer.Character
+local STOP = 0
+repeat wait(.1)
+STOP = STOP + 1
+LPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 0.75)
+until (not LPlayer.Character:FindFirstChild("Hammer") or not LPlayer.Character.HumanoidRootPart or not v.Character.HumanoidRootPart or not LPlayer.Character.HumanoidRootPart.Parent or not v.Character.HumanoidRootPart.Parent or STOP > 500) and STOP > 3
+local STOP_2 = 0
+repeat wait()
+STOP_2 = STOP_2 + 1
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+until STOP_2 > 10
+workspace.Remote.loadchar:InvokeServer()
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+end
+until i == 0
+end
+end
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+end
+end
+
 function Crim(Player, mebitch)
 local Player = GetPlayer(Arg2)
 
@@ -2167,6 +2220,79 @@ dfp.CFrame = PartPos
 workspace.Remote.loadchar:InvokeServer()
 umm = SaveFrame * CFrame.Angles(math.rad(0), 0, 0)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+end
+end
+
+function CrimA()
+if LPlayer.Character:FindFirstChild("HumanoidRootPart") then
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+local SaveCam = workspace.CurrentCamera.CFrame
+for i,v in pairs(Players:GetPlayers()) do
+if v ~= LPlayer and v.TeamColor.Name ~= "Really red" and v.Character.Humanoid.Health ~= 0 and v.Character.Humanoid.Sit ~= true then
+local i = 1
+repeat wait()
+i = i-1
+if LPlayer.TeamColor.Name == "Bright blue" then
+workspace.Remote.loadchar:InvokeServer(nil, "12")
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+workspace.CurrentCamera.CFrame = SaveCam
+end
+
+if v ~= nil then
+workspace.Remote.loadchar:InvokeServer()
+ItemHandler:InvokeServer(ItemSingle["Hammer"].ITEMPICKUP)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+function Wait(t)
+local RS = game:GetService("RunService")
+if type(t) == "number" then
+local Start = tick()
+repeat RS.Stepped:Wait() until tick() - Start >= t
+return
+else
+return(RS.Stepped:Wait())
+end  
+end
+Wait()
+local hrp = LPlayer.Character.HumanoidRootPart
+local char = LPlayer.Character
+local tchar = v.Character
+local hum = LPlayer.Character:FindFirstChildOfClass("Humanoid")
+local hrp = LPlayer.Character.HumanoidRootPart
+local hrp2 = v.Character.HumanoidRootPart
+hum.Name = "1"
+local newHum = hum:Clone()
+newHum.Parent = char
+newHum.Name = "Humanoid"
+hum:Destroy()
+workspace.CurrentCamera.CameraSubject = char
+newHum.DisplayDistanceType = "None"
+local tool = LPlayer:FindFirstChildOfClass("Backpack"):FindFirstChild("Hammer") or LPlayer.Character:FindFirstChild("Hammer")
+tool.Parent = char
+hrp.CFrame = hrp2.CFrame * CFrame.new(0, 0, 0) * CFrame.new(math.random(-100, 100)/200,math.random(-100, 100)/200,math.random(-100, 100)/200)
+local n = 0
+repeat
+Wait()
+n = n + 1
+hrp.CFrame = hrp2.CFrame
+until (tool.Parent ~= char or not hrp or not hrp2 or not hrp.Parent or not hrp2.Parent or n > 250) and n > 2
+for i = 1,10 do
+
+hrp.CFrame = SaveFrame
+end
+dfp = game.Workspace["Criminals Spawn"].SpawnLocation
+local PartPos = dfp.CFrame
+dfp.CanCollide = false
+dfp.Transparency = 1
+dfp.CFrame = LPlayer.Character.HumanoidRootPart.CFrame
+Wait(0.3)
+dfp.CFrame = PartPos
+workspace.Remote.loadchar:InvokeServer()
+umm = SaveFrame * CFrame.Angles(math.rad(0), 0, 0)
+LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
+end
+until i == 0
+end
+end
 end
 end
 
@@ -4669,13 +4795,31 @@ end
 end
 
 if Command("bring") or Command("trazer") then
-local Player = GetPlayer(Arg2)
+
+if Arg2 == "all" or Arg2 == "a" or Arg2 == "everyone" or Arg2 == "todos" then
+
+BringA()
+
+else
 
 Bring(GetPlayer(Arg2), LPlayer.Character.HumanoidRootPart.CFrame)
+
+end
+
 end
 
 if Command("crim") then
+
+if Arg2 == "all" or Arg2 == "a" or Arg2 == "everyone" then
+
+CrimA()
+
+else
+
 Crim(GetPlayer(Arg2))
+
+end
+
 end
 
 if Command("antibring") then
@@ -5265,7 +5409,17 @@ end
 end
 
 if Command("crim") then
+
+if Arg2 == "all" or Arg2 == "a" or Arg2 == "everyone" then
+
+CrimA()
+
+else
+
 Crim(GetPlayer(Arg2))
+
+end
+
 end
 
 if Command("k") or Command("kill") or Command("matar") then
@@ -5331,7 +5485,7 @@ end
 end
 
 if Command("cmds") then
-Chat("/w "..Player.Name.." "..Prefix.."nex "..Prefix.."cafe "..Prefix.."back "..Prefix.."arm "..Prefix.."tow "..Prefix.."cbase "..Prefix.."crim [plr] "..Prefix.."arrest [plr, all] ")
+Chat("/w "..Player.Name.." "..Prefix.."nex "..Prefix.."cafe "..Prefix.."back "..Prefix.."arm "..Prefix.."tow "..Prefix.."cbase "..Prefix.."crim [plr, all] "..Prefix.."arrest [plr, all] ")
 Chat("/w "..Player.Name.." "..Prefix.."kill [plr or i, g, c, a] "..Prefix.."tase [plr or all] "..Prefix.."lk [plr or i, g, c, a] "..Prefix.."unlk [plr or i, g, c, a]") wait(2)
 Chat("/w "..Player.Name.." "..Prefix.."tk [plr] "..Prefix.."ltk [plr] "..Prefix.."unltk [plr] "..Prefix.."lts [plr] "..Prefix.."unlts [plr] "..Prefix.."lp [plr] "..Prefix.."unlp [plr] "..Prefix.."sa [plr] "..Prefix.."unsa [plr] "..Prefix.."lb [plr] "..Prefix.."unlb [plr]")
 end
