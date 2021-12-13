@@ -2071,6 +2071,8 @@ end
 function Bring(Player, Position)
 if Player == nil or Position == nil then return end
 
+local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
+
 if LPlayer.TeamColor.Name == "Bright blue" then
 local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 local SaveCam = workspace.CurrentCamera.CFrame
@@ -2079,8 +2081,8 @@ LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 workspace.CurrentCamera.CFrame = SaveCam
 end
 
-local SaveFrame = LPlayer.Character.HumanoidRootPart.CFrame
 workspace.Remote.loadchar:InvokeServer()
+wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 ItemHandler:InvokeServer(ItemSingle["Hammer"].ITEMPICKUP)
 LPlayer.Character.Humanoid.Name = "1"
@@ -2105,6 +2107,7 @@ STOP_2 = STOP_2 + 1
 LPlayer.Character.HumanoidRootPart.CFrame = Position
 until STOP_2 > 10
 workspace.Remote.loadchar:InvokeServer()
+wait(.1)
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 end
 
@@ -5445,11 +5448,16 @@ Bring(GetPlayer(Arg2), CFrame.new(4117.70898, 318.655792, 2242.9375, 8.11200589e
 end
 
 if Command("to") then
-Bring(Player, GetPlayer(Arg2))
+local Player2 = GetPlayer(Arg2)
+
+if Player2 ~= nil then
+Bring(Player, Player2.Character.HumanoidRootPart.CFrame)
+end
+
 end
 
 if Command("bring") then
-Bring(GetPlayer(Arg2), Player)
+Bring(GetPlayer(Arg2), Player.Character.HumanoidRootPart.CFrame)
 end
 
 if Command("crim") then
