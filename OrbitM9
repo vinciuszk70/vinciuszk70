@@ -1,0 +1,405 @@
+local LPlayer = game.Players.LocalPlayer
+local ItemHandler = workspace.Remote.ItemHandler
+local ItemGiver = workspace.Prison_ITEMS.giver
+local ItemSingle = workspace.Prison_ITEMS.single
+
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+
+while wait() do
+
+local Number = 0.9
+local Number2 = 3
+
+if LPlayer.Backpack:FindFirstChild("M9") then
+LPlayer.Backpack:FindFirstChild("M9").Parent = LPlayer.Character
+end
+
+if LPlayer.Character:FindFirstChild("M9") then
+
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild("M9").GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+end
+
+end
