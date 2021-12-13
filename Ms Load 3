@@ -653,6 +653,7 @@ local Commands = {
 "ak [on/off]",
 "aura [on/off]",
 "gnod [long, small, smoke, mgum, side]",
+"orbit [m9, ak, m4, rem]",
 "inv [on/off]",
 "fly [on/off]",
 "noclip [on/off]",
@@ -3020,6 +3021,28 @@ LPlayer.Backpack["Crude Knife"].Parent = LPlayer.Character
 end
 end
 
+if GMode == "smoke" then
+for i,v in pairs(LPlayer.Character:GetChildren()) do
+if v:IsA("Tool") then
+v.Parent = LPlayer.Backpack
+end
+end
+ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
+LPlayer.Backpack["Remington 870"].Parent = LPlayer.Character
+wait()
+LPlayer.Character:FindFirstChildOfClass("Tool").GripUp = Vector3.new(-1,-500,-500)
+LPlayer.Character:FindFirstChildOfClass("Tool").GripPos = Vector3.new(0.9,0.9,-2.3)
+LPlayer.Character:FindFirstChildOfClass("Tool").GripRight = Vector3.new(0,0,0)
+wait()
+for i,v in pairs(LPlayer.Character:GetChildren()) do
+if v:IsA("Tool") then
+v.Parent = LPlayer.Backpack
+end
+end
+wait()
+LPlayer.Backpack["Remington 870"].Parent = LPlayer.Character
+end
+
 if GMode == "troll" then
 for i,v in pairs(LPlayer.Character:GetChildren()) do
 if v:IsA("Tool") then
@@ -4559,6 +4582,429 @@ end
 
 end
 
+function Orbit(Gun)
+
+if Gun == "M9" or Gun == "m9" then
+Gun = "M9"
+end
+
+if Gun == "M4A1" or Gun == "m4" then
+Gun = "M4A1"
+end
+
+if Gun == "AK-47" or Gun == "ak" then
+Gun = "AK-47"
+end
+
+if Gun == "AK-47" or Gun == "ak" then
+Gun = "AK-47"
+end
+
+if Gun == "Remington 870" or Gun == "rem" then
+Gun = "Remington 870"
+end
+
+ItemHandler:InvokeServer(ItemGiver[Gun].ITEMPICKUP)
+
+while wait() do
+
+local Number = 0.9
+local Number2 = 3
+
+if LPlayer.Backpack:FindFirstChild(Gun) then
+LPlayer.Backpack:FindFirstChild(Gun).Parent = LPlayer.Character
+end
+
+if LPlayer.Character:FindFirstChild(Gun) then
+
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number2 = Number2 + 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+LPlayer.Character:FindFirstChild(Gun).GripPos = Vector3.new(Number,0,Number2)
+Number = Number - 0.2
+wait()
+end
+end
+end
+
 function WalkSpeed(Number)
 LPlayer.Character.Humanoid.WalkSpeed = Number
 end
@@ -4906,6 +5352,10 @@ end
 
 if Command("gnod") then
 Gnod(Arg2:lower())
+end
+
+if Command("orbit") then
+Orbit(Arg2:lower())
 end
 
 if Command("fly") or Command("voar") then
