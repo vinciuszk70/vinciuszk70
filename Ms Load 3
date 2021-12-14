@@ -653,7 +653,7 @@ local Commands = {
 "ak [on/off]",
 "aura [on/off]",
 "gnod [long, small, smoke, mgum, side]",
-"orbit [m9, ak, m4, rem]",
+"orbit [guns, m9, ak, m4, rem]",
 "inv [on/off]",
 "fly [on/off]",
 "noclip [on/off]",
@@ -5003,6 +5003,7 @@ Number = Number - 0.2
 wait()
 end
 end
+ 
 end
 
 function WalkSpeed(Number)
@@ -5355,7 +5356,11 @@ Gnod(Arg2:lower())
 end
 
 if Command("orbit") then
+if Arg2 == "guns" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vinciuszk70/vinciuszk70/main/OrbitAll",true))()
+else
 Orbit(Arg2:lower())
+end
 end
 
 if Command("fly") or Command("voar") then
