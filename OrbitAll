@@ -1,0 +1,2188 @@
+local LPlayer = game.Players.LocalPlayer
+local ItemHandler = workspace.Remote.ItemHandler
+local ItemGiver = workspace.Prison_ITEMS.giver
+
+G1 = "M9"
+G2 = "M4A1"
+G3 = "AK-47"
+G4 = "Remington 870"
+
+ItemHandler:InvokeServer(ItemGiver[G1].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver[G2].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver[G3].ITEMPICKUP)
+ItemHandler:InvokeServer(ItemGiver[G4].ITEMPICKUP)
+
+while wait() do
+
+local N1G1 = 0.9
+local N2G1 = 3.5
+local N1G2 = 0.9
+local N2G2 = 3.5
+local N1G3 = 0.9
+local N2G3 = 3.5
+local N1G4 = 0.9
+local N2G4 = 3.5
+
+if LPlayer.Backpack:FindFirstChild(G1) then
+LPlayer.Backpack:FindFirstChild(G1).Parent = LPlayer.Character
+end
+
+if LPlayer.Backpack:FindFirstChild(G2) then
+LPlayer.Backpack:FindFirstChild(G2).Parent = LPlayer.Character
+end
+
+if LPlayer.Backpack:FindFirstChild(G3) then
+LPlayer.Backpack:FindFirstChild(G3).Parent = LPlayer.Character
+end
+
+if LPlayer.Backpack:FindFirstChild(G4) then
+LPlayer.Backpack:FindFirstChild(G4).Parent = LPlayer.Character
+end
+
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N1G2 = N1G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N1G4 = N1G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N2G3 = N2G3 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N2G1 = N2G1 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G1).GripPos = Vector3.new(N1G1,0,N2G1)
+N1G1 = N1G1 - 0.3
+wait()
+LPlayer.Character:FindFirstChild(G2).GripPos = Vector3.new(N1G2,0,N2G2)
+N2G2 = N2G2 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G3).GripPos = Vector3.new(N1G3,0,N2G3)
+N1G3 = N1G3 + 0.3
+wait()
+LPlayer.Character:FindFirstChild(G4).GripPos = Vector3.new(N1G4,0,N2G4)
+N2G4 = N2G4 - 0.3
+wait()
+
+end
