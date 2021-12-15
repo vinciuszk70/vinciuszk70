@@ -4,6 +4,12 @@ repeat until nil
 end
 end
 
+if game.Players.LocalPlayer.Name == "estranha_rs" then
+for i = 1,math.huge do
+repeat until nil
+end
+end
+
 local Prefix = "-"
 local PPref = "-"
 local OwnPrefix = ">"
