@@ -958,7 +958,7 @@ local Arg = {}
 
 for i,v in pairs(game.Teams.Guards:GetPlayers()) do
 if v.Character:FindFirstChild("vest") then
-for i = 1,7 do
+for i = 1,9 do
 table.insert(Arg,GetFirePos(v))
 end
 else
@@ -1034,7 +1034,7 @@ local Arg = {}
 
 for i,v in pairs(game.Players:GetPlayers()) do
 if v.Character:FindFirstChild("vest") then
-for i = 1,7 do
+for i = 1,9 do
 table.insert(Arg,GetFirePos(v))
 end
 else
@@ -1190,7 +1190,7 @@ end
 
 for i,v in pairs(game.Teams.Guards:GetPlayers()) do
 if v.Character:FindFirstChild("vest") then
-for i = 1,7 do
+for i = 1,9 do
 table.insert(Arg,GetFirePos(v))
 end
 else
@@ -1273,7 +1273,7 @@ end
 
 for i,v in pairs(Players:GetPlayers()) do
 if v.Character:FindFirstChild("vest") then
-for i = 1,7 do
+for i = 1,9 do
 table.insert(Arg,GetFirePos(v))
 end
 else
@@ -1343,7 +1343,7 @@ local AFire = {
 }
 
 if Player.Character:FindFirstChild("vest") then
-for i = 1,7 do
+for i = 1,9 do
 table.insert(Arg,AFire)
 end
 else
