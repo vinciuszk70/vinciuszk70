@@ -7,6 +7,7 @@ end
 local Prefix = "-"
 local PPref = "-"
 local OwnPrefix = ">"
+local View = {}
 local Follow = {}
 local LoopBring = {}
 local LoopSa = {}
@@ -31,6 +32,7 @@ local RobloxGui = game.CoreGui.RobloxGui
 local StarterGui = game:GetService("StarterGui")
 local Marketplace = game:GetService("MarketplaceService")
 local CheckGamePass = Marketplace:UserOwnsGamePassAsync(tonumber((LPlayer.CharacterAppearance):split('=')[#((LPlayer.CharacterAppearance):split('='))]), 96651)
+local SayMessageRequest = Replicate.DefaultChatSystemChatEvents.SayMessageRequest
 local Owner1 = Players:FindFirstChild("viniciuszk70")
 local Owner2 = Players:FindFirstChild("takkan007")
 
@@ -437,7 +439,7 @@ LPlayer.Character.HumanoidRootPart.CFrame = Player.Character.HumanoidRootPart.CF
 
 game.ReplicatedStorage.meleeEvent:FireServer(Player)
 
-if Player.Team == game.Teams.Criminals then
+if LPlayer.Team == game.Teams.Criminals then
 
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 
@@ -618,7 +620,7 @@ local Commands = {
 "unsa [plr]",
 "lb [plr]",
 "unlb [plr]",
-"crash [mobile, players, server]",
+"crash [mobile, players, sweet, server]",
 "lag [server, swat], [on/off]",
 "tase [plr, all]",
 "to [plr]",
@@ -3646,6 +3648,43 @@ CrashPlayers = false
 
 end
 
+if Arg == "sweet" then
+
+CrashSweet = true
+
+Run.Stepped:Connect(function()
+
+for CRS = 1,10 do
+
+if CrashSweet then
+
+ItemHandler:InvokeServer(ItemGiver["M9"].ITEMPICKUP)
+
+local M9 = LPlayer.Character:FindFirstChild("M9") or LPlayer.Backpack:FindFirstChild("M9")
+
+local AGS = {}
+
+for Sweet = 1,100000 do
+AGS[Sweet] = {
+Cframe = CFrame.new(),
+Hit = workspace:FindFirstChildOfClass("Part")
+}
+end
+
+ShootEvent:FireServer(AGS,M9)
+
+end
+
+end
+
+end)
+
+wait(.1)
+
+CrashSweet = false
+
+end
+
 if Arg == "server" or Arg == "servidor" or Arg == "sv" then
 
 ItemHandler:InvokeServer(ItemGiver["Remington 870"].ITEMPICKUP)
@@ -3654,7 +3693,7 @@ local Rem = LPlayer.Character:FindFirstChild("Remington 870") or LPlayer.Backpac
 
 local Arg = {}
 
-for i = 1,3000 do
+for i = 1,1000 do
 ShootEvent:FireServer(Arg,Rem)
 end
 
@@ -5410,24 +5449,18 @@ Follow = false
 end
 
 if Command("view") then
-
 local Player = GetPlayer(Arg2)
-
-View = true
-
-Run.Stepped:connect(function()
-if View then
-if Player ~= nil then
-workspace.CurrentCamera.CameraSubject = Player.Character.Head
+if Player ~= nil and not View[Player.UserId] then
+View[Player.UserId] = {Player = Player}
 end
-end
-end)
-
 end
 
 if Command("unview") then
-View = false
+local Player = GetPlayer(Arg2)
+if Player ~= nil and not View[Player.UserId] then
+View[Player.UserId] = nil
 workspace.CurrentCamera.CameraSubject = LPlayer.Character.Head
+end
 end
 
 if Command("coppvp") then
@@ -6051,7 +6084,7 @@ while wait() do
 for i,v in pairs(LoopKill) do
 pcall(function()
 if v ~= nil then
-if v.Player.Character:FindFirstChild("Humanoid") and v.Player.Character:FindFirstChild("Head") then
+if v.Player.Character:FindFirstChild("HumanoidRootPart") then
 Kill(v.Player)
 end
 end
@@ -6061,53 +6094,59 @@ end
 end)
 
 spawn(function()
+pcall(function()
 while wait() do
 for i,v in pairs(LoopTk) do
-pcall(function()
 if v ~= nil then
-if v.Player.Character:FindFirstChild("Humanoid") then
+if v.Player.Character:FindFirstChild("HumanoidRootPart") then
+if v.Player.Character.Humanoid.Health ~= 0 then
 Tk(v.Player)
 end
 end
+end
+end
+end
 end)
-end
-end
 end)
 
 spawn(function()
-while wait(4) do
-for i,v in pairs(LoopTs) do
 pcall(function()
+while wait(1) do
+for i,v in pairs(LoopTs) do
 if v ~= nil then
-if v.Player.Character:FindFirstChild("Humanoid") then
+if v.Player.Character:FindFirstChild("HumanoidRootPart") then
+if v.Player.Character.Humanoid.Health ~= 0 and v.Player.TeamColor.Name ~= "Bright blue" then
 Tase(v.Player)
 end
 end
+end
+end
+end
 end)
-end
-end
 end)
 
 spawn(function()
-while wait(4) do
-for i,v in pairs(LoopPunish) do
 pcall(function()
+while wait() do
+for i,v in pairs(LoopPunish) do
 if v ~= nil then
-if v.Player.Character:FindFirstChild("Humanoid") then
+if v.Player.Character:FindFirstChild("HumanoidRootPart") then
+if not v.Player.Character:FindFirstChildOfClass("ForceField", true) and v.Player.Character.Humanoid.Health ~= 0 then
 Tase(v.Player)
 wait(.5)
 Kill(v.Player)
 end
 end
+end
+end
+end
 end)
-end
-end
 end)
 
 spawn(function()
+pcall(function()
 while wait() do
 for i,v in pairs(LoopSa) do
-pcall(function()
 if v ~= nil then
 if v.Player.Character:FindFirstChild("HumanoidRootPart") then
 if v.Player.TeamColor.Name ~= "Really red" then
@@ -6176,19 +6215,19 @@ end
 end
 end
 end
+end
+end
 end)
-end
-end
 end)
 
 spawn(function()
+pcall(function()
 while wait() do
 for i,v in pairs(LoopSa) do
-pcall(function()
 if v.Player.Character:FindFirstChild("HumanoidRootPart") then
 if v.Player.TeamColor.Name == "Really red" then
 AntiLag = true
-for i = 1,60 do
+for i = 1,120 do
 coroutine.wrap(function()
 LPlayer.Character.HumanoidRootPart.CFrame = v.Player.Character.HumanoidRootPart.CFrame
 workspace.Remote.arrest:InvokeServer(v.Player.Character.Head)
@@ -6196,9 +6235,21 @@ end)()
 end
 end
 end
+end
+end
 end)
+end)
+
+spawn(function()
+pcall(function()
+while wait() do
+for i,v in pairs(View) do
+if v ~= LPlayer and v ~= nil then
+workspace.CurrentCamera.CameraSubject = v.Player.Character.Head
 end
 end
+end
+end)
 end)
 
 spawn(function()
