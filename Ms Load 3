@@ -426,7 +426,9 @@ if States.Crim2 then
 
 if Player then
 
-TeamEvent:FireServer("Bright orange")
+if LPlayer.Team == game.Teams.Criminals then
+RespawnSplit("01")
+end
 
 local CSpawn = workspace["Criminals Spawn"].SpawnLocation
 CSpawn.CanCollide = false
@@ -439,7 +441,7 @@ LPlayer.Character.HumanoidRootPart.CFrame = Player.Character.HumanoidRootPart.CF
 
 game.ReplicatedStorage.meleeEvent:FireServer(Player)
 
-if LPlayer.Team == game.Teams.Criminals then
+if Player.Team == game.Teams.Criminals then
 
 LPlayer.Character.HumanoidRootPart.CFrame = SaveFrame
 
